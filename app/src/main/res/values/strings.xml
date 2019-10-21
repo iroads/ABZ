@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">ABZ</string>
+
+
+    <!-- Заголовок №1 -->
+
+    <string name="MaterialsOfHotBunker">Материалы горячего бункера</string>
+    <string name="PodborSostava">Подбор состава</string>
+    <string name="TipSmesi">Тип смеси</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="Trebovania">Требования</string>
+    <string name="GOST">ГОСТ</string>
+    <string name="Mix">MIX</string>
+
+
+    <!-- Строковые ресурсы таблиц зернового состава -->
+
+    <string name="H1">№1</string>
+    <string name="H2">№2</string>
+    <string name="H3">№3</string>
+    <string name="H4">№4</string>
+    <string name="H50">№5</string>
+    <string name="H6">№6</string>
+    <string name="H7">№7</string>
+    <string name="H8">№8</string>
+
+
+    <string name="H40">40</string>
+    <string name="H20">20</string>
+    <string name="H15">15</string>
+    <string name="H10">10</string>
+    <string name="H5">5</string>
+    <string name="H2_5">2,5</string>
+    <string name="H1_25">1,25</string>
+    <string name="H0_63">0,63</string>
+    <string name="H0_315">0,315</string>
+    <string name="H0_16">0,16</string>
+    <string name="H0_071">0,071</string>
+    <string name="DNO">DNO</string>
+
+    <string name="CHOG">ЧО, г</string>
+    <string name="CHOP">ЧО, %</string>
+    <string name="PO">ПО, %</string>
+    <string name="PP">ПП, %</string>
+
+    <string name="Otsek1">Отсек №1</string>
+    <string name="Otsek2">Отсек №2</string>
+    <string name="Otsek3">Отсек №3</string>
+    <string name="Otsek4">Отсек №4</string>
+    <string name="Otsek5">Отсек №5</string>
+    <string name="Otsek6">Отсек №6</string>
+    <string name="MP">МП</string>
+    <string name="SZ">СЗ</string>
+    <string name="OT">От</string>
+    <string name="DO">До</string>
+
+
+    <string name="Otsek1N">Фракция 20-40</string>
+    <string name="Otsek2N">Фракция 15-20</string>
+    <string name="Otsek3N">Фракция 10-15</string>
+    <string name="Otsek4N">Фракция 5-10</string>
+    <string name="Otsek5N">Фракция 2,5-5</string>
+    <string name="Otsek6N">Фракция 0-2,5</string>
+    <string name="OtsekMP">Мин. порошок</string>
+    <string name="OtsekSZ">Собств. заполнитель</string>
+
+
+    <!-- Строковые ресурсы Keyboard Activity -->
+
+    <string name="KeyBoardEndEdit">End</string>
+    <string name="KeyBoardBackSpace">BackSpace</string>
+    <string name="KeyBoardClear">Clear</string>
+
+
+
+</resources>

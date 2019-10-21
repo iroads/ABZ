@@ -1,0 +1,518 @@
+<resources>
+
+    <!-- Base application theme. -->
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+
+
+
+    <!-- Стиль спинера выбора смеси -->
+
+    <style name="Spinner">
+        <item name="android:layout_width">94dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/FirstMaterialTable</item>
+
+    </style>
+
+    <!-- Стиль области ОТ ДО -->
+
+    <style name="OTDO">
+        <item name="android:layout_width">94dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/FirstMaterialTableDark</item>
+
+    </style>
+
+    <!-- Стиль области СУММА 100% -->
+
+    <style name="Summa" parent="OTDO">
+
+        <item name="android:background">@color/ResultTableDark</item>
+
+    </style>
+
+    <!-- Стиль заголовочных ячеек таблицы зернового состава материала №1 -->
+
+    <style name="HeadFieldOfForm1">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/FirstMaterialTableDark</item>
+
+    </style>
+
+    <!-- Стиль заголовочных ячеек таблицы зернового состава итоговой кривой -->
+
+    <style name="HeadFieldOfFormResult" parent="HeadFieldOfForm1">
+        <item name="android:background">@color/ResultTableDark</item>
+    </style>
+
+    <!-- Стиль основной ячейки таблицы зернового состава материала №1 -->
+
+    <style name="FieldOfForm1">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/FirstMaterialTable</item>
+
+    </style>
+
+    <!-- Стиль основной ячейки таблицы зернового состава итоговой кривой -->
+
+    <style name="FieldOfFormResult" parent="FieldOfForm1">
+               <item name="android:background">@color/ResultTable</item>
+    </style>
+
+    <!-- Стиль основной ячейки таблицы зернового состава материала №1 МЕЛКИЙ ТЕКСТ-->
+
+    <style name="FieldOfForm1SmallText">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:background">@color/FirstMaterialTable</item>
+
+    </style>
+
+    <!-- Стиль кнопок таблицы зернового состава материала №1  в рецепте-->
+
+    <style name="Button1">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/FirstMaterialTableDark</item>
+
+    </style>
+
+
+    <!-- Стиль заголовочных ячеек таблицы зернового состава материала №2 -->
+
+    <style name="HeadFieldOfForm2">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/SecondMaterialTableDark</item>
+
+    </style>
+
+    <!-- Стиль основной ячейки таблицы зернового состава материала №2 -->
+
+    <style name="FieldOfForm2">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/SecondMaterialTable</item>
+
+    </style>
+
+    <!-- Стиль основной ячейки таблицы зернового состава материала №2 МЕЛКИЙ ТЕКСТ-->
+
+    <style name="FieldOfForm2SmallText">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:background">@color/SecondMaterialTable</item>
+
+    </style>
+
+    <!-- Стиль кнопок таблицы зернового состава материала №2  в рецепте-->
+
+    <style name="Button2">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/SecondMaterialTableDark</item>
+
+    </style>
+
+    <!-- Стиль заголовочных ячеек таблицы зернового состава материала №3 -->
+
+    <style name="HeadFieldOfForm3">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/ThirdMaterialTableDark</item>
+
+    </style>
+
+    <!-- Стиль основной ячейки таблицы зернового состава материала №3 -->
+
+    <style name="FieldOfForm3">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/ThirdMaterialTable</item>
+
+    </style>
+
+    !-- Стиль основной ячейки таблицы зернового состава материала №3 МЕЛКИЙ ТЕКСТ-->
+
+    <style name="FieldOfForm3SmallText">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:background">@color/ThirdMaterialTable</item>
+
+    </style>
+
+    <!-- Стиль кнопок таблицы зернового состава материала №3  в рецепте-->
+
+    <style name="Button3">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/ThirdMaterialTableDark</item>
+
+    </style>
+
+    <!-- Стиль заголовочных ячеек таблицы зернового состава материала №4 -->
+
+    <style name="HeadFieldOfForm4">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/FourthMaterialTableDark</item>
+
+    </style>
+
+    <!-- Стиль основной ячейки таблицы зернового состава материала №4 -->
+
+    <style name="FieldOfForm4">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/FourthMaterialTable</item>
+
+    </style>
+
+    !-- Стиль основной ячейки таблицы зернового состава материала №4 МЕЛКИЙ ТЕКСТ-->
+
+    <style name="FieldOfForm4SmallText">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:background">@color/FourthMaterialTable</item>
+
+    </style>
+
+    <!-- Стиль кнопок таблицы зернового состава материала №4  в рецепте-->
+
+    <style name="Button4">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/FourthMaterialTableDark</item>
+
+    </style>
+
+    <!-- Стиль заголовочных ячеек таблицы зернового состава материала №5 -->
+
+    <style name="HeadFieldOfForm5">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/FifthMaterialTableDark</item>
+
+    </style>
+
+    <!-- Стиль основной ячейки таблицы зернового состава материала №5 -->
+
+    <style name="FieldOfForm5">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/FifthMaterialTable</item>
+
+    </style>
+
+    !-- Стиль основной ячейки таблицы зернового состава материала №5 МЕЛКИЙ ТЕКСТ-->
+
+    <style name="FieldOfForm5SmallText">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:background">@color/FifthMaterialTable</item>
+
+    </style>
+
+    <!-- Стиль кнопок таблицы зернового состава материала №5  в рецепте-->
+
+    <style name="Button5">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/FifthMaterialTableDark</item>
+
+    </style>
+
+    <!-- Стиль заголовочных ячеек таблицы зернового состава материала №6 -->
+
+    <style name="HeadFieldOfForm6">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/SixthMaterialTableDark</item>
+
+    </style>
+
+    <!-- Стиль основной ячейки таблицы зернового состава материала №6 -->
+
+    <style name="FieldOfForm6">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/SixthMaterialTable</item>
+
+    </style>
+
+    !-- Стиль основной ячейки таблицы зернового состава материала №6 МЕЛКИЙ ТЕКСТ-->
+
+    <style name="FieldOfForm6SmallText">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:background">@color/SixthMaterialTable</item>
+
+    </style>
+
+    <!-- Стиль кнопок таблицы зернового состава материала №6  в рецепте-->
+
+    <style name="Button6">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/SixthMaterialTableDark</item>
+
+    </style>
+
+    <!-- Стиль заголовочных ячеек таблицы зернового состава минерального порошка -->
+
+    <style name="HeadFieldOfFormMP">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/SeventhMaterialTableDark</item>
+
+    </style>
+
+    <!-- Стиль основной ячейки таблицы зернового состава минерального порошка -->
+
+    <style name="FieldOfFormMP">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/SeventhMaterialTable</item>
+
+    </style>
+
+    <!-- Стиль основной ячейки таблицы зернового состава материала МИНЕРАЛЬНЫЙ ПОРОШОК МЕЛКИЙ ТЕКСТ-->
+
+    <style name="FieldOfFormMPSmallText">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:background">@color/SeventhMaterialTable</item>
+
+    </style>
+
+    <!-- Стиль кнопок таблицы зернового состава минерального порошка  в рецепте-->
+
+    <style name="ButtonMP">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/SeventhMaterialTableDark</item>
+
+    </style>
+
+    <!-- Стиль заголовочных ячеек таблицы зернового состава собственного заполнителя -->
+
+    <style name="HeadFieldOfFormSZ">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/EighthMaterialTableDark</item>
+
+    </style>
+
+    <!-- Стиль основной ячейки таблицы зернового состава собственного заполнителя -->
+
+    <style name="FieldOfFormSZ">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/EighthMaterialTable</item>
+
+    </style>
+
+    <!-- Стиль основной ячейки таблицы зернового состава материала СОБСТВЕННЫЙ ЗАПОЛНИТЕЛЬ МЕЛКИЙ ТЕКСТ-->
+
+    <style name="FieldOfFormSZSmallText">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:background">@color/EighthMaterialTable</item>
+
+    </style>
+
+    <!-- Стиль кнопок таблицы зернового состава собственный заполнитель  в рецепте-->
+
+    <style name="ButtonSZ">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@color/EighthMaterialTableDark</item>
+
+    </style>
+
+    <!-- Стиль заголовка группы таблиц зернового состава -->
+    <style name="HeadOfForms">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">20sp</item>
+
+    </style>
+
+    <!-- Стиль заголовка таблицы зернового состава №1 -->
+    <style name="HeadOfForm1">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">1dp</item>
+
+
+        <item name="android:layout_gravity">center_vertical</item>
+
+        <item name="android:textSize">15sp</item>
+
+    </style>
+
+    <!-- Стили KeyBoard Activity -->
+
+    <!-- Стиль кнопок -->
+
+    <style name="KeyBoardButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@color/FirstMaterialTableDark</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
+
+
+</resources>

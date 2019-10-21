@@ -1,0 +1,3490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/HEADER"
+                style="@style/HeadOfForms"
+                android:text="@string/MaterialsOfHotBunker" />
+
+            <!-- Наименование таблицы зернового состава материала из отсека №1-->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeaderOfTable1-1"
+                    style="@style/HeadOfForm1"
+                    android:text="@string/Otsek1" />
+
+                <EditText
+                    android:id="@+id/HeaderOfTable1-2"
+                    style="@style/HeadOfForm1"
+                    android:text="@string/Otsek1N" />
+
+                <Button
+                    android:id="@+id/Keyboard"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp" />
+
+            </LinearLayout>
+
+            <!-- НИЖЕ Таблица зернового состава материала из отсека №1-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H1" />
+
+                <TextView
+                    android:id="@+id/Head40"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H40" />
+
+                <TextView
+                    android:id="@+id/Head20"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H20" />
+
+                <TextView
+                    android:id="@+id/Head15"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H15" />
+
+                <TextView
+                    android:id="@+id/Head10"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H10" />
+
+                <TextView
+                    android:id="@+id/Head5"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H5" />
+
+                <TextView
+                    android:id="@+id/Head2_5"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H2_5" />
+
+                <TextView
+                    android:id="@+id/Head1_25"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H1_25" />
+
+                <TextView
+                    android:id="@+id/Head0_63"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H0_63" />
+
+                <TextView
+                    android:id="@+id/Head0_315"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H0_315" />
+
+                <TextView
+                    android:id="@+id/Head0_16"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H0_16" />
+
+                <TextView
+                    android:id="@+id/Head0_071"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H0_071" />
+
+
+                <TextView
+                    android:id="@+id/HeadDNO"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/DNO" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadCHOG"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/CHOG" />
+
+                <EditText
+                    android:id="@+id/CHOG40"
+                    style="@style/FieldOfForm1SmallText"
+                    android:inputType="numberDecimal" />
+
+                <EditText
+                    android:id="@+id/CHOG20"
+                    style="@style/FieldOfForm1SmallText"
+                    />
+
+                <EditText
+                    android:id="@+id/CHOG15"
+                    style="@style/FieldOfForm1SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG10"
+                    style="@style/FieldOfForm1SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG5"
+                    style="@style/FieldOfForm1SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG2_5"
+                    style="@style/FieldOfForm1SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG1_25"
+                    style="@style/FieldOfForm1SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_63"
+                    style="@style/FieldOfForm1SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_315"
+                    style="@style/FieldOfForm1SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_16"
+                    style="@style/FieldOfForm1SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_071"
+                    style="@style/FieldOfForm1SmallText" />
+
+
+                <EditText
+                    android:id="@+id/CHOGDNO"
+                    style="@style/FieldOfForm1SmallText" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadCHOP"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/CHOP" />
+
+                <TextView
+                    android:id="@+id/CHOP40"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/CHOP20"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/CHOP15"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/CHOP10"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/CHOP5"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/CHOP2_5"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/CHOP1_25"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/CHOP0_63"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/CHOP0_315"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/CHOP0_16"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/CHOP0_071"
+                    style="@style/FieldOfForm1" />
+
+
+                <TextView
+                    android:id="@+id/CHOPDNO"
+                    style="@style/FieldOfForm1" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadPO"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/PO" />
+
+                <TextView
+                    android:id="@+id/PO40"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PO20"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PO15"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PO10"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PO5"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PO2_5"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PO1_25"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PO0_63"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PO0_315"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PO0_16"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PO0_071"
+                    style="@style/FieldOfForm1" />
+
+
+                <TextView
+                    android:id="@+id/PODNO"
+                    style="@style/FieldOfForm1" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadPP"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/PP" />
+
+                <TextView
+                    android:id="@+id/PP40"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP20"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP15"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP10"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP5"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP2_5"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP1_25"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP0_63"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP0_315"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP0_16"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP0_071"
+                    style="@style/FieldOfForm1" />
+
+
+                <TextView
+                    android:id="@+id/PPDNO"
+                    style="@style/FieldOfForm1" />
+
+
+            </LinearLayout>
+
+            <!-- Наименование таблицы зернового состава материала из отсека №2-->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeaderOfTable2_1"
+                    style="@style/HeadOfForm1"
+                    android:text="@string/Otsek2" />
+
+                <EditText
+                    android:id="@+id/HeaderOfTable2_2"
+                    style="@style/HeadOfForm1"
+                    android:text="@string/Otsek2N" />
+
+            </LinearLayout>
+
+            <!-- НИЖЕ Таблица зернового состава материала из отсека №2-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    style="@style/HeadFieldOfForm2"
+                    android:text="@string/H2" />
+
+                <TextView
+                    android:id="@+id/Head40_2"
+                    style="@style/HeadFieldOfForm2"
+                    android:text="@string/H40" />
+
+                <TextView
+                    android:id="@+id/Head20_2"
+                    style="@style/HeadFieldOfForm2"
+                    android:text="@string/H20" />
+
+                <TextView
+                    android:id="@+id/Head15_2"
+                    style="@style/HeadFieldOfForm2"
+                    android:text="@string/H15" />
+
+                <TextView
+                    android:id="@+id/Head10_2"
+                    style="@style/HeadFieldOfForm2"
+                    android:text="@string/H10" />
+
+                <TextView
+                    android:id="@+id/Head5_2"
+                    style="@style/HeadFieldOfForm2"
+                    android:text="@string/H5" />
+
+                <TextView
+                    android:id="@+id/Head2_5_2"
+                    style="@style/HeadFieldOfForm2"
+                    android:text="@string/H2_5" />
+
+                <TextView
+                    android:id="@+id/Head1_25_2"
+                    style="@style/HeadFieldOfForm2"
+                    android:text="@string/H1_25" />
+
+                <TextView
+                    android:id="@+id/Head0_63_2"
+                    style="@style/HeadFieldOfForm2"
+                    android:text="@string/H0_63" />
+
+                <TextView
+                    android:id="@+id/Head0_315_2"
+                    style="@style/HeadFieldOfForm2"
+                    android:text="@string/H0_315" />
+
+                <TextView
+                    android:id="@+id/Head0_16_2"
+                    style="@style/HeadFieldOfForm2"
+                    android:text="@string/H0_16" />
+
+                <TextView
+                    android:id="@+id/Head0_071_2"
+                    style="@style/HeadFieldOfForm2"
+                    android:text="@string/H0_071" />
+
+
+                <TextView
+                    android:id="@+id/HeadDNO_2"
+                    style="@style/HeadFieldOfForm2"
+                    android:text="@string/DNO" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadCHOG_2"
+                    style="@style/HeadFieldOfForm2"
+                    android:text="@string/CHOG" />
+
+                <EditText
+                    android:id="@+id/CHOG40_2"
+                    style="@style/FieldOfForm2SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG20_2"
+                    style="@style/FieldOfForm2SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG15_2"
+                    style="@style/FieldOfForm2SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG10_2"
+                    style="@style/FieldOfForm2SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG5_2"
+                    style="@style/FieldOfForm2SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG2_5_2"
+                    style="@style/FieldOfForm2SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG1_25_2"
+                    style="@style/FieldOfForm2SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_63_2"
+                    style="@style/FieldOfForm2SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_315_2"
+                    style="@style/FieldOfForm2SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_16_2"
+                    style="@style/FieldOfForm2SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_071_2"
+                    style="@style/FieldOfForm2SmallText" />
+
+
+                <EditText
+                    android:id="@+id/CHOGDNO_2"
+                    style="@style/FieldOfForm2SmallText" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadCHOP_2"
+                    style="@style/HeadFieldOfForm2"
+                    android:text="@string/CHOP" />
+
+                <TextView
+                    android:id="@+id/CHOP40_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/CHOP20_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/CHOP15_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/CHOP10_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/CHOP5_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/CHOP2_5_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/CHOP1_25_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/CHOP0_63_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/CHOP0_315_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/CHOP0_16_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/CHOP0_071_2"
+                    style="@style/FieldOfForm2" />
+
+
+                <TextView
+                    android:id="@+id/CHOPDNO_2"
+                    style="@style/FieldOfForm2" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadPO_2"
+                    style="@style/HeadFieldOfForm2"
+                    android:text="@string/PO" />
+
+                <TextView
+                    android:id="@+id/PO40_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PO20_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PO15_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PO10_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PO5_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PO2_5_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PO1_25_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PO0_63_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PO0_315_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PO0_16_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PO0_071_2"
+                    style="@style/FieldOfForm2" />
+
+
+                <TextView
+                    android:id="@+id/PODNO_2"
+                    style="@style/FieldOfForm2" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadPP_2"
+                    style="@style/HeadFieldOfForm2"
+                    android:text="@string/PP" />
+
+                <TextView
+                    android:id="@+id/PP40_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PP20_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PP15_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PP10_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PP5_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PP2_5_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PP1_25_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PP0_63_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PP0_315_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PP0_16_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PP0_071_2"
+                    style="@style/FieldOfForm2" />
+
+
+                <TextView
+                    android:id="@+id/PPDNO_2"
+                    style="@style/FieldOfForm2" />
+
+
+            </LinearLayout>
+
+            <!-- Наименование таблицы зернового состава материала из отсека №3-->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeaderOfTable3_1"
+                    style="@style/HeadOfForm1"
+                    android:text="@string/Otsek3" />
+
+                <EditText
+                    android:id="@+id/HeaderOfTable3_2"
+                    style="@style/HeadOfForm1"
+                    android:text="@string/Otsek3N" />
+
+            </LinearLayout>
+            <!-- НИЖЕ Таблица зернового состава материала из отсека №3-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    style="@style/HeadFieldOfForm3"
+                    android:text="@string/H3" />
+
+                <TextView
+                    android:id="@+id/Head40_3"
+                    style="@style/HeadFieldOfForm3"
+                    android:text="@string/H40" />
+
+                <TextView
+                    android:id="@+id/Head20_3"
+                    style="@style/HeadFieldOfForm3"
+                    android:text="@string/H20" />
+
+                <TextView
+                    android:id="@+id/Head15_3"
+                    style="@style/HeadFieldOfForm3"
+                    android:text="@string/H15" />
+
+                <TextView
+                    android:id="@+id/Head10_3"
+                    style="@style/HeadFieldOfForm3"
+                    android:text="@string/H10" />
+
+                <TextView
+                    android:id="@+id/Head5_3"
+                    style="@style/HeadFieldOfForm3"
+                    android:text="@string/H5" />
+
+                <TextView
+                    android:id="@+id/Head2_5_3"
+                    style="@style/HeadFieldOfForm3"
+                    android:text="@string/H2_5" />
+
+                <TextView
+                    android:id="@+id/Head1_25_3"
+                    style="@style/HeadFieldOfForm3"
+                    android:text="@string/H1_25" />
+
+                <TextView
+                    android:id="@+id/Head0_63_3"
+                    style="@style/HeadFieldOfForm3"
+                    android:text="@string/H0_63" />
+
+                <TextView
+                    android:id="@+id/Head0_315_3"
+                    style="@style/HeadFieldOfForm3"
+                    android:text="@string/H0_315" />
+
+                <TextView
+                    android:id="@+id/Head0_16_3"
+                    style="@style/HeadFieldOfForm3"
+                    android:text="@string/H0_16" />
+
+                <TextView
+                    android:id="@+id/Head0_071_3"
+                    style="@style/HeadFieldOfForm3"
+                    android:text="@string/H0_071" />
+
+
+                <TextView
+                    android:id="@+id/HeadDNO_3"
+                    style="@style/HeadFieldOfForm3"
+                    android:text="@string/DNO" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadCHOG_3"
+                    style="@style/HeadFieldOfForm3"
+                    android:text="@string/CHOG" />
+
+                <EditText
+                    android:id="@+id/CHOG40_3"
+                    style="@style/FieldOfForm3SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG20_3"
+                    style="@style/FieldOfForm3SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG15_3"
+                    style="@style/FieldOfForm3SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG10_3"
+                    style="@style/FieldOfForm3SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG5_3"
+                    style="@style/FieldOfForm3SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG2_5_3"
+                    style="@style/FieldOfForm3SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG1_25_3"
+                    style="@style/FieldOfForm3SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_63_3"
+                    style="@style/FieldOfForm3SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_315_3"
+                    style="@style/FieldOfForm3SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_16_3"
+                    style="@style/FieldOfForm3SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_071_3"
+                    style="@style/FieldOfForm3SmallText" />
+
+
+                <EditText
+                    android:id="@+id/CHOGDNO_3"
+                    style="@style/FieldOfForm3SmallText" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadCHOP_3"
+                    style="@style/HeadFieldOfForm3"
+                    android:text="@string/CHOP" />
+
+                <TextView
+                    android:id="@+id/CHOP40_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/CHOP20_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/CHOP15_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/CHOP10_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/CHOP5_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/CHOP2_5_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/CHOP1_25_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/CHOP0_63_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/CHOP0_315_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/CHOP0_16_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/CHOP0_071_3"
+                    style="@style/FieldOfForm3" />
+
+
+                <TextView
+                    android:id="@+id/CHOPDNO_3"
+                    style="@style/FieldOfForm3" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadPO_3"
+                    style="@style/HeadFieldOfForm3"
+                    android:text="@string/PO" />
+
+                <TextView
+                    android:id="@+id/PO40_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PO20_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PO15_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PO10_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PO5_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PO2_5_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PO1_25_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PO0_63_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PO0_315_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PO0_16_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PO0_071_3"
+                    style="@style/FieldOfForm3" />
+
+
+                <TextView
+                    android:id="@+id/PODNO_3"
+                    style="@style/FieldOfForm3" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadPP_3"
+                    style="@style/HeadFieldOfForm3"
+                    android:text="@string/PP" />
+
+                <TextView
+                    android:id="@+id/PP40_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PP20_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PP15_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PP10_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PP5_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PP2_5_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PP1_25_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PP0_63_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PP0_315_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PP0_16_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PP0_071_3"
+                    style="@style/FieldOfForm3" />
+
+
+                <TextView
+                    android:id="@+id/PPDNO_3"
+                    style="@style/FieldOfForm3" />
+
+
+            </LinearLayout>
+
+            <!-- Наименование таблицы зернового состава материала из отсека №4-->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeaderOfTable4_1"
+                    style="@style/HeadOfForm1"
+                    android:text="@string/Otsek4" />
+
+                <EditText
+                    android:id="@+id/HeaderOfTable4_2"
+                    style="@style/HeadOfForm1"
+                    android:text="@string/Otsek4N" />
+
+            </LinearLayout>
+            <!-- НИЖЕ Таблица зернового состава материала из отсека №4-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    style="@style/HeadFieldOfForm4"
+                    android:text="@string/H4" />
+
+                <TextView
+                    android:id="@+id/Head40_4"
+                    style="@style/HeadFieldOfForm4"
+                    android:text="@string/H40" />
+
+                <TextView
+                    android:id="@+id/Head20_4"
+                    style="@style/HeadFieldOfForm4"
+                    android:text="@string/H20" />
+
+                <TextView
+                    android:id="@+id/Head15_4"
+                    style="@style/HeadFieldOfForm4"
+                    android:text="@string/H15" />
+
+                <TextView
+                    android:id="@+id/Head10_4"
+                    style="@style/HeadFieldOfForm4"
+                    android:text="@string/H10" />
+
+                <TextView
+                    android:id="@+id/Head5_4"
+                    style="@style/HeadFieldOfForm4"
+                    android:text="@string/H5" />
+
+                <TextView
+                    android:id="@+id/Head2_5_4"
+                    style="@style/HeadFieldOfForm4"
+                    android:text="@string/H2_5" />
+
+                <TextView
+                    android:id="@+id/Head1_25_4"
+                    style="@style/HeadFieldOfForm4"
+                    android:text="@string/H1_25" />
+
+                <TextView
+                    android:id="@+id/Head0_63_4"
+                    style="@style/HeadFieldOfForm4"
+                    android:text="@string/H0_63" />
+
+                <TextView
+                    android:id="@+id/Head0_315_4"
+                    style="@style/HeadFieldOfForm4"
+                    android:text="@string/H0_315" />
+
+                <TextView
+                    android:id="@+id/Head0_16_4"
+                    style="@style/HeadFieldOfForm4"
+                    android:text="@string/H0_16" />
+
+                <TextView
+                    android:id="@+id/Head0_071_4"
+                    style="@style/HeadFieldOfForm4"
+                    android:text="@string/H0_071" />
+
+
+                <TextView
+                    android:id="@+id/HeadDNO_4"
+                    style="@style/HeadFieldOfForm4"
+                    android:text="@string/DNO" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadCHOG_4"
+                    style="@style/HeadFieldOfForm4"
+                    android:text="@string/CHOG" />
+
+                <EditText
+                    android:id="@+id/CHOG40_4"
+                    style="@style/FieldOfForm4SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG20_4"
+                    style="@style/FieldOfForm4SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG15_4"
+                    style="@style/FieldOfForm4SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG10_4"
+                    style="@style/FieldOfForm4SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG5_4"
+                    style="@style/FieldOfForm4SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG2_5_4"
+                    style="@style/FieldOfForm4SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG1_25_4"
+                    style="@style/FieldOfForm4SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_63_4"
+                    style="@style/FieldOfForm4SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_315_4"
+                    style="@style/FieldOfForm4SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_16_4"
+                    style="@style/FieldOfForm4SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_071_4"
+                    style="@style/FieldOfForm4SmallText" />
+
+
+                <EditText
+                    android:id="@+id/CHOGDNO_4"
+                    style="@style/FieldOfForm4SmallText" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadCHOP_4"
+                    style="@style/HeadFieldOfForm4"
+                    android:text="@string/CHOP" />
+
+                <TextView
+                    android:id="@+id/CHOP40_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/CHOP20_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/CHOP15_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/CHOP10_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/CHOP5_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/CHOP2_5_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/CHOP1_25_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/CHOP0_63_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/CHOP0_315_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/CHOP0_16_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/CHOP0_071_4"
+                    style="@style/FieldOfForm4" />
+
+
+                <TextView
+                    android:id="@+id/CHOPDNO_4"
+                    style="@style/FieldOfForm4" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadPO_4"
+                    style="@style/HeadFieldOfForm4"
+                    android:text="@string/PO" />
+
+                <TextView
+                    android:id="@+id/PO40_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PO20_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PO15_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PO10_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PO5_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PO2_5_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PO1_25_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PO0_63_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PO0_315_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PO0_16_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PO0_071_4"
+                    style="@style/FieldOfForm4" />
+
+
+                <TextView
+                    android:id="@+id/PODNO_4"
+                    style="@style/FieldOfForm4" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadPP_4"
+                    style="@style/HeadFieldOfForm4"
+                    android:text="@string/PP" />
+
+                <TextView
+                    android:id="@+id/PP40_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PP20_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PP15_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PP10_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PP5_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PP2_5_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PP1_25_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PP0_63_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PP0_315_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PP0_16_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PP0_071_4"
+                    style="@style/FieldOfForm4" />
+
+
+                <TextView
+                    android:id="@+id/PPDNO_4"
+                    style="@style/FieldOfForm4" />
+
+
+            </LinearLayout>
+
+            <!-- Наименование таблицы зернового состава материала из отсека №5-->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeaderOfTable5_1"
+                    style="@style/HeadOfForm1"
+                    android:text="@string/Otsek5" />
+
+                <EditText
+                    android:id="@+id/HeaderOfTable5_2"
+                    style="@style/HeadOfForm1"
+                    android:text="@string/Otsek5N" />
+
+            </LinearLayout>
+
+            <!-- НИЖЕ Таблица зернового состава материала из отсека №5-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    style="@style/HeadFieldOfForm5"
+                    android:text="@string/H50" />
+
+                <TextView
+                    android:id="@+id/Head40_5"
+                    style="@style/HeadFieldOfForm5"
+                    android:text="@string/H40" />
+
+                <TextView
+                    android:id="@+id/Head20_5"
+                    style="@style/HeadFieldOfForm5"
+                    android:text="@string/H20" />
+
+                <TextView
+                    android:id="@+id/Head15_5"
+                    style="@style/HeadFieldOfForm5"
+                    android:text="@string/H15" />
+
+                <TextView
+                    android:id="@+id/Head10_5"
+                    style="@style/HeadFieldOfForm5"
+                    android:text="@string/H10" />
+
+                <TextView
+                    android:id="@+id/Head5_5"
+                    style="@style/HeadFieldOfForm5"
+                    android:text="@string/H5" />
+
+                <TextView
+                    android:id="@+id/Head2_5_5"
+                    style="@style/HeadFieldOfForm5"
+                    android:text="@string/H2_5" />
+
+                <TextView
+                    android:id="@+id/Head1_25_5"
+                    style="@style/HeadFieldOfForm5"
+                    android:text="@string/H1_25" />
+
+                <TextView
+                    android:id="@+id/Head0_63_5"
+                    style="@style/HeadFieldOfForm5"
+                    android:text="@string/H0_63" />
+
+                <TextView
+                    android:id="@+id/Head0_315_5"
+                    style="@style/HeadFieldOfForm5"
+                    android:text="@string/H0_315" />
+
+                <TextView
+                    android:id="@+id/Head0_16_5"
+                    style="@style/HeadFieldOfForm5"
+                    android:text="@string/H0_16" />
+
+                <TextView
+                    android:id="@+id/Head0_071_5"
+                    style="@style/HeadFieldOfForm5"
+                    android:text="@string/H0_071" />
+
+
+                <TextView
+                    android:id="@+id/HeadDNO_5"
+                    style="@style/HeadFieldOfForm5"
+                    android:text="@string/DNO" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadCHOG_5"
+                    style="@style/HeadFieldOfForm5"
+                    android:text="@string/CHOG" />
+
+                <EditText
+                    android:id="@+id/CHOG40_5"
+                    style="@style/FieldOfForm5SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG20_5"
+                    style="@style/FieldOfForm5SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG15_5"
+                    style="@style/FieldOfForm5SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG10_5"
+                    style="@style/FieldOfForm5SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG5_5"
+                    style="@style/FieldOfForm5SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG2_5_5"
+                    style="@style/FieldOfForm5SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG1_25_5"
+                    style="@style/FieldOfForm5SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_63_5"
+                    style="@style/FieldOfForm5SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_315_5"
+                    style="@style/FieldOfForm5SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_16_5"
+                    style="@style/FieldOfForm5SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_071_5"
+                    style="@style/FieldOfForm5SmallText" />
+
+
+                <EditText
+                    android:id="@+id/CHOGDNO_5"
+                    style="@style/FieldOfForm5SmallText" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadCHOP_5"
+                    style="@style/HeadFieldOfForm5"
+                    android:text="@string/CHOP" />
+
+                <TextView
+                    android:id="@+id/CHOP40_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/CHOP20_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/CHOP15_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/CHOP10_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/CHOP5_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/CHOP2_5_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/CHOP1_25_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/CHOP0_63_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/CHOP0_315_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/CHOP0_16_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/CHOP0_071_5"
+                    style="@style/FieldOfForm5" />
+
+
+                <TextView
+                    android:id="@+id/CHOPDNO_5"
+                    style="@style/FieldOfForm5" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadPO_5"
+                    style="@style/HeadFieldOfForm5"
+                    android:text="@string/PO" />
+
+                <TextView
+                    android:id="@+id/PO40_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PO20_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PO15_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PO10_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PO5_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PO2_5_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PO1_25_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PO0_63_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PO0_315_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PO0_16_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PO0_071_5"
+                    style="@style/FieldOfForm5" />
+
+
+                <TextView
+                    android:id="@+id/PODNO_5"
+                    style="@style/FieldOfForm5" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadPP_5"
+                    style="@style/HeadFieldOfForm5"
+                    android:text="@string/PP" />
+
+                <TextView
+                    android:id="@+id/PP40_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PP20_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PP15_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PP10_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PP5_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PP2_5_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PP1_25_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PP0_63_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PP0_315_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PP0_16_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PP0_071_5"
+                    style="@style/FieldOfForm5" />
+
+
+                <TextView
+                    android:id="@+id/PPDNO_5"
+                    style="@style/FieldOfForm5" />
+
+
+            </LinearLayout>
+
+            <!-- Наименование таблицы зернового состава материала из отсека №6-->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeaderOfTable6_1"
+                    style="@style/HeadOfForm1"
+                    android:text="@string/Otsek6" />
+
+                <EditText
+                    android:id="@+id/HeaderOfTable6_2"
+                    style="@style/HeadOfForm1"
+                    android:text="@string/Otsek6N" />
+
+            </LinearLayout>
+
+            <!-- НИЖЕ Таблица зернового состава материала из отсека №6-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    style="@style/HeadFieldOfForm6"
+                    android:text="@string/H6" />
+
+                <TextView
+                    android:id="@+id/Head40_6"
+                    style="@style/HeadFieldOfForm6"
+                    android:text="@string/H40" />
+
+                <TextView
+                    android:id="@+id/Head20_6"
+                    style="@style/HeadFieldOfForm6"
+                    android:text="@string/H20" />
+
+                <TextView
+                    android:id="@+id/Head15_6"
+                    style="@style/HeadFieldOfForm6"
+                    android:text="@string/H15" />
+
+                <TextView
+                    android:id="@+id/Head10_6"
+                    style="@style/HeadFieldOfForm6"
+                    android:text="@string/H10" />
+
+                <TextView
+                    android:id="@+id/Head5_6"
+                    style="@style/HeadFieldOfForm6"
+                    android:text="@string/H5" />
+
+                <TextView
+                    android:id="@+id/Head2_5_6"
+                    style="@style/HeadFieldOfForm6"
+                    android:text="@string/H2_5" />
+
+                <TextView
+                    android:id="@+id/Head1_25_6"
+                    style="@style/HeadFieldOfForm6"
+                    android:text="@string/H1_25" />
+
+                <TextView
+                    android:id="@+id/Head0_63_6"
+                    style="@style/HeadFieldOfForm6"
+                    android:text="@string/H0_63" />
+
+                <TextView
+                    android:id="@+id/Head0_315_6"
+                    style="@style/HeadFieldOfForm6"
+                    android:text="@string/H0_315" />
+
+                <TextView
+                    android:id="@+id/Head0_16_6"
+                    style="@style/HeadFieldOfForm6"
+                    android:text="@string/H0_16" />
+
+                <TextView
+                    android:id="@+id/Head0_071_6"
+                    style="@style/HeadFieldOfForm6"
+                    android:text="@string/H0_071" />
+
+
+                <TextView
+                    android:id="@+id/HeadDNO_6"
+                    style="@style/HeadFieldOfForm6"
+                    android:text="@string/DNO" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadCHOG_6"
+                    style="@style/HeadFieldOfForm6"
+                    android:text="@string/CHOG" />
+
+                <EditText
+                    android:id="@+id/CHOG40_6"
+                    style="@style/FieldOfForm6SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG20_6"
+                    style="@style/FieldOfForm6SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG15_6"
+                    style="@style/FieldOfForm6SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG10_6"
+                    style="@style/FieldOfForm6SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG5_6"
+                    style="@style/FieldOfForm6SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG2_5_6"
+                    style="@style/FieldOfForm6SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG1_25_6"
+                    style="@style/FieldOfForm6SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_63_6"
+                    style="@style/FieldOfForm6SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_315_6"
+                    style="@style/FieldOfForm6SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_16_6"
+                    style="@style/FieldOfForm6SmallText" />
+
+                <EditText
+                    android:id="@+id/CHOG0_071_6"
+                    style="@style/FieldOfForm6SmallText" />
+
+
+                <EditText
+                    android:id="@+id/CHOGDNO_6"
+                    style="@style/FieldOfForm6SmallText" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadCHOP_6"
+                    style="@style/HeadFieldOfForm6"
+                    android:text="@string/CHOP" />
+
+                <TextView
+                    android:id="@+id/CHOP40_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/CHOP20_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/CHOP15_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/CHOP10_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/CHOP5_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/CHOP2_5_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/CHOP1_25_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/CHOP0_63_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/CHOP0_315_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/CHOP0_16_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/CHOP0_071_6"
+                    style="@style/FieldOfForm6" />
+
+
+                <TextView
+                    android:id="@+id/CHOPDNO_6"
+                    style="@style/FieldOfForm6" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadPO_6"
+                    style="@style/HeadFieldOfForm6"
+                    android:text="@string/PO" />
+
+                <TextView
+                    android:id="@+id/PO40_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PO20_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PO15_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PO10_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PO5_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PO2_5_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PO1_25_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PO0_63_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PO0_315_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PO0_16_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PO0_071_6"
+                    style="@style/FieldOfForm6" />
+
+
+                <TextView
+                    android:id="@+id/PODNO_6"
+                    style="@style/FieldOfForm6" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeadPP_6"
+                    style="@style/HeadFieldOfForm6"
+                    android:text="@string/PP" />
+
+                <TextView
+                    android:id="@+id/PP40_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PP20_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PP15_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PP10_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PP5_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PP2_5_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PP1_25_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PP0_63_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PP0_315_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PP0_16_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PP0_071_6"
+                    style="@style/FieldOfForm6" />
+
+
+                <TextView
+                    android:id="@+id/PPDNO_6"
+                    style="@style/FieldOfForm6" />
+
+
+            </LinearLayout>
+
+
+
+
+            <!-- НИЖЕ Таблица зернового состава минерального порошка и собственного заполнителя-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/HeaderOfTableMP_2"
+                            style="@style/HeadOfForm1"
+                            android:text="@string/OtsekMP" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+
+                            style="@style/HeadFieldOfFormMP"
+                            android:text="@string/H7" />
+
+                        <TextView
+                            android:id="@+id/Head1_25_MP"
+                            style="@style/HeadFieldOfFormMP"
+                            android:text="@string/H1_25" />
+
+                        <TextView
+                            android:id="@+id/Head0_63_MP"
+                            style="@style/HeadFieldOfFormMP"
+                            android:text="@string/H0_63" />
+
+                        <TextView
+                            android:id="@+id/Head0_315_MP"
+                            style="@style/HeadFieldOfFormMP"
+                            android:text="@string/H0_315" />
+
+                        <TextView
+                            android:id="@+id/Head0_16_MP"
+                            style="@style/HeadFieldOfFormMP"
+                            android:text="@string/H0_16" />
+
+                        <TextView
+                            android:id="@+id/Head0_071_MP"
+                            style="@style/HeadFieldOfFormMP"
+                            android:text="@string/H0_071" />
+
+
+                        <TextView
+                            android:id="@+id/HeadDNO_MP"
+                            style="@style/HeadFieldOfFormMP"
+                            android:text="@string/DNO" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/HeadCHOG_MP"
+                            style="@style/HeadFieldOfFormMP"
+                            android:text="@string/CHOG" />
+
+                        <EditText
+                            android:id="@+id/CHOG1_25_MP"
+                            style="@style/FieldOfFormMPSmallText" />
+
+                        <EditText
+                            android:id="@+id/CHOG0_63_MP"
+                            style="@style/FieldOfFormMPSmallText" />
+
+                        <EditText
+                            android:id="@+id/CHOG0_315_MP"
+                            style="@style/FieldOfFormMPSmallText" />
+
+                        <EditText
+                            android:id="@+id/CHOG0_16_MP"
+                            style="@style/FieldOfFormMPSmallText" />
+
+                        <EditText
+                            android:id="@+id/CHOG0_071_MP"
+                            style="@style/FieldOfFormMPSmallText" />
+
+
+                        <EditText
+                            android:id="@+id/CHOGDNO_MP"
+                            style="@style/FieldOfFormMPSmallText" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/HeadCHOP_MP"
+                            style="@style/HeadFieldOfFormMP"
+                            android:text="@string/CHOP" />
+
+
+                        <TextView
+                            android:id="@+id/CHOP1_25_MP"
+                            style="@style/FieldOfFormMP" />
+
+                        <TextView
+                            android:id="@+id/CHOP0_63_MP"
+                            style="@style/FieldOfFormMP" />
+
+                        <TextView
+                            android:id="@+id/CHOP0_315_MP"
+                            style="@style/FieldOfFormMP" />
+
+                        <TextView
+                            android:id="@+id/CHOP0_16_MP"
+                            style="@style/FieldOfFormMP" />
+
+                        <TextView
+                            android:id="@+id/CHOP0_071_MP"
+                            style="@style/FieldOfFormMP" />
+
+
+                        <TextView
+                            android:id="@+id/CHOPDNO_MP"
+                            style="@style/FieldOfFormMP" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/HeadPO_MP"
+                            style="@style/HeadFieldOfFormMP"
+                            android:text="@string/PO" />
+
+
+                        <TextView
+                            android:id="@+id/PO1_25_MP"
+                            style="@style/FieldOfFormMP" />
+
+                        <TextView
+                            android:id="@+id/PO0_63_MP"
+                            style="@style/FieldOfFormMP" />
+
+                        <TextView
+                            android:id="@+id/PO0_315_MP"
+                            style="@style/FieldOfFormMP" />
+
+                        <TextView
+                            android:id="@+id/PO0_16_MP"
+                            style="@style/FieldOfFormMP" />
+
+                        <TextView
+                            android:id="@+id/PO0_071_MP"
+                            style="@style/FieldOfFormMP" />
+
+
+                        <TextView
+                            android:id="@+id/PODNO_MP"
+                            style="@style/FieldOfFormMP" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/HeadPP_MP"
+                            style="@style/HeadFieldOfFormMP"
+                            android:text="@string/PP" />
+
+
+                        <TextView
+                            android:id="@+id/PP1_25_MP"
+                            style="@style/FieldOfFormMP" />
+
+                        <TextView
+                            android:id="@+id/PP0_63_MP"
+                            style="@style/FieldOfFormMP" />
+
+                        <TextView
+                            android:id="@+id/PP0_315_MP"
+                            style="@style/FieldOfFormMP" />
+
+                        <TextView
+                            android:id="@+id/PP0_16_MP"
+                            style="@style/FieldOfFormMP" />
+
+                        <TextView
+                            android:id="@+id/PP0_071_MP"
+                            style="@style/FieldOfFormMP" />
+
+
+                        <TextView
+                            android:id="@+id/PPDNO_MP"
+                            style="@style/FieldOfFormMP" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+
+                        <EditText
+                            android:id="@+id/HeaderOfTableSZ_2"
+                            style="@style/HeadOfForm1"
+                            android:text="@string/OtsekSZ" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+
+                            style="@style/HeadFieldOfFormSZ"
+                            android:text="@string/H8" />
+
+                        <TextView
+                            android:id="@+id/Head1_25_SZ"
+                            style="@style/HeadFieldOfFormSZ"
+                            android:text="@string/H1_25" />
+
+                        <TextView
+                            android:id="@+id/Head0_63_SZ"
+                            style="@style/HeadFieldOfFormSZ"
+                            android:text="@string/H0_63" />
+
+                        <TextView
+                            android:id="@+id/Head0_315_SZ"
+                            style="@style/HeadFieldOfFormSZ"
+                            android:text="@string/H0_315" />
+
+                        <TextView
+                            android:id="@+id/Head0_16_SZ"
+                            style="@style/HeadFieldOfFormSZ"
+                            android:text="@string/H0_16" />
+
+                        <TextView
+                            android:id="@+id/Head0_071_SZ"
+                            style="@style/HeadFieldOfFormSZ"
+                            android:text="@string/H0_071" />
+
+
+                        <TextView
+                            android:id="@+id/HeadDNO_SZ"
+                            style="@style/HeadFieldOfFormSZ"
+                            android:text="@string/DNO" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/HeadCHOG_SZ"
+                            style="@style/HeadFieldOfFormSZ"
+                            android:text="@string/CHOG" />
+
+                        <EditText
+                            android:id="@+id/CHOG1_25_SZ"
+                            style="@style/FieldOfFormSZSmallText" />
+
+                        <EditText
+                            android:id="@+id/CHOG0_63_SZ"
+                            style="@style/FieldOfFormSZSmallText" />
+
+                        <EditText
+                            android:id="@+id/CHOG0_315_SZ"
+                            style="@style/FieldOfFormSZSmallText" />
+
+                        <EditText
+                            android:id="@+id/CHOG0_16_SZ"
+                            style="@style/FieldOfFormSZSmallText" />
+
+                        <EditText
+                            android:id="@+id/CHOG0_071_SZ"
+                            style="@style/FieldOfFormSZSmallText" />
+
+
+                        <EditText
+                            android:id="@+id/CHOGDNO_SZ"
+                            style="@style/FieldOfFormSZSmallText" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/HeadCHOP_SZ"
+                            style="@style/HeadFieldOfFormSZ"
+                            android:text="@string/CHOP" />
+
+
+                        <TextView
+                            android:id="@+id/CHOP1_25_SZ"
+                            style="@style/FieldOfFormSZ" />
+
+                        <TextView
+                            android:id="@+id/CHOP0_63_SZ"
+                            style="@style/FieldOfFormSZ" />
+
+                        <TextView
+                            android:id="@+id/CHOP0_315_SZ"
+                            style="@style/FieldOfFormSZ" />
+
+                        <TextView
+                            android:id="@+id/CHOP0_16_SZ"
+                            style="@style/FieldOfFormSZ" />
+
+                        <TextView
+                            android:id="@+id/CHOP0_071_SZ"
+                            style="@style/FieldOfFormSZ" />
+
+
+                        <TextView
+                            android:id="@+id/CHOPDNO_SZ"
+                            style="@style/FieldOfFormSZ" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/HeadPO_SZ"
+                            style="@style/HeadFieldOfFormSZ"
+                            android:text="@string/PO" />
+
+
+                        <TextView
+                            android:id="@+id/PO1_25_SZ"
+                            style="@style/FieldOfFormSZ" />
+
+                        <TextView
+                            android:id="@+id/PO0_63_SZ"
+                            style="@style/FieldOfFormSZ" />
+
+                        <TextView
+                            android:id="@+id/PO0_315_SZ"
+                            style="@style/FieldOfFormSZ" />
+
+                        <TextView
+                            android:id="@+id/PO0_16_SZ"
+                            style="@style/FieldOfFormSZ" />
+
+                        <TextView
+                            android:id="@+id/PO0_071_SZ"
+                            style="@style/FieldOfFormSZ" />
+
+
+                        <TextView
+                            android:id="@+id/PODNO_SZ"
+                            style="@style/FieldOfFormSZ" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/HeadPP_SZ"
+                            style="@style/HeadFieldOfFormSZ"
+                            android:text="@string/PP" />
+
+
+                        <TextView
+                            android:id="@+id/PP1_25_SZ"
+                            style="@style/FieldOfFormSZ" />
+
+                        <TextView
+                            android:id="@+id/PP0_63_SZ"
+                            style="@style/FieldOfFormSZ" />
+
+                        <TextView
+                            android:id="@+id/PP0_315_SZ"
+                            style="@style/FieldOfFormSZ" />
+
+                        <TextView
+                            android:id="@+id/PP0_16_SZ"
+                            style="@style/FieldOfFormSZ" />
+
+                        <TextView
+                            android:id="@+id/PP0_071_SZ"
+                            style="@style/FieldOfFormSZ" />
+
+
+                        <TextView
+                            android:id="@+id/PPDNO_SZ"
+                            style="@style/FieldOfFormSZ" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/HEADER_1"
+                style="@style/HeadOfForms"
+                android:text="@string/PodborSostava" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeaderOfMix"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/TipSmesi"
+                    android:layout_width="80dp"
+                    android:layout_gravity="center"/>
+                <Spinner
+                    android:id="@+id/SpinnerMixType"
+
+                    style="@style/Spinner"
+
+                    android:textAlignment="center"/>
+
+                <TextView
+                    android:id="@+id/Head40_R"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H40" />
+
+                <TextView
+                    android:id="@+id/Head20_R"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H20" />
+
+                <TextView
+                    android:id="@+id/Head15_R"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H15" />
+
+                <TextView
+                    android:id="@+id/Head10_R"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H10" />
+
+                <TextView
+                    android:id="@+id/Head5_R"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H5" />
+
+                <TextView
+                    android:id="@+id/Head2_5_R"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H2_5" />
+
+                <TextView
+                    android:id="@+id/Head1_25_R"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H1_25" />
+
+                <TextView
+                    android:id="@+id/Head0_63_R"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H0_63" />
+
+                <TextView
+                    android:id="@+id/Head0_315_R"
+                    style="@style/HeadFieldOfForm1"
+                    android:layout_height="match_parent"
+                    android:text="@string/H0_315"
+                    android:textSize="10dp"/>
+
+                <TextView
+                    android:id="@+id/Head0_16_R"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H0_16" />
+
+                <TextView
+                    android:id="@+id/Head0_071_R"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H0_071"
+                    android:layout_height="match_parent"
+                    android:textSize="10dp"/>
+
+
+
+
+
+            </LinearLayout>
+
+            <!-- Строка рецепта Отсек №1-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/HeadPP_R_1"
+                    style="@style/HeadFieldOfForm1"
+                    android:layout_width="80dp"
+                    android:text="@string/Otsek1" />
+                <Button
+                    android:id="@+id/SOD1Minus"
+                    style="@style/Button1"
+                    android:text="@string/minus"
+
+                    />
+                <EditText
+                    android:id="@+id/SOD1"
+                    style="@style/Button1"
+                    android:text="0"
+                   />
+
+                <Button
+                    android:id="@+id/SOD1Plus"
+                    style="@style/Button1"
+                    android:text="@string/plus"
+
+                    />
+
+                <TextView
+                    android:id="@+id/PP40_R_1"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP20_R_1"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP15_R_1"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP10_R_1"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP5_R_1"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP2_5_R_1"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP1_25_R_1"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP0_63_R_1"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP0_315_R_1"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP0_16_R_1"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP0_071_R_1"
+                    style="@style/FieldOfForm1" />
+
+
+
+
+
+            </LinearLayout>
+
+            <!-- Строка рецепта Отсек №2-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/HeadPP_R_2"
+                    style="@style/HeadFieldOfForm2"
+                    android:layout_width="80dp"
+                    android:text="@string/Otsek2" />
+                <Button
+                    android:id="@+id/SOD2Minus"
+                    style="@style/Button2"
+                    android:text="@string/minus"
+
+                    />
+                <EditText
+                    android:id="@+id/SOD2"
+                    style="@style/Button2"
+                    android:text="0"
+                    />
+
+                <Button
+                    android:id="@+id/SOD2Plus"
+                    style="@style/Button2"
+                    android:text="@string/plus"
+
+                    />
+
+                <TextView
+                    android:id="@+id/PP40_R_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PP20_R_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PP15_R_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PP10_R_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PP5_R_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PP2_5_R_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PP1_25_R_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PP0_63_R_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PP0_315_R_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PP0_16_R_2"
+                    style="@style/FieldOfForm2" />
+
+                <TextView
+                    android:id="@+id/PP0_071_R_2"
+                    style="@style/FieldOfForm2" />
+
+
+
+
+
+            </LinearLayout>
+
+            <!-- Строка рецепта Отсек №3-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/HeadPP_R_3"
+                    style="@style/HeadFieldOfForm3"
+                    android:layout_width="80dp"
+                    android:text="@string/Otsek3" />
+                <Button
+                    android:id="@+id/SOD3Minus"
+                    style="@style/Button3"
+                    android:text="@string/minus"
+
+                    />
+                <EditText
+                    android:id="@+id/SOD3"
+                    style="@style/Button3"
+                    android:text="0"
+                    />
+
+                <Button
+                    android:id="@+id/SOD3Plus"
+                    style="@style/Button3"
+                    android:text="@string/plus"
+
+                    />
+
+                <TextView
+                    android:id="@+id/PP40_R_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PP20_R_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PP15_R_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PP10_R_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PP5_R_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PP2_5_R_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PP1_25_R_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PP0_63_R_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PP0_315_R_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PP0_16_R_3"
+                    style="@style/FieldOfForm3" />
+
+                <TextView
+                    android:id="@+id/PP0_071_R_3"
+                    style="@style/FieldOfForm3" />
+
+
+
+
+            </LinearLayout>
+
+            <!-- Строка рецепта Отсек №4-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/HeadPP_R_4"
+                    style="@style/HeadFieldOfForm4"
+                    android:layout_width="80dp"
+                    android:text="@string/Otsek4" />
+                <Button
+                    android:id="@+id/SOD4Minus"
+                    style="@style/Button4"
+                    android:text="@string/minus"
+
+                    />
+                <EditText
+                    android:id="@+id/SOD4"
+                    style="@style/Button4"
+                    android:text="0"
+                    />
+
+                <Button
+                    android:id="@+id/SOD4Plus"
+                    style="@style/Button4"
+                    android:text="@string/plus"
+
+                    />
+
+                <TextView
+                    android:id="@+id/PP40_R_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PP20_R_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PP15_R_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PP10_R_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PP5_R_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PP2_5_R_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PP1_25_R_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PP0_63_R_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PP0_315_R_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PP0_16_R_4"
+                    style="@style/FieldOfForm4" />
+
+                <TextView
+                    android:id="@+id/PP0_071_R_4"
+                    style="@style/FieldOfForm4" />
+
+
+
+
+
+            </LinearLayout>
+
+            <!-- Строка рецепта Отсек №5-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/HeadPP_R_5"
+                    style="@style/HeadFieldOfForm5"
+                    android:layout_width="80dp"
+                    android:text="@string/Otsek5" />
+                <Button
+                    android:id="@+id/SOD5Minus"
+                    style="@style/Button5"
+                    android:text="@string/minus"
+
+                    />
+                <EditText
+                    android:id="@+id/SOD5"
+                    style="@style/Button5"
+                    android:text="0"
+                    />
+
+                <Button
+                    android:id="@+id/SOD5Plus"
+                    style="@style/Button5"
+                    android:text="@string/plus"
+
+                    />
+
+                <TextView
+                    android:id="@+id/PP40_R_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PP20_R_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PP15_R_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PP10_R_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PP5_R_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PP2_5_R_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PP1_25_R_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PP0_63_R_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PP0_315_R_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PP0_16_R_5"
+                    style="@style/FieldOfForm5" />
+
+                <TextView
+                    android:id="@+id/PP0_071_R_5"
+                    style="@style/FieldOfForm5" />
+
+
+
+
+
+            </LinearLayout>
+
+            <!-- Строка рецепта Отсек №6-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/HeadPP_R_6"
+                    style="@style/HeadFieldOfForm6"
+                    android:layout_width="80dp"
+                    android:text="@string/Otsek6" />
+                <Button
+                    android:id="@+id/SOD6Minus"
+                    style="@style/Button6"
+                    android:text="@string/minus"
+
+                    />
+                <EditText
+                    android:id="@+id/SOD6"
+                    style="@style/Button6"
+                    android:text="0"
+                    />
+
+                <Button
+                    android:id="@+id/SOD6Plus"
+                    style="@style/Button6"
+                    android:text="@string/plus"
+
+                    />
+
+                <TextView
+                    android:id="@+id/PP40_R_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PP20_R_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PP15_R_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PP10_R_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PP5_R_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PP2_5_R_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PP1_25_R_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PP0_63_R_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PP0_315_R_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PP0_16_R_6"
+                    style="@style/FieldOfForm6" />
+
+                <TextView
+                    android:id="@+id/PP0_071_R_6"
+                    style="@style/FieldOfForm6" />
+
+
+
+
+
+            </LinearLayout>
+
+            <!-- Строка рецепта минеральный порошок-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/HeadPP_R_MP"
+                    style="@style/HeadFieldOfFormMP"
+                    android:layout_width="80dp"
+                    android:text="@string/MP" />
+                <Button
+                    android:id="@+id/SODMPMinus"
+                    style="@style/ButtonMP"
+                    android:text="@string/minus"
+
+                    />
+                <EditText
+                    android:id="@+id/SODMP"
+                    style="@style/ButtonMP"
+                    android:text="0"
+                    />
+
+                <Button
+                    android:id="@+id/SODMPPlus"
+                    style="@style/ButtonMP"
+                    android:text="@string/plus"
+
+                    />
+
+                <TextView
+                    android:id="@+id/PP40_R_MP"
+                    style="@style/FieldOfFormMP" />
+
+                <TextView
+                    android:id="@+id/PP20_R_MP"
+                    style="@style/FieldOfFormMP" />
+
+                <TextView
+                    android:id="@+id/PP15_R_MP"
+                    style="@style/FieldOfFormMP" />
+
+                <TextView
+                    android:id="@+id/PP10_R_MP"
+                    style="@style/FieldOfFormMP" />
+
+                <TextView
+                    android:id="@+id/PP5_R_MP"
+                    style="@style/FieldOfFormMP" />
+
+                <TextView
+                    android:id="@+id/PP2_5_R_MP"
+                    style="@style/FieldOfFormMP" />
+
+                <TextView
+                    android:id="@+id/PP1_25_R_MP"
+                    style="@style/FieldOfFormMP" />
+
+                <TextView
+                    android:id="@+id/PP0_63_R_MP"
+                    style="@style/FieldOfFormMP" />
+
+                <TextView
+                    android:id="@+id/PP0_315_R_MP"
+                    style="@style/FieldOfFormMP" />
+
+                <TextView
+                    android:id="@+id/PP0_16_R_MP"
+                    style="@style/FieldOfFormMP" />
+
+                <TextView
+                    android:id="@+id/PP0_071_R_MP"
+                    style="@style/FieldOfFormMP" />
+
+
+
+
+
+            </LinearLayout>
+
+            <!-- Строка рецепта собственный заполнитель-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/HeadPP_R_SZ"
+                    style="@style/HeadFieldOfFormSZ"
+                    android:layout_width="80dp"
+                    android:text="@string/SZ" />
+                <Button
+                    android:id="@+id/SODSZMinus"
+                    style="@style/ButtonSZ"
+                    android:text="@string/minus"
+
+                    />
+                <EditText
+                    android:id="@+id/SODSZ"
+                    style="@style/ButtonSZ"
+                    android:text="0"
+                    />
+
+                <Button
+                    android:id="@+id/SODSZPlus"
+                    style="@style/ButtonSZ"
+                    android:text="@string/plus"
+
+                    />
+
+                <TextView
+                    android:id="@+id/PP40_R_SZ"
+                    style="@style/FieldOfFormSZ" />
+
+                <TextView
+                    android:id="@+id/PP20_R_SZ"
+                    style="@style/FieldOfFormSZ" />
+
+                <TextView
+                    android:id="@+id/PP15_R_SZ"
+                    style="@style/FieldOfFormSZ" />
+
+                <TextView
+                    android:id="@+id/PP10_R_SZ"
+                    style="@style/FieldOfFormSZ" />
+
+                <TextView
+                    android:id="@+id/PP5_R_SZ"
+                    style="@style/FieldOfFormSZ" />
+
+                <TextView
+                    android:id="@+id/PP2_5_R_SZ"
+                    style="@style/FieldOfFormSZ" />
+
+                <TextView
+                    android:id="@+id/PP1_25_R_SZ"
+                    style="@style/FieldOfFormSZ" />
+
+                <TextView
+                    android:id="@+id/PP0_63_R_SZ"
+                    style="@style/FieldOfFormSZ" />
+
+                <TextView
+                    android:id="@+id/PP0_315_R_SZ"
+                    style="@style/FieldOfFormSZ" />
+
+                <TextView
+                    android:id="@+id/PP0_16_R_SZ"
+                    style="@style/FieldOfFormSZ" />
+
+                <TextView
+                    android:id="@+id/PP0_071_R_SZ"
+                    style="@style/FieldOfFormSZ" />
+
+
+
+
+
+            </LinearLayout>
+
+            <!-- Строка рецепта требования ОТ-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    style="@style/HeadFieldOfFormResult"
+                    android:layout_width="80dp"
+                    android:text="@string/Mix" />
+
+                <TextView
+                    android:id="@+id/summa"
+                    style="@style/Summa"
+
+                    />
+
+
+                <TextView
+                    android:id="@+id/PP40_R_ResCurve"
+                    style="@style/FieldOfFormResult" />
+
+                <TextView
+                    android:id="@+id/PP20_R_ResCurve"
+                    style="@style/FieldOfFormResult" />
+
+                <TextView
+                    android:id="@+id/PP15_R_ResCurve"
+                    style="@style/FieldOfFormResult" />
+
+                <TextView
+                    android:id="@+id/PP10_R_ResCurve"
+                    style="@style/FieldOfFormResult" />
+
+                <TextView
+                    android:id="@+id/PP5_R_ResCurve"
+                    style="@style/FieldOfFormResult" />
+
+                <TextView
+                    android:id="@+id/PP2_5_R_ResCurve"
+                    style="@style/FieldOfFormResult" />
+
+                <TextView
+                    android:id="@+id/PP1_25_R_ResCurve"
+                    style="@style/FieldOfFormResult" />
+
+                <TextView
+                    android:id="@+id/PP0_63_R_ResCurve"
+                    style="@style/FieldOfFormResult" />
+
+                <TextView
+                    android:id="@+id/PP0_315_R_ResCurve"
+                    style="@style/FieldOfFormResult" />
+
+                <TextView
+                    android:id="@+id/PP0_16_R_ResCurve"
+                    style="@style/FieldOfFormResult" />
+
+                <TextView
+                    android:id="@+id/PP0_071_R_ResCurve"
+                    style="@style/FieldOfFormResult" />
+
+
+
+
+
+            </LinearLayout>
+
+            <!-- Строка рецепта требования ОТ-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/HeadPPOT"
+                    style="@style/HeadFieldOfForm1"
+                    android:layout_width="80dp"
+                    android:text="@string/Trebovania" />
+
+                <EditText
+
+                    style="@style/OTDO"
+
+                    android:text="@string/OT" />
+
+                <TextView
+                    android:id="@+id/PP40_R_OT"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP20_R_OT"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP15_R_OT"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP10_R_OT"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP5_R_OT"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP2_5_R_OT"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP1_25_R_OT"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP0_63_R_OT"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP0_315_R_OT"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP0_16_R_OT"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP0_071_R_OT"
+                    style="@style/FieldOfForm1" />
+
+
+
+
+
+            </LinearLayout>
+
+            <!-- Строка рецепта требования ДО-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/HeadPPDO"
+                    style="@style/HeadFieldOfForm1"
+                    android:layout_width="80dp"
+                    android:text="@string/GOST" />
+
+                <EditText
+
+                    style="@style/OTDO"
+
+                    android:text="@string/DO" />
+
+                <TextView
+                    android:id="@+id/PP40_R_DO"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP20_R_DO"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP15_R_DO"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP10_R_DO"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP5_R_DO"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP2_5_R_DO"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP1_25_R_DO"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP0_63_R_DO"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP0_315_R_DO"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP0_16_R_DO"
+                    style="@style/FieldOfForm1" />
+
+                <TextView
+                    android:id="@+id/PP0_071_R_DO"
+                    style="@style/FieldOfForm1" />
+
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
