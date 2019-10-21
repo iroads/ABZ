@@ -3,6 +3,7 @@ package ru.asphaltica.ABZ;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -989,14 +990,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Probezhka();
                 break;
 
-            case R.id.Keyboard:
+            //case R.id.Keyboard:
 
-                Intent intent = new Intent(this, Keyboard.class);
-                startActivity(intent);
-                break;
+                //Intent intent = new Intent(this, Keyboard.class);
+                //startActivity(intent);
+               // break;
 
         }
 
+        if (v.getId()==R.id.Keyboard ) {
+            Intent intent = new Intent(this, Keyboard.class);
+            intent.putExtra("OBJECT", MatBunker1);
+            startActivityForResult(intent,1);
+        }
+
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+        if (data == null) {return;}
+        MatBunker1 = (Material) data.getSerializableExtra("name");
+
+        for (int i = 0; i<CHOG.size(); i++) {
+            CHOG.get(i).setText(BigDecimal.valueOf(MatBunker1.CHOG[i]).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+        }
     }
 
     public  void FindById () {

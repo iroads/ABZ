@@ -1,5 +1,6 @@
 package ru.asphaltica.ABZ;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -32,11 +33,17 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
 
     String CHOG;
 
+    Material MatBunker1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keyboard);
+
+        Bundle arguments = getIntent().getExtras();
+        if (arguments != null) {
+            MatBunker1 = (Material) arguments.getSerializable("OBJECT");
+        }
 
         CHOG = "";
 
@@ -54,7 +61,7 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
 
         KeyBoardBackSpace.setOnClickListener(this);
         KeyBoardClear.setOnClickListener(this);
-
+        KeyBoardEndEdit.setOnClickListener(this);
 
 
 
@@ -66,7 +73,7 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
 
             case R.id.KeyBoard0: {
 
-                CHOG = CHOG + "0";
+                if (CHOG.length()>=1) CHOG = CHOG + "0";
                 Probezhka();
                 break;
             }
@@ -137,6 +144,9 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
 
             case R.id.KeyBoardBackSpace: {
 
+                if (CHOG.length() >= 1) CHOG = CHOG.substring(0, CHOG.length()-1);
+                //if (CHOG.length()==0) CHOG = "0";
+                Probezhka();
                 break;
             }
             case R.id.KeyBoardClear: {
@@ -146,7 +156,11 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
                 break;
             }
             case R.id.KeyBoardEndEdit: {
-
+                Intent intent = new Intent();
+                MatBunker1.CHOG[2] = Double.parseDouble(CHOG);
+                intent.putExtra("name", MatBunker1);
+                setResult(RESULT_OK, intent);
+                finish();
                 break;
             }
         }
