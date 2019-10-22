@@ -1019,7 +1019,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v.getId()==R.id.CHOG0_071 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-11;}
         if (v.getId()==R.id.CHOGDNO ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-12;}
 
-        if (PushChogDetector = true) {
+        if (PushChogDetector) {
+            PushChogDetector = false;
             Intent intent = new Intent(this, Keyboard.class);
             intent.putExtra("OBJECT", TransMaterial);
             intent.putExtra("CHOGID", ChogID);
