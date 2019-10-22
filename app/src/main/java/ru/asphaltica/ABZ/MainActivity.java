@@ -32,24 +32,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Material MatBunker1 = new Material();
 
-    ArrayList<EditText> CHOG = new ArrayList<EditText>(); // в этом массиве храним объекты типа View - поля ввода частных остатков в граммах для их перебора в цикле
+    ArrayList<TextView> CHOG = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля ввода частных остатков в граммах для их перебора в цикле
     ArrayList<TextView> CHOP = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля вывода частных остатков в процентах для их перебора в цикле
     ArrayList<TextView> PO = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля вывода полных остатков в процентах для их перебора в цикле
     ArrayList<TextView> PP = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля вывода полных проходов в процентах для их перебора в цикле
 
 
-    EditText CHOG40;
-    EditText CHOG20;
-    EditText CHOG15;
-    EditText CHOG10;
-    EditText CHOG5;
-    EditText CHOG2_5;
-    EditText CHOG1_25;
-    EditText CHOG0_63;
-    EditText CHOG0_315;
-    EditText CHOG0_16;
-    EditText CHOG0_071;
-    EditText CHOGDNO;
+    TextView CHOG40;
+    TextView CHOG20;
+    TextView CHOG15;
+    TextView CHOG10;
+    TextView CHOG5;
+    TextView CHOG2_5;
+    TextView CHOG1_25;
+    TextView CHOG0_63;
+    TextView CHOG0_315;
+    TextView CHOG0_16;
+    TextView CHOG0_071;
+    TextView CHOGDNO;
 
 
     TextView CHOP40;
@@ -657,6 +657,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             CHOG50.get(i).setOnFocusChangeListener(new MyOnFocusChageAction());
             CHOG6.get(i).setOnFocusChangeListener(new MyOnFocusChageAction());
 
+            CHOG.get(i).setOnClickListener(this);
+
             if (i<6) {
                 CHOG_MP.get(i).setOnFocusChangeListener(new MyOnFocusChageAction());
                 CHOG_SZ.get(i).setOnFocusChangeListener(new MyOnFocusChageAction());
@@ -998,13 +1000,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
-        if (v.getId()==R.id.Keyboard ) {
+        boolean PushChogDetector = false;
+        Material TransMaterial = new Material();
+        int ChogID = 0;
+        int BunkerID = 0;
+
+
+        if (v.getId()==R.id.CHOG40 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-1;}
+        if (v.getId()==R.id.CHOG20 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-2;}
+        if (v.getId()==R.id.CHOG15 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-3;}
+        if (v.getId()==R.id.CHOG10 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-4;}
+        if (v.getId()==R.id.CHOG5 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-5;}
+        if (v.getId()==R.id.CHOG2_5 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-6;}
+        if (v.getId()==R.id.CHOG1_25 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-7;}
+        if (v.getId()==R.id.CHOG0_63 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-8;}
+        if (v.getId()==R.id.CHOG0_315 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-9;}
+        if (v.getId()==R.id.CHOG0_16 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-10;}
+        if (v.getId()==R.id.CHOG0_071 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-11;}
+        if (v.getId()==R.id.CHOGDNO ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-12;}
+
+        if (PushChogDetector = true) {
             Intent intent = new Intent(this, Keyboard.class);
-            intent.putExtra("OBJECT", MatBunker1);
+            intent.putExtra("OBJECT", TransMaterial);
+            intent.putExtra("CHOGID", ChogID);
+            intent.putExtra("BUNKERID", BunkerID);
             startActivityForResult(intent,1);
         }
-
-
     }
 
     @Override
@@ -1022,18 +1043,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Связываем объекты с полями xml формы - Таблица зернового состава №1
 
-        CHOG40 = (EditText) findViewById(R.id.CHOG40);
-        CHOG20 = (EditText) findViewById(R.id.CHOG20);
-        CHOG15 = (EditText) findViewById(R.id.CHOG15);
-        CHOG10 = (EditText) findViewById(R.id.CHOG10);
-        CHOG5 = (EditText) findViewById(R.id.CHOG5);
-        CHOG2_5 = (EditText) findViewById(R.id.CHOG2_5);
-        CHOG1_25 = (EditText) findViewById(R.id.CHOG1_25);
-        CHOG0_63 = (EditText) findViewById(R.id.CHOG0_63);
-        CHOG0_315 = (EditText) findViewById(R.id.CHOG0_315);
-        CHOG0_16 = (EditText) findViewById(R.id.CHOG0_16);
-        CHOG0_071 = (EditText) findViewById(R.id.CHOG0_071);
-        CHOGDNO = (EditText) findViewById(R.id.CHOGDNO);
+        CHOG40 = (TextView) findViewById(R.id.CHOG40);
+        CHOG20 = (TextView) findViewById(R.id.CHOG20);
+        CHOG15 = (TextView) findViewById(R.id.CHOG15);
+        CHOG10 = (TextView) findViewById(R.id.CHOG10);
+        CHOG5 = (TextView) findViewById(R.id.CHOG5);
+        CHOG2_5 = (TextView) findViewById(R.id.CHOG2_5);
+        CHOG1_25 = (TextView) findViewById(R.id.CHOG1_25);
+        CHOG0_63 = (TextView) findViewById(R.id.CHOG0_63);
+        CHOG0_315 = (TextView) findViewById(R.id.CHOG0_315);
+        CHOG0_16 = (TextView) findViewById(R.id.CHOG0_16);
+        CHOG0_071 = (TextView) findViewById(R.id.CHOG0_071);
+        CHOGDNO = (TextView) findViewById(R.id.CHOGDNO);
 
         // Кладем подготовленные и связанные объекты в массив
 

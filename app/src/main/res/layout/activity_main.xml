@@ -131,54 +131,54 @@
                     style="@style/HeadFieldOfForm1"
                     android:text="@string/CHOG" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG40"
                     style="@style/FieldOfForm1SmallText"
                     android:inputType="numberDecimal" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG20"
                     style="@style/FieldOfForm1SmallText"
                     />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG15"
                     style="@style/FieldOfForm1SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG10"
                     style="@style/FieldOfForm1SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG5"
                     style="@style/FieldOfForm1SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG2_5"
                     style="@style/FieldOfForm1SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG1_25"
                     style="@style/FieldOfForm1SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG0_63"
                     style="@style/FieldOfForm1SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG0_315"
                     style="@style/FieldOfForm1SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG0_16"
                     style="@style/FieldOfForm1SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG0_071"
                     style="@style/FieldOfForm1SmallText" />
 
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOGDNO"
                     style="@style/FieldOfForm1SmallText" />
 

@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
+
 public class Keyboard extends AppCompatActivity implements View.OnClickListener {
 
     Button KeyBoard0;
@@ -33,7 +35,9 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
 
     String CHOG;
 
-    Material MatBunker1;
+    Material TransMaterial;
+    int ChogID;
+    int BunkerID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +46,12 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
 
         Bundle arguments = getIntent().getExtras();
         if (arguments != null) {
-            MatBunker1 = (Material) arguments.getSerializable("OBJECT");
+            TransMaterial = (Material) arguments.getSerializable("OBJECT");
+            ChogID = arguments.getInt("CHOGID");
+            BunkerID = arguments.getInt("BUNKERID");
         }
 
-        CHOG = "";
-
-       ViewInit();
+        ViewInit();
         KeyBoard0.setOnClickListener(this);
         KeyBoard1.setOnClickListener(this);
         KeyBoard2.setOnClickListener(this);
@@ -63,7 +67,15 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
         KeyBoardClear.setOnClickListener(this);
         KeyBoardEndEdit.setOnClickListener(this);
 
+        KeyBoardLeftValue.setOnClickListener(this);
+        KeyBoardRightValue.setOnClickListener(this);
 
+        KeyBoardOtsek.setText("Отсек№"+BunkerID);
+        KeyBoardSito.setText("Сито "+TransMaterial.Sita.get(ChogID));
+
+        int yourScale0 = 0;
+        CHOG = BigDecimal.valueOf(TransMaterial.CHOG[ChogID]).setScale(yourScale0, BigDecimal.ROUND_HALF_UP).toString();
+        KeyBoardCHOG.setText(CHOG);
 
     }
 
@@ -79,65 +91,89 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
             }
             case R.id.KeyBoard1: {
 
-                CHOG = CHOG + "1";
+                if (CHOG.equals("0")) CHOG = "1";
+                else CHOG = CHOG + "1";
                 Probezhka();
                 break;
             }
             case R.id.KeyBoard2: {
 
-                CHOG = CHOG + "2";
+                if (CHOG.equals("0")) CHOG = "2";
+                else CHOG = CHOG + "2";
                 Probezhka();
                 break;
             }
             case R.id.KeyBoard3: {
 
-                CHOG = CHOG + "3";
+                if (CHOG.equals("0")) CHOG = "3";
+                else CHOG = CHOG + "3";
                 Probezhka();
                 break;
             }
             case R.id.KeyBoard4: {
 
-                CHOG = CHOG + "4";
+                if (CHOG.equals("0")) CHOG = "4";
+                else CHOG = CHOG + "4";
                 Probezhka();
                 break;
             }
             case R.id.KeyBoard5: {
 
-                CHOG = CHOG + "5";
+                if (CHOG.equals("0")) CHOG = "5";
+                else CHOG = CHOG + "5";
                 Probezhka();
                 break;
             }
             case R.id.KeyBoard6: {
 
-                CHOG = CHOG + "6";
+                if (CHOG.equals("0")) CHOG = "6";
+                else CHOG = CHOG + "6";
                 Probezhka();
                 break;
             }
             case R.id.KeyBoard7: {
 
-                CHOG = CHOG + "7";
+                if (CHOG.equals("0")) CHOG = "7";
+                else CHOG = CHOG + "7";
                 Probezhka();
                 break;
             }
             case R.id.KeyBoard8: {
 
-                CHOG = CHOG + "8";
+                if (CHOG.equals("0")) CHOG = "8";
+                else CHOG = CHOG + "8";
                 Probezhka();
                 break;
             }
             case R.id.KeyBoard9: {
 
-                CHOG = CHOG + "9";
+                if (CHOG.equals("0")) CHOG = "9";
+                else CHOG = CHOG + "9";
                 Probezhka();
                 break;
             }
             case R.id.KeyBoardLeftValue: {
 
-
-
+                if (ChogID != TransMaterial.CHOG.length-1) {
+                    int yourScale0 = 0;
+                    TransMaterial.CHOG[ChogID] = Double.parseDouble(CHOG);
+                    ChogID = ChogID + 1;
+                    CHOG = BigDecimal.valueOf(TransMaterial.CHOG[ChogID]).setScale(yourScale0, BigDecimal.ROUND_HALF_UP).toString();
+                    KeyBoardCHOG.setText(CHOG);
+                    KeyBoardSito.setText("Сито "+TransMaterial.Sita.get(ChogID));
+                }
                 break;
             }
             case R.id.KeyBoardRightValue: {
+
+                if (ChogID!=0) {
+                    int yourScale0 = 0;
+                    TransMaterial.CHOG[ChogID] = Double.parseDouble(CHOG);
+                    ChogID = ChogID - 1;
+                    CHOG = BigDecimal.valueOf(TransMaterial.CHOG[ChogID]).setScale(yourScale0, BigDecimal.ROUND_HALF_UP).toString();
+                    KeyBoardCHOG.setText(CHOG);
+                    KeyBoardSito.setText("Сито "+TransMaterial.Sita.get(ChogID));
+                }
 
                 break;
             }
@@ -145,20 +181,18 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
             case R.id.KeyBoardBackSpace: {
 
                 if (CHOG.length() >= 1) CHOG = CHOG.substring(0, CHOG.length()-1);
-                //if (CHOG.length()==0) CHOG = "0";
                 Probezhka();
                 break;
             }
             case R.id.KeyBoardClear: {
-
                 CHOG = "";
                 Probezhka();
                 break;
             }
             case R.id.KeyBoardEndEdit: {
                 Intent intent = new Intent();
-                MatBunker1.CHOG[2] = Double.parseDouble(CHOG);
-                intent.putExtra("name", MatBunker1);
+                TransMaterial.CHOG[ChogID] = Double.parseDouble(CHOG);
+                intent.putExtra("name", TransMaterial);
                 setResult(RESULT_OK, intent);
                 finish();
                 break;
@@ -193,10 +227,16 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
     }
 
     public void Probezhka () {
-
-
         KeyBoardCHOG.setText(CHOG);
+    }
 
+    @Override
+    public void onBackPressed() {
 
+        Intent intent = new Intent();
+        TransMaterial.CHOG[ChogID] = Double.parseDouble(CHOG);
+        intent.putExtra("name", TransMaterial);
+        setResult(RESULT_OK, intent);
+        finish();
     }
 }
