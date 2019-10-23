@@ -85,7 +85,7 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
 
             case R.id.KeyBoard0: {
 
-                if (CHOG.length()>=1) CHOG = CHOG + "0";
+                if (CHOG.length()>=1 && CHOG.equals("0") == false) CHOG = CHOG + "0";
                 Probezhka();
                 break;
             }
@@ -179,20 +179,22 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
             }
 
             case R.id.KeyBoardBackSpace: {
+                if (CHOG.length() == 1) CHOG = "0"; else
+                if (CHOG.length() > 1)  CHOG = CHOG.substring(0, CHOG.length()-1);
 
-                if (CHOG.length() >= 1) CHOG = CHOG.substring(0, CHOG.length()-1);
                 Probezhka();
                 break;
             }
             case R.id.KeyBoardClear: {
-                CHOG = "";
+                CHOG = "0";
                 Probezhka();
                 break;
             }
             case R.id.KeyBoardEndEdit: {
                 Intent intent = new Intent();
                 TransMaterial.CHOG[ChogID] = Double.parseDouble(CHOG);
-                intent.putExtra("name", TransMaterial);
+                intent.putExtra("OBJECT_BACK", TransMaterial);
+                intent.putExtra("BUNKERID_BACK", BunkerID);
                 setResult(RESULT_OK, intent);
                 finish();
                 break;
@@ -235,7 +237,8 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
 
         Intent intent = new Intent();
         TransMaterial.CHOG[ChogID] = Double.parseDouble(CHOG);
-        intent.putExtra("name", TransMaterial);
+        intent.putExtra("OBJECT_BACK", TransMaterial);
+        intent.putExtra("BUNKERID_BACK", BunkerID);
         setResult(RESULT_OK, intent);
         finish();
     }

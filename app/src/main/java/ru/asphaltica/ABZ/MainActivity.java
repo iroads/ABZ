@@ -22,7 +22,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Spinner SpinnerMixType;
-    String [] Mixes = {"Тип А", "Тип Б","Тип В","Тип Г", "ЩМА-10", "ЩМА-15", "ЩМА-20"};
+    String[] Mixes = {"Тип А", "Тип Б", "Тип В", "Тип Г", "ЩМА-10", "ЩМА-15", "ЩМА-20"};
 
     Recept recept = new Recept();
 
@@ -489,17 +489,94 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ArrayList<TextView> PP_R_MP = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля отображения проходов с учетом содержания компонента
     ArrayList<TextView> PP_R_SZ = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля отображения проходов с учетом содержания компонента
 
-    TextView PP40_R_1; TextView PP40_R_2; TextView PP40_R_3; TextView PP40_R_4; TextView PP40_R_5; TextView PP40_R_6; TextView PP40_R_MP; TextView PP40_R_SZ;
-    TextView PP20_R_1; TextView PP20_R_2; TextView PP20_R_3; TextView PP20_R_4; TextView PP20_R_5; TextView PP20_R_6; TextView PP20_R_MP; TextView PP20_R_SZ;
-    TextView PP15_R_1; TextView PP15_R_2; TextView PP15_R_3; TextView PP15_R_4; TextView PP15_R_5; TextView PP15_R_6; TextView PP15_R_MP; TextView PP15_R_SZ;
-    TextView PP10_R_1; TextView PP10_R_2; TextView PP10_R_3; TextView PP10_R_4; TextView PP10_R_5; TextView PP10_R_6; TextView PP10_R_MP; TextView PP10_R_SZ;
-    TextView PP5_R_1; TextView PP5_R_2; TextView PP5_R_3; TextView PP5_R_4; TextView PP5_R_5; TextView PP5_R_6; TextView PP5_R_MP; TextView PP5_R_SZ;
-    TextView PP2_5_R_1; TextView PP2_5_R_2; TextView PP2_5_R_3; TextView PP2_5_R_4; TextView PP2_5_R_5; TextView PP2_5_R_6; TextView PP2_5_R_MP; TextView PP2_5_R_SZ;
-    TextView PP1_25_R_1; TextView PP1_25_R_2; TextView PP1_25_R_3; TextView PP1_25_R_4; TextView PP1_25_R_5; TextView PP1_25_R_6; TextView PP1_25_R_MP; TextView PP1_25_R_SZ;
-    TextView PP0_63_R_1; TextView PP0_63_R_2; TextView PP0_63_R_3; TextView PP0_63_R_4; TextView PP0_63_R_5; TextView PP0_63_R_6; TextView PP0_63_R_MP; TextView PP0_63_R_SZ;
-    TextView PP0_315_R_1; TextView PP0_315_R_2; TextView PP0_315_R_3; TextView PP0_315_R_4; TextView PP0_315_R_5; TextView PP0_315_R_6; TextView PP0_315_R_MP; TextView PP0_315_R_SZ;
-    TextView PP0_16_R_1; TextView PP0_16_R_2; TextView PP0_16_R_3; TextView PP0_16_R_4; TextView PP0_16_R_5; TextView PP0_16_R_6; TextView PP0_16_R_MP; TextView PP0_16_R_SZ;
-    TextView PP0_071_R_1; TextView PP0_071_R_2; TextView PP0_071_R_3; TextView PP0_071_R_4; TextView PP0_071_R_5; TextView PP0_071_R_6; TextView PP0_071_R_MP; TextView PP0_071_R_SZ;
+    TextView PP40_R_1;
+    TextView PP40_R_2;
+    TextView PP40_R_3;
+    TextView PP40_R_4;
+    TextView PP40_R_5;
+    TextView PP40_R_6;
+    TextView PP40_R_MP;
+    TextView PP40_R_SZ;
+    TextView PP20_R_1;
+    TextView PP20_R_2;
+    TextView PP20_R_3;
+    TextView PP20_R_4;
+    TextView PP20_R_5;
+    TextView PP20_R_6;
+    TextView PP20_R_MP;
+    TextView PP20_R_SZ;
+    TextView PP15_R_1;
+    TextView PP15_R_2;
+    TextView PP15_R_3;
+    TextView PP15_R_4;
+    TextView PP15_R_5;
+    TextView PP15_R_6;
+    TextView PP15_R_MP;
+    TextView PP15_R_SZ;
+    TextView PP10_R_1;
+    TextView PP10_R_2;
+    TextView PP10_R_3;
+    TextView PP10_R_4;
+    TextView PP10_R_5;
+    TextView PP10_R_6;
+    TextView PP10_R_MP;
+    TextView PP10_R_SZ;
+    TextView PP5_R_1;
+    TextView PP5_R_2;
+    TextView PP5_R_3;
+    TextView PP5_R_4;
+    TextView PP5_R_5;
+    TextView PP5_R_6;
+    TextView PP5_R_MP;
+    TextView PP5_R_SZ;
+    TextView PP2_5_R_1;
+    TextView PP2_5_R_2;
+    TextView PP2_5_R_3;
+    TextView PP2_5_R_4;
+    TextView PP2_5_R_5;
+    TextView PP2_5_R_6;
+    TextView PP2_5_R_MP;
+    TextView PP2_5_R_SZ;
+    TextView PP1_25_R_1;
+    TextView PP1_25_R_2;
+    TextView PP1_25_R_3;
+    TextView PP1_25_R_4;
+    TextView PP1_25_R_5;
+    TextView PP1_25_R_6;
+    TextView PP1_25_R_MP;
+    TextView PP1_25_R_SZ;
+    TextView PP0_63_R_1;
+    TextView PP0_63_R_2;
+    TextView PP0_63_R_3;
+    TextView PP0_63_R_4;
+    TextView PP0_63_R_5;
+    TextView PP0_63_R_6;
+    TextView PP0_63_R_MP;
+    TextView PP0_63_R_SZ;
+    TextView PP0_315_R_1;
+    TextView PP0_315_R_2;
+    TextView PP0_315_R_3;
+    TextView PP0_315_R_4;
+    TextView PP0_315_R_5;
+    TextView PP0_315_R_6;
+    TextView PP0_315_R_MP;
+    TextView PP0_315_R_SZ;
+    TextView PP0_16_R_1;
+    TextView PP0_16_R_2;
+    TextView PP0_16_R_3;
+    TextView PP0_16_R_4;
+    TextView PP0_16_R_5;
+    TextView PP0_16_R_6;
+    TextView PP0_16_R_MP;
+    TextView PP0_16_R_SZ;
+    TextView PP0_071_R_1;
+    TextView PP0_071_R_2;
+    TextView PP0_071_R_3;
+    TextView PP0_071_R_4;
+    TextView PP0_071_R_5;
+    TextView PP0_071_R_6;
+    TextView PP0_071_R_MP;
+    TextView PP0_071_R_SZ;
 
     ArrayList<TextView> PP_R_OT = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля отображения нормативных проходов
 
@@ -659,7 +736,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             CHOG.get(i).setOnClickListener(this);
 
-            if (i<6) {
+            if (i < 6) {
                 CHOG_MP.get(i).setOnFocusChangeListener(new MyOnFocusChageAction());
                 CHOG_SZ.get(i).setOnFocusChangeListener(new MyOnFocusChageAction());
             }
@@ -674,27 +751,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String Selected = SpinnerMixType.getSelectedItem().toString();
 
                 if (Selected.equals(Mixes[0])) {
-                    for (int i = 0; i < 11; i++ ) {
+                    for (int i = 0; i < 11; i++) {
                         PP_R_OT.get(i).setText(TipAUp[i]);
                         PP_R_DO.get(i).setText(TipADown[i]);
                     }
 
                 }
                 if (Selected.equals(Mixes[1])) {
-                    for (int i = 0; i < 11; i++ ) {
+                    for (int i = 0; i < 11; i++) {
                         PP_R_OT.get(i).setText(TipBUp[i]);
                         PP_R_DO.get(i).setText(TipBDown[i]);
                     }
 
                 }
                 if (Selected.equals(Mixes[2])) {
-                    for (int i = 0; i < 11; i++ ) {
+                    for (int i = 0; i < 11; i++) {
                         PP_R_OT.get(i).setText(TipWUp[i]);
                         PP_R_DO.get(i).setText(TipWDown[i]);
                     }
 
                 }
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
             }
@@ -708,7 +786,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             CHOG50.get(i).setText("0");
             CHOG6.get(i).setText("0");
 
-            if (i<6) {
+            if (i < 6) {
                 CHOG_MP.get(i).setText("0");
                 CHOG_SZ.get(i).setText("0");
             }
@@ -727,7 +805,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
     private class MyOnFocusChageAction implements TextView.OnFocusChangeListener {
 
         @Override
@@ -736,21 +813,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void Probezhka(){
+    private void Probezhka() {
 
-        for (int i = 0; i<12; i++ ) {
+        for (int i = 0; i < 12; i++) {
 
-           MatBunker1.CHOG[i] = Double.parseDouble(CHOG.get(i).getText().toString());
-           MatBunker2.CHOG[i] = Double.parseDouble(CHOG2.get(i).getText().toString());
-           MatBunker3.CHOG[i] = Double.parseDouble(CHOG3.get(i).getText().toString());
-           MatBunker4.CHOG[i] = Double.parseDouble(CHOG4.get(i).getText().toString());
-           MatBunker5.CHOG[i] = Double.parseDouble(CHOG50.get(i).getText().toString());
-           MatBunker6.CHOG[i] = Double.parseDouble(CHOG6.get(i).getText().toString());
+            MatBunker1.CHOG[i] = Double.parseDouble(CHOG.get(i).getText().toString());
+            MatBunker2.CHOG[i] = Double.parseDouble(CHOG2.get(i).getText().toString());
+            MatBunker3.CHOG[i] = Double.parseDouble(CHOG3.get(i).getText().toString());
+            MatBunker4.CHOG[i] = Double.parseDouble(CHOG4.get(i).getText().toString());
+            MatBunker5.CHOG[i] = Double.parseDouble(CHOG50.get(i).getText().toString());
+            MatBunker6.CHOG[i] = Double.parseDouble(CHOG6.get(i).getText().toString());
 
-           if (i<6) {
-               MatBunkerMP.CHOG[i] = Double.parseDouble(CHOG_MP.get(i).getText().toString());
-               MatBunkerSZ.CHOG[i] = Double.parseDouble(CHOG_SZ.get(i).getText().toString());
-           }
+            if (i < 6) {
+                MatBunkerMP.CHOG[i] = Double.parseDouble(CHOG_MP.get(i).getText().toString());
+                MatBunkerSZ.CHOG[i] = Double.parseDouble(CHOG_SZ.get(i).getText().toString());
+            }
 
         }
 
@@ -787,7 +864,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         MatBunkerSZ.FullOst();
 
 
-        for (int i = 0; i<12; i++) {
+        for (int i = 0; i < 12; i++) {
 
             int yourScale1 = 1;
 
@@ -815,7 +892,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             PO6.get(i).setText(BigDecimal.valueOf(MatBunker6.FullOst[i]).setScale(yourScale1, BigDecimal.ROUND_HALF_UP).toString());
             PP6.get(i).setText(BigDecimal.valueOf(MatBunker6.FullPr[i]).setScale(yourScale1, BigDecimal.ROUND_HALF_UP).toString());
 
-            if (i<6) {
+            if (i < 6) {
                 CHOP_MP.get(i).setText(BigDecimal.valueOf(MatBunkerMP.CHOP[i]).setScale(yourScale1, BigDecimal.ROUND_HALF_UP).toString());
                 PO_MP.get(i).setText(BigDecimal.valueOf(MatBunkerMP.FullOst[i]).setScale(yourScale1, BigDecimal.ROUND_HALF_UP).toString());
                 PP_MP.get(i).setText(BigDecimal.valueOf(MatBunkerMP.FullPr[i]).setScale(yourScale1, BigDecimal.ROUND_HALF_UP).toString());
@@ -836,21 +913,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         recept.SODSZ = Double.parseDouble(SODSZ.getText().toString());
 
         for (int i = 0; i < 11; i++) {
-           recept.PP1[i] =  Double.parseDouble(PP.get(i+1).getText().toString());
-           recept.PP2[i] = Double.parseDouble(PP2.get(i+1).getText().toString());
-           recept.PP3[i] =  Double.parseDouble(PP3.get(i+1).getText().toString());
-           recept.PP4[i] =  Double.parseDouble(PP4.get(i+1).getText().toString());
-           recept.PP5[i] =  Double.parseDouble(PP50.get(i+1).getText().toString());
-           recept.PP6[i] =  Double.parseDouble(PP6.get(i+1).getText().toString());
+            recept.PP1[i] = Double.parseDouble(PP.get(i + 1).getText().toString());
+            recept.PP2[i] = Double.parseDouble(PP2.get(i + 1).getText().toString());
+            recept.PP3[i] = Double.parseDouble(PP3.get(i + 1).getText().toString());
+            recept.PP4[i] = Double.parseDouble(PP4.get(i + 1).getText().toString());
+            recept.PP5[i] = Double.parseDouble(PP50.get(i + 1).getText().toString());
+            recept.PP6[i] = Double.parseDouble(PP6.get(i + 1).getText().toString());
         }
         for (int i = 0; i < 5; i++) {
-            recept.PPMP[i] = Double.parseDouble(PP_MP.get(i+1).getText().toString());
-            recept.PPSZ[i] = Double.parseDouble(PP_SZ.get(i+1).getText().toString());
+            recept.PPMP[i] = Double.parseDouble(PP_MP.get(i + 1).getText().toString());
+            recept.PPSZ[i] = Double.parseDouble(PP_SZ.get(i + 1).getText().toString());
         }
 
         recept.Calculate();
 
-       for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < 11; i++) {
             int yourScale1 = 1;
             PP_R_1.get(i).setText(BigDecimal.valueOf(recept.PP1R[i]).setScale(yourScale1, BigDecimal.ROUND_HALF_UP).toString());
             PP_R_2.get(i).setText(BigDecimal.valueOf(recept.PP2R[i]).setScale(yourScale1, BigDecimal.ROUND_HALF_UP).toString());
@@ -878,125 +955,125 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
 
 
-                case R.id.SOD1Minus:
+            case R.id.SOD1Minus:
 
-                    number = Double.parseDouble(SOD1.getText().toString())-1;
-                    if (number >= 0) SOD1.setText(number.toString());
-                    Probezhka();
+                number = Double.parseDouble(SOD1.getText().toString()) - 1;
+                if (number >= 0) SOD1.setText(number.toString());
+                Probezhka();
 
-                    break;
+                break;
 
-                case R.id.SOD1Plus:
+            case R.id.SOD1Plus:
 
-                    number = Double.parseDouble(SOD1.getText().toString())+1;
-                    SOD1.setText(number.toString());
-                    Probezhka();
+                number = Double.parseDouble(SOD1.getText().toString()) + 1;
+                SOD1.setText(number.toString());
+                Probezhka();
 
-                    break;
+                break;
 
-                case R.id.SOD2Minus:
+            case R.id.SOD2Minus:
 
-                    number = Double.parseDouble(SOD2.getText().toString())-1;
-                    if (number >= 0) SOD2.setText(number.toString());
-                    Probezhka();
-                    break;
+                number = Double.parseDouble(SOD2.getText().toString()) - 1;
+                if (number >= 0) SOD2.setText(number.toString());
+                Probezhka();
+                break;
 
-                case R.id.SOD2Plus:
+            case R.id.SOD2Plus:
 
-                    number = Double.parseDouble(SOD2.getText().toString())+1;
-                    SOD2.setText(number.toString());
-                    Probezhka();
-                    break;
+                number = Double.parseDouble(SOD2.getText().toString()) + 1;
+                SOD2.setText(number.toString());
+                Probezhka();
+                break;
 
             case R.id.SOD3Minus:
 
-                number = Double.parseDouble(SOD3.getText().toString())-1;
+                number = Double.parseDouble(SOD3.getText().toString()) - 1;
                 if (number >= 0) SOD3.setText(number.toString());
                 Probezhka();
                 break;
 
             case R.id.SOD3Plus:
 
-                number = Double.parseDouble(SOD3.getText().toString())+1;
+                number = Double.parseDouble(SOD3.getText().toString()) + 1;
                 SOD3.setText(number.toString());
                 Probezhka();
                 break;
 
-                case R.id.SOD4Minus:
+            case R.id.SOD4Minus:
 
-                number = Double.parseDouble(SOD4.getText().toString())-1;
+                number = Double.parseDouble(SOD4.getText().toString()) - 1;
                 if (number >= 0) SOD4.setText(number.toString());
-                    Probezhka();
+                Probezhka();
                 break;
 
             case R.id.SOD4Plus:
 
-                number = Double.parseDouble(SOD4.getText().toString())+1;
+                number = Double.parseDouble(SOD4.getText().toString()) + 1;
                 SOD4.setText(number.toString());
                 Probezhka();
                 break;
 
             case R.id.SOD5Minus:
 
-                number = Double.parseDouble(SOD5.getText().toString())-1;
+                number = Double.parseDouble(SOD5.getText().toString()) - 1;
                 if (number >= 0) SOD5.setText(number.toString());
                 Probezhka();
                 break;
 
             case R.id.SOD5Plus:
 
-                number = Double.parseDouble(SOD5.getText().toString())+1;
+                number = Double.parseDouble(SOD5.getText().toString()) + 1;
                 SOD5.setText(number.toString());
                 Probezhka();
                 break;
 
-                case R.id.SOD6Minus:
+            case R.id.SOD6Minus:
 
-                number = Double.parseDouble(SOD6.getText().toString())-1;
+                number = Double.parseDouble(SOD6.getText().toString()) - 1;
                 if (number >= 0) SOD6.setText(number.toString());
                 Probezhka();
                 break;
 
             case R.id.SOD6Plus:
 
-                number = Double.parseDouble(SOD6.getText().toString())+1;
+                number = Double.parseDouble(SOD6.getText().toString()) + 1;
                 SOD6.setText(number.toString());
                 Probezhka();
                 break;
 
             case R.id.SODMPMinus:
 
-                number = Double.parseDouble(SODMP.getText().toString())-1;
+                number = Double.parseDouble(SODMP.getText().toString()) - 1;
                 if (number >= 0) SODMP.setText(number.toString());
                 Probezhka();
                 break;
 
             case R.id.SODMPPlus:
 
-                number = Double.parseDouble(SODMP.getText().toString())+1;
+                number = Double.parseDouble(SODMP.getText().toString()) + 1;
                 SODMP.setText(number.toString());
                 Probezhka();
                 break;
 
             case R.id.SODSZMinus:
 
-                number = Double.parseDouble(SODSZ.getText().toString())-1;
+                number = Double.parseDouble(SODSZ.getText().toString()) - 1;
                 if (number >= 0) SODSZ.setText(number.toString());
                 Probezhka();
                 break;
 
             case R.id.SODSZPlus:
 
-                number = Double.parseDouble(SODSZ.getText().toString())+1;
+                number = Double.parseDouble(SODSZ.getText().toString()) + 1;
                 SODSZ.setText(number.toString());
                 Probezhka();
                 break;
 
             //case R.id.Keyboard:
 
-                //Intent intent = new Intent(this, Keyboard.class);
-                //startActivity(intent);
-               // break;
+            //Intent intent = new Intent(this, Keyboard.class);
+            //startActivity(intent);
+            // break;
 
         }
 
@@ -1006,18 +1083,78 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int BunkerID = 0;
 
 
-        if (v.getId()==R.id.CHOG40 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-1;}
-        if (v.getId()==R.id.CHOG20 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-2;}
-        if (v.getId()==R.id.CHOG15 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-3;}
-        if (v.getId()==R.id.CHOG10 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-4;}
-        if (v.getId()==R.id.CHOG5 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-5;}
-        if (v.getId()==R.id.CHOG2_5 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-6;}
-        if (v.getId()==R.id.CHOG1_25 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-7;}
-        if (v.getId()==R.id.CHOG0_63 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-8;}
-        if (v.getId()==R.id.CHOG0_315 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-9;}
-        if (v.getId()==R.id.CHOG0_16 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-10;}
-        if (v.getId()==R.id.CHOG0_071 ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-11;}
-        if (v.getId()==R.id.CHOGDNO ) {PushChogDetector = true; BunkerID = 1; TransMaterial = MatBunker1; ChogID = MatBunker1.CHOG.length-12;}
+        if (v.getId() == R.id.CHOG40) {
+            PushChogDetector = true;
+            BunkerID = 1;
+            TransMaterial = MatBunker1;
+            ChogID = MatBunker1.CHOG.length - 1;
+        }
+        if (v.getId() == R.id.CHOG20) {
+            PushChogDetector = true;
+            BunkerID = 1;
+            TransMaterial = MatBunker1;
+            ChogID = MatBunker1.CHOG.length - 2;
+        }
+        if (v.getId() == R.id.CHOG15) {
+            PushChogDetector = true;
+            BunkerID = 1;
+            TransMaterial = MatBunker1;
+            ChogID = MatBunker1.CHOG.length - 3;
+        }
+        if (v.getId() == R.id.CHOG10) {
+            PushChogDetector = true;
+            BunkerID = 1;
+            TransMaterial = MatBunker1;
+            ChogID = MatBunker1.CHOG.length - 4;
+        }
+        if (v.getId() == R.id.CHOG5) {
+            PushChogDetector = true;
+            BunkerID = 1;
+            TransMaterial = MatBunker1;
+            ChogID = MatBunker1.CHOG.length - 5;
+        }
+        if (v.getId() == R.id.CHOG2_5) {
+            PushChogDetector = true;
+            BunkerID = 1;
+            TransMaterial = MatBunker1;
+            ChogID = MatBunker1.CHOG.length - 6;
+        }
+        if (v.getId() == R.id.CHOG1_25) {
+            PushChogDetector = true;
+            BunkerID = 1;
+            TransMaterial = MatBunker1;
+            ChogID = MatBunker1.CHOG.length - 7;
+        }
+        if (v.getId() == R.id.CHOG0_63) {
+            PushChogDetector = true;
+            BunkerID = 1;
+            TransMaterial = MatBunker1;
+            ChogID = MatBunker1.CHOG.length - 8;
+        }
+        if (v.getId() == R.id.CHOG0_315) {
+            PushChogDetector = true;
+            BunkerID = 1;
+            TransMaterial = MatBunker1;
+            ChogID = MatBunker1.CHOG.length - 9;
+        }
+        if (v.getId() == R.id.CHOG0_16) {
+            PushChogDetector = true;
+            BunkerID = 1;
+            TransMaterial = MatBunker1;
+            ChogID = MatBunker1.CHOG.length - 10;
+        }
+        if (v.getId() == R.id.CHOG0_071) {
+            PushChogDetector = true;
+            BunkerID = 1;
+            TransMaterial = MatBunker1;
+            ChogID = MatBunker1.CHOG.length - 11;
+        }
+        if (v.getId() == R.id.CHOGDNO) {
+            PushChogDetector = true;
+            BunkerID = 1;
+            TransMaterial = MatBunker1;
+            ChogID = MatBunker1.CHOG.length - 12;
+        }
 
         if (PushChogDetector) {
             PushChogDetector = false;
@@ -1025,22 +1162,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("OBJECT", TransMaterial);
             intent.putExtra("CHOGID", ChogID);
             intent.putExtra("BUNKERID", BunkerID);
-            startActivityForResult(intent,1);
+            startActivityForResult(intent, 1);
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
-        if (data == null) {return;}
-        MatBunker1 = (Material) data.getSerializableExtra("name");
-
-        for (int i = 0; i<CHOG.size(); i++) {
-            CHOG.get(i).setText(BigDecimal.valueOf(MatBunker1.CHOG[i]).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+        if (data == null) {
+            return;
         }
+        int BunkerID;
+
+        BunkerID = data.getIntExtra("BUNKERID_BACK", 0);
+
+        if (BunkerID == 1) {
+            MatBunker1 = (Material) data.getSerializableExtra("OBJECT_BACK");
+            for (int i = 0; i < CHOG.size(); i++) {
+                CHOG.get(i).setText(BigDecimal.valueOf(MatBunker1.CHOG[i]).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+                //CHOG.get(i).setText(String.format(Double.toString(MatBunker1.CHOG[i]), "%.3f"));
+            }
+        }
+
+
+
+
+
+
+
     }
 
-    public  void FindById () {
+    public void FindById() {
 
         //Связываем объекты с полями xml формы - Таблица зернового состава №1
 
@@ -1059,8 +1211,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // Кладем подготовленные и связанные объекты в массив
 
-        CHOG.add(0,CHOGDNO); CHOG.add(1, CHOG0_071); CHOG.add(2, CHOG0_16); CHOG.add(3, CHOG0_315); CHOG.add(4, CHOG0_63); CHOG.add(5, CHOG1_25);
-        CHOG.add(6, CHOG2_5); CHOG.add(7, CHOG5); CHOG.add(8, CHOG10);  CHOG.add(9, CHOG15); CHOG.add(10, CHOG20); CHOG.add(11, CHOG40);
+        CHOG.add(0, CHOGDNO);
+        CHOG.add(1, CHOG0_071);
+        CHOG.add(2, CHOG0_16);
+        CHOG.add(3, CHOG0_315);
+        CHOG.add(4, CHOG0_63);
+        CHOG.add(5, CHOG1_25);
+        CHOG.add(6, CHOG2_5);
+        CHOG.add(7, CHOG5);
+        CHOG.add(8, CHOG10);
+        CHOG.add(9, CHOG15);
+        CHOG.add(10, CHOG20);
+        CHOG.add(11, CHOG40);
 
         CHOP40 = (TextView) findViewById(R.id.CHOP40);
         CHOP20 = (TextView) findViewById(R.id.CHOP20);
@@ -1075,8 +1237,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CHOP0_071 = (TextView) findViewById(R.id.CHOP0_071);
         CHOPDNO = (TextView) findViewById(R.id.CHOPDNO);
 
-        CHOP.add(0, CHOPDNO); CHOP.add(1, CHOP0_071); CHOP.add(2, CHOP0_16); CHOP.add(3, CHOP0_315); CHOP.add(4, CHOP0_63); CHOP.add(5, CHOP1_25);
-        CHOP.add(6, CHOP2_5); CHOP.add(7, CHOP5); CHOP.add(8, CHOP10);  CHOP.add(9, CHOP15); CHOP.add(10, CHOP20); CHOP.add(11, CHOP40);
+        CHOP.add(0, CHOPDNO);
+        CHOP.add(1, CHOP0_071);
+        CHOP.add(2, CHOP0_16);
+        CHOP.add(3, CHOP0_315);
+        CHOP.add(4, CHOP0_63);
+        CHOP.add(5, CHOP1_25);
+        CHOP.add(6, CHOP2_5);
+        CHOP.add(7, CHOP5);
+        CHOP.add(8, CHOP10);
+        CHOP.add(9, CHOP15);
+        CHOP.add(10, CHOP20);
+        CHOP.add(11, CHOP40);
 
         PO40 = (TextView) findViewById(R.id.PO40);
         PO20 = (TextView) findViewById(R.id.PO20);
@@ -1091,8 +1263,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PO0_071 = (TextView) findViewById(R.id.PO0_071);
         PODNO = (TextView) findViewById(R.id.PODNO);
 
-        PO.add(0, PODNO); PO.add(1, PO0_071); PO.add(2, PO0_16); PO.add(3, PO0_315); PO.add(4, PO0_63); PO.add(5, PO1_25);
-        PO.add(6, PO2_5); PO.add(7, PO5); PO.add(8, PO10);  PO.add(9, PO15); PO.add(10, PO20); PO.add(11, PO40);
+        PO.add(0, PODNO);
+        PO.add(1, PO0_071);
+        PO.add(2, PO0_16);
+        PO.add(3, PO0_315);
+        PO.add(4, PO0_63);
+        PO.add(5, PO1_25);
+        PO.add(6, PO2_5);
+        PO.add(7, PO5);
+        PO.add(8, PO10);
+        PO.add(9, PO15);
+        PO.add(10, PO20);
+        PO.add(11, PO40);
 
         PP40 = (TextView) findViewById(R.id.PP40);
         PP20 = (TextView) findViewById(R.id.PP20);
@@ -1107,8 +1289,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PP0_071 = (TextView) findViewById(R.id.PP0_071);
         PPDNO = (TextView) findViewById(R.id.PPDNO);
 
-        PP.add(0, PPDNO); PP.add(1, PP0_071); PP.add(2, PP0_16); PP.add(3, PP0_315); PP.add(4, PP0_63); PP.add(5, PP1_25);
-        PP.add(6, PP2_5); PP.add(7, PP5); PP.add(8, PP10);  PP.add(9, PP15); PP.add(10, PP20); PP.add(11, PP40);
+        PP.add(0, PPDNO);
+        PP.add(1, PP0_071);
+        PP.add(2, PP0_16);
+        PP.add(3, PP0_315);
+        PP.add(4, PP0_63);
+        PP.add(5, PP1_25);
+        PP.add(6, PP2_5);
+        PP.add(7, PP5);
+        PP.add(8, PP10);
+        PP.add(9, PP15);
+        PP.add(10, PP20);
+        PP.add(11, PP40);
 
         //Связываем объекты с полями xml формы - Таблица зернового состава №2
 
@@ -1126,8 +1318,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CHOGDNO_2 = (EditText) findViewById(R.id.CHOGDNO_2);
 
         // Кладем подготовленные и связанные объекты в массив
-        CHOG2.add(0,CHOGDNO_2); CHOG2.add(1, CHOG0_071_2); CHOG2.add(2, CHOG0_16_2); CHOG2.add(3, CHOG0_315_2); CHOG2.add(4, CHOG0_63_2); CHOG2.add(5, CHOG1_25_2);
-        CHOG2.add(6, CHOG2_5_2); CHOG2.add(7, CHOG5_2); CHOG2.add(8, CHOG10_2);  CHOG2.add(9, CHOG15_2); CHOG2.add(10, CHOG20_2); CHOG2.add(11, CHOG40_2);
+        CHOG2.add(0, CHOGDNO_2);
+        CHOG2.add(1, CHOG0_071_2);
+        CHOG2.add(2, CHOG0_16_2);
+        CHOG2.add(3, CHOG0_315_2);
+        CHOG2.add(4, CHOG0_63_2);
+        CHOG2.add(5, CHOG1_25_2);
+        CHOG2.add(6, CHOG2_5_2);
+        CHOG2.add(7, CHOG5_2);
+        CHOG2.add(8, CHOG10_2);
+        CHOG2.add(9, CHOG15_2);
+        CHOG2.add(10, CHOG20_2);
+        CHOG2.add(11, CHOG40_2);
 
         CHOP40_2 = (TextView) findViewById(R.id.CHOP40_2);
         CHOP20_2 = (TextView) findViewById(R.id.CHOP20_2);
@@ -1142,8 +1344,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CHOP0_071_2 = (TextView) findViewById(R.id.CHOP0_071_2);
         CHOPDNO_2 = (TextView) findViewById(R.id.CHOPDNO_2);
 
-        CHOP2.add(0, CHOPDNO_2); CHOP2.add(1, CHOP0_071_2); CHOP2.add(2, CHOP0_16_2); CHOP2.add(3, CHOP0_315_2); CHOP2.add(4, CHOP0_63_2); CHOP2.add(5, CHOP1_25_2);
-        CHOP2.add(6, CHOP2_5_2); CHOP2.add(7, CHOP5_2); CHOP2.add(8, CHOP10_2);  CHOP2.add(9, CHOP15_2); CHOP2.add(10, CHOP20_2); CHOP2.add(11, CHOP40_2);
+        CHOP2.add(0, CHOPDNO_2);
+        CHOP2.add(1, CHOP0_071_2);
+        CHOP2.add(2, CHOP0_16_2);
+        CHOP2.add(3, CHOP0_315_2);
+        CHOP2.add(4, CHOP0_63_2);
+        CHOP2.add(5, CHOP1_25_2);
+        CHOP2.add(6, CHOP2_5_2);
+        CHOP2.add(7, CHOP5_2);
+        CHOP2.add(8, CHOP10_2);
+        CHOP2.add(9, CHOP15_2);
+        CHOP2.add(10, CHOP20_2);
+        CHOP2.add(11, CHOP40_2);
 
         PO40_2 = (TextView) findViewById(R.id.PO40_2);
         PO20_2 = (TextView) findViewById(R.id.PO20_2);
@@ -1158,8 +1370,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PO0_071_2 = (TextView) findViewById(R.id.PO0_071_2);
         PODNO_2 = (TextView) findViewById(R.id.PODNO_2);
 
-        PO2.add(0, PODNO_2); PO2.add(1, PO0_071_2); PO2.add(2, PO0_16_2); PO2.add(3, PO0_315_2); PO2.add(4, PO0_63_2); PO2.add(5, PO1_25_2);
-        PO2.add(6, PO2_5_2); PO2.add(7, PO5_2); PO2.add(8, PO10_2);  PO2.add(9, PO15_2); PO2.add(10, PO20_2); PO2.add(11, PO40_2);
+        PO2.add(0, PODNO_2);
+        PO2.add(1, PO0_071_2);
+        PO2.add(2, PO0_16_2);
+        PO2.add(3, PO0_315_2);
+        PO2.add(4, PO0_63_2);
+        PO2.add(5, PO1_25_2);
+        PO2.add(6, PO2_5_2);
+        PO2.add(7, PO5_2);
+        PO2.add(8, PO10_2);
+        PO2.add(9, PO15_2);
+        PO2.add(10, PO20_2);
+        PO2.add(11, PO40_2);
 
         PP40_2 = (TextView) findViewById(R.id.PP40_2);
         PP20_2 = (TextView) findViewById(R.id.PP20_2);
@@ -1174,8 +1396,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PP0_071_2 = (TextView) findViewById(R.id.PP0_071_2);
         PPDNO_2 = (TextView) findViewById(R.id.PPDNO_2);
 
-        PP2.add(0, PPDNO_2); PP2.add(1, PP0_071_2); PP2.add(2, PP0_16_2); PP2.add(3, PP0_315_2); PP2.add(4, PP0_63_2); PP2.add(5, PP1_25_2);
-        PP2.add(6, PP2_5_2); PP2.add(7, PP5_2); PP2.add(8, PP10_2);  PP2.add(9, PP15_2); PP2.add(10, PP20_2); PP2.add(11, PP40_2);
+        PP2.add(0, PPDNO_2);
+        PP2.add(1, PP0_071_2);
+        PP2.add(2, PP0_16_2);
+        PP2.add(3, PP0_315_2);
+        PP2.add(4, PP0_63_2);
+        PP2.add(5, PP1_25_2);
+        PP2.add(6, PP2_5_2);
+        PP2.add(7, PP5_2);
+        PP2.add(8, PP10_2);
+        PP2.add(9, PP15_2);
+        PP2.add(10, PP20_2);
+        PP2.add(11, PP40_2);
 
         //Связываем объекты с полями xml формы - Таблица зернового состава №3
 
@@ -1193,8 +1425,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CHOGDNO_3 = (EditText) findViewById(R.id.CHOGDNO_3);
 
         // Кладем подготовленные и связанные объекты в массив
-        CHOG3.add(0,CHOGDNO_3); CHOG3.add(1, CHOG0_071_3); CHOG3.add(2, CHOG0_16_3); CHOG3.add(3, CHOG0_315_3); CHOG3.add(4, CHOG0_63_3); CHOG3.add(5, CHOG1_25_3);
-        CHOG3.add(6, CHOG2_5_3); CHOG3.add(7, CHOG5_3); CHOG3.add(8, CHOG10_3);  CHOG3.add(9, CHOG15_3); CHOG3.add(10, CHOG20_3); CHOG3.add(11, CHOG40_3);
+        CHOG3.add(0, CHOGDNO_3);
+        CHOG3.add(1, CHOG0_071_3);
+        CHOG3.add(2, CHOG0_16_3);
+        CHOG3.add(3, CHOG0_315_3);
+        CHOG3.add(4, CHOG0_63_3);
+        CHOG3.add(5, CHOG1_25_3);
+        CHOG3.add(6, CHOG2_5_3);
+        CHOG3.add(7, CHOG5_3);
+        CHOG3.add(8, CHOG10_3);
+        CHOG3.add(9, CHOG15_3);
+        CHOG3.add(10, CHOG20_3);
+        CHOG3.add(11, CHOG40_3);
 
         CHOP40_3 = (TextView) findViewById(R.id.CHOP40_3);
         CHOP20_3 = (TextView) findViewById(R.id.CHOP20_3);
@@ -1209,8 +1451,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CHOP0_071_3 = (TextView) findViewById(R.id.CHOP0_071_3);
         CHOPDNO_3 = (TextView) findViewById(R.id.CHOPDNO_3);
 
-        CHOP3.add(0, CHOPDNO_3); CHOP3.add(1, CHOP0_071_3); CHOP3.add(2, CHOP0_16_3); CHOP3.add(3, CHOP0_315_3); CHOP3.add(4, CHOP0_63_3); CHOP3.add(5, CHOP1_25_3);
-        CHOP3.add(6, CHOP2_5_3); CHOP3.add(7, CHOP5_3); CHOP3.add(8, CHOP10_3);  CHOP3.add(9, CHOP15_3); CHOP3.add(10, CHOP20_3); CHOP3.add(11, CHOP40_3);
+        CHOP3.add(0, CHOPDNO_3);
+        CHOP3.add(1, CHOP0_071_3);
+        CHOP3.add(2, CHOP0_16_3);
+        CHOP3.add(3, CHOP0_315_3);
+        CHOP3.add(4, CHOP0_63_3);
+        CHOP3.add(5, CHOP1_25_3);
+        CHOP3.add(6, CHOP2_5_3);
+        CHOP3.add(7, CHOP5_3);
+        CHOP3.add(8, CHOP10_3);
+        CHOP3.add(9, CHOP15_3);
+        CHOP3.add(10, CHOP20_3);
+        CHOP3.add(11, CHOP40_3);
 
         PO40_3 = (TextView) findViewById(R.id.PO40_3);
         PO20_3 = (TextView) findViewById(R.id.PO20_3);
@@ -1225,8 +1477,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PO0_071_3 = (TextView) findViewById(R.id.PO0_071_3);
         PODNO_3 = (TextView) findViewById(R.id.PODNO_3);
 
-        PO3.add(0, PODNO_3); PO3.add(1, PO0_071_3); PO3.add(2, PO0_16_3); PO3.add(3, PO0_315_3); PO3.add(4, PO0_63_3); PO3.add(5, PO1_25_3);
-        PO3.add(6, PO2_5_3); PO3.add(7, PO5_3); PO3.add(8, PO10_3);  PO3.add(9, PO15_3); PO3.add(10, PO20_3); PO3.add(11, PO40_3);
+        PO3.add(0, PODNO_3);
+        PO3.add(1, PO0_071_3);
+        PO3.add(2, PO0_16_3);
+        PO3.add(3, PO0_315_3);
+        PO3.add(4, PO0_63_3);
+        PO3.add(5, PO1_25_3);
+        PO3.add(6, PO2_5_3);
+        PO3.add(7, PO5_3);
+        PO3.add(8, PO10_3);
+        PO3.add(9, PO15_3);
+        PO3.add(10, PO20_3);
+        PO3.add(11, PO40_3);
 
         PP40_3 = (TextView) findViewById(R.id.PP40_3);
         PP20_3 = (TextView) findViewById(R.id.PP20_3);
@@ -1241,8 +1503,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PP0_071_3 = (TextView) findViewById(R.id.PP0_071_3);
         PPDNO_3 = (TextView) findViewById(R.id.PPDNO_3);
 
-        PP3.add(0, PPDNO_3); PP3.add(1, PP0_071_3); PP3.add(2, PP0_16_3); PP3.add(3, PP0_315_3); PP3.add(4, PP0_63_3); PP3.add(5, PP1_25_3);
-        PP3.add(6, PP2_5_3); PP3.add(7, PP5_3); PP3.add(8, PP10_3);  PP3.add(9, PP15_3); PP3.add(10, PP20_3); PP3.add(11, PP40_3);
+        PP3.add(0, PPDNO_3);
+        PP3.add(1, PP0_071_3);
+        PP3.add(2, PP0_16_3);
+        PP3.add(3, PP0_315_3);
+        PP3.add(4, PP0_63_3);
+        PP3.add(5, PP1_25_3);
+        PP3.add(6, PP2_5_3);
+        PP3.add(7, PP5_3);
+        PP3.add(8, PP10_3);
+        PP3.add(9, PP15_3);
+        PP3.add(10, PP20_3);
+        PP3.add(11, PP40_3);
 
         //Связываем объекты с полями xml формы - Таблица зернового состава №4
 
@@ -1260,8 +1532,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CHOGDNO_4 = (EditText) findViewById(R.id.CHOGDNO_4);
 
         // Кладем подготовленные и связанные объекты в массив
-        CHOG4.add(0,CHOGDNO_4); CHOG4.add(1, CHOG0_071_4); CHOG4.add(2, CHOG0_16_4); CHOG4.add(3, CHOG0_315_4); CHOG4.add(4, CHOG0_63_4); CHOG4.add(5, CHOG1_25_4);
-        CHOG4.add(6, CHOG2_5_4); CHOG4.add(7, CHOG5_4); CHOG4.add(8, CHOG10_4);  CHOG4.add(9, CHOG15_4); CHOG4.add(10, CHOG20_4); CHOG4.add(11, CHOG40_4);
+        CHOG4.add(0, CHOGDNO_4);
+        CHOG4.add(1, CHOG0_071_4);
+        CHOG4.add(2, CHOG0_16_4);
+        CHOG4.add(3, CHOG0_315_4);
+        CHOG4.add(4, CHOG0_63_4);
+        CHOG4.add(5, CHOG1_25_4);
+        CHOG4.add(6, CHOG2_5_4);
+        CHOG4.add(7, CHOG5_4);
+        CHOG4.add(8, CHOG10_4);
+        CHOG4.add(9, CHOG15_4);
+        CHOG4.add(10, CHOG20_4);
+        CHOG4.add(11, CHOG40_4);
 
         CHOP40_4 = (TextView) findViewById(R.id.CHOP40_4);
         CHOP20_4 = (TextView) findViewById(R.id.CHOP20_4);
@@ -1276,8 +1558,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CHOP0_071_4 = (TextView) findViewById(R.id.CHOP0_071_4);
         CHOPDNO_4 = (TextView) findViewById(R.id.CHOPDNO_4);
 
-        CHOP4.add(0, CHOPDNO_4); CHOP4.add(1, CHOP0_071_4); CHOP4.add(2, CHOP0_16_4); CHOP4.add(3, CHOP0_315_4); CHOP4.add(4, CHOP0_63_4); CHOP4.add(5, CHOP1_25_4);
-        CHOP4.add(6, CHOP2_5_4); CHOP4.add(7, CHOP5_4); CHOP4.add(8, CHOP10_4);  CHOP4.add(9, CHOP15_4); CHOP4.add(10, CHOP20_4); CHOP4.add(11, CHOP40_4);
+        CHOP4.add(0, CHOPDNO_4);
+        CHOP4.add(1, CHOP0_071_4);
+        CHOP4.add(2, CHOP0_16_4);
+        CHOP4.add(3, CHOP0_315_4);
+        CHOP4.add(4, CHOP0_63_4);
+        CHOP4.add(5, CHOP1_25_4);
+        CHOP4.add(6, CHOP2_5_4);
+        CHOP4.add(7, CHOP5_4);
+        CHOP4.add(8, CHOP10_4);
+        CHOP4.add(9, CHOP15_4);
+        CHOP4.add(10, CHOP20_4);
+        CHOP4.add(11, CHOP40_4);
 
         PO40_4 = (TextView) findViewById(R.id.PO40_4);
         PO20_4 = (TextView) findViewById(R.id.PO20_4);
@@ -1292,8 +1584,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PO0_071_4 = (TextView) findViewById(R.id.PO0_071_4);
         PODNO_4 = (TextView) findViewById(R.id.PODNO_4);
 
-        PO4.add(0, PODNO_4); PO4.add(1, PO0_071_4); PO4.add(2, PO0_16_4); PO4.add(3, PO0_315_4); PO4.add(4, PO0_63_4); PO4.add(5, PO1_25_4);
-        PO4.add(6, PO2_5_4); PO4.add(7, PO5_4); PO4.add(8, PO10_4);  PO4.add(9, PO15_4); PO4.add(10, PO20_4); PO4.add(11, PO40_4);
+        PO4.add(0, PODNO_4);
+        PO4.add(1, PO0_071_4);
+        PO4.add(2, PO0_16_4);
+        PO4.add(3, PO0_315_4);
+        PO4.add(4, PO0_63_4);
+        PO4.add(5, PO1_25_4);
+        PO4.add(6, PO2_5_4);
+        PO4.add(7, PO5_4);
+        PO4.add(8, PO10_4);
+        PO4.add(9, PO15_4);
+        PO4.add(10, PO20_4);
+        PO4.add(11, PO40_4);
 
         PP40_4 = (TextView) findViewById(R.id.PP40_4);
         PP20_4 = (TextView) findViewById(R.id.PP20_4);
@@ -1308,8 +1610,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PP0_071_4 = (TextView) findViewById(R.id.PP0_071_4);
         PPDNO_4 = (TextView) findViewById(R.id.PPDNO_4);
 
-        PP4.add(0, PPDNO_4); PP4.add(1, PP0_071_4); PP4.add(2, PP0_16_4); PP4.add(3, PP0_315_4); PP4.add(4, PP0_63_4); PP4.add(5, PP1_25_4);
-        PP4.add(6, PP2_5_4); PP4.add(7, PP5_4); PP4.add(8, PP10_4);  PP4.add(9, PP15_4); PP4.add(10, PP20_4); PP4.add(11, PP40_4);
+        PP4.add(0, PPDNO_4);
+        PP4.add(1, PP0_071_4);
+        PP4.add(2, PP0_16_4);
+        PP4.add(3, PP0_315_4);
+        PP4.add(4, PP0_63_4);
+        PP4.add(5, PP1_25_4);
+        PP4.add(6, PP2_5_4);
+        PP4.add(7, PP5_4);
+        PP4.add(8, PP10_4);
+        PP4.add(9, PP15_4);
+        PP4.add(10, PP20_4);
+        PP4.add(11, PP40_4);
 
 
         //Связываем объекты с полями xml формы - Таблица зернового состава №5
@@ -1328,8 +1640,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CHOGDNO_5 = (EditText) findViewById(R.id.CHOGDNO_5);
 
         // Кладем подготовленные и связанные объекты в массив
-        CHOG50.add(0,CHOGDNO_5); CHOG50.add(1, CHOG0_071_5); CHOG50.add(2, CHOG0_16_5); CHOG50.add(3, CHOG0_315_5); CHOG50.add(4, CHOG0_63_5); CHOG50.add(5, CHOG1_25_5);
-        CHOG50.add(6, CHOG2_5_5); CHOG50.add(7, CHOG5_5); CHOG50.add(8, CHOG10_5);  CHOG50.add(9, CHOG15_5); CHOG50.add(10, CHOG20_5); CHOG50.add(11, CHOG40_5);
+        CHOG50.add(0, CHOGDNO_5);
+        CHOG50.add(1, CHOG0_071_5);
+        CHOG50.add(2, CHOG0_16_5);
+        CHOG50.add(3, CHOG0_315_5);
+        CHOG50.add(4, CHOG0_63_5);
+        CHOG50.add(5, CHOG1_25_5);
+        CHOG50.add(6, CHOG2_5_5);
+        CHOG50.add(7, CHOG5_5);
+        CHOG50.add(8, CHOG10_5);
+        CHOG50.add(9, CHOG15_5);
+        CHOG50.add(10, CHOG20_5);
+        CHOG50.add(11, CHOG40_5);
 
         CHOP40_5 = (TextView) findViewById(R.id.CHOP40_5);
         CHOP20_5 = (TextView) findViewById(R.id.CHOP20_5);
@@ -1344,8 +1666,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CHOP0_071_5 = (TextView) findViewById(R.id.CHOP0_071_5);
         CHOPDNO_5 = (TextView) findViewById(R.id.CHOPDNO_5);
 
-        CHOP50.add(0, CHOPDNO_5); CHOP50.add(1, CHOP0_071_5); CHOP50.add(2, CHOP0_16_5); CHOP50.add(3, CHOP0_315_5); CHOP50.add(4, CHOP0_63_5); CHOP50.add(5, CHOP1_25_5);
-        CHOP50.add(6, CHOP2_5_5); CHOP50.add(7, CHOP5_5); CHOP50.add(8, CHOP10_5);  CHOP50.add(9, CHOP15_5); CHOP50.add(10, CHOP20_5); CHOP50.add(11, CHOP40_5);
+        CHOP50.add(0, CHOPDNO_5);
+        CHOP50.add(1, CHOP0_071_5);
+        CHOP50.add(2, CHOP0_16_5);
+        CHOP50.add(3, CHOP0_315_5);
+        CHOP50.add(4, CHOP0_63_5);
+        CHOP50.add(5, CHOP1_25_5);
+        CHOP50.add(6, CHOP2_5_5);
+        CHOP50.add(7, CHOP5_5);
+        CHOP50.add(8, CHOP10_5);
+        CHOP50.add(9, CHOP15_5);
+        CHOP50.add(10, CHOP20_5);
+        CHOP50.add(11, CHOP40_5);
 
         PO40_5 = (TextView) findViewById(R.id.PO40_5);
         PO20_5 = (TextView) findViewById(R.id.PO20_5);
@@ -1360,8 +1692,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PO0_071_5 = (TextView) findViewById(R.id.PO0_071_5);
         PODNO_5 = (TextView) findViewById(R.id.PODNO_5);
 
-        PO50.add(0, PODNO_5); PO50.add(1, PO0_071_5); PO50.add(2, PO0_16_5); PO50.add(3, PO0_315_5); PO50.add(4, PO0_63_5); PO50.add(5, PO1_25_5);
-        PO50.add(6, PO2_5_5); PO50.add(7, PO5_5); PO50.add(8, PO10_5);  PO50.add(9, PO15_5); PO50.add(10, PO20_5); PO50.add(11, PO40_5);
+        PO50.add(0, PODNO_5);
+        PO50.add(1, PO0_071_5);
+        PO50.add(2, PO0_16_5);
+        PO50.add(3, PO0_315_5);
+        PO50.add(4, PO0_63_5);
+        PO50.add(5, PO1_25_5);
+        PO50.add(6, PO2_5_5);
+        PO50.add(7, PO5_5);
+        PO50.add(8, PO10_5);
+        PO50.add(9, PO15_5);
+        PO50.add(10, PO20_5);
+        PO50.add(11, PO40_5);
 
         PP40_5 = (TextView) findViewById(R.id.PP40_5);
         PP20_5 = (TextView) findViewById(R.id.PP20_5);
@@ -1376,8 +1718,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PP0_071_5 = (TextView) findViewById(R.id.PP0_071_5);
         PPDNO_5 = (TextView) findViewById(R.id.PPDNO_5);
 
-        PP50.add(0, PPDNO_5); PP50.add(1, PP0_071_5); PP50.add(2, PP0_16_5); PP50.add(3, PP0_315_5); PP50.add(4, PP0_63_5); PP50.add(5, PP1_25_5);
-        PP50.add(6, PP2_5_5); PP50.add(7, PP5_5); PP50.add(8, PP10_5);  PP50.add(9, PP15_5); PP50.add(10, PP20_5); PP50.add(11, PP40_5);
+        PP50.add(0, PPDNO_5);
+        PP50.add(1, PP0_071_5);
+        PP50.add(2, PP0_16_5);
+        PP50.add(3, PP0_315_5);
+        PP50.add(4, PP0_63_5);
+        PP50.add(5, PP1_25_5);
+        PP50.add(6, PP2_5_5);
+        PP50.add(7, PP5_5);
+        PP50.add(8, PP10_5);
+        PP50.add(9, PP15_5);
+        PP50.add(10, PP20_5);
+        PP50.add(11, PP40_5);
 
         //Связываем объекты с полями xml формы - Таблица зернового состава №6
 
@@ -1395,8 +1747,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CHOGDNO_6 = (EditText) findViewById(R.id.CHOGDNO_6);
 
         // Кладем подготовленные и связанные объекты в массив
-        CHOG6.add(0,CHOGDNO_6); CHOG6.add(1, CHOG0_071_6); CHOG6.add(2, CHOG0_16_6); CHOG6.add(3, CHOG0_315_6); CHOG6.add(4, CHOG0_63_6); CHOG6.add(5, CHOG1_25_6);
-        CHOG6.add(6, CHOG2_5_6); CHOG6.add(7, CHOG5_6); CHOG6.add(8, CHOG10_6);  CHOG6.add(9, CHOG15_6); CHOG6.add(10, CHOG20_6); CHOG6.add(11, CHOG40_6);
+        CHOG6.add(0, CHOGDNO_6);
+        CHOG6.add(1, CHOG0_071_6);
+        CHOG6.add(2, CHOG0_16_6);
+        CHOG6.add(3, CHOG0_315_6);
+        CHOG6.add(4, CHOG0_63_6);
+        CHOG6.add(5, CHOG1_25_6);
+        CHOG6.add(6, CHOG2_5_6);
+        CHOG6.add(7, CHOG5_6);
+        CHOG6.add(8, CHOG10_6);
+        CHOG6.add(9, CHOG15_6);
+        CHOG6.add(10, CHOG20_6);
+        CHOG6.add(11, CHOG40_6);
 
         CHOP40_6 = (TextView) findViewById(R.id.CHOP40_6);
         CHOP20_6 = (TextView) findViewById(R.id.CHOP20_6);
@@ -1411,8 +1773,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CHOP0_071_6 = (TextView) findViewById(R.id.CHOP0_071_6);
         CHOPDNO_6 = (TextView) findViewById(R.id.CHOPDNO_6);
 
-        CHOP6.add(0, CHOPDNO_6); CHOP6.add(1, CHOP0_071_6); CHOP6.add(2, CHOP0_16_6); CHOP6.add(3, CHOP0_315_6); CHOP6.add(4, CHOP0_63_6); CHOP6.add(5, CHOP1_25_6);
-        CHOP6.add(6, CHOP2_5_6); CHOP6.add(7, CHOP5_6); CHOP6.add(8, CHOP10_6);  CHOP6.add(9, CHOP15_6); CHOP6.add(10, CHOP20_6); CHOP6.add(11, CHOP40_6);
+        CHOP6.add(0, CHOPDNO_6);
+        CHOP6.add(1, CHOP0_071_6);
+        CHOP6.add(2, CHOP0_16_6);
+        CHOP6.add(3, CHOP0_315_6);
+        CHOP6.add(4, CHOP0_63_6);
+        CHOP6.add(5, CHOP1_25_6);
+        CHOP6.add(6, CHOP2_5_6);
+        CHOP6.add(7, CHOP5_6);
+        CHOP6.add(8, CHOP10_6);
+        CHOP6.add(9, CHOP15_6);
+        CHOP6.add(10, CHOP20_6);
+        CHOP6.add(11, CHOP40_6);
 
         PO40_6 = (TextView) findViewById(R.id.PO40_6);
         PO20_6 = (TextView) findViewById(R.id.PO20_6);
@@ -1427,8 +1799,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PO0_071_6 = (TextView) findViewById(R.id.PO0_071_6);
         PODNO_6 = (TextView) findViewById(R.id.PODNO_6);
 
-        PO6.add(0, PODNO_6); PO6.add(1, PO0_071_6); PO6.add(2, PO0_16_6); PO6.add(3, PO0_315_6); PO6.add(4, PO0_63_6); PO6.add(5, PO1_25_6);
-        PO6.add(6, PO2_5_6); PO6.add(7, PO5_6); PO6.add(8, PO10_6);  PO6.add(9, PO15_6); PO6.add(10, PO20_6); PO6.add(11, PO40_6);
+        PO6.add(0, PODNO_6);
+        PO6.add(1, PO0_071_6);
+        PO6.add(2, PO0_16_6);
+        PO6.add(3, PO0_315_6);
+        PO6.add(4, PO0_63_6);
+        PO6.add(5, PO1_25_6);
+        PO6.add(6, PO2_5_6);
+        PO6.add(7, PO5_6);
+        PO6.add(8, PO10_6);
+        PO6.add(9, PO15_6);
+        PO6.add(10, PO20_6);
+        PO6.add(11, PO40_6);
 
         PP40_6 = (TextView) findViewById(R.id.PP40_6);
         PP20_6 = (TextView) findViewById(R.id.PP20_6);
@@ -1443,8 +1825,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PP0_071_6 = (TextView) findViewById(R.id.PP0_071_6);
         PPDNO_6 = (TextView) findViewById(R.id.PPDNO_6);
 
-        PP6.add(0, PPDNO_6); PP6.add(1, PP0_071_6); PP6.add(2, PP0_16_6); PP6.add(3, PP0_315_6); PP6.add(4, PP0_63_6); PP6.add(5, PP1_25_6);
-        PP6.add(6, PP2_5_6); PP6.add(7, PP5_6); PP6.add(8, PP10_6);  PP6.add(9, PP15_6); PP6.add(10, PP20_6); PP6.add(11, PP40_6);
+        PP6.add(0, PPDNO_6);
+        PP6.add(1, PP0_071_6);
+        PP6.add(2, PP0_16_6);
+        PP6.add(3, PP0_315_6);
+        PP6.add(4, PP0_63_6);
+        PP6.add(5, PP1_25_6);
+        PP6.add(6, PP2_5_6);
+        PP6.add(7, PP5_6);
+        PP6.add(8, PP10_6);
+        PP6.add(9, PP15_6);
+        PP6.add(10, PP20_6);
+        PP6.add(11, PP40_6);
 
         //Связываем объекты с полями xml формы - Таблица зернового состава МИНЕРАЛЬНОГО ПОРОШКА
 
@@ -1456,7 +1848,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CHOGDNO_MP = (EditText) findViewById(R.id.CHOGDNO_MP);
 
         // Кладем подготовленные и связанные объекты в массив
-        CHOG_MP.add(0,CHOGDNO_MP); CHOG_MP.add(1, CHOG0_071_MP); CHOG_MP.add(2, CHOG0_16_MP); CHOG_MP.add(3, CHOG0_315_MP); CHOG_MP.add(4, CHOG0_63_MP); CHOG_MP.add(5, CHOG1_25_MP);
+        CHOG_MP.add(0, CHOGDNO_MP);
+        CHOG_MP.add(1, CHOG0_071_MP);
+        CHOG_MP.add(2, CHOG0_16_MP);
+        CHOG_MP.add(3, CHOG0_315_MP);
+        CHOG_MP.add(4, CHOG0_63_MP);
+        CHOG_MP.add(5, CHOG1_25_MP);
 
         CHOP1_25_MP = (TextView) findViewById(R.id.CHOP1_25_MP);
         CHOP0_63_MP = (TextView) findViewById(R.id.CHOP0_63_MP);
@@ -1465,7 +1862,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CHOP0_071_MP = (TextView) findViewById(R.id.CHOP0_071_MP);
         CHOPDNO_MP = (TextView) findViewById(R.id.CHOPDNO_MP);
 
-        CHOP_MP.add(0, CHOPDNO_MP); CHOP_MP.add(1, CHOP0_071_MP); CHOP_MP.add(2, CHOP0_16_MP); CHOP_MP.add(3, CHOP0_315_MP); CHOP_MP.add(4, CHOP0_63_MP); CHOP_MP.add(5, CHOP1_25_MP);
+        CHOP_MP.add(0, CHOPDNO_MP);
+        CHOP_MP.add(1, CHOP0_071_MP);
+        CHOP_MP.add(2, CHOP0_16_MP);
+        CHOP_MP.add(3, CHOP0_315_MP);
+        CHOP_MP.add(4, CHOP0_63_MP);
+        CHOP_MP.add(5, CHOP1_25_MP);
 
         PO1_25_MP = (TextView) findViewById(R.id.PO1_25_MP);
         PO0_63_MP = (TextView) findViewById(R.id.PO0_63_MP);
@@ -1474,7 +1876,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PO0_071_MP = (TextView) findViewById(R.id.PO0_071_MP);
         PODNO_MP = (TextView) findViewById(R.id.PODNO_MP);
 
-        PO_MP.add(0, PODNO_MP); PO_MP.add(1, PO0_071_MP); PO_MP.add(2, PO0_16_MP); PO_MP.add(3, PO0_315_MP); PO_MP.add(4, PO0_63_MP); PO_MP.add(5, PO1_25_MP);
+        PO_MP.add(0, PODNO_MP);
+        PO_MP.add(1, PO0_071_MP);
+        PO_MP.add(2, PO0_16_MP);
+        PO_MP.add(3, PO0_315_MP);
+        PO_MP.add(4, PO0_63_MP);
+        PO_MP.add(5, PO1_25_MP);
 
         PP1_25_MP = (TextView) findViewById(R.id.PP1_25_MP);
         PP0_63_MP = (TextView) findViewById(R.id.PP0_63_MP);
@@ -1483,7 +1890,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PP0_071_MP = (TextView) findViewById(R.id.PP0_071_MP);
         PPDNO_MP = (TextView) findViewById(R.id.PPDNO_MP);
 
-        PP_MP.add(0, PPDNO_MP); PP_MP.add(1, PP0_071_MP); PP_MP.add(2, PP0_16_MP); PP_MP.add(3, PP0_315_MP); PP_MP.add(4, PP0_63_MP); PP_MP.add(5, PP1_25_MP);
+        PP_MP.add(0, PPDNO_MP);
+        PP_MP.add(1, PP0_071_MP);
+        PP_MP.add(2, PP0_16_MP);
+        PP_MP.add(3, PP0_315_MP);
+        PP_MP.add(4, PP0_63_MP);
+        PP_MP.add(5, PP1_25_MP);
 
         //Связываем объекты с полями xml формы - Таблица зернового состава СОБСТВЕННОГО ЗАПОЛНИТЕЛЯ
 
@@ -1495,7 +1907,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CHOGDNO_SZ = (EditText) findViewById(R.id.CHOGDNO_SZ);
 
         // Кладем подготовленные и связанные объекты в массив
-        CHOG_SZ.add(0,CHOGDNO_SZ); CHOG_SZ.add(1, CHOG0_071_SZ); CHOG_SZ.add(2, CHOG0_16_SZ); CHOG_SZ.add(3, CHOG0_315_SZ); CHOG_SZ.add(4, CHOG0_63_SZ); CHOG_SZ.add(5, CHOG1_25_SZ);
+        CHOG_SZ.add(0, CHOGDNO_SZ);
+        CHOG_SZ.add(1, CHOG0_071_SZ);
+        CHOG_SZ.add(2, CHOG0_16_SZ);
+        CHOG_SZ.add(3, CHOG0_315_SZ);
+        CHOG_SZ.add(4, CHOG0_63_SZ);
+        CHOG_SZ.add(5, CHOG1_25_SZ);
 
         CHOP1_25_SZ = (TextView) findViewById(R.id.CHOP1_25_SZ);
         CHOP0_63_SZ = (TextView) findViewById(R.id.CHOP0_63_SZ);
@@ -1504,7 +1921,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CHOP0_071_SZ = (TextView) findViewById(R.id.CHOP0_071_SZ);
         CHOPDNO_SZ = (TextView) findViewById(R.id.CHOPDNO_SZ);
 
-        CHOP_SZ.add(0, CHOPDNO_SZ); CHOP_SZ.add(1, CHOP0_071_SZ); CHOP_SZ.add(2, CHOP0_16_SZ); CHOP_SZ.add(3, CHOP0_315_SZ); CHOP_SZ.add(4, CHOP0_63_SZ); CHOP_SZ.add(5, CHOP1_25_SZ);
+        CHOP_SZ.add(0, CHOPDNO_SZ);
+        CHOP_SZ.add(1, CHOP0_071_SZ);
+        CHOP_SZ.add(2, CHOP0_16_SZ);
+        CHOP_SZ.add(3, CHOP0_315_SZ);
+        CHOP_SZ.add(4, CHOP0_63_SZ);
+        CHOP_SZ.add(5, CHOP1_25_SZ);
 
         PO1_25_SZ = (TextView) findViewById(R.id.PO1_25_SZ);
         PO0_63_SZ = (TextView) findViewById(R.id.PO0_63_SZ);
@@ -1513,7 +1935,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PO0_071_SZ = (TextView) findViewById(R.id.PO0_071_SZ);
         PODNO_SZ = (TextView) findViewById(R.id.PODNO_SZ);
 
-        PO_SZ.add(0, PODNO_SZ); PO_SZ.add(1, PO0_071_SZ); PO_SZ.add(2, PO0_16_SZ); PO_SZ.add(3, PO0_315_SZ); PO_SZ.add(4, PO0_63_SZ); PO_SZ.add(5, PO1_25_SZ);
+        PO_SZ.add(0, PODNO_SZ);
+        PO_SZ.add(1, PO0_071_SZ);
+        PO_SZ.add(2, PO0_16_SZ);
+        PO_SZ.add(3, PO0_315_SZ);
+        PO_SZ.add(4, PO0_63_SZ);
+        PO_SZ.add(5, PO1_25_SZ);
 
         PP1_25_SZ = (TextView) findViewById(R.id.PP1_25_SZ);
         PP0_63_SZ = (TextView) findViewById(R.id.PP0_63_SZ);
@@ -1522,7 +1949,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PP0_071_SZ = (TextView) findViewById(R.id.PP0_071_SZ);
         PPDNO_SZ = (TextView) findViewById(R.id.PPDNO_SZ);
 
-        PP_SZ.add(0, PPDNO_SZ); PP_SZ.add(1, PP0_071_SZ); PP_SZ.add(2, PP0_16_SZ); PP_SZ.add(3, PP0_315_SZ); PP_SZ.add(4, PP0_63_SZ); PP_SZ.add(5, PP1_25_SZ);
+        PP_SZ.add(0, PPDNO_SZ);
+        PP_SZ.add(1, PP0_071_SZ);
+        PP_SZ.add(2, PP0_16_SZ);
+        PP_SZ.add(3, PP0_315_SZ);
+        PP_SZ.add(4, PP0_63_SZ);
+        PP_SZ.add(5, PP1_25_SZ);
 
         SOD1Minus = (Button) findViewById(R.id.SOD1Minus);
         SOD1Plus = (Button) findViewById(R.id.SOD1Plus);
@@ -1558,7 +1990,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         SODSZ = (EditText) findViewById(R.id.SODSZ);
 
         PP40_R_OT = (TextView) findViewById(R.id.PP40_R_OT);
-        PP20_R_OT = (TextView) findViewById(R.id.PP20_R_OT);;
+        PP20_R_OT = (TextView) findViewById(R.id.PP20_R_OT);
+        ;
         PP15_R_OT = (TextView) findViewById(R.id.PP15_R_OT);
         PP10_R_OT = (TextView) findViewById(R.id.PP10_R_OT);
         PP5_R_OT = (TextView) findViewById(R.id.PP5_R_OT);
@@ -1570,11 +2003,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PP0_071_R_OT = (TextView) findViewById(R.id.PP0_071_R_OT);
 
 
-        PP_R_OT.add(0, PP0_071_R_OT);PP_R_OT.add(1, PP0_16_R_OT);PP_R_OT.add(2, PP0_315_R_OT);PP_R_OT.add(3, PP0_63_R_OT);
-        PP_R_OT.add(4, PP1_25_R_OT);PP_R_OT.add(5, PP2_5_R_OT);PP_R_OT.add(6, PP5_R_OT);PP_R_OT.add(7, PP10_R_OT);PP_R_OT.add(8, PP15_R_OT);PP_R_OT.add(9, PP20_R_OT);PP_R_OT.add(10, PP40_R_OT);
+        PP_R_OT.add(0, PP0_071_R_OT);
+        PP_R_OT.add(1, PP0_16_R_OT);
+        PP_R_OT.add(2, PP0_315_R_OT);
+        PP_R_OT.add(3, PP0_63_R_OT);
+        PP_R_OT.add(4, PP1_25_R_OT);
+        PP_R_OT.add(5, PP2_5_R_OT);
+        PP_R_OT.add(6, PP5_R_OT);
+        PP_R_OT.add(7, PP10_R_OT);
+        PP_R_OT.add(8, PP15_R_OT);
+        PP_R_OT.add(9, PP20_R_OT);
+        PP_R_OT.add(10, PP40_R_OT);
 
         PP40_R_DO = (TextView) findViewById(R.id.PP40_R_DO);
-        PP20_R_DO = (TextView) findViewById(R.id.PP20_R_DO);;
+        PP20_R_DO = (TextView) findViewById(R.id.PP20_R_DO);
+        ;
         PP15_R_DO = (TextView) findViewById(R.id.PP15_R_DO);
         PP10_R_DO = (TextView) findViewById(R.id.PP10_R_DO);
         PP5_R_DO = (TextView) findViewById(R.id.PP5_R_DO);
@@ -1586,13 +2029,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PP0_071_R_DO = (TextView) findViewById(R.id.PP0_071_R_DO);
 
 
-        PP_R_DO.add(0, PP0_071_R_DO);PP_R_DO.add(1, PP0_16_R_DO);PP_R_DO.add(2, PP0_315_R_DO);PP_R_DO.add(3, PP0_63_R_DO);
-        PP_R_DO.add(4, PP1_25_R_DO);PP_R_DO.add(5, PP2_5_R_DO);PP_R_DO.add(6, PP5_R_DO);PP_R_DO.add(7, PP10_R_DO);PP_R_DO.add(8, PP15_R_DO);PP_R_DO.add(9, PP20_R_DO);PP_R_DO.add(10, PP40_R_DO);
+        PP_R_DO.add(0, PP0_071_R_DO);
+        PP_R_DO.add(1, PP0_16_R_DO);
+        PP_R_DO.add(2, PP0_315_R_DO);
+        PP_R_DO.add(3, PP0_63_R_DO);
+        PP_R_DO.add(4, PP1_25_R_DO);
+        PP_R_DO.add(5, PP2_5_R_DO);
+        PP_R_DO.add(6, PP5_R_DO);
+        PP_R_DO.add(7, PP10_R_DO);
+        PP_R_DO.add(8, PP15_R_DO);
+        PP_R_DO.add(9, PP20_R_DO);
+        PP_R_DO.add(10, PP40_R_DO);
 
         //Связываем объекты TextView  и ячейки строки полных проходов материала №1 с учетом его дозировки
 
         PP40_R_1 = (TextView) findViewById(R.id.PP40_R_1);
-        PP20_R_1 = (TextView) findViewById(R.id.PP20_R_1);;
+        PP20_R_1 = (TextView) findViewById(R.id.PP20_R_1);
+        ;
         PP15_R_1 = (TextView) findViewById(R.id.PP15_R_1);
         PP10_R_1 = (TextView) findViewById(R.id.PP10_R_1);
         PP5_R_1 = (TextView) findViewById(R.id.PP5_R_1);
@@ -1605,13 +2058,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Загоняем объекты-ячейки в массив
 
-        PP_R_1.add(0, PP0_071_R_1);PP_R_1.add(1, PP0_16_R_1);PP_R_1.add(2, PP0_315_R_1);PP_R_1.add(3, PP0_63_R_1); PP_R_1.add(4, PP1_25_R_1);
-        PP_R_1.add(5, PP2_5_R_1);PP_R_1.add(6, PP5_R_1);PP_R_1.add(7, PP10_R_1);PP_R_1.add(8, PP15_R_1);PP_R_1.add(9, PP20_R_1);PP_R_1.add(10, PP40_R_1);
+        PP_R_1.add(0, PP0_071_R_1);
+        PP_R_1.add(1, PP0_16_R_1);
+        PP_R_1.add(2, PP0_315_R_1);
+        PP_R_1.add(3, PP0_63_R_1);
+        PP_R_1.add(4, PP1_25_R_1);
+        PP_R_1.add(5, PP2_5_R_1);
+        PP_R_1.add(6, PP5_R_1);
+        PP_R_1.add(7, PP10_R_1);
+        PP_R_1.add(8, PP15_R_1);
+        PP_R_1.add(9, PP20_R_1);
+        PP_R_1.add(10, PP40_R_1);
 
         //Связываем объекты TextView  и ячейки строки полных проходов материала №2 с учетом его дозировки
 
         PP40_R_2 = (TextView) findViewById(R.id.PP40_R_2);
-        PP20_R_2 = (TextView) findViewById(R.id.PP20_R_2);;
+        PP20_R_2 = (TextView) findViewById(R.id.PP20_R_2);
+        ;
         PP15_R_2 = (TextView) findViewById(R.id.PP15_R_2);
         PP10_R_2 = (TextView) findViewById(R.id.PP10_R_2);
         PP5_R_2 = (TextView) findViewById(R.id.PP5_R_2);
@@ -1624,13 +2087,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Загоняем объекты-ячейки в массив
 
-        PP_R_2.add(0, PP0_071_R_2);PP_R_2.add(1, PP0_16_R_2);PP_R_2.add(2, PP0_315_R_2);PP_R_2.add(3, PP0_63_R_2); PP_R_2.add(4, PP1_25_R_2);
-        PP_R_2.add(5, PP2_5_R_2);PP_R_2.add(6, PP5_R_2);PP_R_2.add(7, PP10_R_2);PP_R_2.add(8, PP15_R_2);PP_R_2.add(9, PP20_R_2);PP_R_2.add(10, PP40_R_2);
+        PP_R_2.add(0, PP0_071_R_2);
+        PP_R_2.add(1, PP0_16_R_2);
+        PP_R_2.add(2, PP0_315_R_2);
+        PP_R_2.add(3, PP0_63_R_2);
+        PP_R_2.add(4, PP1_25_R_2);
+        PP_R_2.add(5, PP2_5_R_2);
+        PP_R_2.add(6, PP5_R_2);
+        PP_R_2.add(7, PP10_R_2);
+        PP_R_2.add(8, PP15_R_2);
+        PP_R_2.add(9, PP20_R_2);
+        PP_R_2.add(10, PP40_R_2);
 
         //Связываем объекты TextView  и ячейки строки полных проходов материала №3 с учетом его дозировки
 
         PP40_R_3 = (TextView) findViewById(R.id.PP40_R_3);
-        PP20_R_3 = (TextView) findViewById(R.id.PP20_R_3);;
+        PP20_R_3 = (TextView) findViewById(R.id.PP20_R_3);
+        ;
         PP15_R_3 = (TextView) findViewById(R.id.PP15_R_3);
         PP10_R_3 = (TextView) findViewById(R.id.PP10_R_3);
         PP5_R_3 = (TextView) findViewById(R.id.PP5_R_3);
@@ -1643,13 +2116,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Загоняем объекты-ячейки в массив
 
-        PP_R_3.add(0, PP0_071_R_3);PP_R_3.add(1, PP0_16_R_3);PP_R_3.add(2, PP0_315_R_3);PP_R_3.add(3, PP0_63_R_3); PP_R_3.add(4, PP1_25_R_3);
-        PP_R_3.add(5, PP2_5_R_3);PP_R_3.add(6, PP5_R_3);PP_R_3.add(7, PP10_R_3);PP_R_3.add(8, PP15_R_3);PP_R_3.add(9, PP20_R_3);PP_R_3.add(10, PP40_R_3);
+        PP_R_3.add(0, PP0_071_R_3);
+        PP_R_3.add(1, PP0_16_R_3);
+        PP_R_3.add(2, PP0_315_R_3);
+        PP_R_3.add(3, PP0_63_R_3);
+        PP_R_3.add(4, PP1_25_R_3);
+        PP_R_3.add(5, PP2_5_R_3);
+        PP_R_3.add(6, PP5_R_3);
+        PP_R_3.add(7, PP10_R_3);
+        PP_R_3.add(8, PP15_R_3);
+        PP_R_3.add(9, PP20_R_3);
+        PP_R_3.add(10, PP40_R_3);
 
         //Связываем объекты TextView  и ячейки строки полных проходов материала №4 с учетом его дозировки
 
         PP40_R_4 = (TextView) findViewById(R.id.PP40_R_4);
-        PP20_R_4 = (TextView) findViewById(R.id.PP20_R_4);;
+        PP20_R_4 = (TextView) findViewById(R.id.PP20_R_4);
+        ;
         PP15_R_4 = (TextView) findViewById(R.id.PP15_R_4);
         PP10_R_4 = (TextView) findViewById(R.id.PP10_R_4);
         PP5_R_4 = (TextView) findViewById(R.id.PP5_R_4);
@@ -1662,13 +2145,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Загоняем объекты-ячейки в массив
 
-        PP_R_4.add(0, PP0_071_R_4);PP_R_4.add(1, PP0_16_R_4);PP_R_4.add(2, PP0_315_R_4);PP_R_4.add(3, PP0_63_R_4); PP_R_4.add(4, PP1_25_R_4);
-        PP_R_4.add(5, PP2_5_R_4);PP_R_4.add(6, PP5_R_4);PP_R_4.add(7, PP10_R_4);PP_R_4.add(8, PP15_R_4);PP_R_4.add(9, PP20_R_4);PP_R_4.add(10, PP40_R_4);
+        PP_R_4.add(0, PP0_071_R_4);
+        PP_R_4.add(1, PP0_16_R_4);
+        PP_R_4.add(2, PP0_315_R_4);
+        PP_R_4.add(3, PP0_63_R_4);
+        PP_R_4.add(4, PP1_25_R_4);
+        PP_R_4.add(5, PP2_5_R_4);
+        PP_R_4.add(6, PP5_R_4);
+        PP_R_4.add(7, PP10_R_4);
+        PP_R_4.add(8, PP15_R_4);
+        PP_R_4.add(9, PP20_R_4);
+        PP_R_4.add(10, PP40_R_4);
 
         //Связываем объекты TextView  и ячейки строки полных проходов материала №5 с учетом его дозировки
 
         PP40_R_5 = (TextView) findViewById(R.id.PP40_R_5);
-        PP20_R_5 = (TextView) findViewById(R.id.PP20_R_5);;
+        PP20_R_5 = (TextView) findViewById(R.id.PP20_R_5);
+        ;
         PP15_R_5 = (TextView) findViewById(R.id.PP15_R_5);
         PP10_R_5 = (TextView) findViewById(R.id.PP10_R_5);
         PP5_R_5 = (TextView) findViewById(R.id.PP5_R_5);
@@ -1681,13 +2174,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Загоняем объекты-ячейки в массив
 
-        PP_R_5.add(0, PP0_071_R_5);PP_R_5.add(1, PP0_16_R_5);PP_R_5.add(2, PP0_315_R_5);PP_R_5.add(3, PP0_63_R_5); PP_R_5.add(4, PP1_25_R_5);
-        PP_R_5.add(5, PP2_5_R_5);PP_R_5.add(6, PP5_R_5);PP_R_5.add(7, PP10_R_5);PP_R_5.add(8, PP15_R_5);PP_R_5.add(9, PP20_R_5);PP_R_5.add(10, PP40_R_5);
+        PP_R_5.add(0, PP0_071_R_5);
+        PP_R_5.add(1, PP0_16_R_5);
+        PP_R_5.add(2, PP0_315_R_5);
+        PP_R_5.add(3, PP0_63_R_5);
+        PP_R_5.add(4, PP1_25_R_5);
+        PP_R_5.add(5, PP2_5_R_5);
+        PP_R_5.add(6, PP5_R_5);
+        PP_R_5.add(7, PP10_R_5);
+        PP_R_5.add(8, PP15_R_5);
+        PP_R_5.add(9, PP20_R_5);
+        PP_R_5.add(10, PP40_R_5);
 
         //Связываем объекты TextView  и ячейки строки полных проходов материала №6 с учетом его дозировки
 
         PP40_R_6 = (TextView) findViewById(R.id.PP40_R_6);
-        PP20_R_6 = (TextView) findViewById(R.id.PP20_R_6);;
+        PP20_R_6 = (TextView) findViewById(R.id.PP20_R_6);
+        ;
         PP15_R_6 = (TextView) findViewById(R.id.PP15_R_6);
         PP10_R_6 = (TextView) findViewById(R.id.PP10_R_6);
         PP5_R_6 = (TextView) findViewById(R.id.PP5_R_6);
@@ -1700,13 +2203,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Загоняем объекты-ячейки в массив
 
-        PP_R_6.add(0, PP0_071_R_6);PP_R_6.add(1, PP0_16_R_6);PP_R_6.add(2, PP0_315_R_6);PP_R_6.add(3, PP0_63_R_6); PP_R_6.add(4, PP1_25_R_6);
-        PP_R_6.add(5, PP2_5_R_6);PP_R_6.add(6, PP5_R_6);PP_R_6.add(7, PP10_R_6);PP_R_6.add(8, PP15_R_6);PP_R_6.add(9, PP20_R_6);PP_R_6.add(10, PP40_R_6);
+        PP_R_6.add(0, PP0_071_R_6);
+        PP_R_6.add(1, PP0_16_R_6);
+        PP_R_6.add(2, PP0_315_R_6);
+        PP_R_6.add(3, PP0_63_R_6);
+        PP_R_6.add(4, PP1_25_R_6);
+        PP_R_6.add(5, PP2_5_R_6);
+        PP_R_6.add(6, PP5_R_6);
+        PP_R_6.add(7, PP10_R_6);
+        PP_R_6.add(8, PP15_R_6);
+        PP_R_6.add(9, PP20_R_6);
+        PP_R_6.add(10, PP40_R_6);
 
         //Связываем объекты TextView  и ячейки строки полных проходов материала минеарльного порошка с учетом его дозировки
 
         PP40_R_MP = (TextView) findViewById(R.id.PP40_R_MP);
-        PP20_R_MP = (TextView) findViewById(R.id.PP20_R_MP);;
+        PP20_R_MP = (TextView) findViewById(R.id.PP20_R_MP);
+        ;
         PP15_R_MP = (TextView) findViewById(R.id.PP15_R_MP);
         PP10_R_MP = (TextView) findViewById(R.id.PP10_R_MP);
         PP5_R_MP = (TextView) findViewById(R.id.PP5_R_MP);
@@ -1719,13 +2232,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Загоняем объекты-ячейки в массив
 
-        PP_R_MP.add(0, PP0_071_R_MP);PP_R_MP.add(1, PP0_16_R_MP);PP_R_MP.add(2, PP0_315_R_MP);PP_R_MP.add(3, PP0_63_R_MP); PP_R_MP.add(4, PP1_25_R_MP);
-        PP_R_MP.add(5, PP2_5_R_MP);PP_R_MP.add(6, PP5_R_MP);PP_R_MP.add(7, PP10_R_MP);PP_R_MP.add(8, PP15_R_MP);PP_R_MP.add(9, PP20_R_MP);PP_R_MP.add(10, PP40_R_MP);
+        PP_R_MP.add(0, PP0_071_R_MP);
+        PP_R_MP.add(1, PP0_16_R_MP);
+        PP_R_MP.add(2, PP0_315_R_MP);
+        PP_R_MP.add(3, PP0_63_R_MP);
+        PP_R_MP.add(4, PP1_25_R_MP);
+        PP_R_MP.add(5, PP2_5_R_MP);
+        PP_R_MP.add(6, PP5_R_MP);
+        PP_R_MP.add(7, PP10_R_MP);
+        PP_R_MP.add(8, PP15_R_MP);
+        PP_R_MP.add(9, PP20_R_MP);
+        PP_R_MP.add(10, PP40_R_MP);
 
         //Связываем объекты TextView  и ячейки строки полных проходов материала №6 с учетом его дозировки
 
         PP40_R_SZ = (TextView) findViewById(R.id.PP40_R_SZ);
-        PP20_R_SZ = (TextView) findViewById(R.id.PP20_R_SZ);;
+        PP20_R_SZ = (TextView) findViewById(R.id.PP20_R_SZ);
+        ;
         PP15_R_SZ = (TextView) findViewById(R.id.PP15_R_SZ);
         PP10_R_SZ = (TextView) findViewById(R.id.PP10_R_SZ);
         PP5_R_SZ = (TextView) findViewById(R.id.PP5_R_SZ);
@@ -1738,13 +2261,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Загоняем объекты-ячейки в массив
 
-        PP_R_SZ.add(0, PP0_071_R_SZ);PP_R_SZ.add(1, PP0_16_R_SZ);PP_R_SZ.add(2, PP0_315_R_SZ);PP_R_SZ.add(3, PP0_63_R_SZ); PP_R_SZ.add(4, PP1_25_R_SZ);
-        PP_R_SZ.add(5, PP2_5_R_SZ);PP_R_SZ.add(6, PP5_R_SZ);PP_R_SZ.add(7, PP10_R_SZ);PP_R_SZ.add(8, PP15_R_SZ);PP_R_SZ.add(9, PP20_R_SZ);PP_R_SZ.add(10, PP40_R_SZ);
+        PP_R_SZ.add(0, PP0_071_R_SZ);
+        PP_R_SZ.add(1, PP0_16_R_SZ);
+        PP_R_SZ.add(2, PP0_315_R_SZ);
+        PP_R_SZ.add(3, PP0_63_R_SZ);
+        PP_R_SZ.add(4, PP1_25_R_SZ);
+        PP_R_SZ.add(5, PP2_5_R_SZ);
+        PP_R_SZ.add(6, PP5_R_SZ);
+        PP_R_SZ.add(7, PP10_R_SZ);
+        PP_R_SZ.add(8, PP15_R_SZ);
+        PP_R_SZ.add(9, PP20_R_SZ);
+        PP_R_SZ.add(10, PP40_R_SZ);
 
         //Связываем объекты TextView  и ячейки строки полных проходов результирующей кривой
 
         PP40_R_Result = (TextView) findViewById(R.id.PP40_R_ResCurve);
-        PP20_R_Result = (TextView) findViewById(R.id.PP20_R_ResCurve);;
+        PP20_R_Result = (TextView) findViewById(R.id.PP20_R_ResCurve);
+        ;
         PP15_R_Result = (TextView) findViewById(R.id.PP15_R_ResCurve);
         PP10_R_Result = (TextView) findViewById(R.id.PP10_R_ResCurve);
         PP5_R_Result = (TextView) findViewById(R.id.PP5_R_ResCurve);
@@ -1759,8 +2292,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Загоняем объекты-ячейки в массив
 
-        PP_R_Result.add(0, PP0_071_R_Result);PP_R_Result.add(1, PP0_16_R_Result);PP_R_Result.add(2, PP0_315_R_Result);PP_R_Result.add(3, PP0_63_R_Result); PP_R_Result.add(4, PP1_25_R_Result);
-        PP_R_Result.add(5, PP2_5_R_Result);PP_R_Result.add(6, PP5_R_Result);PP_R_Result.add(7, PP10_R_Result);PP_R_Result.add(8, PP15_R_Result);PP_R_Result.add(9, PP20_R_Result);PP_R_Result.add(10, PP40_R_Result);
+        PP_R_Result.add(0, PP0_071_R_Result);
+        PP_R_Result.add(1, PP0_16_R_Result);
+        PP_R_Result.add(2, PP0_315_R_Result);
+        PP_R_Result.add(3, PP0_63_R_Result);
+        PP_R_Result.add(4, PP1_25_R_Result);
+        PP_R_Result.add(5, PP2_5_R_Result);
+        PP_R_Result.add(6, PP5_R_Result);
+        PP_R_Result.add(7, PP10_R_Result);
+        PP_R_Result.add(8, PP15_R_Result);
+        PP_R_Result.add(9, PP20_R_Result);
+        PP_R_Result.add(10, PP40_R_Result);
 
         KeyBoard = (Button) findViewById(R.id.Keyboard);
     }
