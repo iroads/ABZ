@@ -815,52 +815,52 @@
                     style="@style/HeadFieldOfForm3"
                     android:text="@string/CHOG" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG40_3"
                     style="@style/FieldOfForm3SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG20_3"
                     style="@style/FieldOfForm3SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG15_3"
                     style="@style/FieldOfForm3SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG10_3"
                     style="@style/FieldOfForm3SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG5_3"
                     style="@style/FieldOfForm3SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG2_5_3"
                     style="@style/FieldOfForm3SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG1_25_3"
                     style="@style/FieldOfForm3SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG0_63_3"
                     style="@style/FieldOfForm3SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG0_315_3"
                     style="@style/FieldOfForm3SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG0_16_3"
                     style="@style/FieldOfForm3SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG0_071_3"
                     style="@style/FieldOfForm3SmallText" />
 
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOGDNO_3"
                     style="@style/FieldOfForm3SmallText" />
 
