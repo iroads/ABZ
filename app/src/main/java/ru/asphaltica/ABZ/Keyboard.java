@@ -71,7 +71,7 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
         KeyBoardRightValue.setOnClickListener(this);
 
         KeyBoardOtsek.setText("Отсек№"+BunkerID);
-        KeyBoardSito.setText("Сито "+TransMaterial.Sita.get(ChogID));
+        if (TransMaterial.SitaNames.get(ChogID).equals("DNO")) KeyBoardSito.setText(TransMaterial.SitaNames.get(ChogID)); else KeyBoardSito.setText("Сито "+TransMaterial.SitaNames.get(ChogID));
 
         int yourScale0 = 0;
         CHOG = BigDecimal.valueOf(TransMaterial.CHOG[ChogID]).setScale(yourScale0, BigDecimal.ROUND_HALF_UP).toString();
@@ -160,7 +160,7 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
                     ChogID = ChogID + 1;
                     CHOG = BigDecimal.valueOf(TransMaterial.CHOG[ChogID]).setScale(yourScale0, BigDecimal.ROUND_HALF_UP).toString();
                     KeyBoardCHOG.setText(CHOG);
-                    KeyBoardSito.setText("Сито "+TransMaterial.Sita.get(ChogID));
+                    if (TransMaterial.SitaNames.get(ChogID).equals("DNO")) KeyBoardSito.setText(TransMaterial.SitaNames.get(ChogID)); else KeyBoardSito.setText("Сито "+TransMaterial.SitaNames.get(ChogID));
                 }
                 break;
             }
@@ -172,7 +172,7 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
                     ChogID = ChogID - 1;
                     CHOG = BigDecimal.valueOf(TransMaterial.CHOG[ChogID]).setScale(yourScale0, BigDecimal.ROUND_HALF_UP).toString();
                     KeyBoardCHOG.setText(CHOG);
-                    KeyBoardSito.setText("Сито "+TransMaterial.Sita.get(ChogID));
+                    if (TransMaterial.SitaNames.get(ChogID).equals("DNO")) KeyBoardSito.setText(TransMaterial.SitaNames.get(ChogID)); else KeyBoardSito.setText("Сито "+TransMaterial.SitaNames.get(ChogID));
                 }
 
                 break;

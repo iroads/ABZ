@@ -14,10 +14,15 @@ public class Material implements Serializable {
     double [] FullOst = new double[CHOG.length];
 
     Map<Integer, String> Sita = new HashMap<Integer, String>();
+    Map<Integer, String> SitaNames = new HashMap<Integer, String>();
 
     Material(){
         Sita.put(0, "DNO"); Sita.put(1, "0_071"); Sita.put(2, "0_16"); Sita.put(3, "0_315"); Sita.put(4, "0_63"); Sita.put(5, "1_25");
         Sita.put(6, "2_5"); Sita.put(7, "5"); Sita.put(8, "10"); Sita.put(9, "15"); Sita.put(10, "20"); Sita.put(11, "40");
+
+        SitaNames.put(0, "DNO"); SitaNames.put(1, "0.071"); SitaNames.put(2, "0.16"); SitaNames.put(3, "0.315"); SitaNames.put(4, "0.63"); SitaNames.put(5, "1.25");
+        SitaNames.put(6, "2.5"); SitaNames.put(7, "5"); SitaNames.put(8, "10"); SitaNames.put(9, "15"); SitaNames.put(10, "20"); SitaNames.put(11, "40");
+
     }
 
     // Массив CHOG для хранения результатов определения частных остатков на ситах
