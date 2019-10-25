@@ -38,10 +38,7 @@
                     style="@style/HeadOfForm1"
                     android:text="@string/Otsek1N" />
 
-                <Button
-                    android:id="@+id/Keyboard"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp" />
+
 
             </LinearLayout>
 
@@ -476,52 +473,52 @@
                     style="@style/HeadFieldOfForm2"
                     android:text="@string/CHOG" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG40_2"
                     style="@style/FieldOfForm2SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG20_2"
                     style="@style/FieldOfForm2SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG15_2"
                     style="@style/FieldOfForm2SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG10_2"
                     style="@style/FieldOfForm2SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG5_2"
                     style="@style/FieldOfForm2SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG2_5_2"
                     style="@style/FieldOfForm2SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG1_25_2"
                     style="@style/FieldOfForm2SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG0_63_2"
                     style="@style/FieldOfForm2SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG0_315_2"
                     style="@style/FieldOfForm2SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG0_16_2"
                     style="@style/FieldOfForm2SmallText" />
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOG0_071_2"
                     style="@style/FieldOfForm2SmallText" />
 
 
-                <EditText
+                <TextView
                     android:id="@+id/CHOGDNO_2"
                     style="@style/FieldOfForm2SmallText" />
 

@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Recept recept = new Recept();
 
-    Button KeyBoard;
 
     //ТАБЛИЦА МАТЕРИАЛА БУНКЕРА №1
 
@@ -95,24 +94,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Material MatBunker2 = new Material();
 
-    ArrayList<EditText> CHOG2 = new ArrayList<EditText>(); // в этом массиве храним объекты типа View - поля ввода частных остатков в граммах для их перебора в цикле
+    ArrayList<TextView> CHOG2 = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля ввода частных остатков в граммах для их перебора в цикле
     ArrayList<TextView> CHOP2 = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля вывода частных остатков в процентах для их перебора в цикле
     ArrayList<TextView> PO2 = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля вывода полных остатков в процентах для их перебора в цикле
     ArrayList<TextView> PP2 = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля вывода полных проходов в процентах для их перебора в цикле
 
 
-    EditText CHOG40_2;
-    EditText CHOG20_2;
-    EditText CHOG15_2;
-    EditText CHOG10_2;
-    EditText CHOG5_2;
-    EditText CHOG2_5_2;
-    EditText CHOG1_25_2;
-    EditText CHOG0_63_2;
-    EditText CHOG0_315_2;
-    EditText CHOG0_16_2;
-    EditText CHOG0_071_2;
-    EditText CHOGDNO_2;
+    TextView CHOG40_2;
+    TextView CHOG20_2;
+    TextView CHOG15_2;
+    TextView CHOG10_2;
+    TextView CHOG5_2;
+    TextView CHOG2_5_2;
+    TextView CHOG1_25_2;
+    TextView CHOG0_63_2;
+    TextView CHOG0_315_2;
+    TextView CHOG0_16_2;
+    TextView CHOG0_071_2;
+    TextView CHOGDNO_2;
 
 
     TextView CHOP40_2;
@@ -724,7 +723,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         SODSZMinus.setOnClickListener(this);
         SODSZPlus.setOnClickListener(this);
 
-        KeyBoard.setOnClickListener(this);
 
         for (int i = 0; i < 12; i++) {
             CHOG.get(i).setOnFocusChangeListener(new MyOnFocusChageAction());
@@ -735,6 +733,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             CHOG6.get(i).setOnFocusChangeListener(new MyOnFocusChageAction());
 
             CHOG.get(i).setOnClickListener(this);
+            CHOG2.get(i).setOnClickListener(this);
+
 
             if (i < 6) {
                 CHOG_MP.get(i).setOnFocusChangeListener(new MyOnFocusChageAction());
@@ -1082,78 +1082,67 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int ChogID = 0;
         int BunkerID = 0;
 
+        if (v.getId() == R.id.CHOG40 || v.getId() == R.id.CHOG20 || v.getId() == R.id.CHOG15 || v.getId() == R.id.CHOG10 || v.getId() == R.id.CHOG5 || v.getId() == R.id.CHOG2_5 || v.getId() == R.id.CHOG1_25
+                || v.getId() == R.id.CHOG0_63 || v.getId() == R.id.CHOG0_315 || v.getId() == R.id.CHOG0_071 || v.getId() == R.id.CHOGDNO) {
+            PushChogDetector = true;
+            BunkerID = 1;
+            TransMaterial = MatBunker1;
+        }
+        if (v.getId() == R.id.CHOG40_2 || v.getId() == R.id.CHOG20_2 || v.getId() == R.id.CHOG15_2 || v.getId() == R.id.CHOG10_2 || v.getId() == R.id.CHOG5_2 || v.getId() == R.id.CHOG2_5_2 || v.getId() == R.id.CHOG1_25_2
+                || v.getId() == R.id.CHOG0_63_2 || v.getId() == R.id.CHOG0_315_2 || v.getId() == R.id.CHOG0_071_2 || v.getId() == R.id.CHOGDNO_2) {
+            PushChogDetector = true;
+            BunkerID = 2;
+            TransMaterial = MatBunker2;
+        }
 
-        if (v.getId() == R.id.CHOG40) {
-            PushChogDetector = true;
-            BunkerID = 1;
-            TransMaterial = MatBunker1;
-            ChogID = MatBunker1.CHOG.length - 1;
+
+        if (v.getId() == R.id.CHOG40 || v.getId() == R.id.CHOG40_2) {
+
+            ChogID = TransMaterial.CHOG.length - 1;
         }
-        if (v.getId() == R.id.CHOG20) {
-            PushChogDetector = true;
-            BunkerID = 1;
-            TransMaterial = MatBunker1;
-            ChogID = MatBunker1.CHOG.length - 2;
+        if (v.getId() == R.id.CHOG20 || v.getId() == R.id.CHOG20_2) {
+
+            ChogID = TransMaterial.CHOG.length - 2;
         }
-        if (v.getId() == R.id.CHOG15) {
-            PushChogDetector = true;
-            BunkerID = 1;
-            TransMaterial = MatBunker1;
-            ChogID = MatBunker1.CHOG.length - 3;
+        if (v.getId() == R.id.CHOG15 || v.getId() == R.id.CHOG15_2) {
+
+            ChogID = TransMaterial.CHOG.length - 3;
         }
-        if (v.getId() == R.id.CHOG10) {
-            PushChogDetector = true;
-            BunkerID = 1;
-            TransMaterial = MatBunker1;
-            ChogID = MatBunker1.CHOG.length - 4;
+        if (v.getId() == R.id.CHOG10 || v.getId() == R.id.CHOG10_2) {
+
+            ChogID = TransMaterial.CHOG.length - 4;
         }
-        if (v.getId() == R.id.CHOG5) {
-            PushChogDetector = true;
-            BunkerID = 1;
-            TransMaterial = MatBunker1;
-            ChogID = MatBunker1.CHOG.length - 5;
+        if (v.getId() == R.id.CHOG5 || v.getId() == R.id.CHOG5_2) {
+
+            ChogID = TransMaterial.CHOG.length - 5;
         }
-        if (v.getId() == R.id.CHOG2_5) {
-            PushChogDetector = true;
-            BunkerID = 1;
-            TransMaterial = MatBunker1;
-            ChogID = MatBunker1.CHOG.length - 6;
+        if (v.getId() == R.id.CHOG2_5 || v.getId() == R.id.CHOG2_5_2) {
+
+            ChogID = TransMaterial.CHOG.length - 6;
         }
-        if (v.getId() == R.id.CHOG1_25) {
-            PushChogDetector = true;
-            BunkerID = 1;
-            TransMaterial = MatBunker1;
-            ChogID = MatBunker1.CHOG.length - 7;
+        if (v.getId() == R.id.CHOG1_25 || v.getId() == R.id.CHOG1_25_2) {
+
+            ChogID = TransMaterial.CHOG.length - 7;
         }
-        if (v.getId() == R.id.CHOG0_63) {
-            PushChogDetector = true;
-            BunkerID = 1;
-            TransMaterial = MatBunker1;
-            ChogID = MatBunker1.CHOG.length - 8;
+        if (v.getId() == R.id.CHOG0_63 || v.getId() == R.id.CHOG0_63_2) {
+
+            ChogID = TransMaterial.CHOG.length - 8;
         }
-        if (v.getId() == R.id.CHOG0_315) {
-            PushChogDetector = true;
-            BunkerID = 1;
-            TransMaterial = MatBunker1;
-            ChogID = MatBunker1.CHOG.length - 9;
+        if (v.getId() == R.id.CHOG0_315 || v.getId() == R.id.CHOG0_315_2) {
+
+            ChogID = TransMaterial.CHOG.length - 9;
         }
-        if (v.getId() == R.id.CHOG0_16) {
-            PushChogDetector = true;
-            BunkerID = 1;
-            TransMaterial = MatBunker1;
-            ChogID = MatBunker1.CHOG.length - 10;
+        if (v.getId() == R.id.CHOG0_16 || v.getId() == R.id.CHOG0_16_2) {
+
+            ChogID = TransMaterial.CHOG.length - 10;
         }
-        if (v.getId() == R.id.CHOG0_071) {
-            PushChogDetector = true;
-            BunkerID = 1;
-            TransMaterial = MatBunker1;
-            ChogID = MatBunker1.CHOG.length - 11;
+        if (v.getId() == R.id.CHOG0_071 || v.getId() == R.id.CHOG0_071_2) {
+
+            ChogID = TransMaterial.CHOG.length - 11;
         }
-        if (v.getId() == R.id.CHOGDNO) {
-            PushChogDetector = true;
-            BunkerID = 1;
-            TransMaterial = MatBunker1;
-            ChogID = MatBunker1.CHOG.length - 12;
+        if (v.getId() == R.id.CHOGDNO || v.getId() == R.id.CHOGDNO_2) {
+
+            ChogID = TransMaterial.CHOG.length - 12;
         }
 
         if (PushChogDetector) {
@@ -1183,11 +1172,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //CHOG.get(i).setText(String.format(Double.toString(MatBunker1.CHOG[i]), "%.3f"));
             }
         }
-
-
-
-
-
+        if (BunkerID == 2) {
+            MatBunker2 = (Material) data.getSerializableExtra("OBJECT_BACK");
+            for (int i = 0; i < CHOG.size(); i++) {
+                CHOG2.get(i).setText(BigDecimal.valueOf(MatBunker2.CHOG[i]).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+            }
+        }
 
 
     }
@@ -1304,18 +1294,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Связываем объекты с полями xml формы - Таблица зернового состава №2
 
-        CHOG40_2 = (EditText) findViewById(R.id.CHOG40_2);
-        CHOG20_2 = (EditText) findViewById(R.id.CHOG20_2);
-        CHOG15_2 = (EditText) findViewById(R.id.CHOG15_2);
-        CHOG10_2 = (EditText) findViewById(R.id.CHOG10_2);
-        CHOG5_2 = (EditText) findViewById(R.id.CHOG5_2);
-        CHOG2_5_2 = (EditText) findViewById(R.id.CHOG2_5_2);
-        CHOG1_25_2 = (EditText) findViewById(R.id.CHOG1_25_2);
-        CHOG0_63_2 = (EditText) findViewById(R.id.CHOG0_63_2);
-        CHOG0_315_2 = (EditText) findViewById(R.id.CHOG0_315_2);
-        CHOG0_16_2 = (EditText) findViewById(R.id.CHOG0_16_2);
-        CHOG0_071_2 = (EditText) findViewById(R.id.CHOG0_071_2);
-        CHOGDNO_2 = (EditText) findViewById(R.id.CHOGDNO_2);
+        CHOG40_2 = (TextView) findViewById(R.id.CHOG40_2);
+        CHOG20_2 = (TextView) findViewById(R.id.CHOG20_2);
+        CHOG15_2 = (TextView) findViewById(R.id.CHOG15_2);
+        CHOG10_2 = (TextView) findViewById(R.id.CHOG10_2);
+        CHOG5_2 = (TextView) findViewById(R.id.CHOG5_2);
+        CHOG2_5_2 = (TextView) findViewById(R.id.CHOG2_5_2);
+        CHOG1_25_2 = (TextView) findViewById(R.id.CHOG1_25_2);
+        CHOG0_63_2 = (TextView) findViewById(R.id.CHOG0_63_2);
+        CHOG0_315_2 = (TextView) findViewById(R.id.CHOG0_315_2);
+        CHOG0_16_2 = (TextView) findViewById(R.id.CHOG0_16_2);
+        CHOG0_071_2 = (TextView) findViewById(R.id.CHOG0_071_2);
+        CHOGDNO_2 = (TextView) findViewById(R.id.CHOGDNO_2);
 
         // Кладем подготовленные и связанные объекты в массив
         CHOG2.add(0, CHOGDNO_2);
@@ -2304,6 +2294,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PP_R_Result.add(9, PP20_R_Result);
         PP_R_Result.add(10, PP40_R_Result);
 
-        KeyBoard = (Button) findViewById(R.id.Keyboard);
+
     }
 }
