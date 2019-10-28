@@ -38,6 +38,7 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
     Material TransMaterial;
     int ChogID;
     int BunkerID;
+    int LeftStop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +71,19 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
         KeyBoardLeftValue.setOnClickListener(this);
         KeyBoardRightValue.setOnClickListener(this);
 
-        KeyBoardOtsek.setText("Отсек№"+BunkerID);
+        if (BunkerID == 7) {
+            KeyBoardOtsek.setText("Мин.Порошок");
+            LeftStop = 5;
+        } else
+        if (BunkerID == 8) {
+            KeyBoardOtsek.setText("Пыль");
+            LeftStop = 5;
+        } else
+            {
+                KeyBoardOtsek.setText("Отсек№"+BunkerID);
+                LeftStop = 11;
+            }
+
         if (TransMaterial.SitaNames.get(ChogID).equals("DNO")) KeyBoardSito.setText(TransMaterial.SitaNames.get(ChogID)); else KeyBoardSito.setText("Сито "+TransMaterial.SitaNames.get(ChogID));
 
         int yourScale0 = 0;
@@ -154,7 +167,7 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
             }
             case R.id.KeyBoardLeftValue: {
 
-                if (ChogID != TransMaterial.CHOG.length-1) {
+                if (ChogID != LeftStop) {
                     int yourScale0 = 0;
                     TransMaterial.CHOG[ChogID] = Double.parseDouble(CHOG);
                     ChogID = ChogID + 1;

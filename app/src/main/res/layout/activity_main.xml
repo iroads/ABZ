@@ -2164,28 +2164,28 @@
                             style="@style/HeadFieldOfFormMP"
                             android:text="@string/CHOG" />
 
-                        <EditText
+                        <TextView
                             android:id="@+id/CHOG1_25_MP"
                             style="@style/FieldOfFormMPSmallText" />
 
-                        <EditText
+                        <TextView
                             android:id="@+id/CHOG0_63_MP"
                             style="@style/FieldOfFormMPSmallText" />
 
-                        <EditText
+                        <TextView
                             android:id="@+id/CHOG0_315_MP"
                             style="@style/FieldOfFormMPSmallText" />
 
-                        <EditText
+                        <TextView
                             android:id="@+id/CHOG0_16_MP"
                             style="@style/FieldOfFormMPSmallText" />
 
-                        <EditText
+                        <TextView
                             android:id="@+id/CHOG0_071_MP"
                             style="@style/FieldOfFormMPSmallText" />
 
 
-                        <EditText
+                        <TextView
                             android:id="@+id/CHOGDNO_MP"
                             style="@style/FieldOfFormMPSmallText" />
 
@@ -2386,28 +2386,28 @@
                             style="@style/HeadFieldOfFormSZ"
                             android:text="@string/CHOG" />
 
-                        <EditText
+                        <TextView
                             android:id="@+id/CHOG1_25_SZ"
                             style="@style/FieldOfFormSZSmallText" />
 
-                        <EditText
+                        <TextView
                             android:id="@+id/CHOG0_63_SZ"
                             style="@style/FieldOfFormSZSmallText" />
 
-                        <EditText
+                        <TextView
                             android:id="@+id/CHOG0_315_SZ"
                             style="@style/FieldOfFormSZSmallText" />
 
-                        <EditText
+                        <TextView
                             android:id="@+id/CHOG0_16_SZ"
                             style="@style/FieldOfFormSZSmallText" />
 
-                        <EditText
+                        <TextView
                             android:id="@+id/CHOG0_071_SZ"
                             style="@style/FieldOfFormSZSmallText" />
 
 
-                        <EditText
+                        <TextView
                             android:id="@+id/CHOGDNO_SZ"
                             style="@style/FieldOfFormSZSmallText" />
 

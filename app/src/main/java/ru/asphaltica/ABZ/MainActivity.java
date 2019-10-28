@@ -20,10 +20,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
+    //Объявляем переменную типа Spinner, которая будет отвечать за список типов асфальтобетонных смесей
+    //Выбор элемента в данном списке будет изменять нормативные полные проходы
     Spinner SpinnerMixType;
+
+    //Данный массив будет хранить пунткы выпадающего списка SpinnerMixType
     String[] Mixes = {"Тип А", "Тип Б", "Тип В", "Тип Г", "ЩМА-10", "ЩМА-15", "ЩМА-20"};
 
+    //Создаем объект типа Recept
+    //Данный объект будет содержать дозировку в % каждого компонента
+    //Данный объект может рассчитывать полные проходы для каждого компонета с учетом дозировки, а также расчитывает полный зерновой состав смеси
     Recept recept = new Recept();
 
 
@@ -409,17 +415,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Material MatBunkerMP = new Material();
 
-    ArrayList<EditText> CHOG_MP = new ArrayList<EditText>(); // в этом массиве храним объекты типа View - поля ввода частных остатков в граммах для их перебора в цикле
+    ArrayList<TextView> CHOG_MP = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля ввода частных остатков в граммах для их перебора в цикле
     ArrayList<TextView> CHOP_MP = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля вывода частных остатков в процентах для их перебора в цикле
     ArrayList<TextView> PO_MP = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля вывода полных остатков в процентах для их перебора в цикле
     ArrayList<TextView> PP_MP = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля вывода полных проходов в процентах для их перебора в цикле
 
-    EditText CHOG1_25_MP;
-    EditText CHOG0_63_MP;
-    EditText CHOG0_315_MP;
-    EditText CHOG0_16_MP;
-    EditText CHOG0_071_MP;
-    EditText CHOGDNO_MP;
+    TextView CHOG1_25_MP;
+    TextView CHOG0_63_MP;
+    TextView CHOG0_315_MP;
+    TextView CHOG0_16_MP;
+    TextView CHOG0_071_MP;
+    TextView CHOGDNO_MP;
 
     TextView CHOP1_25_MP;
     TextView CHOP0_63_MP;
@@ -446,17 +452,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Material MatBunkerSZ = new Material();
 
-    ArrayList<EditText> CHOG_SZ = new ArrayList<EditText>(); // в этом массиве храним объекты типа View - поля ввода частных остатков в граммах для их перебора в цикле
+    ArrayList<TextView> CHOG_SZ = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля ввода частных остатков в граммах для их перебора в цикле
     ArrayList<TextView> CHOP_SZ = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля вывода частных остатков в процентах для их перебора в цикле
     ArrayList<TextView> PO_SZ = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля вывода полных остатков в процентах для их перебора в цикле
     ArrayList<TextView> PP_SZ = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля вывода полных проходов в процентах для их перебора в цикле
 
-    EditText CHOG1_25_SZ;
-    EditText CHOG0_63_SZ;
-    EditText CHOG0_315_SZ;
-    EditText CHOG0_16_SZ;
-    EditText CHOG0_071_SZ;
-    EditText CHOGDNO_SZ;
+    TextView CHOG1_25_SZ;
+    TextView CHOG0_63_SZ;
+    TextView CHOG0_315_SZ;
+    TextView CHOG0_16_SZ;
+    TextView CHOG0_071_SZ;
+    TextView CHOGDNO_SZ;
 
     TextView CHOP1_25_SZ;
     TextView CHOP0_63_SZ;
@@ -740,9 +746,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             CHOG6.get(i).setOnClickListener(this);
 
 
+
             if (i < 6) {
                 CHOG_MP.get(i).setOnFocusChangeListener(new MyOnFocusChageAction());
                 CHOG_SZ.get(i).setOnFocusChangeListener(new MyOnFocusChageAction());
+                CHOG_MP.get(i).setOnClickListener(this);
+                CHOG_SZ.get(i).setOnClickListener(this);
+
             }
 
         }
@@ -1082,7 +1092,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         boolean PushChogDetector = false;
-        Material TransMaterial = new Material();
+        Material TransMaterial = MatBunker1;
         int ChogID = 0;
         int BunkerID = 0;
 
@@ -1122,9 +1132,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             BunkerID = 6;
             TransMaterial = MatBunker6;
         }
+        if ( v.getId() == R.id.CHOG1_25_MP || v.getId() == R.id.CHOG0_63_MP || v.getId() == R.id.CHOG0_315_MP || v.getId() == R.id.CHOG0_16_MP || v.getId() == R.id.CHOG0_071_MP || v.getId() == R.id.CHOGDNO_MP) {
+
+            PushChogDetector = true;
+            BunkerID = 7;
+            TransMaterial = MatBunkerMP;
+        }
 
 
-        if (v.getId() == R.id.CHOG40 || v.getId() == R.id.CHOG40_2 || v.getId() == R.id.CHOG40_3 || v.getId() == R.id.CHOG40_4 || v.getId() == R.id.CHOG40_5 || v.getId() == R.id.CHOG40_6) {
+        if (v.getId() == R.id.CHOG40 || v.getId() == R.id.CHOG40_2 || v.getId() == R.id.CHOG40_3 || v.getId() == R.id.CHOG40_4 || v.getId() == R.id.CHOG40_5 || v.getId() == R.id.CHOG40_6 ) {
 
             ChogID = TransMaterial.CHOG.length - 1;
         }
@@ -1132,7 +1148,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             ChogID = TransMaterial.CHOG.length - 2;
         }
-        if (v.getId() == R.id.CHOG15 || v.getId() == R.id.CHOG15_2 || v.getId() == R.id.CHOG15_3 || v.getId() == R.id.CHOG15_4 || v.getId() == R.id.CHOG15_5 || v.getId() == R.id.CHOG15_6) {
+        if (v.getId() == R.id.CHOG15 || v.getId() == R.id.CHOG15_2 || v.getId() == R.id.CHOG15_3 || v.getId() == R.id.CHOG15_4 || v.getId() == R.id.CHOG15_5 || v.getId() == R.id.CHOG15_6 ) {
 
             ChogID = TransMaterial.CHOG.length - 3;
         }
@@ -1148,27 +1164,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             ChogID = TransMaterial.CHOG.length - 6;
         }
-        if (v.getId() == R.id.CHOG1_25 || v.getId() == R.id.CHOG1_25_2 || v.getId() == R.id.CHOG1_25_3 || v.getId() == R.id.CHOG1_25_4 || v.getId() == R.id.CHOG1_25_5 || v.getId() == R.id.CHOG1_25_6) {
+        if (v.getId() == R.id.CHOG1_25 || v.getId() == R.id.CHOG1_25_2 || v.getId() == R.id.CHOG1_25_3 || v.getId() == R.id.CHOG1_25_4 || v.getId() == R.id.CHOG1_25_5 || v.getId() == R.id.CHOG1_25_6  || v.getId() == R.id.CHOG1_25_MP) {
 
             ChogID = TransMaterial.CHOG.length - 7;
         }
-        if (v.getId() == R.id.CHOG0_63 || v.getId() == R.id.CHOG0_63_2  || v.getId() == R.id.CHOG0_63_3  || v.getId() == R.id.CHOG0_63_4  || v.getId() == R.id.CHOG0_63_5  || v.getId() == R.id.CHOG0_63_6) {
+        if (v.getId() == R.id.CHOG0_63 || v.getId() == R.id.CHOG0_63_2  || v.getId() == R.id.CHOG0_63_3  || v.getId() == R.id.CHOG0_63_4  || v.getId() == R.id.CHOG0_63_5  || v.getId() == R.id.CHOG0_63_6 || v.getId() == R.id.CHOG0_63_MP) {
 
             ChogID = TransMaterial.CHOG.length - 8;
         }
-        if (v.getId() == R.id.CHOG0_315 || v.getId() == R.id.CHOG0_315_2  || v.getId() == R.id.CHOG0_315_3  || v.getId() == R.id.CHOG0_315_4  || v.getId() == R.id.CHOG0_315_5  || v.getId() == R.id.CHOG0_315_6) {
+        if (v.getId() == R.id.CHOG0_315 || v.getId() == R.id.CHOG0_315_2  || v.getId() == R.id.CHOG0_315_3  || v.getId() == R.id.CHOG0_315_4  || v.getId() == R.id.CHOG0_315_5  || v.getId() == R.id.CHOG0_315_6 || v.getId() == R.id.CHOG0_315_MP) {
 
             ChogID = TransMaterial.CHOG.length - 9;
         }
-        if (v.getId() == R.id.CHOG0_16 || v.getId() == R.id.CHOG0_16_2  || v.getId() == R.id.CHOG0_16_3  || v.getId() == R.id.CHOG0_16_4  || v.getId() == R.id.CHOG0_16_5  || v.getId() == R.id.CHOG0_16_6) {
+        if (v.getId() == R.id.CHOG0_16 || v.getId() == R.id.CHOG0_16_2  || v.getId() == R.id.CHOG0_16_3  || v.getId() == R.id.CHOG0_16_4  || v.getId() == R.id.CHOG0_16_5  || v.getId() == R.id.CHOG0_16_6  || v.getId() == R.id.CHOG0_16_MP) {
 
             ChogID = TransMaterial.CHOG.length - 10;
         }
-        if (v.getId() == R.id.CHOG0_071 || v.getId() == R.id.CHOG0_071_2 || v.getId() == R.id.CHOG0_071_3 || v.getId() == R.id.CHOG0_071_4 || v.getId() == R.id.CHOG0_071_5 || v.getId() == R.id.CHOG0_071_6) {
+        if (v.getId() == R.id.CHOG0_071 || v.getId() == R.id.CHOG0_071_2 || v.getId() == R.id.CHOG0_071_3 || v.getId() == R.id.CHOG0_071_4 || v.getId() == R.id.CHOG0_071_5 || v.getId() == R.id.CHOG0_071_6  || v.getId() == R.id.CHOG0_071_MP) {
 
             ChogID = TransMaterial.CHOG.length - 11;
         }
-        if (v.getId() == R.id.CHOGDNO || v.getId() == R.id.CHOGDNO_2 || v.getId() == R.id.CHOGDNO_3 || v.getId() == R.id.CHOGDNO_4 || v.getId() == R.id.CHOGDNO_5 || v.getId() == R.id.CHOGDNO_6) {
+        if (v.getId() == R.id.CHOGDNO || v.getId() == R.id.CHOGDNO_2 || v.getId() == R.id.CHOGDNO_3 || v.getId() == R.id.CHOGDNO_4 || v.getId() == R.id.CHOGDNO_5 || v.getId() == R.id.CHOGDNO_6 || v.getId() == R.id.CHOGDNO_MP) {
 
             ChogID = TransMaterial.CHOG.length - 12;
         }
@@ -1228,6 +1244,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             MatBunker6 = (Material) data.getSerializableExtra("OBJECT_BACK");
             for (int i = 0; i < CHOG6.size(); i++) {
                 CHOG6.get(i).setText(BigDecimal.valueOf(MatBunker6.CHOG[i]).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+            }
+        }
+        if (BunkerID == 7) {
+            MatBunkerMP = (Material) data.getSerializableExtra("OBJECT_BACK");
+            for (int i = 0; i < 6; i++) {
+                CHOG_MP.get(i).setText(BigDecimal.valueOf(MatBunkerMP.CHOG[i]).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
             }
         }
 
@@ -1884,12 +1906,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Связываем объекты с полями xml формы - Таблица зернового состава МИНЕРАЛЬНОГО ПОРОШКА
 
-        CHOG1_25_MP = (EditText) findViewById(R.id.CHOG1_25_MP);
-        CHOG0_63_MP = (EditText) findViewById(R.id.CHOG0_63_MP);
-        CHOG0_315_MP = (EditText) findViewById(R.id.CHOG0_315_MP);
-        CHOG0_16_MP = (EditText) findViewById(R.id.CHOG0_16_MP);
-        CHOG0_071_MP = (EditText) findViewById(R.id.CHOG0_071_MP);
-        CHOGDNO_MP = (EditText) findViewById(R.id.CHOGDNO_MP);
+        CHOG1_25_MP = (TextView) findViewById(R.id.CHOG1_25_MP);
+        CHOG0_63_MP = (TextView) findViewById(R.id.CHOG0_63_MP);
+        CHOG0_315_MP = (TextView) findViewById(R.id.CHOG0_315_MP);
+        CHOG0_16_MP = (TextView) findViewById(R.id.CHOG0_16_MP);
+        CHOG0_071_MP = (TextView) findViewById(R.id.CHOG0_071_MP);
+        CHOGDNO_MP = (TextView) findViewById(R.id.CHOGDNO_MP);
 
         // Кладем подготовленные и связанные объекты в массив
         CHOG_MP.add(0, CHOGDNO_MP);
@@ -1943,12 +1965,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Связываем объекты с полями xml формы - Таблица зернового состава СОБСТВЕННОГО ЗАПОЛНИТЕЛЯ
 
-        CHOG1_25_SZ = (EditText) findViewById(R.id.CHOG1_25_SZ);
-        CHOG0_63_SZ = (EditText) findViewById(R.id.CHOG0_63_SZ);
-        CHOG0_315_SZ = (EditText) findViewById(R.id.CHOG0_315_SZ);
-        CHOG0_16_SZ = (EditText) findViewById(R.id.CHOG0_16_SZ);
-        CHOG0_071_SZ = (EditText) findViewById(R.id.CHOG0_071_SZ);
-        CHOGDNO_SZ = (EditText) findViewById(R.id.CHOGDNO_SZ);
+        CHOG1_25_SZ = (TextView) findViewById(R.id.CHOG1_25_SZ);
+        CHOG0_63_SZ = (TextView) findViewById(R.id.CHOG0_63_SZ);
+        CHOG0_315_SZ = (TextView) findViewById(R.id.CHOG0_315_SZ);
+        CHOG0_16_SZ = (TextView) findViewById(R.id.CHOG0_16_SZ);
+        CHOG0_071_SZ = (TextView) findViewById(R.id.CHOG0_071_SZ);
+        CHOGDNO_SZ = (TextView) findViewById(R.id.CHOGDNO_SZ);
 
         // Кладем подготовленные и связанные объекты в массив
         CHOG_SZ.add(0, CHOGDNO_SZ);

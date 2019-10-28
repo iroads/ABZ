@@ -8,15 +8,19 @@ import java.util.Map;
 public class Material implements Serializable {
 
     String name;
+
     double [] CHOG = new double[12];
     double[] CHOP = new double[CHOG.length];
     double[] FullPr = new double[CHOG.length];
     double [] FullOst = new double[CHOG.length];
 
+
     Map<Integer, String> Sita = new HashMap<Integer, String>();
     Map<Integer, String> SitaNames = new HashMap<Integer, String>();
 
     Material(){
+
+
         Sita.put(0, "DNO"); Sita.put(1, "0_071"); Sita.put(2, "0_16"); Sita.put(3, "0_315"); Sita.put(4, "0_63"); Sita.put(5, "1_25");
         Sita.put(6, "2_5"); Sita.put(7, "5"); Sita.put(8, "10"); Sita.put(9, "15"); Sita.put(10, "20"); Sita.put(11, "40");
 
@@ -38,6 +42,9 @@ public class Material implements Serializable {
     //9 элемент соотвествует остатку на сите 15
     //10 элемент соотвествует остатку на сите 20
     //11 элемент соотвествует остатку на сите 40
+
+
+
 
     public void CHOP() { //Здесь рассчитываем частные остатки в %
         double summa = 0;
