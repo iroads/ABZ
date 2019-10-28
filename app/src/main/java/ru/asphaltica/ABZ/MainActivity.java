@@ -1138,6 +1138,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             BunkerID = 7;
             TransMaterial = MatBunkerMP;
         }
+        if ( v.getId() == R.id.CHOG1_25_SZ || v.getId() == R.id.CHOG0_63_SZ || v.getId() == R.id.CHOG0_315_SZ || v.getId() == R.id.CHOG0_16_SZ || v.getId() == R.id.CHOG0_071_SZ || v.getId() == R.id.CHOGDNO_SZ) {
+
+            PushChogDetector = true;
+            BunkerID = 8;
+            TransMaterial = MatBunkerSZ;
+        }
 
 
         if (v.getId() == R.id.CHOG40 || v.getId() == R.id.CHOG40_2 || v.getId() == R.id.CHOG40_3 || v.getId() == R.id.CHOG40_4 || v.getId() == R.id.CHOG40_5 || v.getId() == R.id.CHOG40_6 ) {
@@ -1164,27 +1170,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             ChogID = TransMaterial.CHOG.length - 6;
         }
-        if (v.getId() == R.id.CHOG1_25 || v.getId() == R.id.CHOG1_25_2 || v.getId() == R.id.CHOG1_25_3 || v.getId() == R.id.CHOG1_25_4 || v.getId() == R.id.CHOG1_25_5 || v.getId() == R.id.CHOG1_25_6  || v.getId() == R.id.CHOG1_25_MP) {
+        if (v.getId() == R.id.CHOG1_25 || v.getId() == R.id.CHOG1_25_2 || v.getId() == R.id.CHOG1_25_3 || v.getId() == R.id.CHOG1_25_4 || v.getId() == R.id.CHOG1_25_5 || v.getId() == R.id.CHOG1_25_6  || v.getId() == R.id.CHOG1_25_MP || v.getId() == R.id.CHOG1_25_SZ) {
 
             ChogID = TransMaterial.CHOG.length - 7;
         }
-        if (v.getId() == R.id.CHOG0_63 || v.getId() == R.id.CHOG0_63_2  || v.getId() == R.id.CHOG0_63_3  || v.getId() == R.id.CHOG0_63_4  || v.getId() == R.id.CHOG0_63_5  || v.getId() == R.id.CHOG0_63_6 || v.getId() == R.id.CHOG0_63_MP) {
+        if (v.getId() == R.id.CHOG0_63 || v.getId() == R.id.CHOG0_63_2  || v.getId() == R.id.CHOG0_63_3  || v.getId() == R.id.CHOG0_63_4  || v.getId() == R.id.CHOG0_63_5  || v.getId() == R.id.CHOG0_63_6 || v.getId() == R.id.CHOG0_63_MP || v.getId() == R.id.CHOG0_63_SZ) {
 
             ChogID = TransMaterial.CHOG.length - 8;
         }
-        if (v.getId() == R.id.CHOG0_315 || v.getId() == R.id.CHOG0_315_2  || v.getId() == R.id.CHOG0_315_3  || v.getId() == R.id.CHOG0_315_4  || v.getId() == R.id.CHOG0_315_5  || v.getId() == R.id.CHOG0_315_6 || v.getId() == R.id.CHOG0_315_MP) {
+        if (v.getId() == R.id.CHOG0_315 || v.getId() == R.id.CHOG0_315_2  || v.getId() == R.id.CHOG0_315_3  || v.getId() == R.id.CHOG0_315_4  || v.getId() == R.id.CHOG0_315_5  || v.getId() == R.id.CHOG0_315_6 || v.getId() == R.id.CHOG0_315_MP || v.getId() == R.id.CHOG0_315_SZ) {
 
             ChogID = TransMaterial.CHOG.length - 9;
         }
-        if (v.getId() == R.id.CHOG0_16 || v.getId() == R.id.CHOG0_16_2  || v.getId() == R.id.CHOG0_16_3  || v.getId() == R.id.CHOG0_16_4  || v.getId() == R.id.CHOG0_16_5  || v.getId() == R.id.CHOG0_16_6  || v.getId() == R.id.CHOG0_16_MP) {
+        if (v.getId() == R.id.CHOG0_16 || v.getId() == R.id.CHOG0_16_2  || v.getId() == R.id.CHOG0_16_3  || v.getId() == R.id.CHOG0_16_4  || v.getId() == R.id.CHOG0_16_5  || v.getId() == R.id.CHOG0_16_6  || v.getId() == R.id.CHOG0_16_MP  || v.getId() == R.id.CHOG0_16_SZ) {
 
             ChogID = TransMaterial.CHOG.length - 10;
         }
-        if (v.getId() == R.id.CHOG0_071 || v.getId() == R.id.CHOG0_071_2 || v.getId() == R.id.CHOG0_071_3 || v.getId() == R.id.CHOG0_071_4 || v.getId() == R.id.CHOG0_071_5 || v.getId() == R.id.CHOG0_071_6  || v.getId() == R.id.CHOG0_071_MP) {
+        if (v.getId() == R.id.CHOG0_071 || v.getId() == R.id.CHOG0_071_2 || v.getId() == R.id.CHOG0_071_3 || v.getId() == R.id.CHOG0_071_4 || v.getId() == R.id.CHOG0_071_5 || v.getId() == R.id.CHOG0_071_6  || v.getId() == R.id.CHOG0_071_MP   || v.getId() == R.id.CHOG0_071_SZ) {
 
             ChogID = TransMaterial.CHOG.length - 11;
         }
-        if (v.getId() == R.id.CHOGDNO || v.getId() == R.id.CHOGDNO_2 || v.getId() == R.id.CHOGDNO_3 || v.getId() == R.id.CHOGDNO_4 || v.getId() == R.id.CHOGDNO_5 || v.getId() == R.id.CHOGDNO_6 || v.getId() == R.id.CHOGDNO_MP) {
+        if (v.getId() == R.id.CHOGDNO || v.getId() == R.id.CHOGDNO_2 || v.getId() == R.id.CHOGDNO_3 || v.getId() == R.id.CHOGDNO_4 || v.getId() == R.id.CHOGDNO_5 || v.getId() == R.id.CHOGDNO_6 || v.getId() == R.id.CHOGDNO_MP  || v.getId() == R.id.CHOGDNO_SZ) {
 
             ChogID = TransMaterial.CHOG.length - 12;
         }
@@ -1250,6 +1256,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             MatBunkerMP = (Material) data.getSerializableExtra("OBJECT_BACK");
             for (int i = 0; i < 6; i++) {
                 CHOG_MP.get(i).setText(BigDecimal.valueOf(MatBunkerMP.CHOG[i]).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+            }
+        }
+        if (BunkerID == 8) {
+            MatBunkerSZ = (Material) data.getSerializableExtra("OBJECT_BACK");
+            for (int i = 0; i < 6; i++) {
+                CHOG_SZ.get(i).setText(BigDecimal.valueOf(MatBunkerSZ.CHOG[i]).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
             }
         }
 
