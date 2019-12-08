@@ -1,8 +1,13 @@
 package ru.asphaltica.ABZ;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -680,6 +686,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 
+
         // Тип А требуемый состав
 
         TipAUp = new String[]{"10", "12", "16", "20", "28", "38", "50", "100", "100", "100", "100"};
@@ -746,7 +753,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             CHOG6.get(i).setOnClickListener(this);
 
 
-
             if (i < 6) {
                 CHOG_MP.get(i).setOnFocusChangeListener(new MyOnFocusChageAction());
                 CHOG_SZ.get(i).setOnFocusChangeListener(new MyOnFocusChageAction());
@@ -754,6 +760,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 CHOG_SZ.get(i).setOnClickListener(this);
 
             }
+
 
         }
 
@@ -806,6 +813,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
         }
+
+        DatabaseReader(1);
+        Probezhka();
 
     }
 
@@ -958,6 +968,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             PP_R_MP.get(i).setText(BigDecimal.valueOf(recept.PPMPR[i]).setScale(yourScale1, BigDecimal.ROUND_HALF_UP).toString());
             PP_R_SZ.get(i).setText(BigDecimal.valueOf(recept.PPSZR[i]).setScale(yourScale1, BigDecimal.ROUND_HALF_UP).toString());
         }
+
+        DatabaseWriter(1); //Запуск процедуры сбора данных их полей активити и их запись в базу данных
 
     }
 
@@ -1132,13 +1144,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             BunkerID = 6;
             TransMaterial = MatBunker6;
         }
-        if ( v.getId() == R.id.CHOG1_25_MP || v.getId() == R.id.CHOG0_63_MP || v.getId() == R.id.CHOG0_315_MP || v.getId() == R.id.CHOG0_16_MP || v.getId() == R.id.CHOG0_071_MP || v.getId() == R.id.CHOGDNO_MP) {
+        if (v.getId() == R.id.CHOG1_25_MP || v.getId() == R.id.CHOG0_63_MP || v.getId() == R.id.CHOG0_315_MP || v.getId() == R.id.CHOG0_16_MP || v.getId() == R.id.CHOG0_071_MP || v.getId() == R.id.CHOGDNO_MP) {
 
             PushChogDetector = true;
             BunkerID = 7;
             TransMaterial = MatBunkerMP;
         }
-        if ( v.getId() == R.id.CHOG1_25_SZ || v.getId() == R.id.CHOG0_63_SZ || v.getId() == R.id.CHOG0_315_SZ || v.getId() == R.id.CHOG0_16_SZ || v.getId() == R.id.CHOG0_071_SZ || v.getId() == R.id.CHOGDNO_SZ) {
+        if (v.getId() == R.id.CHOG1_25_SZ || v.getId() == R.id.CHOG0_63_SZ || v.getId() == R.id.CHOG0_315_SZ || v.getId() == R.id.CHOG0_16_SZ || v.getId() == R.id.CHOG0_071_SZ || v.getId() == R.id.CHOGDNO_SZ) {
 
             PushChogDetector = true;
             BunkerID = 8;
@@ -1146,7 +1158,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
 
-        if (v.getId() == R.id.CHOG40 || v.getId() == R.id.CHOG40_2 || v.getId() == R.id.CHOG40_3 || v.getId() == R.id.CHOG40_4 || v.getId() == R.id.CHOG40_5 || v.getId() == R.id.CHOG40_6 ) {
+        if (v.getId() == R.id.CHOG40 || v.getId() == R.id.CHOG40_2 || v.getId() == R.id.CHOG40_3 || v.getId() == R.id.CHOG40_4 || v.getId() == R.id.CHOG40_5 || v.getId() == R.id.CHOG40_6) {
 
             ChogID = TransMaterial.CHOG.length - 1;
         }
@@ -1154,7 +1166,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             ChogID = TransMaterial.CHOG.length - 2;
         }
-        if (v.getId() == R.id.CHOG15 || v.getId() == R.id.CHOG15_2 || v.getId() == R.id.CHOG15_3 || v.getId() == R.id.CHOG15_4 || v.getId() == R.id.CHOG15_5 || v.getId() == R.id.CHOG15_6 ) {
+        if (v.getId() == R.id.CHOG15 || v.getId() == R.id.CHOG15_2 || v.getId() == R.id.CHOG15_3 || v.getId() == R.id.CHOG15_4 || v.getId() == R.id.CHOG15_5 || v.getId() == R.id.CHOG15_6) {
 
             ChogID = TransMaterial.CHOG.length - 3;
         }
@@ -1170,27 +1182,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             ChogID = TransMaterial.CHOG.length - 6;
         }
-        if (v.getId() == R.id.CHOG1_25 || v.getId() == R.id.CHOG1_25_2 || v.getId() == R.id.CHOG1_25_3 || v.getId() == R.id.CHOG1_25_4 || v.getId() == R.id.CHOG1_25_5 || v.getId() == R.id.CHOG1_25_6  || v.getId() == R.id.CHOG1_25_MP || v.getId() == R.id.CHOG1_25_SZ) {
+        if (v.getId() == R.id.CHOG1_25 || v.getId() == R.id.CHOG1_25_2 || v.getId() == R.id.CHOG1_25_3 || v.getId() == R.id.CHOG1_25_4 || v.getId() == R.id.CHOG1_25_5 || v.getId() == R.id.CHOG1_25_6 || v.getId() == R.id.CHOG1_25_MP || v.getId() == R.id.CHOG1_25_SZ) {
 
             ChogID = TransMaterial.CHOG.length - 7;
         }
-        if (v.getId() == R.id.CHOG0_63 || v.getId() == R.id.CHOG0_63_2  || v.getId() == R.id.CHOG0_63_3  || v.getId() == R.id.CHOG0_63_4  || v.getId() == R.id.CHOG0_63_5  || v.getId() == R.id.CHOG0_63_6 || v.getId() == R.id.CHOG0_63_MP || v.getId() == R.id.CHOG0_63_SZ) {
+        if (v.getId() == R.id.CHOG0_63 || v.getId() == R.id.CHOG0_63_2 || v.getId() == R.id.CHOG0_63_3 || v.getId() == R.id.CHOG0_63_4 || v.getId() == R.id.CHOG0_63_5 || v.getId() == R.id.CHOG0_63_6 || v.getId() == R.id.CHOG0_63_MP || v.getId() == R.id.CHOG0_63_SZ) {
 
             ChogID = TransMaterial.CHOG.length - 8;
         }
-        if (v.getId() == R.id.CHOG0_315 || v.getId() == R.id.CHOG0_315_2  || v.getId() == R.id.CHOG0_315_3  || v.getId() == R.id.CHOG0_315_4  || v.getId() == R.id.CHOG0_315_5  || v.getId() == R.id.CHOG0_315_6 || v.getId() == R.id.CHOG0_315_MP || v.getId() == R.id.CHOG0_315_SZ) {
+        if (v.getId() == R.id.CHOG0_315 || v.getId() == R.id.CHOG0_315_2 || v.getId() == R.id.CHOG0_315_3 || v.getId() == R.id.CHOG0_315_4 || v.getId() == R.id.CHOG0_315_5 || v.getId() == R.id.CHOG0_315_6 || v.getId() == R.id.CHOG0_315_MP || v.getId() == R.id.CHOG0_315_SZ) {
 
             ChogID = TransMaterial.CHOG.length - 9;
         }
-        if (v.getId() == R.id.CHOG0_16 || v.getId() == R.id.CHOG0_16_2  || v.getId() == R.id.CHOG0_16_3  || v.getId() == R.id.CHOG0_16_4  || v.getId() == R.id.CHOG0_16_5  || v.getId() == R.id.CHOG0_16_6  || v.getId() == R.id.CHOG0_16_MP  || v.getId() == R.id.CHOG0_16_SZ) {
+        if (v.getId() == R.id.CHOG0_16 || v.getId() == R.id.CHOG0_16_2 || v.getId() == R.id.CHOG0_16_3 || v.getId() == R.id.CHOG0_16_4 || v.getId() == R.id.CHOG0_16_5 || v.getId() == R.id.CHOG0_16_6 || v.getId() == R.id.CHOG0_16_MP || v.getId() == R.id.CHOG0_16_SZ) {
 
             ChogID = TransMaterial.CHOG.length - 10;
         }
-        if (v.getId() == R.id.CHOG0_071 || v.getId() == R.id.CHOG0_071_2 || v.getId() == R.id.CHOG0_071_3 || v.getId() == R.id.CHOG0_071_4 || v.getId() == R.id.CHOG0_071_5 || v.getId() == R.id.CHOG0_071_6  || v.getId() == R.id.CHOG0_071_MP   || v.getId() == R.id.CHOG0_071_SZ) {
+        if (v.getId() == R.id.CHOG0_071 || v.getId() == R.id.CHOG0_071_2 || v.getId() == R.id.CHOG0_071_3 || v.getId() == R.id.CHOG0_071_4 || v.getId() == R.id.CHOG0_071_5 || v.getId() == R.id.CHOG0_071_6 || v.getId() == R.id.CHOG0_071_MP || v.getId() == R.id.CHOG0_071_SZ) {
 
             ChogID = TransMaterial.CHOG.length - 11;
         }
-        if (v.getId() == R.id.CHOGDNO || v.getId() == R.id.CHOGDNO_2 || v.getId() == R.id.CHOGDNO_3 || v.getId() == R.id.CHOGDNO_4 || v.getId() == R.id.CHOGDNO_5 || v.getId() == R.id.CHOGDNO_6 || v.getId() == R.id.CHOGDNO_MP  || v.getId() == R.id.CHOGDNO_SZ) {
+        if (v.getId() == R.id.CHOGDNO || v.getId() == R.id.CHOGDNO_2 || v.getId() == R.id.CHOGDNO_3 || v.getId() == R.id.CHOGDNO_4 || v.getId() == R.id.CHOGDNO_5 || v.getId() == R.id.CHOGDNO_6 || v.getId() == R.id.CHOGDNO_MP || v.getId() == R.id.CHOGDNO_SZ) {
 
             ChogID = TransMaterial.CHOG.length - 12;
         }
@@ -2382,6 +2394,190 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PP_R_Result.add(9, PP20_R_Result);
         PP_R_Result.add(10, PP40_R_Result);
 
+
+    }
+
+    public void DatabaseReader(int id) {
+
+        SQLiteOpenHelper abzDatabaseHelper = new ABZDatabaseHelper(this);
+
+        try {
+            //Получение ссылки на базу данных
+            SQLiteDatabase MyDatabase = abzDatabaseHelper.getReadableDatabase();
+            //Создаем курсор содержащий все столбцы одной строки, строки id которой равен 1
+            Cursor cursor = MyDatabase.query("ZERN_SOSTAV",
+                    new String[]{"_id",
+                            "BUNKER1SITO1", "BUNKER1SITO2", "BUNKER1SITO3", "BUNKER1SITO4", "BUNKER1SITO5", "BUNKER1SITO6", "BUNKER1SITO7", "BUNKER1SITO8",
+                            "BUNKER1SITO9", "BUNKER1SITO10", "BUNKER1SITO11", "BUNKER1SITO12",
+
+                            "BUNKER2SITO1", "BUNKER2SITO2", "BUNKER2SITO3", "BUNKER2SITO4", "BUNKER2SITO5", "BUNKER2SITO6", "BUNKER2SITO7", "BUNKER2SITO8",
+                            "BUNKER2SITO9", "BUNKER2SITO10", "BUNKER2SITO11", "BUNKER2SITO12",
+
+                            "BUNKER3SITO1", "BUNKER3SITO2", "BUNKER3SITO3", "BUNKER3SITO4", "BUNKER3SITO5", "BUNKER3SITO6", "BUNKER3SITO7", "BUNKER3SITO8",
+                            "BUNKER3SITO9", "BUNKER3SITO10", "BUNKER3SITO11", "BUNKER3SITO12",
+
+                            "BUNKER4SITO1", "BUNKER4SITO2", "BUNKER4SITO3", "BUNKER4SITO4", "BUNKER4SITO5", "BUNKER4SITO6", "BUNKER4SITO7", "BUNKER4SITO8",
+                            "BUNKER4SITO9", "BUNKER4SITO10", "BUNKER4SITO11", "BUNKER4SITO12",
+
+                            "BUNKER5SITO1", "BUNKER5SITO2", "BUNKER5SITO3", "BUNKER5SITO4", "BUNKER5SITO5", "BUNKER5SITO6", "BUNKER5SITO7", "BUNKER5SITO8",
+                            "BUNKER5SITO9", "BUNKER5SITO10", "BUNKER5SITO11", "BUNKER5SITO12",
+
+                            "BUNKER6SITO1", "BUNKER6SITO2", "BUNKER6SITO3", "BUNKER6SITO4", "BUNKER6SITO5", "BUNKER6SITO6", "BUNKER6SITO7", "BUNKER6SITO8",
+                            "BUNKER6SITO9", "BUNKER6SITO10", "BUNKER6SITO11", "BUNKER6SITO12",
+
+                            "BUNKER7SITO1", "BUNKER7SITO2", "BUNKER7SITO3", "BUNKER7SITO4", "BUNKER7SITO5", "BUNKER7SITO6",
+
+                            "BUNKER8SITO1", "BUNKER8SITO2", "BUNKER8SITO3", "BUNKER8SITO4", "BUNKER8SITO5", "BUNKER8SITO6"
+
+                    },
+                    "_id = ?",
+                    new String[]{Integer.toString(id)}, null, null, null);
+
+            if (cursor.moveToFirst()) { //обязательное перемещение курсора
+
+                //Достаем данные из курсора, в формате Double, и заполняем этими данными строку частных остатков для Бункера горячих материалов №1
+
+                for (int i = 0; i < CHOG.size(); i++) {
+                    CHOG.get(i).setText(BigDecimal.valueOf(cursor.getDouble(i + 1)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+                    CHOG2.get(i).setText(BigDecimal.valueOf(cursor.getDouble(i + 1 + 12)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+                    CHOG3.get(i).setText(BigDecimal.valueOf(cursor.getDouble(i + 1 + 12 + 12)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+                    CHOG4.get(i).setText(BigDecimal.valueOf(cursor.getDouble(i + 1 + 12 + 12 + 12)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+                    CHOG50.get(i).setText(BigDecimal.valueOf(cursor.getDouble(i + 1 + 12 + 12 + 12 + 12)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+                    CHOG6.get(i).setText(BigDecimal.valueOf(cursor.getDouble(i + 1 + 12 + 12 + 12 + 12 + 12)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+
+                    if (i < CHOG_SZ.size() ) {
+                        CHOG_MP.get(i).setText(BigDecimal.valueOf(cursor.getDouble(i + 1 + 12 + 12 + 12 + 12 + 12 + 12)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+                        CHOG_SZ.get(i).setText(BigDecimal.valueOf(cursor.getDouble(i + 1 + 12 + 12 + 12 + 12 + 12 + 12 + 6)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+                    }
+                }
+            }
+
+            cursor.close(); //Закрываем курсор и базу данных
+            MyDatabase.close();
+
+        } catch (SQLiteException e) {
+
+            Toast toast = Toast.makeText(this, "Database unavailable READ", Toast.LENGTH_SHORT);
+
+            toast.show();
+
+        }
+
+
+    }
+
+    public void DatabaseWriter(int id) {
+
+        ContentValues values = new ContentValues();
+        values.put("BUNKER1SITO1", Double.parseDouble(CHOG.get(0).getText().toString()));
+        values.put("BUNKER1SITO2", Double.parseDouble(CHOG.get(1).getText().toString()));
+        values.put("BUNKER1SITO3", Double.parseDouble(CHOG.get(2).getText().toString()));
+        values.put("BUNKER1SITO4", Double.parseDouble(CHOG.get(3).getText().toString()));
+        values.put("BUNKER1SITO5", Double.parseDouble(CHOG.get(4).getText().toString()));
+        values.put("BUNKER1SITO6", Double.parseDouble(CHOG.get(5).getText().toString()));
+        values.put("BUNKER1SITO7", Double.parseDouble(CHOG.get(6).getText().toString()));
+        values.put("BUNKER1SITO8", Double.parseDouble(CHOG.get(7).getText().toString()));
+        values.put("BUNKER1SITO9", Double.parseDouble(CHOG.get(8).getText().toString()));
+        values.put("BUNKER1SITO10", Double.parseDouble(CHOG.get(9).getText().toString()));
+        values.put("BUNKER1SITO11", Double.parseDouble(CHOG.get(10).getText().toString()));
+        values.put("BUNKER1SITO12", Double.parseDouble(CHOG.get(11).getText().toString()));
+
+        values.put("BUNKER2SITO1", Double.parseDouble(CHOG2.get(0).getText().toString()));
+        values.put("BUNKER2SITO2", Double.parseDouble(CHOG2.get(1).getText().toString()));
+        values.put("BUNKER2SITO3", Double.parseDouble(CHOG2.get(2).getText().toString()));
+        values.put("BUNKER2SITO4", Double.parseDouble(CHOG2.get(3).getText().toString()));
+        values.put("BUNKER2SITO5", Double.parseDouble(CHOG2.get(4).getText().toString()));
+        values.put("BUNKER2SITO6", Double.parseDouble(CHOG2.get(5).getText().toString()));
+        values.put("BUNKER2SITO7", Double.parseDouble(CHOG2.get(6).getText().toString()));
+        values.put("BUNKER2SITO8", Double.parseDouble(CHOG2.get(7).getText().toString()));
+        values.put("BUNKER2SITO9", Double.parseDouble(CHOG2.get(8).getText().toString()));
+        values.put("BUNKER2SITO10", Double.parseDouble(CHOG2.get(9).getText().toString()));
+        values.put("BUNKER2SITO11", Double.parseDouble(CHOG2.get(10).getText().toString()));
+        values.put("BUNKER2SITO12", Double.parseDouble(CHOG2.get(11).getText().toString()));
+
+        values.put("BUNKER3SITO1", Double.parseDouble(CHOG3.get(0).getText().toString()));
+        values.put("BUNKER3SITO2", Double.parseDouble(CHOG3.get(1).getText().toString()));
+        values.put("BUNKER3SITO3", Double.parseDouble(CHOG3.get(2).getText().toString()));
+        values.put("BUNKER3SITO4", Double.parseDouble(CHOG3.get(3).getText().toString()));
+        values.put("BUNKER3SITO5", Double.parseDouble(CHOG3.get(4).getText().toString()));
+        values.put("BUNKER3SITO6", Double.parseDouble(CHOG3.get(5).getText().toString()));
+        values.put("BUNKER3SITO7", Double.parseDouble(CHOG3.get(6).getText().toString()));
+        values.put("BUNKER3SITO8", Double.parseDouble(CHOG3.get(7).getText().toString()));
+        values.put("BUNKER3SITO9", Double.parseDouble(CHOG3.get(8).getText().toString()));
+        values.put("BUNKER3SITO10", Double.parseDouble(CHOG3.get(9).getText().toString()));
+        values.put("BUNKER3SITO11", Double.parseDouble(CHOG3.get(10).getText().toString()));
+        values.put("BUNKER3SITO12", Double.parseDouble(CHOG3.get(11).getText().toString()));
+
+        values.put("BUNKER4SITO1", Double.parseDouble(CHOG4.get(0).getText().toString()));
+        values.put("BUNKER4SITO2", Double.parseDouble(CHOG4.get(1).getText().toString()));
+        values.put("BUNKER4SITO3", Double.parseDouble(CHOG4.get(2).getText().toString()));
+        values.put("BUNKER4SITO4", Double.parseDouble(CHOG4.get(3).getText().toString()));
+        values.put("BUNKER4SITO5", Double.parseDouble(CHOG4.get(4).getText().toString()));
+        values.put("BUNKER4SITO6", Double.parseDouble(CHOG4.get(5).getText().toString()));
+        values.put("BUNKER4SITO7", Double.parseDouble(CHOG4.get(6).getText().toString()));
+        values.put("BUNKER4SITO8", Double.parseDouble(CHOG4.get(7).getText().toString()));
+        values.put("BUNKER4SITO9", Double.parseDouble(CHOG4.get(8).getText().toString()));
+        values.put("BUNKER4SITO10", Double.parseDouble(CHOG4.get(9).getText().toString()));
+        values.put("BUNKER4SITO11", Double.parseDouble(CHOG4.get(10).getText().toString()));
+        values.put("BUNKER4SITO12", Double.parseDouble(CHOG4.get(11).getText().toString()));
+
+        values.put("BUNKER5SITO1", Double.parseDouble(CHOG50.get(0).getText().toString()));
+        values.put("BUNKER5SITO2", Double.parseDouble(CHOG50.get(1).getText().toString()));
+        values.put("BUNKER5SITO3", Double.parseDouble(CHOG50.get(2).getText().toString()));
+        values.put("BUNKER5SITO4", Double.parseDouble(CHOG50.get(3).getText().toString()));
+        values.put("BUNKER5SITO5", Double.parseDouble(CHOG50.get(4).getText().toString()));
+        values.put("BUNKER5SITO6", Double.parseDouble(CHOG50.get(5).getText().toString()));
+        values.put("BUNKER5SITO7", Double.parseDouble(CHOG50.get(6).getText().toString()));
+        values.put("BUNKER5SITO8", Double.parseDouble(CHOG50.get(7).getText().toString()));
+        values.put("BUNKER5SITO9", Double.parseDouble(CHOG50.get(8).getText().toString()));
+        values.put("BUNKER5SITO10", Double.parseDouble(CHOG50.get(9).getText().toString()));
+        values.put("BUNKER5SITO11", Double.parseDouble(CHOG50.get(10).getText().toString()));
+        values.put("BUNKER5SITO12", Double.parseDouble(CHOG50.get(11).getText().toString()));
+
+        values.put("BUNKER6SITO1", Double.parseDouble(CHOG6.get(0).getText().toString()));
+        values.put("BUNKER6SITO2", Double.parseDouble(CHOG6.get(1).getText().toString()));
+        values.put("BUNKER6SITO3", Double.parseDouble(CHOG6.get(2).getText().toString()));
+        values.put("BUNKER6SITO4", Double.parseDouble(CHOG6.get(3).getText().toString()));
+        values.put("BUNKER6SITO5", Double.parseDouble(CHOG6.get(4).getText().toString()));
+        values.put("BUNKER6SITO6", Double.parseDouble(CHOG6.get(5).getText().toString()));
+        values.put("BUNKER6SITO7", Double.parseDouble(CHOG6.get(6).getText().toString()));
+        values.put("BUNKER6SITO8", Double.parseDouble(CHOG6.get(7).getText().toString()));
+        values.put("BUNKER6SITO9", Double.parseDouble(CHOG6.get(8).getText().toString()));
+        values.put("BUNKER6SITO10", Double.parseDouble(CHOG6.get(9).getText().toString()));
+        values.put("BUNKER6SITO11", Double.parseDouble(CHOG6.get(10).getText().toString()));
+        values.put("BUNKER6SITO12", Double.parseDouble(CHOG6.get(11).getText().toString()));
+
+        values.put("BUNKER7SITO1", Double.parseDouble(CHOG_MP.get(0).getText().toString()));
+        values.put("BUNKER7SITO2", Double.parseDouble(CHOG_MP.get(1).getText().toString()));
+        values.put("BUNKER7SITO3", Double.parseDouble(CHOG_MP.get(2).getText().toString()));
+        values.put("BUNKER7SITO4", Double.parseDouble(CHOG_MP.get(3).getText().toString()));
+        values.put("BUNKER7SITO5", Double.parseDouble(CHOG_MP.get(4).getText().toString()));
+        values.put("BUNKER7SITO6", Double.parseDouble(CHOG_MP.get(5).getText().toString()));
+
+        values.put("BUNKER8SITO1", Double.parseDouble(CHOG_SZ.get(0).getText().toString()));
+        values.put("BUNKER8SITO2", Double.parseDouble(CHOG_SZ.get(1).getText().toString()));
+        values.put("BUNKER8SITO3", Double.parseDouble(CHOG_SZ.get(2).getText().toString()));
+        values.put("BUNKER8SITO4", Double.parseDouble(CHOG_SZ.get(3).getText().toString()));
+        values.put("BUNKER8SITO5", Double.parseDouble(CHOG_SZ.get(4).getText().toString()));
+        values.put("BUNKER8SITO6", Double.parseDouble(CHOG_SZ.get(5).getText().toString()));
+
+        SQLiteOpenHelper abzDatabaseHelper = new ABZDatabaseHelper(this);
+
+        try {
+            //Получение ссылки на базу данных
+            SQLiteDatabase MyDatabase = abzDatabaseHelper.getWritableDatabase();
+
+            MyDatabase.update("ZERN_SOSTAV", values, "_id = ?", new String[]{Integer.toString(id)});
+
+            MyDatabase.close();
+
+        } catch (SQLiteException e) {
+
+            Toast toast = Toast.makeText(this, "Database unavailable WRITE", Toast.LENGTH_SHORT);
+
+            toast.show();
+
+        }
 
     }
 }
