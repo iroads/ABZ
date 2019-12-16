@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class ABZDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "Recepts"; //Имя базы данных
-    private static final int DB_VERSION = 1; //Версия базы данных
+    private static final int DB_VERSION = 3; //Версия базы данных
 
     ABZDatabaseHelper (Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -24,6 +24,7 @@ public class ABZDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase MyDatabase, int oldVersion, int newVersion) {
 
+        MyDatabase.execSQL("DROP TABLE ZERN_SOSTAV");
         updateMyDatabaze(MyDatabase, oldVersion, newVersion);
 
     }
@@ -115,7 +116,40 @@ public class ABZDatabaseHelper extends SQLiteOpenHelper {
                 + "BUNKER8SITO3 REAL, "
                 + "BUNKER8SITO4 REAL, "
                 + "BUNKER8SITO5 REAL, "
-                + "BUNKER8SITO6 REAL); "
+                + "BUNKER8SITO6 REAL, "
+
+                + "DOZA1 REAL, "
+                + "DOZA2 REAL, "
+                + "DOZA3 REAL, "
+                + "DOZA4 REAL, "
+                + "DOZA5 REAL, "
+                + "DOZA6 REAL, "
+                + "DOZAMP REAL, "
+                + "DOZASZ REAL); "
+
+
+
+
+                //+ "SOD1 REAL, " //85
+               /* + "SOD2 REAL, "
+                + "SOD3 REAL, "
+                + "SOD4 REAL, "
+                + "SOD5 REAL, "
+                + "SOD6 REAL, "
+                + "SODMP REAL, "
+                + "SODSZ REAL, "
+                + "TARGETSITO1 REAL, " //93
+                + "TARGETSITO2 REAL, "
+                + "TARGETSITO3 REAL, "
+                + "TARGETSITO4 REAL, "
+                + "TARGETSITO5 REAL, "
+                + "TARGETSITO6 REAL, "
+                + "TARGETSITO7 REAL, "
+                + "TARGETSITO8 REAL, "
+                + "TARGETSITO9 REAL, "
+                + "TARGETSITO10 REAL, "*/
+               // + "TARGETSITO11 REAL); "
+
         );
 
         //Блок вставки в базу данных начальных значений
@@ -212,6 +246,43 @@ public class ABZDatabaseHelper extends SQLiteOpenHelper {
         StartValues.put("BUNKER8SITO4", 238);
         StartValues.put("BUNKER8SITO5", 258);
         StartValues.put("BUNKER8SITO6", 278);
+        StartValues.put("DOZA1", 1);
+        StartValues.put("DOZA2", 2);
+        StartValues.put("DOZA3", 3);
+        StartValues.put("DOZA4", 4);
+        StartValues.put("DOZA5", 5);
+        StartValues.put("DOZA6", 6);
+        StartValues.put("DOZAMP", 7);
+        StartValues.put("DOZASZ", 8);
+
+
+
+
+
+
+       // StartValues.put("SOD1", 1);
+       /* StartValues.put("SOD2", 2);
+        StartValues.put("SOD3", 3);
+        StartValues.put("SOD4", 4);
+        StartValues.put("SOD5", 5);
+        StartValues.put("SOD6", 6);
+        StartValues.put("SODMP", 7);
+        StartValues.put("SODSZ", 8);
+
+        StartValues.put("TARGETSITO1", 0);
+        StartValues.put("TARGETSITO2", 0);
+        StartValues.put("TARGETSITO3", 0);
+        StartValues.put("TARGETSITO4", 0);
+        StartValues.put("TARGETSITO5", 0);
+        StartValues.put("TARGETSITO6", 0);
+        StartValues.put("TARGETSITO7", 0);
+        StartValues.put("TARGETSITO8", 0);
+        StartValues.put("TARGETSITO9", 0);
+        StartValues.put("TARGETSITO10", 0);
+        StartValues.put("TARGETSITO11", 0);*/
+
+
+
 
 
 

@@ -12,6 +12,9 @@
     <string name="Trebovania">Требования</string>
     <string name="GOST">ГОСТ</string>
     <string name="Mix">MIX</string>
+    <string name="Target">ЦЕЛЬ</string>
+    <string name="Auto">АВТО</string>
+
 
 
     <!-- Строковые ресурсы таблиц зернового состава -->
@@ -71,7 +74,6 @@
     <string name="KeyBoardEndEdit">End</string>
     <string name="KeyBoardBackSpace">BackSpace</string>
     <string name="KeyBoardClear">Clear</string>
-
 
 
 </resources>

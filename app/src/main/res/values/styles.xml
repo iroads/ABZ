@@ -15,7 +15,7 @@
     <!-- Стиль спинера выбора смеси -->
 
     <style name="Spinner">
-        <item name="android:layout_width">94dp</item>
+        <item name="android:layout_width">110dp</item>
         <item name="android:layout_height">25dp</item>
         <item name="android:layout_margin">1dp</item>
 
@@ -52,14 +52,33 @@
         <item name="android:layout_width">10dp</item>
         <item name="android:layout_height">25dp</item>
         <item name="android:layout_margin">1dp</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:gravity">center</item>
+    <item name="android:layout_weight">1</item>
+    <item name="android:gravity">center</item>
+    <item name="android:textSize">15sp</item>
+    <item name="android:background">@color/FirstMaterialTableDark</item>
+
+</style>
+
+    <!-- Стиль заголовочных ячеек таблицы подбора состава -->
+
+    <style name="HeadFieldOfFormPodbor">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_gravity">center</item>
         <item name="android:textSize">15sp</item>
-        <item name="android:background">@color/FirstMaterialTableDark</item>
+        <item name="android:gravity">center</item>
+
 
     </style>
 
-    <!-- Стиль заголовочных ячеек таблицы зернового состава итоговой кривой -->
+
+
+
+
+
+
+<!-- Стиль заголовочных ячеек таблицы зернового состава итоговой кривой -->
 
     <style name="HeadFieldOfFormResult" parent="HeadFieldOfForm1">
         <item name="android:background">@color/ResultTableDark</item>
@@ -81,7 +100,15 @@
     <!-- Стиль основной ячейки таблицы зернового состава итоговой кривой -->
 
     <style name="FieldOfFormResult" parent="FieldOfForm1">
-               <item name="android:background">@color/ResultTable</item>
+    <item name="android:background">@color/ResultTable</item>
+</style>
+
+    !-- Стиль основной ячейки таблицы зернового состава целевой кривой -->
+
+    <style name="FieldOfFormTarget" parent="FieldOfForm1">
+        <item name="android:background">@color/FourthMaterialTable</item>
+        <item name="android:text">0</item>
+
     </style>
 
     <!-- Стиль основной ячейки таблицы зернового состава материала №1 МЕЛКИЙ ТЕКСТ-->
@@ -510,7 +537,9 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">20sp</item>
-        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_margin">3dp</item>
+
+
     </style>
 
 

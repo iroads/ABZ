@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.renderscript.Sampler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -617,6 +618,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView PP0_16_R_DO;
     TextView PP0_071_R_DO;
 
+    // Строка с итоговым зерновыми составов
+
     ArrayList<TextView> PP_R_Result = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля отображения нормативных проходов
 
     TextView PP40_R_Result;
@@ -632,6 +635,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView PP0_071_R_Result;
 
     TextView PP_Summa;
+
+    // Строка с целевым зерновым составом
+
+    ArrayList<Button> PP_R_Target = new ArrayList<Button>(); // в этом массиве храним объекты типа View - поля отображения нормативных проходов
+
+    Button PP40_R_Target;
+    Button PP20_R_Target;
+    Button PP15_R_Target;
+    Button PP10_R_Target;
+    Button PP5_R_Target;
+    Button PP2_5_R_Target;
+    Button PP1_25_R_Target;
+    Button PP0_63_R_Target;
+    Button PP0_315_R_Target;
+    Button PP0_16_R_Target;
+    Button PP0_071_R_Target;
+
+    Button AutoPodbor;
+
 
     // кнопки добавить убавить содержание компонента
 
@@ -659,14 +681,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button SODSZMinus;
     Button SODSZPlus;
 
-    EditText SOD1;
-    EditText SOD2;
-    EditText SOD3;
-    EditText SOD4;
-    EditText SOD5;
-    EditText SOD6;
-    EditText SODMP;
-    EditText SODSZ;
+    Button SOD1;
+    Button SOD2;
+    Button SOD3;
+    Button SOD4;
+    Button SOD5;
+    Button SOD6;
+    Button SODMP;
+    Button SODSZ;
 
     String[] TipAUp;
     String[] TipADown;
@@ -683,9 +705,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-
 
         // Тип А требуемый состав
 
@@ -710,40 +729,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         FindById(); // Связываем View xml и объекты
 
-        CHOG.get(0).setText(mSettings.getString(APP_PREFERENCES_COUNTER, ""));
-
         SOD1Minus.setOnClickListener(this);
         SOD1Plus.setOnClickListener(this);
+        SOD1.setOnClickListener(this);
+
 
         SOD2Minus.setOnClickListener(this);
         SOD2Plus.setOnClickListener(this);
+        SOD2.setOnClickListener(this);
+
 
         SOD3Minus.setOnClickListener(this);
         SOD3Plus.setOnClickListener(this);
+        SOD3.setOnClickListener(this);
 
         SOD4Minus.setOnClickListener(this);
         SOD4Plus.setOnClickListener(this);
+        SOD4.setOnClickListener(this);
 
         SOD5Minus.setOnClickListener(this);
         SOD5Plus.setOnClickListener(this);
+        SOD5.setOnClickListener(this);
 
         SOD6Minus.setOnClickListener(this);
         SOD6Plus.setOnClickListener(this);
+        SOD6.setOnClickListener(this);
 
         SODMPMinus.setOnClickListener(this);
         SODMPPlus.setOnClickListener(this);
+        SODMP.setOnClickListener(this);
 
         SODSZMinus.setOnClickListener(this);
         SODSZPlus.setOnClickListener(this);
+        SODSZ.setOnClickListener(this);
+
+        AutoPodbor.setOnClickListener(this);
 
 
         for (int i = 0; i < 12; i++) {
-            CHOG.get(i).setOnFocusChangeListener(new MyOnFocusChageAction());
-            CHOG2.get(i).setOnFocusChangeListener(new MyOnFocusChageAction());
-            CHOG3.get(i).setOnFocusChangeListener(new MyOnFocusChageAction());
-            CHOG4.get(i).setOnFocusChangeListener(new MyOnFocusChageAction());
-            CHOG50.get(i).setOnFocusChangeListener(new MyOnFocusChageAction());
-            CHOG6.get(i).setOnFocusChangeListener(new MyOnFocusChageAction());
 
             CHOG.get(i).setOnClickListener(this);
             CHOG2.get(i).setOnClickListener(this);
@@ -751,15 +774,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             CHOG4.get(i).setOnClickListener(this);
             CHOG50.get(i).setOnClickListener(this);
             CHOG6.get(i).setOnClickListener(this);
+            if (i < 11) PP_R_Target.get(i).setOnClickListener(this);
 
 
             if (i < 6) {
-                CHOG_MP.get(i).setOnFocusChangeListener(new MyOnFocusChageAction());
-                CHOG_SZ.get(i).setOnFocusChangeListener(new MyOnFocusChageAction());
+
                 CHOG_MP.get(i).setOnClickListener(this);
                 CHOG_SZ.get(i).setOnClickListener(this);
 
             }
+
+
 
 
         }
@@ -819,25 +844,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        SharedPreferences.Editor editor = mSettings.edit();
-        editor.putString(APP_PREFERENCES_COUNTER, CHOG.get(0).getText().toString());
-        editor.apply();
-
-    }
-
-
-    private class MyOnFocusChageAction implements TextView.OnFocusChangeListener {
-
-        @Override
-        public void onFocusChange(View v, boolean hasFocus) {
-            Probezhka();
-        }
-    }
 
     private void Probezhka() {
+
+        //Собираем значения ввода из таблиц зернового состава из записываем их в объекты
 
         for (int i = 0; i < 12; i++) {
 
@@ -977,8 +987,124 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
 
         Double number;
+        int UniversalID = 0;
+        String Value = "";
+        boolean UniversalPushDetector = false;
 
         switch (v.getId()) {
+
+            //Обработка переходов на UniversalKeyboard
+
+
+            case R.id.SOD1:
+                UniversalPushDetector = true;
+                UniversalID = 1;
+                Value = String.valueOf(SOD1.getText());
+                break;
+            case R.id.SOD2:
+                UniversalPushDetector = true;
+                UniversalID = 2;
+                Value = String.valueOf(SOD2.getText());
+                break;
+            case R.id.SOD3:
+                UniversalPushDetector = true;
+                UniversalID = 3;
+                Value = String.valueOf(SOD3.getText());
+                break;
+            case R.id.SOD4:
+                UniversalPushDetector = true;
+                UniversalID = 4;
+                Value = String.valueOf(SOD4.getText());
+                break;
+            case R.id.SOD5:
+                UniversalPushDetector = true;
+                UniversalID = 5;
+                Value = String.valueOf(SOD5.getText());
+                break;
+            case R.id.SOD6:
+                UniversalPushDetector = true;
+                UniversalID = 6;
+                Value = String.valueOf(SOD6.getText());
+                break;
+            case R.id.SODMP:
+                UniversalPushDetector = true;
+                UniversalID = 7;
+                Value = String.valueOf(SODMP.getText());
+                break;
+            case R.id.SODSZ:
+                UniversalPushDetector = true;
+                UniversalID = 8;
+                Value = String.valueOf(SODSZ.getText());
+                break;
+
+            case R.id.PP40_R_TargetCurve:
+                UniversalPushDetector = true;
+                UniversalID = 21;
+                Value = String.valueOf(PP40_R_Target.getText());
+                break;
+            case R.id.PP20_R_TargetCurve:
+                UniversalPushDetector = true;
+                UniversalID = 22;
+                Value = String.valueOf(PP20_R_Target.getText());
+                break;
+            case R.id.PP15_R_TargetCurve:
+                UniversalPushDetector = true;
+                UniversalID = 23;
+                Value = String.valueOf(PP15_R_Target.getText());
+                break;
+            case R.id.PP10_R_TargetCurve:
+                UniversalPushDetector = true;
+                UniversalID = 24;
+                Value = String.valueOf(PP10_R_Target.getText());
+                break;
+            case R.id.PP5_R_TargetCurve:
+                UniversalPushDetector = true;
+                UniversalID = 25;
+                Value = String.valueOf(PP5_R_Target.getText());
+                break;
+            case R.id.PP2_5_R_TargetCurve:
+                UniversalPushDetector = true;
+                UniversalID = 26;
+                Value = String.valueOf(PP2_5_R_Target.getText());
+                break;
+            case R.id.PP1_25_R_TargetCurve:
+                UniversalPushDetector = true;
+                UniversalID = 27;
+                Value = String.valueOf(PP1_25_R_Target.getText());
+                break;
+            case R.id.PP0_63_R_TargetCurve:
+                UniversalPushDetector = true;
+                UniversalID = 28;
+                Value = String.valueOf(PP0_63_R_Target.getText());
+                break;
+            case R.id.PP0_315_R_TargetCurve:
+                UniversalPushDetector = true;
+                UniversalID = 29;
+                Value = String.valueOf(PP0_315_R_Target.getText());
+                break;
+            case R.id.PP0_16_R_TargetCurve:
+                UniversalPushDetector = true;
+                UniversalID = 30;
+                Value = String.valueOf(PP0_16_R_Target.getText());
+                break;
+            case R.id.PP0_071_R_TargetCurve:
+                UniversalPushDetector = true;
+                UniversalID = 31;
+                Value = String.valueOf(PP0_071_R_Target.getText());
+                break;
+
+            case R.id.AutoPodbor:
+
+                for (int i = 0; i < 11; i++) {
+                    PP_R_Target.get(i).setText(BigDecimal.valueOf(recept.PP_Target[i]).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+                }
+                recept.AutoPodbor();
+                SOD1.setText(BigDecimal.valueOf(recept.SOD1).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+                SOD2.setText(BigDecimal.valueOf(recept.SOD2).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+                Probezhka();
+
+
+                break;
 
 
             case R.id.SOD1Minus:
@@ -1095,11 +1221,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Probezhka();
                 break;
 
-            //case R.id.Keyboard:
 
-            //Intent intent = new Intent(this, Keyboard.class);
-            //startActivity(intent);
-            // break;
 
         }
 
@@ -1215,6 +1337,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("BUNKERID", BunkerID);
             startActivityForResult(intent, 1);
         }
+
+        if (UniversalPushDetector) {
+            UniversalPushDetector = false;
+            Intent intent = new Intent(this, UniversalKeyboard.class);
+            intent.putExtra("UniversalID", UniversalID);
+            intent.putExtra("Value", Value);
+            startActivityForResult(intent, 1);
+
+        }
+
     }
 
     @Override
@@ -1223,6 +1355,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (data == null) {
             return;
         }
+
+        //Блок обработки возврата из KeyboardActivity
         int BunkerID;
 
         BunkerID = data.getIntExtra("BUNKERID_BACK", 0);
@@ -1275,6 +1409,65 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             for (int i = 0; i < 6; i++) {
                 CHOG_SZ.get(i).setText(BigDecimal.valueOf(MatBunkerSZ.CHOG[i]).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
             }
+        }
+
+        //Блок обработки возврата из UniversalKeyboardActivity
+
+        int UniversalID;
+        UniversalID = data.getIntExtra("UNIVERSALID_BACK", 0);
+
+        if (UniversalID == 1) SOD1.setText(data.getStringExtra("VALUE_BACK"));
+        if (UniversalID == 2) SOD2.setText(data.getStringExtra("VALUE_BACK"));
+        if (UniversalID == 3) SOD3.setText(data.getStringExtra("VALUE_BACK"));
+        if (UniversalID == 4) SOD4.setText(data.getStringExtra("VALUE_BACK"));
+        if (UniversalID == 5) SOD5.setText(data.getStringExtra("VALUE_BACK"));
+        if (UniversalID == 6) SOD6.setText(data.getStringExtra("VALUE_BACK"));
+        if (UniversalID == 7) SODMP.setText(data.getStringExtra("VALUE_BACK"));
+        if (UniversalID == 8) SODSZ.setText(data.getStringExtra("VALUE_BACK"));
+
+        if (UniversalID == 21) {
+            if (data.getStringExtra("VALUE_BACK").equals("100.0")) PP40_R_Target.setText("100");
+            else PP40_R_Target.setText(data.getStringExtra("VALUE_BACK"));
+        }
+        if (UniversalID == 22) {
+            if (data.getStringExtra("VALUE_BACK").equals("100.0")) PP20_R_Target.setText("100");
+            else PP20_R_Target.setText(data.getStringExtra("VALUE_BACK"));
+        }
+        if (UniversalID == 23) {
+            if (data.getStringExtra("VALUE_BACK").equals("100.0")) PP15_R_Target.setText("100");
+            else PP15_R_Target.setText(data.getStringExtra("VALUE_BACK"));
+        }
+        if (UniversalID == 24) {
+            if (data.getStringExtra("VALUE_BACK").equals("100.0")) PP10_R_Target.setText("100");
+            else PP10_R_Target.setText(data.getStringExtra("VALUE_BACK"));
+        }
+        if (UniversalID == 25) {
+            if (data.getStringExtra("VALUE_BACK").equals("100.0")) PP5_R_Target.setText("100");
+            else PP5_R_Target.setText(data.getStringExtra("VALUE_BACK"));
+        }
+        if (UniversalID == 26) {
+            if (data.getStringExtra("VALUE_BACK").equals("100.0")) PP2_5_R_Target.setText("100");
+            else PP2_5_R_Target.setText(data.getStringExtra("VALUE_BACK"));
+        }
+        if (UniversalID == 27) {
+            if (data.getStringExtra("VALUE_BACK").equals("100.0")) PP1_25_R_Target.setText("100");
+            else PP1_25_R_Target.setText(data.getStringExtra("VALUE_BACK"));
+        }
+        if (UniversalID == 28) {
+            if (data.getStringExtra("VALUE_BACK").equals("100.0")) PP0_63_R_Target.setText("100");
+            else PP0_63_R_Target.setText(data.getStringExtra("VALUE_BACK"));
+        }
+        if (UniversalID == 29) {
+            if (data.getStringExtra("VALUE_BACK").equals("100.0")) PP0_315_R_Target.setText("100");
+            else PP0_315_R_Target.setText(data.getStringExtra("VALUE_BACK"));
+        }
+        if (UniversalID == 30) {
+            if (data.getStringExtra("VALUE_BACK").equals("100.0")) PP0_16_R_Target.setText("100");
+            else PP0_16_R_Target.setText(data.getStringExtra("VALUE_BACK"));
+        }
+        if (UniversalID == 31) {
+            if (data.getStringExtra("VALUE_BACK").equals("100.0")) PP0_071_R_Target.setText("100");
+            else PP0_071_R_Target.setText(data.getStringExtra("VALUE_BACK"));
         }
 
         Probezhka();
@@ -2070,14 +2263,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         SODSZMinus = (Button) findViewById(R.id.SODSZMinus);
         SODSZPlus = (Button) findViewById(R.id.SODSZPlus);
 
-        SOD1 = (EditText) findViewById(R.id.SOD1);
-        SOD2 = (EditText) findViewById(R.id.SOD2);
-        SOD3 = (EditText) findViewById(R.id.SOD3);
-        SOD4 = (EditText) findViewById(R.id.SOD4);
-        SOD5 = (EditText) findViewById(R.id.SOD5);
-        SOD6 = (EditText) findViewById(R.id.SOD6);
-        SODMP = (EditText) findViewById(R.id.SODMP);
-        SODSZ = (EditText) findViewById(R.id.SODSZ);
+        SOD1 = (Button) findViewById(R.id.SOD1);
+        SOD2 = (Button) findViewById(R.id.SOD2);
+        SOD3 = (Button) findViewById(R.id.SOD3);
+        SOD4 = (Button) findViewById(R.id.SOD4);
+        SOD5 = (Button) findViewById(R.id.SOD5);
+        SOD6 = (Button) findViewById(R.id.SOD6);
+        SODMP = (Button) findViewById(R.id.SODMP);
+        SODSZ = (Button) findViewById(R.id.SODSZ);
 
         PP40_R_OT = (TextView) findViewById(R.id.PP40_R_OT);
         PP20_R_OT = (TextView) findViewById(R.id.PP20_R_OT);
@@ -2367,7 +2560,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         PP40_R_Result = (TextView) findViewById(R.id.PP40_R_ResCurve);
         PP20_R_Result = (TextView) findViewById(R.id.PP20_R_ResCurve);
-        ;
         PP15_R_Result = (TextView) findViewById(R.id.PP15_R_ResCurve);
         PP10_R_Result = (TextView) findViewById(R.id.PP10_R_ResCurve);
         PP5_R_Result = (TextView) findViewById(R.id.PP5_R_ResCurve);
@@ -2394,6 +2586,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PP_R_Result.add(9, PP20_R_Result);
         PP_R_Result.add(10, PP40_R_Result);
 
+        //Связываем объекты TextView  и ячейки строки полных проходов целевой кривой
+
+        PP40_R_Target = (Button) findViewById(R.id.PP40_R_TargetCurve);
+        PP20_R_Target = (Button) findViewById(R.id.PP20_R_TargetCurve);
+        PP15_R_Target = (Button) findViewById(R.id.PP15_R_TargetCurve);
+        PP10_R_Target = (Button) findViewById(R.id.PP10_R_TargetCurve);
+        PP5_R_Target = (Button) findViewById(R.id.PP5_R_TargetCurve);
+        PP2_5_R_Target = (Button) findViewById(R.id.PP2_5_R_TargetCurve);
+        PP1_25_R_Target = (Button) findViewById(R.id.PP1_25_R_TargetCurve);
+        PP0_63_R_Target = (Button) findViewById(R.id.PP0_63_R_TargetCurve);
+        PP0_315_R_Target = (Button) findViewById(R.id.PP0_315_R_TargetCurve);
+        PP0_16_R_Target = (Button) findViewById(R.id.PP0_16_R_TargetCurve);
+        PP0_071_R_Target = (Button) findViewById(R.id.PP0_071_R_TargetCurve);
+
+        AutoPodbor = (Button) findViewById(R.id.AutoPodbor);
+
+        //Загоняем объекты-ячейки в массив
+
+        PP_R_Target.add(0, PP0_071_R_Target);
+        PP_R_Target.add(1, PP0_16_R_Target);
+        PP_R_Target.add(2, PP0_315_R_Target);
+        PP_R_Target.add(3, PP0_63_R_Target);
+        PP_R_Target.add(4, PP1_25_R_Target);
+        PP_R_Target.add(5, PP2_5_R_Target);
+        PP_R_Target.add(6, PP5_R_Target);
+        PP_R_Target.add(7, PP10_R_Target);
+        PP_R_Target.add(8, PP15_R_Target);
+        PP_R_Target.add(9, PP20_R_Target);
+        PP_R_Target.add(10, PP40_R_Target);
 
     }
 
@@ -2427,7 +2648,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             "BUNKER7SITO1", "BUNKER7SITO2", "BUNKER7SITO3", "BUNKER7SITO4", "BUNKER7SITO5", "BUNKER7SITO6",
 
-                            "BUNKER8SITO1", "BUNKER8SITO2", "BUNKER8SITO3", "BUNKER8SITO4", "BUNKER8SITO5", "BUNKER8SITO6"
+                            "BUNKER8SITO1", "BUNKER8SITO2", "BUNKER8SITO3", "BUNKER8SITO4", "BUNKER8SITO5", "BUNKER8SITO6",
+
+                            "DOZA1", "DOZA2", "DOZA3", "DOZA4", "DOZA5", "DOZA6", "DOZAMP", "DOZASZ"
+
+
+
+                           // "SOD1"//, "SOD2", "SOD3", "SOD4", "SOD5", "SOD6", "SODMP","SODSZ"
+
+                            //"TARGETSITO1", "TARGETSITO2", "TARGETSITO3","TARGETSITO4","TARGETSITO5","TARGETSITO6",
+                            //"TARGETSITO7","TARGETSITO8","TARGETSITO9","TARGETSITO10", "TARGETSITO11"
 
                     },
                     "_id = ?",
@@ -2445,11 +2675,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     CHOG50.get(i).setText(BigDecimal.valueOf(cursor.getDouble(i + 1 + 12 + 12 + 12 + 12)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
                     CHOG6.get(i).setText(BigDecimal.valueOf(cursor.getDouble(i + 1 + 12 + 12 + 12 + 12 + 12)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
 
-                    if (i < CHOG_SZ.size() ) {
+                    if (i < CHOG_SZ.size()) {
                         CHOG_MP.get(i).setText(BigDecimal.valueOf(cursor.getDouble(i + 1 + 12 + 12 + 12 + 12 + 12 + 12)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
                         CHOG_SZ.get(i).setText(BigDecimal.valueOf(cursor.getDouble(i + 1 + 12 + 12 + 12 + 12 + 12 + 12 + 6)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
                     }
                 }
+
+                SOD1.setText(BigDecimal.valueOf(cursor.getDouble(85)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+                SOD2.setText(BigDecimal.valueOf(cursor.getDouble(86)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+                SOD3.setText(BigDecimal.valueOf(cursor.getDouble(87)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+                SOD4.setText(BigDecimal.valueOf(cursor.getDouble(88)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+                SOD5.setText(BigDecimal.valueOf(cursor.getDouble(89)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+                SOD6.setText(BigDecimal.valueOf(cursor.getDouble(90)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+                SODMP.setText(BigDecimal.valueOf(cursor.getDouble(91)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+                SODSZ.setText(BigDecimal.valueOf(cursor.getDouble(92)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
             }
 
             cursor.close(); //Закрываем курсор и базу данных
@@ -2560,6 +2799,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         values.put("BUNKER8SITO4", Double.parseDouble(CHOG_SZ.get(3).getText().toString()));
         values.put("BUNKER8SITO5", Double.parseDouble(CHOG_SZ.get(4).getText().toString()));
         values.put("BUNKER8SITO6", Double.parseDouble(CHOG_SZ.get(5).getText().toString()));
+
+        values.put("DOZA1", Double.parseDouble(SOD1.getText().toString()));
+        values.put("DOZA2", Double.parseDouble(SOD2.getText().toString()));
+        values.put("DOZA3", Double.parseDouble(SOD3.getText().toString()));
+        values.put("DOZA4", Double.parseDouble(SOD4.getText().toString()));
+        values.put("DOZA5", Double.parseDouble(SOD5.getText().toString()));
+        values.put("DOZA6", Double.parseDouble(SOD6.getText().toString()));
+        values.put("DOZAMP", Double.parseDouble(SODMP.getText().toString()));
+        values.put("DOZASZ", Double.parseDouble(SODSZ.getText().toString()));
+
+
 
         SQLiteOpenHelper abzDatabaseHelper = new ABZDatabaseHelper(this);
 

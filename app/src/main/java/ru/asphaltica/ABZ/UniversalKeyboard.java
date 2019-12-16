@@ -12,7 +12,7 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
-public class Keyboard extends AppCompatActivity implements View.OnClickListener {
+public class UniversalKeyboard extends AppCompatActivity implements View.OnClickListener {
 
     Button KeyBoard0;
     Button KeyBoard1;
@@ -29,36 +29,32 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
     Button KeyBoardClear;
     Button KeyBoardEndEdit;
 
-    Button KeyBoardLeftValue;
-    Button KeyBoardRightValue;
+    Button KeyBoardDot;
     Button KeyBoardPlus;
 
-    TextView KeyBoardOtsek;
-    TextView KeyBoardSito;
     TextView KeyBoardValue;
     TextView KeyBoardTotalValue;
 
     String Value;
     String TotalValue;
 
-    Material TransMaterial;
-    int ChogID;
-    int BunkerID;
-    int LeftStop;
+    int UniversalID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_keyboard);
+        setContentView(R.layout.activity_universal_keyboard);
 
         Bundle arguments = getIntent().getExtras();
         if (arguments != null) {
-            TransMaterial = (Material) arguments.getSerializable("OBJECT");
-            ChogID = arguments.getInt("CHOGID");
-            BunkerID = arguments.getInt("BUNKERID");
+           // TransMaterial = (Material) arguments.getSerializable("OBJECT");
+           Value = arguments.getString("Value");
+           UniversalID = arguments.getInt("UniversalID");
         }
 
+
         ViewInit();
+
         KeyBoard0.setOnClickListener(this);
         KeyBoard1.setOnClickListener(this);
         KeyBoard2.setOnClickListener(this);
@@ -74,29 +70,8 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
         KeyBoardClear.setOnClickListener(this);
         KeyBoardEndEdit.setOnClickListener(this);
 
-        KeyBoardLeftValue.setOnClickListener(this);
-        KeyBoardRightValue.setOnClickListener(this);
+        KeyBoardDot.setOnClickListener(this);
         KeyBoardPlus.setOnClickListener(this);
-
-
-        if (BunkerID == 7) {
-            KeyBoardOtsek.setText("Мин.Порошок");
-            LeftStop = 5;
-        } else if (BunkerID == 8) {
-            KeyBoardOtsek.setText("Пыль");
-            LeftStop = 5;
-        } else {
-            KeyBoardOtsek.setText("Отсек№" + BunkerID);
-            LeftStop = 11;
-        }
-
-        if (TransMaterial.SitaNames.get(ChogID).equals("DNO"))
-            KeyBoardSito.setText(TransMaterial.SitaNames.get(ChogID));
-        else KeyBoardSito.setText("Сито " + TransMaterial.SitaNames.get(ChogID));
-
-        int yourScale0 = 0;
-        Value = BigDecimal.valueOf(TransMaterial.CHOG[ChogID]).setScale(yourScale0, BigDecimal.ROUND_HALF_UP).toString();
-        KeyBoardValue.setText(Value);
 
         Probezhka();
 
@@ -107,13 +82,12 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
         switch (v.getId()) {
 
             case R.id.KeyBoard0: {
-
                 if (Value.equals("0") == false)
                     if (Value.endsWith("0")) {
                         if (Value.substring(0, Value.length() - 1).endsWith("+") == false)
                             Value = Value + "0";
                     }
-                    else { Value = Value + "0";}
+                else { Value = Value + "0";}
                 Probezhka();
                 break;
             }
@@ -228,33 +202,15 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
                 Probezhka();
                 break;
             }
-            case R.id.KeyBoardLeftValue: {
-
-                if (ChogID != LeftStop) {
-                    int yourScale0 = 0;
-                    TransMaterial.CHOG[ChogID] = Double.parseDouble(GetTotalValue(Value));
-                    ChogID = ChogID + 1;
-                    Value = BigDecimal.valueOf(TransMaterial.CHOG[ChogID]).setScale(yourScale0, BigDecimal.ROUND_HALF_UP).toString();
-                    KeyBoardValue.setText(Value);
-                    if (TransMaterial.SitaNames.get(ChogID).equals("DNO"))
-                        KeyBoardSito.setText(TransMaterial.SitaNames.get(ChogID));
-                    else KeyBoardSito.setText("Сито " + TransMaterial.SitaNames.get(ChogID));
-                }
-                Probezhka();
-                break;
-            }
-            case R.id.KeyBoardRightValue: {
-
-                if (ChogID != 0) {
-                    int yourScale0 = 0;
-                    TransMaterial.CHOG[ChogID] = Double.parseDouble(GetTotalValue(Value));
-                    ChogID = ChogID - 1;
-                    Value = BigDecimal.valueOf(TransMaterial.CHOG[ChogID]).setScale(yourScale0, BigDecimal.ROUND_HALF_UP).toString();
-                    KeyBoardValue.setText(Value);
-                    if (TransMaterial.SitaNames.get(ChogID).equals("DNO"))
-                        KeyBoardSito.setText(TransMaterial.SitaNames.get(ChogID));
-                    else KeyBoardSito.setText("Сито " + TransMaterial.SitaNames.get(ChogID));
-                }
+            case R.id.KeyBoardPlus: {
+                //Если в набираемой строке больше чем один символ и последний символ является + (плюсом), тогда строка остается без изменения, иначе проверяем следующее условие
+                if (Value.length() > 1 && Value.substring(Value.length() - 1, Value.length()).equals("+"))
+                    Value = Value + "";
+                else
+                    //Если в набираемой строке больше чем один символ и последний символ является точкой, тогда последний символ должен быть удален, а к оставшейся строке добавляется +, иначе просто добавляем плюс
+                    if (Value.length() > 1 && Value.substring(Value.length() - 1, Value.length()).equals("."))
+                        Value = Value.substring(0, Value.length() - 1) + "+";
+                    else Value = Value + "+";
                 Probezhka();
                 break;
             }
@@ -275,21 +231,9 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
                 ExitActions();
                 break;
             }
-
-            case R.id.KeyBoardPlus: {
-                //Если в набираемой строке больше чем один символ и последний символ является + (плюсом), тогда строка остается без изменения, иначе проверяем следующее условие
-                if (Value.length() > 1 && Value.substring(Value.length() - 1, Value.length()).equals("+"))
-                    Value = Value + "";
-                else
-                    //Если в набираемой строке больше чем один символ и последний символ является точкой, тогда последний символ должен быть удален, а к оставшейся строке добавляется +, иначе просто добавляем плюс
-                    if (Value.length() > 1 && Value.substring(Value.length() - 1, Value.length()).equals("."))
-                        Value = Value.substring(0, Value.length() - 1) + "+";
-                    else Value = Value + "+";
-                Probezhka();
-                break;
-            }
         }
     }
+
 
     public void ViewInit() {
 
@@ -308,12 +252,9 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
         KeyBoardClear = (Button) findViewById(R.id.KeyBoardClear);
         KeyBoardEndEdit = (Button) findViewById(R.id.KeyBoardEndEdit);
 
-        KeyBoardLeftValue = (Button) findViewById(R.id.KeyBoardLeftValue);
-        KeyBoardRightValue = (Button) findViewById(R.id.KeyBoardRightValue);
+        KeyBoardDot = (Button) findViewById(R.id.KeyBoardDot);
         KeyBoardPlus = (Button) findViewById(R.id.KeyBoardPlus);
 
-        KeyBoardOtsek = (TextView) findViewById(R.id.KeyBoardOtsek);
-        KeyBoardSito = (TextView) findViewById(R.id.KeyBoardSito);
         KeyBoardValue = (TextView) findViewById(R.id.KeyBoardValue);
         KeyBoardTotalValue = (TextView) findViewById(R.id.KeyBoardTotalValue);
 
@@ -321,7 +262,27 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
 
     public void Probezhka() {
 
-        TotalValue = GetTotalValue(Value);
+
+        String Frag = "";
+        double Summa = 0;
+        for (int i = 0; i < Value.length(); i++) {
+            char c = Value.charAt(i);
+            if (String.valueOf(c).equals("+") == false) Frag = Frag + String.valueOf(c);
+            else {
+                Summa = Summa + Double.parseDouble(Frag);
+                Frag = "";
+            }
+        }
+
+        if (Value.endsWith("+") == false) Summa = Summa + Double.parseDouble(Frag);
+
+       // ЭЛЕМЕНТ ВЫСШЕГО ПИЛОТАЖА - ДЕЛАЕМ ЧТО ПРИ форматировании числа в строку вместо 2,56 было 2.56
+        DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols(Locale.getDefault());
+        otherSymbols.setDecimalSeparator('.');
+        String pattern = "##0.0";
+        DecimalFormat df = new DecimalFormat(pattern, otherSymbols);
+        TotalValue = df.format(Summa);
+
 
         if (Value.length() <= 10) KeyBoardValue.setTextSize(50);
         if (Value.length() > 10) KeyBoardValue.setTextSize(25);
@@ -333,7 +294,6 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
         KeyBoardValue.setText(Value);
 
     }
-
 
     boolean StringTestDot(String Value) {
 
@@ -351,41 +311,17 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
         return Result;
     }
 
-    String GetTotalValue(String Value) {
-
-        String Frag = "";
-        String Total;
-        double Summa = 0;
-        for (int i = 0; i < Value.length(); i++) {
-            char c = Value.charAt(i);
-            if (String.valueOf(c).equals("+") == false) Frag = Frag + String.valueOf(c);
-            else {
-                Summa = Summa + Double.parseDouble(Frag);
-                Frag = "";
-            }
-        }
-
-        if (Value.endsWith("+") == false) Summa = Summa + Double.parseDouble(Frag);
-
-        DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols(Locale.getDefault());
-        otherSymbols.setDecimalSeparator('.');
-        String pattern = "##0.0";
-        DecimalFormat df = new DecimalFormat(pattern, otherSymbols);
-        Total = df.format(Summa);
-
-        return Total;
-    }
-
     public void ExitActions() {
 
         Intent intent = new Intent();
-        TransMaterial.CHOG[ChogID] = Double.parseDouble(TotalValue);
-        intent.putExtra("OBJECT_BACK", TransMaterial);
-        intent.putExtra("BUNKERID_BACK", BunkerID);
+        //TransMaterial.CHOG[ChogID] = Double.parseDouble(CHOG);
+        intent.putExtra("VALUE_BACK", TotalValue);
+        intent.putExtra("UNIVERSALID_BACK", UniversalID);
         setResult(RESULT_OK, intent);
         finish();
 
     }
+
 
     @Override
     public void onBackPressed() {
@@ -393,4 +329,5 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
         ExitActions();
 
     }
+
 }

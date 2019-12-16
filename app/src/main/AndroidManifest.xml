@@ -9,8 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Keyboard"
-            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".UniversalKeyboard"
+            android:screenOrientation="landscape"> <!-- Устанавливаем ориентацию принудительно -->
+            ></activity>
+        <activity
+            android:name=".Keyboard"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="landscape"> <!-- Устанавливаем ориентацию принудительно -->

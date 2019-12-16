@@ -39,7 +39,6 @@
                     android:text="@string/Otsek1N" />
 
 
-
             </LinearLayout>
 
             <!-- НИЖЕ Таблица зернового состава материала из отсека №1-->
@@ -135,8 +134,7 @@
 
                 <TextView
                     android:id="@+id/CHOG20"
-                    style="@style/FieldOfForm1SmallText"
-                    />
+                    style="@style/FieldOfForm1SmallText" />
 
                 <TextView
                     android:id="@+id/CHOG15"
@@ -2082,8 +2080,6 @@
             </LinearLayout>
 
 
-
-
             <!-- НИЖЕ Таблица зернового состава минерального порошка и собственного заполнителя-->
 
             <LinearLayout
@@ -2542,88 +2538,7 @@
                 android:text="@string/PodborSostava" />
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/HeaderOfMix"
-                    style="@style/HeadFieldOfForm1"
-                    android:text="@string/TipSmesi"
-                    android:layout_width="80dp"
-                    android:layout_gravity="center"/>
-                <Spinner
-                    android:id="@+id/SpinnerMixType"
-
-                    style="@style/Spinner"
-
-                    android:textAlignment="center"/>
-
-                <TextView
-                    android:id="@+id/Head40_R"
-                    style="@style/HeadFieldOfForm1"
-                    android:text="@string/H40" />
-
-                <TextView
-                    android:id="@+id/Head20_R"
-                    style="@style/HeadFieldOfForm1"
-                    android:text="@string/H20" />
-
-                <TextView
-                    android:id="@+id/Head15_R"
-                    style="@style/HeadFieldOfForm1"
-                    android:text="@string/H15" />
-
-                <TextView
-                    android:id="@+id/Head10_R"
-                    style="@style/HeadFieldOfForm1"
-                    android:text="@string/H10" />
-
-                <TextView
-                    android:id="@+id/Head5_R"
-                    style="@style/HeadFieldOfForm1"
-                    android:text="@string/H5" />
-
-                <TextView
-                    android:id="@+id/Head2_5_R"
-                    style="@style/HeadFieldOfForm1"
-                    android:text="@string/H2_5" />
-
-                <TextView
-                    android:id="@+id/Head1_25_R"
-                    style="@style/HeadFieldOfForm1"
-                    android:text="@string/H1_25" />
-
-                <TextView
-                    android:id="@+id/Head0_63_R"
-                    style="@style/HeadFieldOfForm1"
-                    android:text="@string/H0_63" />
-
-                <TextView
-                    android:id="@+id/Head0_315_R"
-                    style="@style/HeadFieldOfForm1"
-                    android:layout_height="match_parent"
-                    android:text="@string/H0_315"
-                    android:textSize="10dp"/>
-
-                <TextView
-                    android:id="@+id/Head0_16_R"
-                    style="@style/HeadFieldOfForm1"
-                    android:text="@string/H0_16" />
-
-                <TextView
-                    android:id="@+id/Head0_071_R"
-                    style="@style/HeadFieldOfForm1"
-                    android:text="@string/H0_071"
-                    android:layout_height="match_parent"
-                    android:textSize="10dp"/>
-
-
-
-
-
-            </LinearLayout>
 
             <!-- Строка рецепта Отсек №1-->
 
@@ -2634,20 +2549,24 @@
 
                 <EditText
                     android:id="@+id/HeadPP_R_1"
-                    style="@style/HeadFieldOfForm1"
-                    android:layout_width="80dp"
+                    style="@style/HeadFieldOfFormPodbor"
+                    android:background="@color/FirstMaterialTableDark"
                     android:text="@string/Otsek1" />
+
                 <Button
                     android:id="@+id/SOD1Minus"
                     style="@style/Button1"
                     android:text="@string/minus"
 
                     />
-                <EditText
+
+                <Button
                     android:id="@+id/SOD1"
                     style="@style/Button1"
+                    android:layout_width="36dp"
                     android:text="0"
-                   />
+
+                    />
 
                 <Button
                     android:id="@+id/SOD1Plus"
@@ -2701,9 +2620,6 @@
                     style="@style/FieldOfForm1" />
 
 
-
-
-
             </LinearLayout>
 
             <!-- Строка рецепта Отсек №2-->
@@ -2715,20 +2631,22 @@
 
                 <EditText
                     android:id="@+id/HeadPP_R_2"
-                    style="@style/HeadFieldOfForm2"
-                    android:layout_width="80dp"
+                    style="@style/HeadFieldOfFormPodbor"
+                    android:background="@color/SecondMaterialTableDark"
                     android:text="@string/Otsek2" />
+
                 <Button
                     android:id="@+id/SOD2Minus"
                     style="@style/Button2"
                     android:text="@string/minus"
 
                     />
-                <EditText
+
+                <Button
                     android:id="@+id/SOD2"
                     style="@style/Button2"
-                    android:text="0"
-                    />
+                    android:layout_width="36dp"
+                    android:text="0" />
 
                 <Button
                     android:id="@+id/SOD2Plus"
@@ -2782,9 +2700,6 @@
                     style="@style/FieldOfForm2" />
 
 
-
-
-
             </LinearLayout>
 
             <!-- Строка рецепта Отсек №3-->
@@ -2796,20 +2711,22 @@
 
                 <EditText
                     android:id="@+id/HeadPP_R_3"
-                    style="@style/HeadFieldOfForm3"
-                    android:layout_width="80dp"
+                    style="@style/HeadFieldOfFormPodbor"
+                    android:background="@color/ThirdMaterialTableDark"
                     android:text="@string/Otsek3" />
+
                 <Button
                     android:id="@+id/SOD3Minus"
                     style="@style/Button3"
                     android:text="@string/minus"
 
                     />
-                <EditText
+
+                <Button
                     android:id="@+id/SOD3"
+                    android:layout_width="36dp"
                     style="@style/Button3"
-                    android:text="0"
-                    />
+                    android:text="0" />
 
                 <Button
                     android:id="@+id/SOD3Plus"
@@ -2863,8 +2780,6 @@
                     style="@style/FieldOfForm3" />
 
 
-
-
             </LinearLayout>
 
             <!-- Строка рецепта Отсек №4-->
@@ -2876,20 +2791,22 @@
 
                 <EditText
                     android:id="@+id/HeadPP_R_4"
-                    style="@style/HeadFieldOfForm4"
-                    android:layout_width="80dp"
+                    style="@style/HeadFieldOfFormPodbor"
+                    android:background="@color/FourthMaterialTableDark"
                     android:text="@string/Otsek4" />
+
                 <Button
                     android:id="@+id/SOD4Minus"
                     style="@style/Button4"
                     android:text="@string/minus"
 
                     />
-                <EditText
+
+                <Button
                     android:id="@+id/SOD4"
+                    android:layout_width="36dp"
                     style="@style/Button4"
-                    android:text="0"
-                    />
+                    android:text="0" />
 
                 <Button
                     android:id="@+id/SOD4Plus"
@@ -2943,9 +2860,6 @@
                     style="@style/FieldOfForm4" />
 
 
-
-
-
             </LinearLayout>
 
             <!-- Строка рецепта Отсек №5-->
@@ -2957,20 +2871,22 @@
 
                 <EditText
                     android:id="@+id/HeadPP_R_5"
-                    style="@style/HeadFieldOfForm5"
-                    android:layout_width="80dp"
+                    style="@style/HeadFieldOfFormPodbor"
+                    android:background="@color/FifthMaterialTableDark"
                     android:text="@string/Otsek5" />
+
                 <Button
                     android:id="@+id/SOD5Minus"
                     style="@style/Button5"
                     android:text="@string/minus"
 
                     />
-                <EditText
+
+                <Button
                     android:id="@+id/SOD5"
+                    android:layout_width="36dp"
                     style="@style/Button5"
-                    android:text="0"
-                    />
+                    android:text="0" />
 
                 <Button
                     android:id="@+id/SOD5Plus"
@@ -3024,9 +2940,6 @@
                     style="@style/FieldOfForm5" />
 
 
-
-
-
             </LinearLayout>
 
             <!-- Строка рецепта Отсек №6-->
@@ -3038,20 +2951,22 @@
 
                 <EditText
                     android:id="@+id/HeadPP_R_6"
-                    style="@style/HeadFieldOfForm6"
-                    android:layout_width="80dp"
+                    style="@style/HeadFieldOfFormPodbor"
+                    android:background="@color/SixthMaterialTableDark"
                     android:text="@string/Otsek6" />
+
                 <Button
                     android:id="@+id/SOD6Minus"
                     style="@style/Button6"
                     android:text="@string/minus"
 
                     />
-                <EditText
+
+                <Button
                     android:id="@+id/SOD6"
+                    android:layout_width="36dp"
                     style="@style/Button6"
-                    android:text="0"
-                    />
+                    android:text="0" />
 
                 <Button
                     android:id="@+id/SOD6Plus"
@@ -3105,9 +3020,6 @@
                     style="@style/FieldOfForm6" />
 
 
-
-
-
             </LinearLayout>
 
             <!-- Строка рецепта минеральный порошок-->
@@ -3119,20 +3031,22 @@
 
                 <EditText
                     android:id="@+id/HeadPP_R_MP"
-                    style="@style/HeadFieldOfFormMP"
-                    android:layout_width="80dp"
+                    style="@style/HeadFieldOfFormPodbor"
+                    android:background="@color/SeventhMaterialTableDark"
                     android:text="@string/MP" />
+
                 <Button
                     android:id="@+id/SODMPMinus"
                     style="@style/ButtonMP"
                     android:text="@string/minus"
 
                     />
-                <EditText
+
+                <Button
                     android:id="@+id/SODMP"
+                    android:layout_width="36dp"
                     style="@style/ButtonMP"
-                    android:text="0"
-                    />
+                    android:text="0" />
 
                 <Button
                     android:id="@+id/SODMPPlus"
@@ -3186,9 +3100,6 @@
                     style="@style/FieldOfFormMP" />
 
 
-
-
-
             </LinearLayout>
 
             <!-- Строка рецепта собственный заполнитель-->
@@ -3200,20 +3111,22 @@
 
                 <EditText
                     android:id="@+id/HeadPP_R_SZ"
-                    style="@style/HeadFieldOfFormSZ"
-                    android:layout_width="80dp"
+                    style="@style/HeadFieldOfFormPodbor"
+                    android:background="@color/EighthMaterialTableDark"
                     android:text="@string/SZ" />
+
                 <Button
                     android:id="@+id/SODSZMinus"
                     style="@style/ButtonSZ"
                     android:text="@string/minus"
 
                     />
-                <EditText
+
+                <Button
                     android:id="@+id/SODSZ"
+                    android:layout_width="36dp"
                     style="@style/ButtonSZ"
-                    android:text="0"
-                    />
+                    android:text="0" />
 
                 <Button
                     android:id="@+id/SODSZPlus"
@@ -3267,12 +3180,89 @@
                     style="@style/FieldOfFormSZ" />
 
 
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/HeaderOfMix"
+                    style="@style/HeadFieldOfFormPodbor"
+                    android:background="@color/FirstMaterialTableDark"
+                    android:text="@string/TipSmesi"
+                    />
+
+                <Spinner
+                    android:id="@+id/SpinnerMixType"
+                    style="@style/HeadFieldOfFormPodbor"
+                    android:background="@color/FirstMaterialTable"
+                    />
+
+                <TextView
+                    android:id="@+id/Head40_R"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H40" />
+
+                <TextView
+                    android:id="@+id/Head20_R"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H20" />
+
+                <TextView
+                    android:id="@+id/Head15_R"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H15" />
+
+                <TextView
+                    android:id="@+id/Head10_R"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H10" />
+
+                <TextView
+                    android:id="@+id/Head5_R"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H5" />
+
+                <TextView
+                    android:id="@+id/Head2_5_R"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H2_5" />
+
+                <TextView
+                    android:id="@+id/Head1_25_R"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H1_25" />
+
+                <TextView
+                    android:id="@+id/Head0_63_R"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H0_63" />
+
+                <TextView
+                    android:id="@+id/Head0_315_R"
+                    style="@style/HeadFieldOfForm1"
+                    android:layout_height="match_parent"
+                    android:text="@string/H0_315"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:id="@+id/Head0_16_R"
+                    style="@style/HeadFieldOfForm1"
+                    android:text="@string/H0_16" />
+
+                <TextView
+                    android:id="@+id/Head0_071_R"
+                    style="@style/HeadFieldOfForm1"
+                    android:layout_height="match_parent"
+                    android:text="@string/H0_071"
+                    android:textSize="10dp" />
 
 
             </LinearLayout>
 
-            <!-- Строка рецепта требования ОТ-->
+            <!-- Строка рецепта подобранная смесь-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -3281,13 +3271,16 @@
 
                 <TextView
 
-                    style="@style/HeadFieldOfFormResult"
-                    android:layout_width="80dp"
+
+
+                    style="@style/HeadFieldOfFormPodbor"
+                    android:background="@color/ResultTableDark"
                     android:text="@string/Mix" />
 
                 <TextView
                     android:id="@+id/summa"
-                    style="@style/Summa"
+                    style="@style/HeadFieldOfFormPodbor"
+                    android:background="@color/ResultTableDark"
 
                     />
 
@@ -3337,7 +3330,75 @@
                     style="@style/FieldOfFormResult" />
 
 
+            </LinearLayout>
 
+            <!-- Строка рецепта целевой состав-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+
+
+
+                    style="@style/HeadFieldOfFormPodbor"
+                    android:background="@color/FourthMaterialTableDark"
+                    android:text="@string/Target" />
+
+                <Button
+                    android:id="@+id/AutoPodbor"
+                    style="@style/HeadFieldOfFormPodbor"
+                    android:text="@string/Auto"
+                    android:background="@color/FourthMaterialTableDark"
+
+                    />
+
+
+                <Button
+                    android:id="@+id/PP40_R_TargetCurve"
+                    style="@style/FieldOfFormTarget" />
+
+                <Button
+                    android:id="@+id/PP20_R_TargetCurve"
+                    style="@style/FieldOfFormTarget" />
+
+                <Button
+                    android:id="@+id/PP15_R_TargetCurve"
+                    style="@style/FieldOfFormTarget" />
+
+                <Button
+                    android:id="@+id/PP10_R_TargetCurve"
+                    style="@style/FieldOfFormTarget" />
+
+                <Button
+                    android:id="@+id/PP5_R_TargetCurve"
+                    style="@style/FieldOfFormTarget" />
+
+                <Button
+                    android:id="@+id/PP2_5_R_TargetCurve"
+                    style="@style/FieldOfFormTarget" />
+
+                <Button
+                    android:id="@+id/PP1_25_R_TargetCurve"
+                    style="@style/FieldOfFormTarget" />
+
+                <Button
+                    android:id="@+id/PP0_63_R_TargetCurve"
+                    style="@style/FieldOfFormTarget" />
+
+                <Button
+                    android:id="@+id/PP0_315_R_TargetCurve"
+                    style="@style/FieldOfFormTarget" />
+
+                <Button
+                    android:id="@+id/PP0_16_R_TargetCurve"
+                    style="@style/FieldOfFormTarget" />
+
+                <Button
+                    android:id="@+id/PP0_071_R_TargetCurve"
+                    style="@style/FieldOfFormTarget" />
 
 
             </LinearLayout>
@@ -3351,13 +3412,14 @@
 
                 <EditText
                     android:id="@+id/HeadPPOT"
-                    style="@style/HeadFieldOfForm1"
-                    android:layout_width="80dp"
+                    style="@style/HeadFieldOfFormPodbor"
+                    android:background="@color/FirstMaterialTableDark"
                     android:text="@string/Trebovania" />
 
                 <EditText
 
-                    style="@style/OTDO"
+                    style="@style/HeadFieldOfFormPodbor"
+                    android:background="@color/FirstMaterialTableDark"
 
                     android:text="@string/OT" />
 
@@ -3406,9 +3468,6 @@
                     style="@style/FieldOfForm1" />
 
 
-
-
-
             </LinearLayout>
 
             <!-- Строка рецепта требования ДО-->
@@ -3420,13 +3479,14 @@
 
                 <EditText
                     android:id="@+id/HeadPPDO"
-                    style="@style/HeadFieldOfForm1"
-                    android:layout_width="80dp"
+                    style="@style/HeadFieldOfFormPodbor"
+                    android:background="@color/FirstMaterialTableDark"
                     android:text="@string/GOST" />
 
                 <EditText
 
-                    style="@style/OTDO"
+                    style="@style/HeadFieldOfFormPodbor"
+                    android:background="@color/FirstMaterialTableDark"
 
                     android:text="@string/DO" />
 
@@ -3473,8 +3533,6 @@
                 <TextView
                     android:id="@+id/PP0_071_R_DO"
                     style="@style/FieldOfForm1" />
-
-
 
 
             </LinearLayout>

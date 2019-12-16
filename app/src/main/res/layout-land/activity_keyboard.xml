@@ -19,76 +19,59 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="540dp"
+                android:layout_width="10dp"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_weight="1">
+                android:layout_weight="6"
+                android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/KeyBoardLeftValue"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:background="@color/FirstMaterialTableDark"
-                    android:gravity="center"
-                    android:text="-"
-                    android:textSize="40sp" />
 
                 <TextView
-                    android:id="@+id/KeyBoardCHOG"
+                    android:id="@+id/KeyBoardValue"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="10dp"
+
                     android:layout_weight="1"
-                    android:background="@color/FirstMaterialTableDark"
+                    android:layout_marginLeft="10dp"
                     android:gravity="center"
                     android:text="1000"
-                    android:textSize="20sp" />
+                    android:textColor="@color/Black"
+                    android:textSize="50sp" />
 
-                <Button
-                    android:id="@+id/KeyBoardRightValue"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:background="@color/FirstMaterialTableDark"
-                    android:gravity="center"
-                    android:text="+"
-                    android:textSize="40sp" />
 
             </LinearLayout>
 
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:orientation="vertical"
-               android:layout_weight="5">
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:orientation="horizontal">
 
-               <TextView
-                   android:id="@+id/KeyBoardOtsek"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_gravity="center"
-                   android:layout_margin="5dp"
-                   android:text="ОТСЕК"
-                   android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/KeyBoardCalculate"
 
-               <TextView
-                   android:id="@+id/KeyBoardSito"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_gravity="center"
-                   android:layout_margin="5dp"
-                   android:text="Сито"
-                   android:textSize="15sp" />
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="6dp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:textColor="@color/Black"
+                    android:text="="
+                    android:textSize="50sp" />
 
-           </LinearLayout>
+                <TextView
+                    android:id="@+id/KeyBoardTotalValue"
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+
+                    android:layout_weight="6"
+
+                    android:gravity="center"
+                    android:text="1000"
+                    android:textColor="@color/Black"
+                    android:textSize="50sp" />
 
 
-
+            </LinearLayout>
 
 
         </LinearLayout>
@@ -100,10 +83,10 @@
             android:orientation="horizontal">
 
 
-
             <LinearLayout
-                android:layout_width="100dp"
+                android:layout_width="10dp"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <Button
@@ -124,8 +107,9 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="100dp"
+                android:layout_width="10dp"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <Button
@@ -146,8 +130,9 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="100dp"
+                android:layout_width="10dp"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <Button
@@ -168,19 +153,21 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="160dp"
+                android:layout_width="10dp"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:orientation="vertical">
+
                 <Button
                     android:id="@+id/KeyBoard0"
                     style="@style/KeyBoardButton"
                     android:text="0" />
 
                 <Button
-                    android:id="@+id/KeyBoardBackSpace"
+                    android:id="@+id/KeyBoardPlus"
                     style="@style/KeyBoardButton"
-                    android:text="@string/KeyBoardBackSpace"
-                    android:textSize="15sp" />
+                    android:text="+"
+                    android:textSize="20sp" />
 
                 <Button
                     android:id="@+id/KeyBoardClear"
@@ -189,20 +176,122 @@
 
             </LinearLayout>
 
-
-
-            <Button
-                android:id="@+id/KeyBoardEndEdit"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="10dp"
                 android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="10dp"
-                android:background="@color/FirstMaterialTableDark"
-                android:gravity="center"
-                android:text="@string/KeyBoardEndEdit"
-                android:textSize="20sp"
+                android:layout_weight="2"
+                android:orientation="vertical">
 
-                />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1"
+                    android:background="@color/SecondMaterialTable"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/KeyBoardOtsek"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+
+                        android:text="ОТСЕК"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/KeyBoardSito"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+
+                        android:gravity="center"
+                        android:text="Сито"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <Button
+                        android:id="@+id/KeyBoardLeftValue"
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="3dp"
+                        android:layout_weight="1"
+                        android:background="@color/FirstMaterialTableDark"
+                        android:gravity="center"
+                        android:text="-"
+                        android:textSize="10sp" />
+
+
+                    <Button
+                        android:id="@+id/KeyBoardRightValue"
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="3dp"
+                        android:layout_weight="1"
+                        android:background="@color/FirstMaterialTableDark"
+                        android:gravity="center"
+                        android:text="+"
+                        android:textSize="10sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/KeyBoardBackSpace"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:background="@color/FirstMaterialTableDark"
+                        android:text="@string/KeyBoardBackSpace"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/KeyBoardEndEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="3dp"
+                    android:background="@color/FirstMaterialTableDark"
+                    android:gravity="center"
+                    android:text="@string/KeyBoardEndEdit"
+                    android:textSize="20sp"
+
+                    />
+
+            </LinearLayout>
 
 
         </LinearLayout>
