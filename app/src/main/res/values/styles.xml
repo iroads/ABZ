@@ -107,6 +107,10 @@
 
     <style name="FieldOfFormTarget" parent="FieldOfForm1">
         <item name="android:background">@color/FourthMaterialTable</item>
+        <item name="android:textSize">13sp</item>
+
+        <item name="android:layout_width">0dp</item>
+
         <item name="android:text">0</item>
 
     </style>
@@ -542,6 +546,29 @@
 
     </style>
 
+    <!-- Стили WorkCompose Activity -->
 
+    <style name="NameComponentView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">10dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@color/FirstMaterialTableDark</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">2dp</item>
+
+    </style>
+
+    <style name="FieldComponentView" parent="NameComponentView">
+        <item name="android:background">@color/FirstMaterialTable</item>
+
+    </style>
+
+    <style name="FieldValue" parent="NameComponentView">
+
+        <item name="android:layout_height">match_parent</item>
+
+
+    </style>
 
 </resources>

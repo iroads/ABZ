@@ -47,9 +47,9 @@ public class UniversalKeyboard extends AppCompatActivity implements View.OnClick
 
         Bundle arguments = getIntent().getExtras();
         if (arguments != null) {
-           // TransMaterial = (Material) arguments.getSerializable("OBJECT");
-           Value = arguments.getString("Value");
-           UniversalID = arguments.getInt("UniversalID");
+            // TransMaterial = (Material) arguments.getSerializable("OBJECT");
+            Value = arguments.getString("Value");
+            UniversalID = arguments.getInt("UniversalID");
         }
 
 
@@ -86,20 +86,21 @@ public class UniversalKeyboard extends AppCompatActivity implements View.OnClick
                     if (Value.endsWith("0")) {
                         if (Value.substring(0, Value.length() - 1).endsWith("+") == false)
                             Value = Value + "0";
+                    } else {
+                        Value = Value + "0";
                     }
-                else { Value = Value + "0";}
                 Probezhka();
                 break;
             }
             case R.id.KeyBoard1: {
 
                 if (Value.equals("0")) Value = "1";
-                else
-                if (Value.endsWith("0")) {
+                else if (Value.endsWith("0")) {
                     if (Value.substring(0, Value.length() - 1).endsWith("+") == false)
                         Value = Value + "1";
+                } else {
+                    Value = Value + "1";
                 }
-                else { Value = Value + "1";}
                 Probezhka();
                 break;
             }
@@ -109,8 +110,9 @@ public class UniversalKeyboard extends AppCompatActivity implements View.OnClick
                 else if (Value.endsWith("0")) {
                     if (Value.substring(0, Value.length() - 1).endsWith("+") == false)
                         Value = Value + "2";
+                } else {
+                    Value = Value + "2";
                 }
-                else { Value = Value + "2";}
                 Probezhka();
                 break;
             }
@@ -120,8 +122,9 @@ public class UniversalKeyboard extends AppCompatActivity implements View.OnClick
                 else if (Value.endsWith("0")) {
                     if (Value.substring(0, Value.length() - 1).endsWith("+") == false)
                         Value = Value + "3";
+                } else {
+                    Value = Value + "3";
                 }
-                else { Value = Value + "3";}
                 Probezhka();
                 break;
             }
@@ -131,8 +134,9 @@ public class UniversalKeyboard extends AppCompatActivity implements View.OnClick
                 else if (Value.endsWith("0")) {
                     if (Value.substring(0, Value.length() - 1).endsWith("+") == false)
                         Value = Value + "4";
+                } else {
+                    Value = Value + "4";
                 }
-                else { Value = Value + "4";}
                 Probezhka();
                 break;
             }
@@ -142,8 +146,9 @@ public class UniversalKeyboard extends AppCompatActivity implements View.OnClick
                 else if (Value.endsWith("0")) {
                     if (Value.substring(0, Value.length() - 1).endsWith("+") == false)
                         Value = Value + "5";
+                } else {
+                    Value = Value + "5";
                 }
-                else { Value = Value + "5";}
                 Probezhka();
                 break;
             }
@@ -153,8 +158,9 @@ public class UniversalKeyboard extends AppCompatActivity implements View.OnClick
                 else if (Value.endsWith("0")) {
                     if (Value.substring(0, Value.length() - 1).endsWith("+") == false)
                         Value = Value + "6";
+                } else {
+                    Value = Value + "6";
                 }
-                else { Value = Value + "6";}
                 Probezhka();
                 break;
             }
@@ -164,8 +170,9 @@ public class UniversalKeyboard extends AppCompatActivity implements View.OnClick
                 else if (Value.endsWith("0")) {
                     if (Value.substring(0, Value.length() - 1).endsWith("+") == false)
                         Value = Value + "7";
+                } else {
+                    Value = Value + "7";
                 }
-                else { Value = Value + "7";}
                 Probezhka();
                 break;
             }
@@ -175,8 +182,9 @@ public class UniversalKeyboard extends AppCompatActivity implements View.OnClick
                 else if (Value.endsWith("0")) {
                     if (Value.substring(0, Value.length() - 1).endsWith("+") == false)
                         Value = Value + "8";
+                } else {
+                    Value = Value + "8";
                 }
-                else { Value = Value + "8";}
                 Probezhka();
                 break;
             }
@@ -186,8 +194,9 @@ public class UniversalKeyboard extends AppCompatActivity implements View.OnClick
                 else if (Value.endsWith("0")) {
                     if (Value.substring(0, Value.length() - 1).endsWith("+") == false)
                         Value = Value + "9";
+                } else {
+                    Value = Value + "9";
                 }
-                else { Value = Value + "9";}
                 Probezhka();
                 break;
             }
@@ -276,12 +285,18 @@ public class UniversalKeyboard extends AppCompatActivity implements View.OnClick
 
         if (Value.endsWith("+") == false) Summa = Summa + Double.parseDouble(Frag);
 
-       // ЭЛЕМЕНТ ВЫСШЕГО ПИЛОТАЖА - ДЕЛАЕМ ЧТО ПРИ форматировании числа в строку вместо 2,56 было 2.56
+        // ЭЛЕМЕНТ ВЫСШЕГО ПИЛОТАЖА - ДЕЛАЕМ ЧТО ПРИ форматировании числа в строку вместо 2,56 было 2.56
         DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols(Locale.getDefault());
         otherSymbols.setDecimalSeparator('.');
-        String pattern = "##0.0";
-        DecimalFormat df = new DecimalFormat(pattern, otherSymbols);
-        TotalValue = df.format(Summa);
+        if (UniversalID == 101 || UniversalID == 102 || UniversalID == 103 || UniversalID == 104 || UniversalID == 105) {
+            String pattern = "##0.00";
+            DecimalFormat df = new DecimalFormat(pattern, otherSymbols);
+            TotalValue = df.format(Summa);
+        } else {
+            String pattern = "##0.0";
+            DecimalFormat df = new DecimalFormat(pattern, otherSymbols);
+            TotalValue = df.format(Summa);
+        }
 
 
         if (Value.length() <= 10) KeyBoardValue.setTextSize(50);
@@ -315,6 +330,7 @@ public class UniversalKeyboard extends AppCompatActivity implements View.OnClick
 
         Intent intent = new Intent();
         //TransMaterial.CHOG[ChogID] = Double.parseDouble(CHOG);
+
         intent.putExtra("VALUE_BACK", TotalValue);
         intent.putExtra("UNIVERSALID_BACK", UniversalID);
         setResult(RESULT_OK, intent);

@@ -16,7 +16,6 @@
     <string name="Auto">АВТО</string>
 
 
-
     <!-- Строковые ресурсы таблиц зернового состава -->
 
     <string name="H1">№1</string>
@@ -68,12 +67,41 @@
     <string name="OtsekMP">Мин. порошок</string>
     <string name="OtsekSZ">Собств. заполнитель</string>
 
+    <string name="GoToWorkCompose">ПЕРЕЙТИ К РАБОЧЕМУ РЕЦЕПТУ</string>
+
+
+
 
     <!-- Строковые ресурсы Keyboard Activity -->
 
     <string name="KeyBoardEndEdit">End</string>
     <string name="KeyBoardBackSpace">BackSpace</string>
     <string name="KeyBoardClear">Clear</string>
+
+    <!-- Строковые ресурсы WorkCompose Activity -->
+
+    <string name="MassaZamesa">Масса замеса, кг</string>
+    <string name="BitumUp100">Битум, % сверх 100%</string>
+    <string name="BitumIn100">Битум, % в 100%</string>
+    <string name="SD">Стаб. добавка, % от каменных материалов</string>
+    <string name="DD">Дополн. добавка, % от каменных материалов</string>
+    <string name="AD">Адгезионная добавка, % от массы битума</string>
+
+    <string name="Component">Компонент</string>
+    <string name="Procent">%</string>
+    <string name="Kilogramm">кг</string>
+    <string name="WorkCompose">Рабочий рецепт</string>
+    <string name="Bitum">Битум</string>
+
+    <string name="SD1">Стаб. добавка</string>
+    <string name="DD1">Дополн. добавка</string>
+    <string name="AD1">Адгез. добавка</string>
+    <string name="BackToPodbor">ПЕРЕЙТИ К ПОДБОРУ СОСТАВА</string>
+    <string name="Primechanie">Примечание: отметь добавку для включения её в массу замеса</string>
+
+
+
+
 
 
 </resources>

@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".WorkComposeActivity"
+            android:screenOrientation="landscape"> <!-- Устанавливаем ориентацию принудительно -->>
+        </activity>
+        <activity
             android:name=".UniversalKeyboard"
             android:screenOrientation="landscape"> <!-- Устанавливаем ориентацию принудительно -->
-            ></activity>
+        </activity>
         <activity
             android:name=".Keyboard"
             android:screenOrientation="landscape" />

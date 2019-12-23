@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WorkComposeActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:gravity="center"
+            android:text="@string/WorkCompose"
+            android:textSize="20sp"></TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <TextView
+                    style="@style/NameComponentView"
+                    android:text="@string/BitumUp100"
+                    android:textSize="12sp"></TextView>
+
+                <TextView
+                    style="@style/NameComponentView"
+                    android:text="@string/BitumIn100"
+                    android:textSize="12sp"></TextView>
+
+                <TextView
+                    style="@style/NameComponentView"
+                    android:text="@string/SD"
+                    android:textSize="10sp"></TextView>
+
+                <TextView
+                    style="@style/NameComponentView"
+                    android:text="@string/DD"
+                    android:textSize="10sp"></TextView>
+
+                <TextView
+                    style="@style/NameComponentView"
+                    android:text="@string/AD"
+                    android:textSize="10sp"></TextView>
+
+                <TextView
+                    style="@style/NameComponentView"
+                    android:text="@string/MassaZamesa"
+                    android:textSize="12sp"></TextView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:orientation="vertical">
+
+
+                <Button
+                    android:id="@+id/BitumUp100"
+                    style="@style/FieldComponentView"
+                    android:text="1000">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/BitumIn100"
+                    style="@style/FieldComponentView"
+                    android:text="1000">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/SD"
+                    style="@style/FieldComponentView"
+                    android:text="1000">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/DD"
+                    style="@style/FieldComponentView"
+                    android:text="1000">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/AD"
+                    style="@style/FieldComponentView"
+                    android:text="1000">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/MassaZamesa"
+                    style="@style/FieldComponentView"
+                    android:text="1000">
+
+                </Button>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:background="@color/FourthMaterialTable"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        style="@style/FieldValue"
+                        android:layout_weight="0.8"
+                        android:text="@string/Component"></TextView>
+
+                    <TextView
+                        style="@style/FieldValue"
+                        android:text="@string/Procent"></TextView>
+
+                    <TextView
+                        style="@style/FieldValue"
+                        android:text="@string/Kilogramm"></TextView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/NameOfMaterialWC1"
+                        style="@style/FieldValue"
+                        android:layout_weight="0.8"
+                        android:text="0 - 2,5"></TextView>
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterial1"
+                        style="@style/FieldValue"
+                        android:background="@color/FirstMaterialTable"
+                        android:text="0">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterial1KG"
+                        style="@style/FieldValue"
+                        android:background="@color/FirstMaterialTable"
+                        android:text="0">
+
+                    </TextView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/NameOfMaterialWC2"
+                        style="@style/FieldValue"
+                        android:layout_weight="0.8"
+                        android:background="@color/SecondMaterialTableDark"
+                        android:text="2,5 - 5">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterial2"
+                        style="@style/FieldValue"
+                        android:background="@color/SecondMaterialTable"
+                        android:text="0">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterial2KG"
+                        style="@style/FieldValue"
+                        android:background="@color/SecondMaterialTable"
+                        android:text="0">
+
+                    </TextView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/NameOfMaterialWC3"
+                        style="@style/FieldValue"
+                        android:layout_weight="0.8"
+                        android:background="@color/ThirdMaterialTableDark"
+                        android:text="5 - 10"></TextView>
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterial3"
+                        style="@style/FieldValue"
+                        android:background="@color/ThirdMaterialTable"
+                        android:text="0">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterial3KG"
+                        style="@style/FieldValue"
+                        android:background="@color/ThirdMaterialTable"
+                        android:text="0">
+
+                    </TextView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/NameOfMaterialWC4"
+                        style="@style/FieldValue"
+                        android:layout_weight="0.8"
+                        android:background="@color/FourthMaterialTableDark"
+                        android:text="10 - 15"></TextView>
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterial4"
+                        style="@style/FieldValue"
+
+                        android:background="@color/FourthMaterialTable"
+                        android:text="0">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterial4KG"
+                        style="@style/FieldValue"
+                        android:background="@color/FourthMaterialTable"
+                        android:text="0">
+
+                    </TextView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/NameOfMaterialWC5"
+                        style="@style/FieldValue"
+                        android:layout_weight="0.8"
+                        android:background="@color/FifthMaterialTableDark"
+                        android:text="15 - 20"></TextView>
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterial5"
+                        style="@style/FieldValue"
+                        android:background="@color/FifthMaterialTable"
+                        android:text="0">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterial5KG"
+                        style="@style/FieldValue"
+                        android:background="@color/FifthMaterialTable"
+                        android:text="0">
+
+                    </TextView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/NameOfMaterialWC6"
+                        style="@style/FieldValue"
+                        android:layout_weight="0.8"
+                        android:background="@color/SixthMaterialTableDark"
+                        android:text="20 - 40"></TextView>
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterial6"
+                        style="@style/FieldValue"
+                        android:background="@color/SixthMaterialTable"
+                        android:text="0">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterial6KG"
+                        style="@style/FieldValue"
+                        android:background="@color/SixthMaterialTable"
+                        android:text="0">
+
+                    </TextView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/Primechanie"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp"
+                        android:background="@color/FirstMaterialTableDark"
+                        android:gravity="center"
+                        android:text="@string/Primechanie"
+                        android:textSize="12sp">
+
+                    </EditText>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        style="@style/FieldValue"
+                        android:layout_weight="0.8"
+                        android:text="@string/Component"></TextView>
+
+                    <TextView
+                        style="@style/FieldValue"
+                        android:text="@string/Procent"></TextView>
+
+                    <TextView
+                        style="@style/FieldValue"
+                        android:text="@string/Kilogramm"></TextView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        style="@style/FieldValue"
+                        android:layout_weight="0.8"
+                        android:background="@color/SeventhMaterialTableDark"
+                        android:text="@string/MP"></TextView>
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterialMP"
+                        style="@style/FieldValue"
+                        android:background="@color/SeventhMaterialTable"
+                        android:text="0">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterialMPKG"
+                        style="@style/FieldValue"
+                        android:background="@color/SeventhMaterialTable"
+                        android:text="0">
+
+                    </TextView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        style="@style/FieldValue"
+                        android:layout_weight="0.8"
+                        android:background="@color/EighthMaterialTableDark"
+                        android:text="@string/SZ">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterialSZ"
+                        style="@style/FieldValue"
+                        android:background="@color/EighthMaterialTable"
+                        android:text="0">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterialSZKG"
+                        style="@style/FieldValue"
+                        android:background="@color/EighthMaterialTable"
+                        android:text="0">
+
+                    </TextView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        style="@style/FieldValue"
+
+                        android:layout_weight="0.8"
+                        android:background="@color/ResultTableDark"
+                        android:text="@string/Bitum"></TextView>
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterialBITUM"
+
+                        style="@style/FieldValue"
+                        android:background="@color/ResultTable"
+                        android:text="0">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterialBITUMKG"
+                        style="@style/FieldValue"
+                        android:background="@color/ResultTable"
+                        android:text="0">
+
+                    </TextView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <CheckBox
+                        android:id="@+id/SDCheckBox"
+                        style="@style/FieldValue"
+                        android:layout_weight="0.8"
+                        android:text="@string/SD1"
+                        android:textSize="10sp"></CheckBox>
+
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterialSD"
+                        style="@style/FieldValue"
+                        android:background="@color/FirstMaterialTable"
+                        android:text="0">
+
+                    </TextView>
+
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterialSDKG"
+                        style="@style/FieldValue"
+                        android:background="@color/FirstMaterialTable"
+                        android:text="0">
+
+
+                    </TextView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <CheckBox
+                        android:id="@+id/DDCheckBox"
+                        style="@style/FieldValue"
+                        android:layout_weight="0.8"
+                        android:text="@string/DD1"
+                        android:textSize="10sp"></CheckBox>
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterialDD"
+
+                        style="@style/FieldValue"
+                        android:background="@color/FirstMaterialTable"
+                        android:text="0">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterialDDKG"
+                        style="@style/FieldValue"
+                        android:background="@color/FirstMaterialTable"
+                        android:text="0">
+
+                    </TextView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <CheckBox
+                        android:id="@+id/ADCheckBox"
+
+                        style="@style/FieldValue"
+
+                        android:layout_weight="0.8"
+                        android:text="@string/AD1"
+                        android:textSize="10sp"></CheckBox>
+
+                    <TextView
+
+                        android:id="@+id/ValueOfMaterialAD"
+
+                        style="@style/FieldValue"
+                        android:background="@color/FirstMaterialTable"
+
+                        android:text="0">
+
+                    </TextView>
+
+
+                    <TextView
+                        android:id="@+id/ValueOfMaterialADKG"
+                        style="@style/FieldValue"
+                        android:background="@color/FirstMaterialTable"
+                        android:text="0">
+
+                    </TextView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/BackToPodbor"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp"
+                        android:background="@color/FirstMaterialTableDark"
+                        android:text="@string/BackToPodbor"
+                        android:textSize="15sp">
+
+                    </Button>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

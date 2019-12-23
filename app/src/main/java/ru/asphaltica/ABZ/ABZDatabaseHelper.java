@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class ABZDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "Recepts"; //Имя базы данных
-    private static final int DB_VERSION = 3; //Версия базы данных
+    private static final int DB_VERSION = 7; //Версия базы данных
 
     ABZDatabaseHelper (Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -117,27 +117,14 @@ public class ABZDatabaseHelper extends SQLiteOpenHelper {
                 + "BUNKER8SITO4 REAL, "
                 + "BUNKER8SITO5 REAL, "
                 + "BUNKER8SITO6 REAL, "
-
-                + "DOZA1 REAL, "
+                + "DOZA1 REAL, " //85
                 + "DOZA2 REAL, "
                 + "DOZA3 REAL, "
                 + "DOZA4 REAL, "
                 + "DOZA5 REAL, "
                 + "DOZA6 REAL, "
                 + "DOZAMP REAL, "
-                + "DOZASZ REAL); "
-
-
-
-
-                //+ "SOD1 REAL, " //85
-               /* + "SOD2 REAL, "
-                + "SOD3 REAL, "
-                + "SOD4 REAL, "
-                + "SOD5 REAL, "
-                + "SOD6 REAL, "
-                + "SODMP REAL, "
-                + "SODSZ REAL, "
+                + "DOZASZ REAL, "
                 + "TARGETSITO1 REAL, " //93
                 + "TARGETSITO2 REAL, "
                 + "TARGETSITO3 REAL, "
@@ -147,8 +134,28 @@ public class ABZDatabaseHelper extends SQLiteOpenHelper {
                 + "TARGETSITO7 REAL, "
                 + "TARGETSITO8 REAL, "
                 + "TARGETSITO9 REAL, "
-                + "TARGETSITO10 REAL, "*/
-               // + "TARGETSITO11 REAL); "
+                + "TARGETSITO10 REAL, "
+                + "TARGETSITO11 REAL, "
+                + "NAMEOFMATERIAL1 TEXT, " //104
+                + "NAMEOFMATERIAL2 TEXT, "
+                + "NAMEOFMATERIAL3 TEXT, "
+                + "NAMEOFMATERIAL4 TEXT, "
+                + "NAMEOFMATERIAL5 TEXT, "
+                + "NAMEOFMATERIAL6 TEXT, "
+                + "BITUMUP100 REAL, " //110
+                + "BITUMIN100 REAL, "
+                + "SD REAL, "
+                + "DD REAL, "
+                + "AD REAL, "
+                + "MASSAZAMESA REAL, "
+                + "SDCHECKED INTEGER, "
+                + "DDCHECKED INTEGER, "
+                + "ADCHECKED INTEGER, "
+                + "PRIMECHANIE TEXT);" //109
+
+
+
+
 
         );
 
@@ -255,20 +262,6 @@ public class ABZDatabaseHelper extends SQLiteOpenHelper {
         StartValues.put("DOZAMP", 7);
         StartValues.put("DOZASZ", 8);
 
-
-
-
-
-
-       // StartValues.put("SOD1", 1);
-       /* StartValues.put("SOD2", 2);
-        StartValues.put("SOD3", 3);
-        StartValues.put("SOD4", 4);
-        StartValues.put("SOD5", 5);
-        StartValues.put("SOD6", 6);
-        StartValues.put("SODMP", 7);
-        StartValues.put("SODSZ", 8);
-
         StartValues.put("TARGETSITO1", 0);
         StartValues.put("TARGETSITO2", 0);
         StartValues.put("TARGETSITO3", 0);
@@ -279,11 +272,25 @@ public class ABZDatabaseHelper extends SQLiteOpenHelper {
         StartValues.put("TARGETSITO8", 0);
         StartValues.put("TARGETSITO9", 0);
         StartValues.put("TARGETSITO10", 0);
-        StartValues.put("TARGETSITO11", 0);*/
+        StartValues.put("TARGETSITO11", 0);
 
+        StartValues.put("NAMEOFMATERIAL1", "0 - 2,5");
+        StartValues.put("NAMEOFMATERIAL2", "2,5 - 5");
+        StartValues.put("NAMEOFMATERIAL3", "5 - 10");
+        StartValues.put("NAMEOFMATERIAL4", "10 - 15");
+        StartValues.put("NAMEOFMATERIAL5", "15 - 20");
+        StartValues.put("NAMEOFMATERIAL6", "20 - 40");
 
-
-
+        StartValues.put("BITUMUP100", 5);
+        StartValues.put("BITUMIN100", 4.76);
+        StartValues.put("SD", 0);
+        StartValues.put("DD", 0);
+        StartValues.put("AD", 0);
+        StartValues.put("MASSAZAMESA", 1000);
+        StartValues.put("SDCHECKED", 0);
+        StartValues.put("DDCHECKED", 0);
+        StartValues.put("ADCHECKED", 0);
+        StartValues.put("PRIMECHANIE", "Примечание: отметь добавку для включения её в массу замеса");
 
 
 

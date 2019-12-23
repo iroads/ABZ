@@ -48,14 +48,24 @@ public class Material implements Serializable {
 
     public void CHOP() { //Здесь рассчитываем частные остатки в %
         double summa = 0;
+
         for (int i=0; i<this.CHOG.length; i++) {
             summa = summa + this.CHOG[i];
+
+        }
+        if (summa==0) {
+            for (int i=0; i<this.CHOG.length; i++) {
+                 this.CHOP[i]=0;
+
+            }
         }
         if (summa!=0) {
             for (int i=0; i<this.CHOG.length; i++) {
+                if (this.CHOG[i]==0) this.CHOP[i]=0;
                 this.CHOP[i] = (this.CHOG[i]*100)/summa;
             }
         }
+
     }
 
     public void FullPr() { //Здесь рассчитываем полные проходы в %

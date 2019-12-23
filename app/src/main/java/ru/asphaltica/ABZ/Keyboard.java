@@ -379,6 +379,7 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
     public void ExitActions() {
 
         Intent intent = new Intent();
+
         TransMaterial.CHOG[ChogID] = Double.parseDouble(TotalValue);
         intent.putExtra("OBJECT_BACK", TransMaterial);
         intent.putExtra("BUNKERID_BACK", BunkerID);

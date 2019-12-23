@@ -690,6 +690,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button SODMP;
     Button SODSZ;
 
+    EditText NameOfMaterial1;
+    EditText NameOfMaterial2;
+    EditText NameOfMaterial3;
+    EditText NameOfMaterial4;
+    EditText NameOfMaterial5;
+    EditText NameOfMaterial6;
+
+    TextView HeadPP_R_1;
+    TextView HeadPP_R_2;
+    TextView HeadPP_R_3;
+    TextView HeadPP_R_4;
+    TextView HeadPP_R_5;
+    TextView HeadPP_R_6;
+
+    Button GoToWorkCompose;
+
+
     String[] TipAUp;
     String[] TipADown;
     String[] TipBUp;
@@ -765,6 +782,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         AutoPodbor.setOnClickListener(this);
 
+        GoToWorkCompose.setOnClickListener(this);
+
 
         for (int i = 0; i < 12; i++) {
 
@@ -783,8 +802,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 CHOG_SZ.get(i).setOnClickListener(this);
 
             }
-
-
 
 
         }
@@ -824,7 +841,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        for (int i = 0; i < 12; i++) {
+        /*for (int i = 0; i < 12; i++) {
             CHOG.get(i).setText("0");
             CHOG2.get(i).setText("0");
             CHOG3.get(i).setText("0");
@@ -837,7 +854,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 CHOG_SZ.get(i).setText("0");
             }
 
-        }
+        }*/
 
         DatabaseReader(1);
         Probezhka();
@@ -846,6 +863,54 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void Probezhka() {
+
+        //Собираем названия бункеров и вписываем их в поля рецепта
+
+        if (NameOfMaterial1.getText().length() < 10) {
+            HeadPP_R_1.setText(NameOfMaterial1.getText());
+            recept.NameOfMaterial1 = NameOfMaterial1.getText().toString();
+        } else {
+            HeadPP_R_1.setText(NameOfMaterial1.getText().toString().substring(0, 10));
+            recept.NameOfMaterial1 = NameOfMaterial1.getText().toString().substring(0, 10);
+        }
+
+        if (NameOfMaterial2.getText().length() < 10) {
+            HeadPP_R_2.setText(NameOfMaterial2.getText());
+            recept.NameOfMaterial2 = NameOfMaterial2.getText().toString();
+        } else {
+            HeadPP_R_2.setText(NameOfMaterial2.getText().toString().substring(0, 10));
+            recept.NameOfMaterial2 = NameOfMaterial2.getText().toString().substring(0, 10);
+        }
+
+        if (NameOfMaterial3.getText().length() < 10) {
+            HeadPP_R_3.setText(NameOfMaterial3.getText());
+            recept.NameOfMaterial3 = NameOfMaterial3.getText().toString();
+        } else {
+            HeadPP_R_3.setText(NameOfMaterial3.getText().toString().substring(0, 10));
+            recept.NameOfMaterial3 = NameOfMaterial3.getText().toString().substring(0, 10);
+        }
+
+        if (NameOfMaterial4.getText().length() < 10) {
+            HeadPP_R_4.setText(NameOfMaterial4.getText());
+            recept.NameOfMaterial4 = NameOfMaterial4.getText().toString();
+        } else {
+            HeadPP_R_4.setText(NameOfMaterial4.getText().toString().substring(0, 10));
+            recept.NameOfMaterial4 = NameOfMaterial4.getText().toString().substring(0, 10);
+        }
+
+        if (NameOfMaterial5.getText().length() < 10) {
+            HeadPP_R_5.setText(NameOfMaterial5.getText());
+            recept.NameOfMaterial5 = NameOfMaterial5.getText().toString();
+        } else {HeadPP_R_5.setText(NameOfMaterial5.getText().toString().substring(0, 10));
+        recept.NameOfMaterial5 = NameOfMaterial5.getText().toString().substring(0, 10);}
+
+        if (NameOfMaterial6.getText().length() < 10) {
+            HeadPP_R_6.setText(NameOfMaterial6.getText());
+            recept.NameOfMaterial6 = NameOfMaterial6.getText().toString();
+        } else {
+            HeadPP_R_6.setText(NameOfMaterial6.getText().toString().substring(0, 10));
+            recept.NameOfMaterial6 = NameOfMaterial6.getText().toString().substring(0, 10);
+        }
 
         //Собираем значения ввода из таблиц зернового состава из записываем их в объекты
 
@@ -864,6 +929,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
         }
+
+        //Производим расчет зернового состава по каждому материалу
 
         MatBunker1.CHOP();
         MatBunker1.FullPr();
@@ -889,6 +956,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         MatBunker6.FullPr();
         MatBunker6.FullOst();
 
+        for (int i = 6; i < 11; i++) {
+
+            MatBunkerMP.CHOG[i] = 0;
+            MatBunkerSZ.CHOG[i] = 0;
+        }
+
         MatBunkerMP.CHOP();
         MatBunkerMP.FullPr();
         MatBunkerMP.FullOst();
@@ -897,6 +970,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         MatBunkerSZ.FullPr();
         MatBunkerSZ.FullOst();
 
+        //Заполняем таблицы зернового состава по каждому материалу
 
         for (int i = 0; i < 12; i++) {
 
@@ -937,6 +1011,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
+        //Собираем из полей введнный зерновой состав целевой кривой
+
+        for (int i = 0; i < 11; i++) {
+
+            recept.PP_Target[i] = Double.parseDouble(PP_R_Target.get(i).getText().toString());
+
+        }
+
+        //Собираем из полей введнные дозировки и записываем их в переменные объекта recept
+
         recept.SOD1 = Double.parseDouble(SOD1.getText().toString());
         recept.SOD2 = Double.parseDouble(SOD2.getText().toString());
         recept.SOD3 = Double.parseDouble(SOD3.getText().toString());
@@ -945,6 +1029,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         recept.SOD6 = Double.parseDouble(SOD6.getText().toString());
         recept.SODMP = Double.parseDouble(SODMP.getText().toString());
         recept.SODSZ = Double.parseDouble(SODSZ.getText().toString());
+
+        //передаем полные проходы по каждому материалу в объект recept для расчета полных проходов с учетом дозировки и расчета результирующей кривой
 
         for (int i = 0; i < 11; i++) {
             recept.PP1[i] = Double.parseDouble(PP.get(i + 1).getText().toString());
@@ -958,6 +1044,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             recept.PPMP[i] = Double.parseDouble(PP_MP.get(i + 1).getText().toString());
             recept.PPSZ[i] = Double.parseDouble(PP_SZ.get(i + 1).getText().toString());
         }
+
+        for (int i = 5; i < 11; i++) {
+
+            recept.PPMP[i] = MatBunkerMP.FullPr[i+1];
+            recept.PPSZ[i] = MatBunkerSZ.FullPr[i+1];
+
+        }
+
+
+
+
+        //рассчитываем полные проходы с учетом дозировки и результирующую кривую
 
         recept.Calculate();
 
@@ -995,6 +1093,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             //Обработка переходов на UniversalKeyboard
 
+            case R.id.GoToWorkCompose:
+                Probezhka();
+                Intent intent2 = new Intent(this, WorkComposeActivity.class);
+                intent2.putExtra("OBJECT", recept);
+                //intent2.putExtra("CHOGID", ChogID);
+                //intent2.putExtra("BUNKERID", BunkerID);
+                startActivityForResult(intent2, 1);
+
+                break;
 
             case R.id.SOD1:
                 UniversalPushDetector = true;
@@ -1095,12 +1202,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.AutoPodbor:
 
+
                 for (int i = 0; i < 11; i++) {
                     PP_R_Target.get(i).setText(BigDecimal.valueOf(recept.PP_Target[i]).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
                 }
                 recept.AutoPodbor();
+
+                if (recept.Koridor == 0) {
+                    Toast toast = Toast.makeText(this, "Не подходящие материалы", Toast.LENGTH_LONG);
+
+                    toast.show();
+
+                } else {
+                    Toast toast = Toast.makeText(this, "Вошли в коридор плюс минус " + recept.Koridor, Toast.LENGTH_LONG);
+
+                    toast.show();
+                }
+
                 SOD1.setText(BigDecimal.valueOf(recept.SOD1).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
                 SOD2.setText(BigDecimal.valueOf(recept.SOD2).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+                SOD3.setText(BigDecimal.valueOf(recept.SOD3).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+
                 Probezhka();
 
 
@@ -1220,7 +1342,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 SODSZ.setText(number.toString());
                 Probezhka();
                 break;
-
 
 
         }
@@ -1363,6 +1484,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (BunkerID == 1) {
             MatBunker1 = (Material) data.getSerializableExtra("OBJECT_BACK");
+
             for (int i = 0; i < CHOG.size(); i++) {
                 CHOG.get(i).setText(BigDecimal.valueOf(MatBunker1.CHOG[i]).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
                 //CHOG.get(i).setText(String.format(Double.toString(MatBunker1.CHOG[i]), "%.3f"));
@@ -1376,9 +1498,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if (BunkerID == 3) {
             MatBunker3 = (Material) data.getSerializableExtra("OBJECT_BACK");
+
             for (int i = 0; i < CHOG3.size(); i++) {
                 CHOG3.get(i).setText(BigDecimal.valueOf(MatBunker3.CHOG[i]).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+
             }
+
         }
         if (BunkerID == 4) {
             MatBunker4 = (Material) data.getSerializableExtra("OBJECT_BACK");
@@ -2616,9 +2741,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PP_R_Target.add(9, PP20_R_Target);
         PP_R_Target.add(10, PP40_R_Target);
 
+        NameOfMaterial1 = (EditText) findViewById(R.id.NameOfMaterial1);
+        NameOfMaterial2 = (EditText) findViewById(R.id.NameOfMaterial2);
+        NameOfMaterial3 = (EditText) findViewById(R.id.NameOfMaterial3);
+        NameOfMaterial4 = (EditText) findViewById(R.id.NameOfMaterial4);
+        NameOfMaterial5 = (EditText) findViewById(R.id.NameOfMaterial5);
+        NameOfMaterial6 = (EditText) findViewById(R.id.NameOfMaterial6);
+
+        HeadPP_R_1 = (TextView) findViewById(R.id.HeadPP_R_1);
+        HeadPP_R_2 = (TextView) findViewById(R.id.HeadPP_R_2);
+        HeadPP_R_3 = (TextView) findViewById(R.id.HeadPP_R_3);
+        HeadPP_R_4 = (TextView) findViewById(R.id.HeadPP_R_4);
+        HeadPP_R_5 = (TextView) findViewById(R.id.HeadPP_R_5);
+        HeadPP_R_6 = (TextView) findViewById(R.id.HeadPP_R_6);
+
+        GoToWorkCompose = (Button) findViewById(R.id.GoToWorkCompose);
+
     }
 
-    public void DatabaseReader(int id) {
+    private void DatabaseReader(int id) {
 
         SQLiteOpenHelper abzDatabaseHelper = new ABZDatabaseHelper(this);
 
@@ -2650,11 +2791,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             "BUNKER8SITO1", "BUNKER8SITO2", "BUNKER8SITO3", "BUNKER8SITO4", "BUNKER8SITO5", "BUNKER8SITO6",
 
-                            "DOZA1", "DOZA2", "DOZA3", "DOZA4", "DOZA5", "DOZA6", "DOZAMP", "DOZASZ"
+                            "DOZA1", "DOZA2", "DOZA3", "DOZA4", "DOZA5", "DOZA6", "DOZAMP", "DOZASZ",
+
+                            "TARGETSITO1", "TARGETSITO2", "TARGETSITO3", "TARGETSITO4", "TARGETSITO5", "TARGETSITO6",
+                            "TARGETSITO7", "TARGETSITO8", "TARGETSITO9", "TARGETSITO10", "TARGETSITO11",
+
+                            "NAMEOFMATERIAL1", "NAMEOFMATERIAL2", "NAMEOFMATERIAL3", "NAMEOFMATERIAL4", "NAMEOFMATERIAL5", "NAMEOFMATERIAL6"
 
 
-
-                           // "SOD1"//, "SOD2", "SOD3", "SOD4", "SOD5", "SOD6", "SODMP","SODSZ"
+                            // "SOD1"//, "SOD2", "SOD3", "SOD4", "SOD5", "SOD6", "SODMP","SODSZ"
 
                             //"TARGETSITO1", "TARGETSITO2", "TARGETSITO3","TARGETSITO4","TARGETSITO5","TARGETSITO6",
                             //"TARGETSITO7","TARGETSITO8","TARGETSITO9","TARGETSITO10", "TARGETSITO11"
@@ -2689,6 +2834,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 SOD6.setText(BigDecimal.valueOf(cursor.getDouble(90)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
                 SODMP.setText(BigDecimal.valueOf(cursor.getDouble(91)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
                 SODSZ.setText(BigDecimal.valueOf(cursor.getDouble(92)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+
+                NameOfMaterial1.setText(cursor.getString(104));
+                NameOfMaterial2.setText(cursor.getString(105));
+                NameOfMaterial3.setText(cursor.getString(106));
+                NameOfMaterial4.setText(cursor.getString(107));
+                NameOfMaterial5.setText(cursor.getString(108));
+                NameOfMaterial6.setText(cursor.getString(109));
+
+                for (int i = 93; i < 104; i++) {
+
+                    PP_R_Target.get(i - 93).setText(BigDecimal.valueOf(cursor.getDouble(i)).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+
+                }
+
             }
 
             cursor.close(); //Закрываем курсор и базу данных
@@ -2809,6 +2968,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         values.put("DOZAMP", Double.parseDouble(SODMP.getText().toString()));
         values.put("DOZASZ", Double.parseDouble(SODSZ.getText().toString()));
 
+
+        values.put("TARGETSITO1", Double.parseDouble(PP_R_Target.get(0).getText().toString()));
+        values.put("TARGETSITO2", Double.parseDouble(PP_R_Target.get(1).getText().toString()));
+        values.put("TARGETSITO3", Double.parseDouble(PP_R_Target.get(2).getText().toString()));
+        values.put("TARGETSITO4", Double.parseDouble(PP_R_Target.get(3).getText().toString()));
+        values.put("TARGETSITO5", Double.parseDouble(PP_R_Target.get(4).getText().toString()));
+        values.put("TARGETSITO6", Double.parseDouble(PP_R_Target.get(5).getText().toString()));
+        values.put("TARGETSITO7", Double.parseDouble(PP_R_Target.get(6).getText().toString()));
+        values.put("TARGETSITO8", Double.parseDouble(PP_R_Target.get(7).getText().toString()));
+        values.put("TARGETSITO9", Double.parseDouble(PP_R_Target.get(8).getText().toString()));
+        values.put("TARGETSITO10", Double.parseDouble(PP_R_Target.get(9).getText().toString()));
+        values.put("TARGETSITO11", Double.parseDouble(PP_R_Target.get(10).getText().toString()));
+
+        values.put("NAMEOFMATERIAL1", NameOfMaterial1.getText().toString());
+        values.put("NAMEOFMATERIAL2", NameOfMaterial2.getText().toString());
+        values.put("NAMEOFMATERIAL3", NameOfMaterial3.getText().toString());
+        values.put("NAMEOFMATERIAL4", NameOfMaterial4.getText().toString());
+        values.put("NAMEOFMATERIAL5", NameOfMaterial5.getText().toString());
+        values.put("NAMEOFMATERIAL6", NameOfMaterial6.getText().toString());
 
 
         SQLiteOpenHelper abzDatabaseHelper = new ABZDatabaseHelper(this);
