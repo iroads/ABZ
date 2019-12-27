@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MixChooser">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="@string/MixChooserHead"
+                android:textSize="20sp"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/Black"
+                android:text="@string/MixChooserHeadVerch"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:layout_margin="20dp"
+
+                android:text="@string/MixChooserHeadNP"></TextView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/V_TipA_NS"
+                    style="@style/MixChooserButton"
+                    android:text="@string/TipA">
+
+
+                </Button>
+
+                <Button
+                    android:id="@+id/V_TipB_NS"
+                    style="@style/MixChooserButton"
+                    android:text="@string/TipB">
+
+
+                </Button>
+
+                <Button
+                    android:id="@+id/V_TipV_NS"
+                    style="@style/MixChooserButton"
+                    android:text="@string/TipV">
+
+
+                </Button>
+                <Button
+                    android:id="@+id/V_TipG_NS"
+                    style="@style/MixChooserButton"
+
+                    android:text="@string/TipG">
+
+
+                </Button>
+                <Button
+                    android:id="@+id/V_TipD_NS"
+                    style="@style/MixChooserButton"
+
+                    android:text="@string/TipD">
+
+
+                </Button>
+
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:layout_margin="20dp"
+
+                android:text="@string/MixChooserHeadPP"></TextView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/V_TipA_PS"
+                    style="@style/MixChooserButton"
+                    android:text="@string/TipA">
+
+
+                </Button>
+
+                <Button
+                    android:id="@+id/V_TipB_PS"
+                    style="@style/MixChooserButton"
+                    android:text="@string/TipB">
+
+
+                </Button>
+
+
+
+
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/Black"
+                android:text="@string/MixChooserHeadNiz"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:layout_margin="20dp"
+
+                android:text="@string/MixChooserHeadNP"></TextView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/N_TipA_NS"
+                    style="@style/MixChooserButton"
+                    android:text="@string/TipA">
+
+
+                </Button>
+
+                <Button
+                    android:id="@+id/N_TipB_NS"
+                    style="@style/MixChooserButton"
+                    android:text="@string/TipB">
+
+
+                </Button>
+
+
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:layout_margin="20dp"
+
+                android:text="@string/MixChooserHeadPP"></TextView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/N_TipA_PS"
+                    style="@style/MixChooserButton"
+                    android:text="@string/TipA">
+
+
+                </Button>
+
+                <Button
+                    android:id="@+id/N_TipB_PS"
+                    style="@style/MixChooserButton"
+                    android:text="@string/TipB">
+
+
+                </Button>
+
+                <Button
+                    android:id="@+id/Porist"
+                    style="@style/MixChooserButton"
+                    android:text="@string/Porist">
+
+
+                </Button>
+                <Button
+                    android:id="@+id/VysPoristSh"
+                    style="@style/MixChooserButton"
+                    android:layout_width="150dp"
+                    android:text="@string/VPoristSHEB">
+
+
+                </Button>
+                <Button
+                    android:id="@+id/VysPoristPes"
+                    style="@style/MixChooserButton"
+                    android:layout_width="150dp"
+                    android:text="@string/VPoristPESOK">
+
+
+                </Button>
+
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:text="@string/MixChooserHead2"
+                android:textColor="@color/Black"></TextView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/SMA10"
+                    style="@style/MixChooserButton"
+                    android:text="@string/SMA10">
+
+
+                </Button>
+
+                <Button
+                    android:id="@+id/SMA15"
+                    style="@style/MixChooserButton"
+                    android:text="@string/SMA15">
+
+
+                </Button>
+
+                <Button
+                    android:id="@+id/SMA20"
+                    style="@style/MixChooserButton"
+                    android:text="@string/SMA20">
+
+
+                </Button>
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:textColor="@color/Black"
+                android:text="@string/MixChooserHead3"></TextView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/SP9_5"
+                    style="@style/MixChooserButton"
+                    android:text="@string/SP9">
+
+
+                </Button>
+
+                <Button
+                    android:id="@+id/SP12_5"
+                    style="@style/MixChooserButton"
+                    android:text="@string/SP12">
+
+
+                </Button>
+
+                <Button
+
+                    android:id="@+id/SP19"
+                    style="@style/MixChooserButton"
+                    android:text="@string/SP19">
+
+
+                </Button>
+
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:textColor="@color/Black"
+                android:text="@string/MixChooserHead4"></TextView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginBottom="40dp">
+
+                <Button
+                    android:id="@+id/SP8"
+                    style="@style/MixChooserButton"
+                    android:text="@string/SP8">
+
+
+                </Button>
+
+                <Button
+                    android:id="@+id/SP11"
+                    style="@style/MixChooserButton"
+                    android:text="@string/SP11">
+
+
+                </Button>
+
+                <Button
+                    android:id="@+id/SP16"
+                    style="@style/MixChooserButton"
+                    android:text="@string/SP16">
+
+
+                </Button>
+
+                <Button
+                    android:id="@+id/SMA8"
+                    style="@style/MixChooserButton"
+                    android:text="@string/SMA8">
+
+
+                </Button>
+
+                <Button
+                    android:id="@+id/SMA11"
+                    style="@style/MixChooserButton"
+                    android:text="@string/SMA11">
+
+
+                </Button>
+
+                <Button
+                    android:id="@+id/SMA16"
+                    style="@style/MixChooserButton"
+                    android:text="@string/SMA16"
+                    >
+
+
+                </Button>
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>

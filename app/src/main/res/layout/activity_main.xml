@@ -38,6 +38,20 @@
                     style="@style/HeadOfForm1"
                     android:text="@string/Otsek1N" />
 
+                <TextView
+                    style="@style/HeadOfForm1"
+                    android:layout_width="350dp"
+                    android:gravity="right"
+                    android:text="@string/SummaCHOG1" />
+
+                <TextView
+                    android:id="@+id/SummaCHOG1"
+                    style="@style/HeadOfForm1"
+                    android:text=" 1000 " />
+                <TextView
+                    style="@style/HeadOfForm1"
+                    android:text="@string/Gramm" />
+
 
             </LinearLayout>
 
@@ -383,6 +397,20 @@
                     style="@style/HeadOfForm1"
                     android:text="@string/Otsek2N" />
 
+                <TextView
+                    style="@style/HeadOfForm1"
+                    android:layout_width="350dp"
+                    android:gravity="right"
+                    android:text="@string/SummaCHOG1" />
+
+                <TextView
+                    android:id="@+id/SummaCHOG2"
+                    style="@style/HeadOfForm1"
+                    android:text=" 1000 " />
+                <TextView
+                    style="@style/HeadOfForm1"
+                    android:text="@string/Gramm" />
+
             </LinearLayout>
 
             <!-- НИЖЕ Таблица зернового состава материала из отсека №2-->
@@ -726,6 +754,20 @@
                     style="@style/HeadOfForm1"
                     android:text="@string/Otsek3N" />
 
+                <TextView
+                    style="@style/HeadOfForm1"
+                    android:layout_width="350dp"
+                    android:gravity="right"
+                    android:text="@string/SummaCHOG1" />
+
+                <TextView
+                    android:id="@+id/SummaCHOG3"
+                    style="@style/HeadOfForm1"
+                    android:text=" 1000 " />
+                <TextView
+                    style="@style/HeadOfForm1"
+                    android:text="@string/Gramm" />
+
             </LinearLayout>
             <!-- НИЖЕ Таблица зернового состава материала из отсека №3-->
 
@@ -1068,6 +1110,20 @@
                     style="@style/HeadOfForm1"
                     android:text="@string/Otsek4N" />
 
+                <TextView
+                    style="@style/HeadOfForm1"
+                    android:layout_width="350dp"
+                    android:gravity="right"
+                    android:text="@string/SummaCHOG1" />
+
+                <TextView
+                    android:id="@+id/SummaCHOG4"
+                    style="@style/HeadOfForm1"
+                    android:text=" 1000 " />
+                <TextView
+                    style="@style/HeadOfForm1"
+                    android:text="@string/Gramm" />
+
             </LinearLayout>
             <!-- НИЖЕ Таблица зернового состава материала из отсека №4-->
 
@@ -1409,6 +1465,22 @@
                     android:id="@+id/NameOfMaterial5"
                     style="@style/HeadOfForm1"
                     android:text="@string/Otsek5N" />
+
+                <TextView
+                    style="@style/HeadOfForm1"
+                    android:layout_width="350dp"
+                    android:gravity="right"
+                    android:text="@string/SummaCHOG1" />
+
+                <TextView
+                    android:id="@+id/SummaCHOG5"
+                    style="@style/HeadOfForm1"
+                    android:text=" 1000 " />
+                <TextView
+                    style="@style/HeadOfForm1"
+                    android:text="@string/Gramm" />
+
+                    />
 
             </LinearLayout>
 
@@ -1753,6 +1825,21 @@
                     style="@style/HeadOfForm1"
                     android:text="@string/Otsek6N" />
 
+                <TextView
+                    style="@style/HeadOfForm1"
+                    android:layout_width="350dp"
+                    android:gravity="right"
+                    android:text="@string/SummaCHOG1" />
+
+                <TextView
+                    android:id="@+id/SummaCHOG6"
+                    style="@style/HeadOfForm1"
+                    android:text=" 1000 " />
+                <TextView
+                    style="@style/HeadOfForm1"
+                    android:text="@string/Gramm" />
+
+
             </LinearLayout>
 
             <!-- НИЖЕ Таблица зернового состава материала из отсека №6-->
@@ -2088,7 +2175,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="10dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical">
@@ -2103,6 +2190,19 @@
                             android:id="@+id/NameOfMaterialMP"
                             style="@style/HeadOfForm1"
                             android:text="@string/OtsekMP" />
+
+                        <TextView
+                            style="@style/HeadOfForm1"
+                            android:layout_width="100dp"
+                            android:gravity="right"
+                            android:text="@string/SummaCHOG1" />
+                        <TextView
+                            android:id="@+id/SummaCHOG7"
+                            style="@style/HeadOfForm1"
+                            android:text=" 1000 " />
+                        <TextView
+                            style="@style/HeadOfForm1"
+                            android:text="@string/Gramm" />
 
                     </LinearLayout>
 
@@ -2309,7 +2409,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="10dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical">
@@ -2325,6 +2425,19 @@
                             android:id="@+id/NameOfMaterialSZ"
                             style="@style/HeadOfForm1"
                             android:text="@string/OtsekSZ" />
+
+                        <TextView
+                            style="@style/HeadOfForm1"
+                            android:layout_width="100dp"
+                            android:gravity="right"
+                            android:text="@string/SummaCHOG1" />
+                        <TextView
+                            android:id="@+id/SummaCHOG8"
+                            style="@style/HeadOfForm1"
+                            android:text=" 1000 " />
+                        <TextView
+                            style="@style/HeadOfForm1"
+                            android:text="@string/Gramm" />
 
                     </LinearLayout>
 
@@ -2538,8 +2651,6 @@
                 android:text="@string/PodborSostava" />
 
 
-
-
             <!-- Строка рецепта Отсек №1-->
 
             <LinearLayout
@@ -2724,8 +2835,8 @@
 
                 <Button
                     android:id="@+id/SOD3"
-                    android:layout_width="36dp"
                     style="@style/Button3"
+                    android:layout_width="36dp"
                     android:text="0" />
 
                 <Button
@@ -2804,8 +2915,8 @@
 
                 <Button
                     android:id="@+id/SOD4"
-                    android:layout_width="36dp"
                     style="@style/Button4"
+                    android:layout_width="36dp"
                     android:text="0" />
 
                 <Button
@@ -2884,8 +2995,8 @@
 
                 <Button
                     android:id="@+id/SOD5"
-                    android:layout_width="36dp"
                     style="@style/Button5"
+                    android:layout_width="36dp"
                     android:text="0" />
 
                 <Button
@@ -2964,8 +3075,8 @@
 
                 <Button
                     android:id="@+id/SOD6"
-                    android:layout_width="36dp"
                     style="@style/Button6"
+                    android:layout_width="36dp"
                     android:text="0" />
 
                 <Button
@@ -3044,8 +3155,8 @@
 
                 <Button
                     android:id="@+id/SODMP"
-                    android:layout_width="36dp"
                     style="@style/ButtonMP"
+                    android:layout_width="36dp"
                     android:text="0" />
 
                 <Button
@@ -3124,8 +3235,8 @@
 
                 <Button
                     android:id="@+id/SODSZ"
-                    android:layout_width="36dp"
                     style="@style/ButtonSZ"
+                    android:layout_width="36dp"
                     android:text="0" />
 
                 <Button
@@ -3191,14 +3302,13 @@
                     android:id="@+id/HeaderOfMix"
                     style="@style/HeadFieldOfFormPodbor"
                     android:background="@color/FirstMaterialTableDark"
-                    android:text="@string/TipSmesi"
-                    />
+                    android:text="@string/TipSmesi" />
 
-                <Spinner
+                <Button
                     android:id="@+id/SpinnerMixType"
                     style="@style/HeadFieldOfFormPodbor"
-                    android:background="@color/FirstMaterialTable"
-                    />
+                    android:textAllCaps="false"
+                    android:background="@color/FirstMaterialTable" />
 
                 <TextView
                     android:id="@+id/Head40_R"
@@ -3272,7 +3382,6 @@
                 <TextView
 
 
-
                     style="@style/HeadFieldOfFormPodbor"
                     android:background="@color/ResultTableDark"
                     android:text="@string/Mix" />
@@ -3342,7 +3451,6 @@
                 <TextView
 
 
-
                     style="@style/HeadFieldOfFormPodbor"
                     android:background="@color/FourthMaterialTableDark"
                     android:text="@string/Target" />
@@ -3350,8 +3458,8 @@
                 <Button
                     android:id="@+id/AutoPodbor"
                     style="@style/HeadFieldOfFormPodbor"
-                    android:text="@string/Auto"
                     android:background="@color/FourthMaterialTableDark"
+                    android:text="@string/Auto"
 
                     />
 
@@ -3541,8 +3649,8 @@
                 android:id="@+id/GoToWorkCompose"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:background="@color/FirstMaterialTableDark"
                 android:layout_margin="2dp"
+                android:background="@color/FirstMaterialTableDark"
                 android:text="@string/GoToWorkCompose">
 
             </Button>

@@ -27,12 +27,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    //Объявляем переменную типа Spinner, которая будет отвечать за список типов асфальтобетонных смесей
-    //Выбор элемента в данном списке будет изменять нормативные полные проходы
-    Spinner SpinnerMixType;
 
-    //Данный массив будет хранить пунткы выпадающего списка SpinnerMixType
-    String[] Mixes = {"Тип А", "Тип Б", "Тип В", "Тип Г", "ЩМА-10", "ЩМА-15", "ЩМА-20"};
+    //Выбор элемента в данном списке будет изменять нормативные полные проходы
+    Button SpinnerMixType;
 
     //Создаем объект типа Recept
     //Данный объект будет содержать дозировку в % каждого компонента
@@ -636,6 +633,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     TextView PP_Summa;
 
+    // Строка с размерами ячеек сит
+
+    ArrayList<TextView> HEAD_R = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля отображения нормативных проходов
+
+    TextView HEAD40_R;
+    TextView HEAD20_R;
+    TextView HEAD15_R;
+    TextView HEAD10_R;
+    TextView HEAD5_R;
+    TextView HEAD2_5_R;
+    TextView HEAD1_25_R;
+    TextView HEAD0_63_R;
+    TextView HEAD0_315_R;
+    TextView HEAD0_16_R;
+    TextView HEAD0_071_R;
+
+
     // Строка с целевым зерновым составом
 
     ArrayList<Button> PP_R_Target = new ArrayList<Button>(); // в этом массиве храним объекты типа View - поля отображения нормативных проходов
@@ -706,83 +720,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button GoToWorkCompose;
 
+    TextView SummaCHOG1;
+    TextView SummaCHOG2;
+    TextView SummaCHOG3;
+    TextView SummaCHOG4;
+    TextView SummaCHOG5;
+    TextView SummaCHOG6;
+    TextView SummaCHOG7;
+    TextView SummaCHOG8;
 
-    String[] TipAUp;
-    String[] TipADown;
-    String[] TipBUp;
-    String[] TipBDown;
-    String[] TipWUp;
-    String[] TipWDown;
+    int NumberOfMix = 1;
 
-    public static final String APP_PREFERENCES = "CHOG";
-    public static final String APP_PREFERENCES_COUNTER = "CHOG_1";
-    private SharedPreferences mSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Тип А требуемый состав
-
-        TipAUp = new String[]{"10", "12", "16", "20", "28", "38", "50", "100", "100", "100", "100"};
-        TipADown = new String[]{"4", "6", "10", "14", "20", "28", "40", "62", "75", "90", "100"};
-
-        // Тип Б требуемый состав
-
-        TipBUp = new String[]{"12", "16", "22", "28", "37", "48", "60", "100", "100", "100", "100"};
-        TipBDown = new String[]{"6", "10", "14", "20", "28", "38", "50", "70", "80", "90", "100"};
-
-        // Тип В требуемый состав
-
-        TipWUp = new String[]{"14", "20", "30", "40", "50", "60", "70", "100", "100", "100", "100"};
-        TipWDown = new String[]{"8", "13", "20", "28", "37", "48", "60", "75", "85", "90", "100"};
-
-
-        SpinnerMixType = (Spinner) findViewById(R.id.SpinnerMixType);
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, Mixes);
-        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_item);
-        SpinnerMixType.setAdapter(adapter1);
 
         FindById(); // Связываем View xml и объекты
-
-        SOD1Minus.setOnClickListener(this);
-        SOD1Plus.setOnClickListener(this);
-        SOD1.setOnClickListener(this);
-
-
-        SOD2Minus.setOnClickListener(this);
-        SOD2Plus.setOnClickListener(this);
-        SOD2.setOnClickListener(this);
-
-
-        SOD3Minus.setOnClickListener(this);
-        SOD3Plus.setOnClickListener(this);
-        SOD3.setOnClickListener(this);
-
-        SOD4Minus.setOnClickListener(this);
-        SOD4Plus.setOnClickListener(this);
-        SOD4.setOnClickListener(this);
-
-        SOD5Minus.setOnClickListener(this);
-        SOD5Plus.setOnClickListener(this);
-        SOD5.setOnClickListener(this);
-
-        SOD6Minus.setOnClickListener(this);
-        SOD6Plus.setOnClickListener(this);
-        SOD6.setOnClickListener(this);
-
-        SODMPMinus.setOnClickListener(this);
-        SODMPPlus.setOnClickListener(this);
-        SODMP.setOnClickListener(this);
-
-        SODSZMinus.setOnClickListener(this);
-        SODSZPlus.setOnClickListener(this);
-        SODSZ.setOnClickListener(this);
-
-        AutoPodbor.setOnClickListener(this);
-
-        GoToWorkCompose.setOnClickListener(this);
 
 
         for (int i = 0; i < 12; i++) {
@@ -806,63 +762,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
-        SpinnerMixType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() { // Обработчик спиннера выбора смеси
-
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                       int pos, long id) {
-                String Selected = SpinnerMixType.getSelectedItem().toString();
-
-                if (Selected.equals(Mixes[0])) {
-                    for (int i = 0; i < 11; i++) {
-                        PP_R_OT.get(i).setText(TipAUp[i]);
-                        PP_R_DO.get(i).setText(TipADown[i]);
-                    }
-
-                }
-                if (Selected.equals(Mixes[1])) {
-                    for (int i = 0; i < 11; i++) {
-                        PP_R_OT.get(i).setText(TipBUp[i]);
-                        PP_R_DO.get(i).setText(TipBDown[i]);
-                    }
-
-                }
-                if (Selected.equals(Mixes[2])) {
-                    for (int i = 0; i < 11; i++) {
-                        PP_R_OT.get(i).setText(TipWUp[i]);
-                        PP_R_DO.get(i).setText(TipWDown[i]);
-                    }
-
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> arg0) {
-            }
-        });
-
-        /*for (int i = 0; i < 12; i++) {
-            CHOG.get(i).setText("0");
-            CHOG2.get(i).setText("0");
-            CHOG3.get(i).setText("0");
-            CHOG4.get(i).setText("0");
-            CHOG50.get(i).setText("0");
-            CHOG6.get(i).setText("0");
-
-            if (i < 6) {
-                CHOG_MP.get(i).setText("0");
-                CHOG_SZ.get(i).setText("0");
-            }
-
-        }*/
-
         DatabaseReader(1);
+
+
         Probezhka();
 
     }
 
 
     private void Probezhka() {
+
+        //Считываем пределы зернового состава для выбранной смеси
+
+        recept.SetMix(NumberOfMix);
+
+        SpinnerMixType.setText(recept.NameOfMix);
+
+        for (int i = 0; i < 11; i++) {
+
+            PP_R_OT.get(i).setText(recept.MixUp[i]);
+            PP_R_DO.get(i).setText(recept.MixDown[i]);
+            HEAD_R.get(10-i).setText(recept.Sita[i]);
+
+        }
+
 
         //Собираем названия бункеров и вписываем их в поля рецепта
 
@@ -901,8 +824,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (NameOfMaterial5.getText().length() < 10) {
             HeadPP_R_5.setText(NameOfMaterial5.getText());
             recept.NameOfMaterial5 = NameOfMaterial5.getText().toString();
-        } else {HeadPP_R_5.setText(NameOfMaterial5.getText().toString().substring(0, 10));
-        recept.NameOfMaterial5 = NameOfMaterial5.getText().toString().substring(0, 10);}
+        } else {
+            HeadPP_R_5.setText(NameOfMaterial5.getText().toString().substring(0, 10));
+            recept.NameOfMaterial5 = NameOfMaterial5.getText().toString().substring(0, 10);
+        }
 
         if (NameOfMaterial6.getText().length() < 10) {
             HeadPP_R_6.setText(NameOfMaterial6.getText());
@@ -914,21 +839,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Собираем значения ввода из таблиц зернового состава из записываем их в объекты
 
+        Double SCHOG1 = 0.0;
+        Double SCHOG2 = 0.0;
+        Double SCHOG3 = 0.0;
+        Double SCHOG4 = 0.0;
+        Double SCHOG5 = 0.0;
+        Double SCHOG6 = 0.0;
+        Double SCHOG7 = 0.0;
+        Double SCHOG8 = 0.0;
+
+
         for (int i = 0; i < 12; i++) {
 
             MatBunker1.CHOG[i] = Double.parseDouble(CHOG.get(i).getText().toString());
+            SCHOG1 = SCHOG1 + MatBunker1.CHOG[i];
             MatBunker2.CHOG[i] = Double.parseDouble(CHOG2.get(i).getText().toString());
+            SCHOG2 = SCHOG2 + MatBunker2.CHOG[i];
             MatBunker3.CHOG[i] = Double.parseDouble(CHOG3.get(i).getText().toString());
+            SCHOG3 = SCHOG3 + MatBunker3.CHOG[i];
             MatBunker4.CHOG[i] = Double.parseDouble(CHOG4.get(i).getText().toString());
+            SCHOG4 = SCHOG4 + MatBunker4.CHOG[i];
             MatBunker5.CHOG[i] = Double.parseDouble(CHOG50.get(i).getText().toString());
+            SCHOG5 = SCHOG5 + MatBunker5.CHOG[i];
             MatBunker6.CHOG[i] = Double.parseDouble(CHOG6.get(i).getText().toString());
-
+            SCHOG6 = SCHOG6 + MatBunker6.CHOG[i];
             if (i < 6) {
                 MatBunkerMP.CHOG[i] = Double.parseDouble(CHOG_MP.get(i).getText().toString());
+                SCHOG7 = SCHOG7 + MatBunkerMP.CHOG[i];
                 MatBunkerSZ.CHOG[i] = Double.parseDouble(CHOG_SZ.get(i).getText().toString());
+                SCHOG8 = SCHOG8 + MatBunkerSZ.CHOG[i];
             }
 
         }
+
+        SummaCHOG1.setText(BigDecimal.valueOf(SCHOG1).setScale(0, BigDecimal.ROUND_HALF_UP).toString());
+        SummaCHOG2.setText(BigDecimal.valueOf(SCHOG2).setScale(0, BigDecimal.ROUND_HALF_UP).toString());
+        SummaCHOG3.setText(BigDecimal.valueOf(SCHOG3).setScale(0, BigDecimal.ROUND_HALF_UP).toString());
+        SummaCHOG4.setText(BigDecimal.valueOf(SCHOG4).setScale(0, BigDecimal.ROUND_HALF_UP).toString());
+        SummaCHOG5.setText(BigDecimal.valueOf(SCHOG5).setScale(0, BigDecimal.ROUND_HALF_UP).toString());
+        SummaCHOG6.setText(BigDecimal.valueOf(SCHOG6).setScale(0, BigDecimal.ROUND_HALF_UP).toString());
+        SummaCHOG7.setText(BigDecimal.valueOf(SCHOG7).setScale(0, BigDecimal.ROUND_HALF_UP).toString());
+        SummaCHOG8.setText(BigDecimal.valueOf(SCHOG8).setScale(0, BigDecimal.ROUND_HALF_UP).toString());
+
 
         //Производим расчет зернового состава по каждому материалу
 
@@ -1047,12 +999,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         for (int i = 5; i < 11; i++) {
 
-            recept.PPMP[i] = MatBunkerMP.FullPr[i+1];
-            recept.PPSZ[i] = MatBunkerSZ.FullPr[i+1];
+            recept.PPMP[i] = MatBunkerMP.FullPr[i + 1];
+            recept.PPSZ[i] = MatBunkerSZ.FullPr[i + 1];
 
         }
-
-
 
 
         //рассчитываем полные проходы с учетом дозировки и результирующую кривую
@@ -1091,6 +1041,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (v.getId()) {
 
+
+            //Обработка переходов на MixChooser
+
+            case R.id.SpinnerMixType:
+
+                Intent intent = new Intent(this, MixChooser.class);
+                intent.putExtra("NUMBER_OF_MIX", NumberOfMix);
+                startActivityForResult(intent, 1);
+
+                break;
             //Обработка переходов на UniversalKeyboard
 
             case R.id.GoToWorkCompose:
@@ -1203,7 +1163,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.AutoPodbor:
 
 
-                for (int i = 0; i < 11; i++) {
+               /* for (int i = 0; i < 11; i++) {
                     PP_R_Target.get(i).setText(BigDecimal.valueOf(recept.PP_Target[i]).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
                 }
                 recept.AutoPodbor();
@@ -1222,6 +1182,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 SOD1.setText(BigDecimal.valueOf(recept.SOD1).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
                 SOD2.setText(BigDecimal.valueOf(recept.SOD2).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
                 SOD3.setText(BigDecimal.valueOf(recept.SOD3).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+                SOD4.setText(BigDecimal.valueOf(recept.SOD4).setScale(1, BigDecimal.ROUND_HALF_UP).toString());
+                SOD5.setText(BigDecimal.valueOf(recept.SOD5).setScale(1, BigDecimal.ROUND_HALF_UP).toString());*/
+
 
                 Probezhka();
 
@@ -1477,6 +1440,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
+        //Тут ловим номер смеси из MixChoosera
+
+        NumberOfMix = data.getIntExtra("NUMBER_OF_MIX_BACK", 1);
+
         //Блок обработки возврата из KeyboardActivity
         int BunkerID;
 
@@ -1601,6 +1568,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void FindById() {
+
+        SpinnerMixType = (Button) findViewById(R.id.SpinnerMixType);
 
         //Связываем объекты с полями xml формы - Таблица зернового состава №1
 
@@ -2741,6 +2710,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PP_R_Target.add(9, PP20_R_Target);
         PP_R_Target.add(10, PP40_R_Target);
 
+
+        HEAD40_R = (TextView) findViewById(R.id.Head40_R);
+        HEAD20_R = (TextView) findViewById(R.id.Head20_R);
+        HEAD15_R = (TextView) findViewById(R.id.Head15_R);
+        HEAD10_R = (TextView) findViewById(R.id.Head10_R);
+        HEAD5_R = (TextView) findViewById(R.id.Head5_R);;
+        HEAD2_5_R = (TextView) findViewById(R.id.Head2_5_R);
+        HEAD1_25_R = (TextView) findViewById(R.id.Head1_25_R);
+        HEAD0_63_R = (TextView) findViewById(R.id.Head0_63_R);
+        HEAD0_315_R = (TextView) findViewById(R.id.Head0_315_R);
+        HEAD0_16_R = (TextView) findViewById(R.id.Head0_16_R);
+        HEAD0_071_R = (TextView) findViewById(R.id.Head0_071_R);
+
+        HEAD_R.add(0, HEAD40_R);
+        HEAD_R.add(1, HEAD20_R);
+        HEAD_R.add(2, HEAD15_R);
+        HEAD_R.add(3, HEAD10_R);
+        HEAD_R.add(4, HEAD5_R);
+        HEAD_R.add(5, HEAD2_5_R);
+        HEAD_R.add(6, HEAD1_25_R);
+        HEAD_R.add(7, HEAD0_63_R);
+        HEAD_R.add(8, HEAD0_315_R);
+        HEAD_R.add(9, HEAD0_16_R);
+        HEAD_R.add(10, HEAD0_071_R);
+
         NameOfMaterial1 = (EditText) findViewById(R.id.NameOfMaterial1);
         NameOfMaterial2 = (EditText) findViewById(R.id.NameOfMaterial2);
         NameOfMaterial3 = (EditText) findViewById(R.id.NameOfMaterial3);
@@ -2756,6 +2750,56 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         HeadPP_R_6 = (TextView) findViewById(R.id.HeadPP_R_6);
 
         GoToWorkCompose = (Button) findViewById(R.id.GoToWorkCompose);
+
+        SummaCHOG1 = (TextView) findViewById(R.id.SummaCHOG1);
+        SummaCHOG2 = (TextView) findViewById(R.id.SummaCHOG2);
+        SummaCHOG3 = (TextView) findViewById(R.id.SummaCHOG3);
+        SummaCHOG4 = (TextView) findViewById(R.id.SummaCHOG4);
+        SummaCHOG5 = (TextView) findViewById(R.id.SummaCHOG5);
+        SummaCHOG6 = (TextView) findViewById(R.id.SummaCHOG6);
+        SummaCHOG7 = (TextView) findViewById(R.id.SummaCHOG7);
+        SummaCHOG8 = (TextView) findViewById(R.id.SummaCHOG8);
+
+        SOD1Minus.setOnClickListener(this);
+        SOD1Plus.setOnClickListener(this);
+        SOD1.setOnClickListener(this);
+
+
+        SOD2Minus.setOnClickListener(this);
+        SOD2Plus.setOnClickListener(this);
+        SOD2.setOnClickListener(this);
+
+
+        SOD3Minus.setOnClickListener(this);
+        SOD3Plus.setOnClickListener(this);
+        SOD3.setOnClickListener(this);
+
+        SOD4Minus.setOnClickListener(this);
+        SOD4Plus.setOnClickListener(this);
+        SOD4.setOnClickListener(this);
+
+        SOD5Minus.setOnClickListener(this);
+        SOD5Plus.setOnClickListener(this);
+        SOD5.setOnClickListener(this);
+
+        SOD6Minus.setOnClickListener(this);
+        SOD6Plus.setOnClickListener(this);
+        SOD6.setOnClickListener(this);
+
+        SODMPMinus.setOnClickListener(this);
+        SODMPPlus.setOnClickListener(this);
+        SODMP.setOnClickListener(this);
+
+        SODSZMinus.setOnClickListener(this);
+        SODSZPlus.setOnClickListener(this);
+        SODSZ.setOnClickListener(this);
+
+        AutoPodbor.setOnClickListener(this);
+
+        GoToWorkCompose.setOnClickListener(this);
+
+        SpinnerMixType.setOnClickListener(this);
+
 
     }
 

@@ -14,6 +14,9 @@
     <string name="Mix">MIX</string>
     <string name="Target">ЦЕЛЬ</string>
     <string name="Auto">АВТО</string>
+    <string name="SummaCHOG">      Сумма частных остатков, г:</string>
+    <string name="SummaCHOG1">Сумма ЧО:</string>
+    <string name="Gramm">г</string>
 
 
     <!-- Строковые ресурсы таблиц зернового состава -->
@@ -65,11 +68,9 @@
     <string name="Otsek5N">Фракция 2,5-5</string>
     <string name="Otsek6N">Фракция 0-2,5</string>
     <string name="OtsekMP">Мин. порошок</string>
-    <string name="OtsekSZ">Собств. заполнитель</string>
+    <string name="OtsekSZ">Пыль</string>
 
     <string name="GoToWorkCompose">ПЕРЕЙТИ К РАБОЧЕМУ РЕЦЕПТУ</string>
-
-
 
 
     <!-- Строковые ресурсы Keyboard Activity -->
@@ -98,6 +99,44 @@
     <string name="AD1">Адгез. добавка</string>
     <string name="BackToPodbor">ПЕРЕЙТИ К ПОДБОРУ СОСТАВА</string>
     <string name="Primechanie">Примечание: отметь добавку для включения её в массу замеса</string>
+
+    <!-- Строковые ресурсы Mix Chooser Activity -->
+
+    <string name="MixChooserHead">Типы асфальтобетонных смесей</string>
+    <string name="MixChooserHeadNiz">Для нижних слоев по ГОСТ 9128-2009</string>
+    <string name="MixChooserHeadVerch">Для верхних слоев по ГОСТ 9128-2009</string>
+
+    <string name="MixChooserHeadNP">Непрерывные зерновые составы</string>
+    <string name="MixChooserHeadPP">Прерывистые зерновые составы</string>
+
+    <string name="MixChooserHead2">Щебеночно-мастичные по ГОСТ 31015-2002</string>
+    <string name="MixChooserHead3">ПНСТ 114-2016</string>
+    <string name="MixChooserHead4">ГОСТ 58401.1-2019, ГОСТ 58401.2-2019</string>
+
+    <string name="TipA">Тип А</string>
+    <string name="TipB">Тип Б</string>
+    <string name="TipV">Тип В</string>
+    <string name="TipG">Тип Г</string>
+    <string name="TipD">Тип Д</string>
+    <string name="Porist">Пористая</string>
+    <string name="VPoristSHEB">Высокопористая щебеночная</string>
+    <string name="VPoristPESOK">Высокопористая песчаная</string>
+
+    <string name="SMA10">ЩМА-10</string>
+    <string name="SMA15">ЩМА-15</string>
+    <string name="SMA20">ЩМА-20</string>
+
+    <string name="SP9">SP-9,5</string>
+    <string name="SP12">SP-12,5</string>
+    <string name="SP19">SP-19</string>
+
+    <string name="SP8">SP-8</string>
+    <string name="SP11">SP-11</string>
+    <string name="SP16">SP-16</string>
+
+    <string name="SMA8">SMA-8</string>
+    <string name="SMA11">SMA-11</string>
+    <string name="SMA16">SMA-16</string>
 
 
 

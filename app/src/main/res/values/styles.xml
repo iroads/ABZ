@@ -571,4 +571,17 @@
 
     </style>
 
+    <!-- Стили MIXChooser Activity -->
+
+    <style name="MixChooserButton">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">@color/FirstMaterialTableDark</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">3dp</item>
+
+    </style>
+
+
 </resources>

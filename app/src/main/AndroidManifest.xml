@@ -10,19 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".MixChooser"
+            android:screenOrientation="landscape"></activity>
+        <activity
             android:name=".WorkComposeActivity"
-            android:screenOrientation="landscape"> <!-- Устанавливаем ориентацию принудительно -->>
+            android:screenOrientation="landscape">
+
         </activity>
         <activity
             android:name=".UniversalKeyboard"
-            android:screenOrientation="landscape"> <!-- Устанавливаем ориентацию принудительно -->
-        </activity>
+            android:screenOrientation="landscape"></activity>
         <activity
             android:name=".Keyboard"
             android:screenOrientation="landscape" />
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="landscape"> <!-- Устанавливаем ориентацию принудительно -->
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
