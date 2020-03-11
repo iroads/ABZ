@@ -226,27 +226,29 @@
                     <Button
                         android:id="@+id/KeyBoardLeftValue"
                         android:layout_width="10dp"
+                        android:fontFamily="@font/fontawesome"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
                         android:layout_marginRight="3dp"
                         android:layout_weight="1"
                         android:background="@color/FirstMaterialTableDark"
                         android:gravity="center"
-                        android:text="-"
-                        android:textSize="10sp" />
+                        android:text="@string/ArLeft"
+                        android:textSize="20sp" />
 
 
                     <Button
                         android:id="@+id/KeyBoardRightValue"
                         android:layout_width="10dp"
+                        android:fontFamily="@font/fontawesome"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="3dp"
                         android:layout_weight="1"
                         android:background="@color/FirstMaterialTableDark"
                         android:gravity="center"
-                        android:text="+"
-                        android:textSize="10sp" />
+                        android:text="@string/ArRight"
+                        android:textSize="20sp" />
 
 
                 </LinearLayout>

@@ -5,6 +5,15 @@
     <!-- Заголовок №1 -->
 
     <string name="MaterialsOfHotBunker">Материалы горячего бункера</string>
+    <string name="SaveButton">SAVE</string>
+    <string name="LoadButton">LOAD</string>
+    <string name="LoadData">Загрузка данных</string>
+    <string name="SaveData">Сохранение данных</string>
+    <string name="NameOfProject">Проект:  </string>
+
+
+
+
     <string name="PodborSostava">Подбор состава</string>
     <string name="TipSmesi">Тип смеси</string>
     <string name="plus">+</string>
@@ -78,6 +87,9 @@
     <string name="KeyBoardEndEdit">End</string>
     <string name="KeyBoardBackSpace">BackSpace</string>
     <string name="KeyBoardClear">Clear</string>
+    <string name="ArLeft">\uf177</string>
+    <string name="ArRight">\uf178</string>
+
 
     <!-- Строковые ресурсы WorkCompose Activity -->
 
@@ -138,8 +150,10 @@
     <string name="SMA11">SMA-11</string>
     <string name="SMA16">SMA-16</string>
 
+    <!-- Строковые ресурсы ProjectChooser Activity -->
 
 
+    <string name="Correct">\uf040</string>
 
 
 

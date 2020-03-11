@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class ABZDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "Recepts"; //Имя базы данных
-    private static final int DB_VERSION = 7; //Версия базы данных
+    private static final int DB_VERSION = 9; //Версия базы данных
 
     ABZDatabaseHelper (Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -151,7 +151,8 @@ public class ABZDatabaseHelper extends SQLiteOpenHelper {
                 + "SDCHECKED INTEGER, "
                 + "DDCHECKED INTEGER, "
                 + "ADCHECKED INTEGER, "
-                + "PRIMECHANIE TEXT);" //109
+                + "PRIMECHANIE TEXT,"
+                + "NUMBEROFMIX INTEGER);" //110
 
 
 
@@ -291,10 +292,21 @@ public class ABZDatabaseHelper extends SQLiteOpenHelper {
         StartValues.put("DDCHECKED", 0);
         StartValues.put("ADCHECKED", 0);
         StartValues.put("PRIMECHANIE", "Примечание: отметь добавку для включения её в массу замеса");
+        StartValues.put("NUMBEROFMIX", 1);
 
 
 
         MyDatabase.insert("ZERN_SOSTAV", null, StartValues);
+        MyDatabase.insert("ZERN_SOSTAV", null, StartValues);
+        MyDatabase.insert("ZERN_SOSTAV", null, StartValues);
+        MyDatabase.insert("ZERN_SOSTAV", null, StartValues);
+        MyDatabase.insert("ZERN_SOSTAV", null, StartValues);
+        MyDatabase.insert("ZERN_SOSTAV", null, StartValues);
+        MyDatabase.insert("ZERN_SOSTAV", null, StartValues);
+        MyDatabase.insert("ZERN_SOSTAV", null, StartValues);
+        MyDatabase.insert("ZERN_SOSTAV", null, StartValues);
+        MyDatabase.insert("ZERN_SOSTAV", null, StartValues);
+
         //Конец блока вставки в базу данных начальных значений
 
 

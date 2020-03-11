@@ -10,16 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MixChooser"
+            android:name=".ProjectChooser"
             android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".MixChooser"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".WorkComposeActivity"
-            android:screenOrientation="landscape">
-
-        </activity>
+            android:screenOrientation="landscape"></activity>
         <activity
             android:name=".UniversalKeyboard"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".Keyboard"
             android:screenOrientation="landscape" />

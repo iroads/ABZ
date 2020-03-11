@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProjectChooser">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/SLActivityHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+            android:text="Загрузка данных"
+            android:textSize="30sp">
+
+        </TextView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        style="@style/NumberOfProject"
+                        android:text="1">
+                    </Button>
+                    <Button
+                        android:id="@+id/SLButton1"
+                        style="@style/NameOfProject">
+                    </Button>
+                    <Button
+                        android:id="@+id/CorrectNameSLButton1"
+
+                        style="@style/CorrectNameOfProject"
+                        android:fontFamily="@font/fontawesome"
+
+                        android:text="@string/Correct"
+
+                        >
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        style="@style/NumberOfProject"
+                        android:text="2">
+                    </Button>
+                    <Button
+                        android:id="@+id/SLButton2"
+                        style="@style/NameOfProject">
+                    </Button>
+                    <Button
+                        android:id="@+id/CorrectNameSLButton2"
+                        style="@style/CorrectNameOfProject"
+                        android:fontFamily="@font/fontawesome"
+
+                        android:text="@string/Correct">
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        style="@style/NumberOfProject"
+                        android:text="3">
+                    </Button>
+                    <Button
+                        android:id="@+id/SLButton3"
+                        style="@style/NameOfProject"
+                        >
+                    </Button>
+                    <Button
+                        android:id="@+id/CorrectNameSLButton3"
+                        style="@style/CorrectNameOfProject"
+                        android:fontFamily="@font/fontawesome"
+
+                        android:text="@string/Correct">
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        style="@style/NumberOfProject"
+                        android:text="4">
+                    </Button>
+                    <Button
+                        android:id="@+id/SLButton4"
+                        style="@style/NameOfProject">
+                    </Button>
+                    <Button
+                        android:id="@+id/CorrectNameSLButton4"
+                        style="@style/CorrectNameOfProject"
+                        android:fontFamily="@font/fontawesome"
+
+                        android:text="@string/Correct">
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        style="@style/NumberOfProject"
+                        android:text="5">
+                    </Button>
+                    <Button
+                        android:id="@+id/SLButton5"
+                        style="@style/NameOfProject">
+                    </Button>
+                    <Button
+                        android:id="@+id/CorrectNameSLButton5"
+                        style="@style/CorrectNameOfProject"
+                        android:fontFamily="@font/fontawesome"
+
+                        android:text="@string/Correct">
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        style="@style/NumberOfProject"
+                        android:text="6">
+                    </Button>
+                    <Button
+                        android:id="@+id/SLButton6"
+                        style="@style/NameOfProject">
+                    </Button>
+                    <Button
+                        android:id="@+id/CorrectNameSLButton6"
+                        style="@style/CorrectNameOfProject"
+                        android:fontFamily="@font/fontawesome"
+
+                        android:text="@string/Correct">
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        style="@style/NumberOfProject"
+                        android:text="7">
+                    </Button>
+                    <Button
+                        android:id="@+id/SLButton7"
+                        style="@style/NameOfProject">
+                    </Button>
+                    <Button
+                        android:id="@+id/CorrectNameSLButton7"
+                        style="@style/CorrectNameOfProject"
+                        android:fontFamily="@font/fontawesome"
+
+                        android:text="@string/Correct">
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        style="@style/NumberOfProject"
+                        android:text="8">
+                    </Button>
+                    <Button
+                        android:id="@+id/SLButton8"
+                        style="@style/NameOfProject">
+                    </Button>
+                    <Button
+                        android:id="@+id/CorrectNameSLButton8"
+                        style="@style/CorrectNameOfProject"
+                        android:fontFamily="@font/fontawesome"
+
+                        android:text="@string/Correct">
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        style="@style/NumberOfProject"
+                        android:text="9">
+                    </Button>
+                    <Button
+                        android:id="@+id/SLButton9"
+                        style="@style/NameOfProject">
+                    </Button>
+                    <Button
+                        android:id="@+id/CorrectNameSLButton9"
+                        style="@style/CorrectNameOfProject"
+                        android:fontFamily="@font/fontawesome"
+
+                        android:text="@string/Correct">
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        style="@style/NumberOfProject"
+                        android:text="10">
+                    </Button>
+                    <Button
+                        android:id="@+id/SLButton10"
+                        style="@style/NameOfProject">
+                    </Button>
+                    <Button
+                        android:id="@+id/CorrectNameSLButton10"
+                        style="@style/CorrectNameOfProject"
+                        android:fontFamily="@font/fontawesome"
+
+                        android:text="@string/Correct">
+                    </Button>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

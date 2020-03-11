@@ -42,6 +42,7 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
     String TotalValue;
 
     Material TransMaterial;
+    private Recept recept;
     int ChogID;
     int BunkerID;
     int LeftStop;
@@ -54,6 +55,7 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
         Bundle arguments = getIntent().getExtras();
         if (arguments != null) {
             TransMaterial = (Material) arguments.getSerializable("OBJECT");
+            recept = (Recept) arguments.getSerializable("RECEPT");
             ChogID = arguments.getInt("CHOGID");
             BunkerID = arguments.getInt("BUNKERID");
         }
@@ -92,7 +94,7 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
 
         if (TransMaterial.SitaNames.get(ChogID).equals("DNO"))
             KeyBoardSito.setText(TransMaterial.SitaNames.get(ChogID));
-        else KeyBoardSito.setText("Сито " + TransMaterial.SitaNames.get(ChogID));
+        else KeyBoardSito.setText("Сито " + recept.Sita[ChogID-1]);
 
         int yourScale0 = 0;
         Value = BigDecimal.valueOf(TransMaterial.CHOG[ChogID]).setScale(yourScale0, BigDecimal.ROUND_HALF_UP).toString();
@@ -238,7 +240,7 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
                     KeyBoardValue.setText(Value);
                     if (TransMaterial.SitaNames.get(ChogID).equals("DNO"))
                         KeyBoardSito.setText(TransMaterial.SitaNames.get(ChogID));
-                    else KeyBoardSito.setText("Сито " + TransMaterial.SitaNames.get(ChogID));
+                    else KeyBoardSito.setText("Сито " + recept.Sita[ChogID-1]);
                 }
                 Probezhka();
                 break;
@@ -253,7 +255,7 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
                     KeyBoardValue.setText(Value);
                     if (TransMaterial.SitaNames.get(ChogID).equals("DNO"))
                         KeyBoardSito.setText(TransMaterial.SitaNames.get(ChogID));
-                    else KeyBoardSito.setText("Сито " + TransMaterial.SitaNames.get(ChogID));
+                    else KeyBoardSito.setText("Сито " + recept.Sita[ChogID-1]);
                 }
                 Probezhka();
                 break;

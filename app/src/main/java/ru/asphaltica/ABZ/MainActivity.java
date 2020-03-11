@@ -8,8 +8,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Color;
 import android.renderscript.Sampler;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -99,6 +101,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView PP0_16;
     TextView PP0_071;
     TextView PPDNO;
+
+    TextView HEAD40, HEAD20, HEAD15, HEAD10, HEAD5, HEAD2_5, HEAD1_25, HEAD0_63, HEAD0_315, HEAD0_16, HEAD0_071;
+    TextView HEAD40_2, HEAD20_2, HEAD15_2, HEAD10_2, HEAD5_2, HEAD2_5_2, HEAD1_25_2, HEAD0_63_2, HEAD0_315_2, HEAD0_16_2, HEAD0_071_2;
+    TextView HEAD40_3, HEAD20_3, HEAD15_3, HEAD10_3, HEAD5_3, HEAD2_5_3, HEAD1_25_3, HEAD0_63_3, HEAD0_315_3, HEAD0_16_3, HEAD0_071_3;
+    TextView HEAD40_4, HEAD20_4, HEAD15_4, HEAD10_4, HEAD5_4, HEAD2_5_4, HEAD1_25_4, HEAD0_63_4, HEAD0_315_4, HEAD0_16_4, HEAD0_071_4;
+    TextView HEAD40_5, HEAD20_5, HEAD15_5, HEAD10_5, HEAD5_5, HEAD2_5_5, HEAD1_25_5, HEAD0_63_5, HEAD0_315_5, HEAD0_16_5, HEAD0_071_5;
+    TextView HEAD40_6, HEAD20_6, HEAD15_6, HEAD10_6, HEAD5_6, HEAD2_5_6, HEAD1_25_6, HEAD0_63_6, HEAD0_315_6, HEAD0_16_6, HEAD0_071_6;
+
+    TextView HEAD1_25_MP, HEAD0_63_MP, HEAD0_315_MP, HEAD0_16_MP, HEAD0_071_MP;
+    TextView HEAD1_25_SZ, HEAD0_63_SZ, HEAD0_315_SZ, HEAD0_16_SZ, HEAD0_071_SZ;
+
+    ArrayList<TextView> HEAD = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля с уцказанием размеров ячеек сит
+    ArrayList<TextView> HEAD_2 = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля с уцказанием размеров ячеек сит
+    ArrayList<TextView> HEAD_3 = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля с уцказанием размеров ячеек сит
+    ArrayList<TextView> HEAD_4 = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля с уцказанием размеров ячеек сит
+    ArrayList<TextView> HEAD_5 = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля с уцказанием размеров ячеек сит
+    ArrayList<TextView> HEAD_6 = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля с уцказанием размеров ячеек сит
+    ArrayList<TextView> HEAD_MP = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля с уцказанием размеров ячеек сит
+    ArrayList<TextView> HEAD_SZ = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля с уцказанием размеров ячеек сит
+
 
     //ТАБЛИЦА МАТЕРИАЛА БУНКЕРА №2
 
@@ -729,7 +751,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView SummaCHOG7;
     TextView SummaCHOG8;
 
-    int NumberOfMix = 1;
+    Button SaveButton;
+    Button LoadButton;
+
+    TextView NameOfProject;
+
+    int NumberOfMix;
+
+    int CurrentDataBaseID;
+
+    SharedPreferences MyPref;
 
 
     @Override
@@ -737,9 +768,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         FindById(); // Связываем View xml и объекты
+        // Создаем объект для работы с системой хранения настроек
+        // Здесь имя файла Values - должно быть единым для всего приложения
+        MyPref = getSharedPreferences("Values", MODE_PRIVATE);
 
+        //Если ячейка настроек не пуста устанавливаем номер строки для загрузки из базы данных
+        if (MyPref.getInt("CurrentDataBaseID", 0) != 0) {
+            CurrentDataBaseID = MyPref.getInt("CurrentDataBaseID", 0);
+        } else CurrentDataBaseID = 1;
+
+
+
+
+
+        NameOfProject.setText(" Проект:  " + MyPref.getString(Integer.toString(CurrentDataBaseID), ""));
 
         for (int i = 0; i < 12; i++) {
 
@@ -762,15 +805,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
-        DatabaseReader(1);
+        DatabaseReader(CurrentDataBaseID);
 
 
         Probezhka();
 
     }
 
+    private void Painter() {
+
+        int backgroundColorRED = ContextCompat.getColor(this, R.color.SecondMaterialTableDark);
+        int backgroundColorSUMMA = ContextCompat.getColor(this, R.color.ResultTableDark);
+        int backgroundColorPP = ContextCompat.getColor(this, R.color.ResultTable);
+
+        if (recept.SOD_Summa != 100) PP_Summa.setBackgroundColor(backgroundColorRED);
+        else PP_Summa.setBackgroundColor(backgroundColorSUMMA);
+
+        for (int i = 0; i < 11; i++) {
+
+            if (recept.MixUp[i].equals("-") == false && recept.MixDown[i].equals("-") == false) {
+
+                if (recept.PP_Result[i] < Double.parseDouble(recept.MixUp[i]) && recept.PP_Result[i] > Double.parseDouble(recept.MixDown[i]))
+                    PP_R_Result.get(i).setBackgroundColor(backgroundColorPP);
+                else PP_R_Result.get(i).setBackgroundColor(backgroundColorRED);
+
+            }
+
+            if (recept.MixUp[i].equals("-") == false && recept.MixDown[i].equals("-")) {
+
+                if (recept.PP_Result[i] > Double.parseDouble(recept.MixUp[i]))
+                    PP_R_Result.get(i).setBackgroundColor(backgroundColorRED);
+                else PP_R_Result.get(i).setBackgroundColor(backgroundColorPP);
+
+            }
+
+
+        }
+
+    }
+
 
     private void Probezhka() {
+
 
         //Считываем пределы зернового состава для выбранной смеси
 
@@ -782,7 +858,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             PP_R_OT.get(i).setText(recept.MixUp[i]);
             PP_R_DO.get(i).setText(recept.MixDown[i]);
-            HEAD_R.get(10-i).setText(recept.Sita[i]);
+            HEAD_R.get(10 - i).setText(recept.Sita[i]);
+            HEAD.get(10 - i).setText(recept.Sita[i]);
+            HEAD_2.get(10 - i).setText(recept.Sita[i]);
+            HEAD_3.get(10 - i).setText(recept.Sita[i]);
+            HEAD_4.get(10 - i).setText(recept.Sita[i]);
+            HEAD_5.get(10 - i).setText(recept.Sita[i]);
+            HEAD_6.get(10 - i).setText(recept.Sita[i]);
+
+            if (i < 5) {
+                HEAD_SZ.get(4 - i).setText(recept.Sita[i]);
+                HEAD_MP.get(4 - i).setText(recept.Sita[i]);
+            }
 
         }
 
@@ -1027,7 +1114,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             PP_R_SZ.get(i).setText(BigDecimal.valueOf(recept.PPSZR[i]).setScale(yourScale1, BigDecimal.ROUND_HALF_UP).toString());
         }
 
-        DatabaseWriter(1); //Запуск процедуры сбора данных их полей активити и их запись в базу данных
+        Painter();
+
+        DatabaseWriter(CurrentDataBaseID); //Запуск процедуры сбора данных их полей активити и их запись в базу данных
 
     }
 
@@ -1041,6 +1130,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (v.getId()) {
 
+            //Обработка переходов на ProjectChooser
+
+            case R.id.SaveButton:
+
+                Intent intentPC_Save = new Intent(this, ProjectChooser.class);
+                intentPC_Save.putExtra("TYPE_OF_CHOOSE", "SAVE");
+                startActivityForResult(intentPC_Save, 2);
+
+                break;
+
+            case R.id.LoadButton:
+
+                Intent intentPC_Load = new Intent(this, ProjectChooser.class);
+                intentPC_Load.putExtra("TYPE_OF_CHOOSE", "LOAD");
+                startActivityForResult(intentPC_Load, 2);
+
+                break;
+
 
             //Обработка переходов на MixChooser
 
@@ -1048,6 +1155,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Intent intent = new Intent(this, MixChooser.class);
                 intent.putExtra("NUMBER_OF_MIX", NumberOfMix);
+
                 startActivityForResult(intent, 1);
 
                 break;
@@ -1187,7 +1295,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                 Probezhka();
-
 
                 break;
 
@@ -1417,6 +1524,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             PushChogDetector = false;
             Intent intent = new Intent(this, Keyboard.class);
             intent.putExtra("OBJECT", TransMaterial);
+            intent.putExtra("RECEPT", recept);
             intent.putExtra("CHOGID", ChogID);
             intent.putExtra("BUNKERID", BunkerID);
             startActivityForResult(intent, 1);
@@ -1442,7 +1550,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Тут ловим номер смеси из MixChoosera
 
-        NumberOfMix = data.getIntExtra("NUMBER_OF_MIX_BACK", 1);
+        NumberOfMix = data.getIntExtra("NUMBER_OF_MIX_BACK", NumberOfMix);
 
         //Блок обработки возврата из KeyboardActivity
         int BunkerID;
@@ -1563,6 +1671,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         Probezhka();
+
+        //Блок обработки возврата из меню сохранения
+
+        if (requestCode == 2) {
+            if (data.getStringExtra("TYPE_OF_CHOOSE_BACK").equals("SAVE")) {
+
+                DatabaseWriter(data.getIntExtra("THE_CHOOSE_BACK", 0));
+
+                if (CurrentDataBaseID == data.getIntExtra("THE_CHOOSE_BACK", 0)) {
+                    NameOfProject.setText(" Проект:  " + MyPref.getString(Integer.toString(CurrentDataBaseID), ""));
+                }
+
+
+
+            }
+
+            if (data.getStringExtra("TYPE_OF_CHOOSE_BACK").equals("LOAD")) {
+
+                CurrentDataBaseID = data.getIntExtra("THE_CHOOSE_BACK", 0);
+                DatabaseReader(CurrentDataBaseID);
+
+                // Создаем объект Editor для записи пар ключ значение
+                SharedPreferences.Editor editor = MyPref.edit();
+                // Кладем значение нужного поля в систему хранения настроек при этом ключ совпадает с именем поля
+                editor.putInt("CurrentDataBaseID", CurrentDataBaseID);
+                editor.commit();
+
+                NameOfProject.setText(" Проект:  " + MyPref.getString(Integer.toString(CurrentDataBaseID), ""));
+
+                Probezhka();
+
+            }
+
+
+        }
 
 
     }
@@ -2715,7 +2858,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         HEAD20_R = (TextView) findViewById(R.id.Head20_R);
         HEAD15_R = (TextView) findViewById(R.id.Head15_R);
         HEAD10_R = (TextView) findViewById(R.id.Head10_R);
-        HEAD5_R = (TextView) findViewById(R.id.Head5_R);;
+        HEAD5_R = (TextView) findViewById(R.id.Head5_R);
+        ;
         HEAD2_5_R = (TextView) findViewById(R.id.Head2_5_R);
         HEAD1_25_R = (TextView) findViewById(R.id.Head1_25_R);
         HEAD0_63_R = (TextView) findViewById(R.id.Head0_63_R);
@@ -2734,6 +2878,179 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         HEAD_R.add(8, HEAD0_315_R);
         HEAD_R.add(9, HEAD0_16_R);
         HEAD_R.add(10, HEAD0_071_R);
+
+
+        HEAD40 = (TextView) findViewById(R.id.Head40);
+        HEAD20 = (TextView) findViewById(R.id.Head20);
+        HEAD15 = (TextView) findViewById(R.id.Head15);
+        HEAD10 = (TextView) findViewById(R.id.Head10);
+        HEAD5 = (TextView) findViewById(R.id.Head5);
+        HEAD2_5 = (TextView) findViewById(R.id.Head2_5);
+        HEAD1_25 = (TextView) findViewById(R.id.Head1_25);
+        HEAD0_63 = (TextView) findViewById(R.id.Head0_63);
+        HEAD0_315 = (TextView) findViewById(R.id.Head0_315);
+        HEAD0_16 = (TextView) findViewById(R.id.Head0_16);
+        HEAD0_071 = (TextView) findViewById(R.id.Head0_071);
+
+        HEAD.add(0, HEAD40);
+        HEAD.add(1, HEAD20);
+        HEAD.add(2, HEAD15);
+        HEAD.add(3, HEAD10);
+        HEAD.add(4, HEAD5);
+        HEAD.add(5, HEAD2_5);
+        HEAD.add(6, HEAD1_25);
+        HEAD.add(7, HEAD0_63);
+        HEAD.add(8, HEAD0_315);
+        HEAD.add(9, HEAD0_16);
+        HEAD.add(10, HEAD0_071);
+
+        HEAD40_2 = (TextView) findViewById(R.id.Head40_2);
+        HEAD20_2 = (TextView) findViewById(R.id.Head20_2);
+        HEAD15_2 = (TextView) findViewById(R.id.Head15_2);
+        HEAD10_2 = (TextView) findViewById(R.id.Head10_2);
+        HEAD5_2 = (TextView) findViewById(R.id.Head5_2);
+        HEAD2_5_2 = (TextView) findViewById(R.id.Head2_5_2);
+        HEAD1_25_2 = (TextView) findViewById(R.id.Head1_25_2);
+        HEAD0_63_2 = (TextView) findViewById(R.id.Head0_63_2);
+        HEAD0_315_2 = (TextView) findViewById(R.id.Head0_315_2);
+        HEAD0_16_2 = (TextView) findViewById(R.id.Head0_16_2);
+        HEAD0_071_2 = (TextView) findViewById(R.id.Head0_071_2);
+
+        HEAD_2.add(0, HEAD40_2);
+        HEAD_2.add(1, HEAD20_2);
+        HEAD_2.add(2, HEAD15_2);
+        HEAD_2.add(3, HEAD10_2);
+        HEAD_2.add(4, HEAD5_2);
+        HEAD_2.add(5, HEAD2_5_2);
+        HEAD_2.add(6, HEAD1_25_2);
+        HEAD_2.add(7, HEAD0_63_2);
+        HEAD_2.add(8, HEAD0_315_2);
+        HEAD_2.add(9, HEAD0_16_2);
+        HEAD_2.add(10, HEAD0_071_2);
+
+        HEAD40_3 = (TextView) findViewById(R.id.Head40_3);
+        HEAD20_3 = (TextView) findViewById(R.id.Head20_3);
+        HEAD15_3 = (TextView) findViewById(R.id.Head15_3);
+        HEAD10_3 = (TextView) findViewById(R.id.Head10_3);
+        HEAD5_3 = (TextView) findViewById(R.id.Head5_3);
+        HEAD2_5_3 = (TextView) findViewById(R.id.Head2_5_3);
+        HEAD1_25_3 = (TextView) findViewById(R.id.Head1_25_3);
+        HEAD0_63_3 = (TextView) findViewById(R.id.Head0_63_3);
+        HEAD0_315_3 = (TextView) findViewById(R.id.Head0_315_3);
+        HEAD0_16_3 = (TextView) findViewById(R.id.Head0_16_3);
+        HEAD0_071_3 = (TextView) findViewById(R.id.Head0_071_3);
+
+        HEAD_3.add(0, HEAD40_3);
+        HEAD_3.add(1, HEAD20_3);
+        HEAD_3.add(2, HEAD15_3);
+        HEAD_3.add(3, HEAD10_3);
+        HEAD_3.add(4, HEAD5_3);
+        HEAD_3.add(5, HEAD2_5_3);
+        HEAD_3.add(6, HEAD1_25_3);
+        HEAD_3.add(7, HEAD0_63_3);
+        HEAD_3.add(8, HEAD0_315_3);
+        HEAD_3.add(9, HEAD0_16_3);
+        HEAD_3.add(10, HEAD0_071_3);
+
+        HEAD40_4 = (TextView) findViewById(R.id.Head40_4);
+        HEAD20_4 = (TextView) findViewById(R.id.Head20_4);
+        HEAD15_4 = (TextView) findViewById(R.id.Head15_4);
+        HEAD10_4 = (TextView) findViewById(R.id.Head10_4);
+        HEAD5_4 = (TextView) findViewById(R.id.Head5_4);
+        HEAD2_5_4 = (TextView) findViewById(R.id.Head2_5_4);
+        HEAD1_25_4 = (TextView) findViewById(R.id.Head1_25_4);
+        HEAD0_63_4 = (TextView) findViewById(R.id.Head0_63_4);
+        HEAD0_315_4 = (TextView) findViewById(R.id.Head0_315_4);
+        HEAD0_16_4 = (TextView) findViewById(R.id.Head0_16_4);
+        HEAD0_071_4 = (TextView) findViewById(R.id.Head0_071_4);
+
+        HEAD_4.add(0, HEAD40_4);
+        HEAD_4.add(1, HEAD20_4);
+        HEAD_4.add(2, HEAD15_4);
+        HEAD_4.add(3, HEAD10_4);
+        HEAD_4.add(4, HEAD5_4);
+        HEAD_4.add(5, HEAD2_5_4);
+        HEAD_4.add(6, HEAD1_25_4);
+        HEAD_4.add(7, HEAD0_63_4);
+        HEAD_4.add(8, HEAD0_315_4);
+        HEAD_4.add(9, HEAD0_16_4);
+        HEAD_4.add(10, HEAD0_071_4);
+
+        HEAD40_5 = (TextView) findViewById(R.id.Head40_5);
+        HEAD20_5 = (TextView) findViewById(R.id.Head20_5);
+        HEAD15_5 = (TextView) findViewById(R.id.Head15_5);
+        HEAD10_5 = (TextView) findViewById(R.id.Head10_5);
+        HEAD5_5 = (TextView) findViewById(R.id.Head5_5);
+        HEAD2_5_5 = (TextView) findViewById(R.id.Head2_5_5);
+        HEAD1_25_5 = (TextView) findViewById(R.id.Head1_25_5);
+        HEAD0_63_5 = (TextView) findViewById(R.id.Head0_63_5);
+        HEAD0_315_5 = (TextView) findViewById(R.id.Head0_315_5);
+        HEAD0_16_5 = (TextView) findViewById(R.id.Head0_16_5);
+        HEAD0_071_5 = (TextView) findViewById(R.id.Head0_071_5);
+
+        HEAD_5.add(0, HEAD40_5);
+        HEAD_5.add(1, HEAD20_5);
+        HEAD_5.add(2, HEAD15_5);
+        HEAD_5.add(3, HEAD10_5);
+        HEAD_5.add(4, HEAD5_5);
+        HEAD_5.add(5, HEAD2_5_5);
+        HEAD_5.add(6, HEAD1_25_5);
+        HEAD_5.add(7, HEAD0_63_5);
+        HEAD_5.add(8, HEAD0_315_5);
+        HEAD_5.add(9, HEAD0_16_5);
+        HEAD_5.add(10, HEAD0_071_5);
+
+        HEAD40_6 = (TextView) findViewById(R.id.Head40_6);
+        HEAD20_6 = (TextView) findViewById(R.id.Head20_6);
+        HEAD15_6 = (TextView) findViewById(R.id.Head15_6);
+        HEAD10_6 = (TextView) findViewById(R.id.Head10_6);
+        HEAD5_6 = (TextView) findViewById(R.id.Head5_6);
+        HEAD2_5_6 = (TextView) findViewById(R.id.Head2_5_6);
+        HEAD1_25_6 = (TextView) findViewById(R.id.Head1_25_6);
+        HEAD0_63_6 = (TextView) findViewById(R.id.Head0_63_6);
+        HEAD0_315_6 = (TextView) findViewById(R.id.Head0_315_6);
+        HEAD0_16_6 = (TextView) findViewById(R.id.Head0_16_6);
+        HEAD0_071_6 = (TextView) findViewById(R.id.Head0_071_6);
+
+        HEAD_6.add(0, HEAD40_6);
+        HEAD_6.add(1, HEAD20_6);
+        HEAD_6.add(2, HEAD15_6);
+        HEAD_6.add(3, HEAD10_6);
+        HEAD_6.add(4, HEAD5_6);
+        HEAD_6.add(5, HEAD2_5_6);
+        HEAD_6.add(6, HEAD1_25_6);
+        HEAD_6.add(7, HEAD0_63_6);
+        HEAD_6.add(8, HEAD0_315_6);
+        HEAD_6.add(9, HEAD0_16_6);
+        HEAD_6.add(10, HEAD0_071_6);
+
+
+        HEAD1_25_MP = (TextView) findViewById(R.id.Head1_25_MP);
+        HEAD0_63_MP = (TextView) findViewById(R.id.Head0_63_MP);
+        HEAD0_315_MP = (TextView) findViewById(R.id.Head0_315_MP);
+        HEAD0_16_MP = (TextView) findViewById(R.id.Head0_16_MP);
+        HEAD0_071_MP = (TextView) findViewById(R.id.Head0_071_MP);
+
+
+        HEAD_MP.add(0, HEAD1_25_MP);
+        HEAD_MP.add(1, HEAD0_63_MP);
+        HEAD_MP.add(2, HEAD0_315_MP);
+        HEAD_MP.add(3, HEAD0_16_MP);
+        HEAD_MP.add(4, HEAD0_071_MP);
+
+        HEAD1_25_SZ = (TextView) findViewById(R.id.Head1_25_SZ);
+        HEAD0_63_SZ = (TextView) findViewById(R.id.Head0_63_SZ);
+        HEAD0_315_SZ = (TextView) findViewById(R.id.Head0_315_SZ);
+        HEAD0_16_SZ = (TextView) findViewById(R.id.Head0_16_SZ);
+        HEAD0_071_SZ = (TextView) findViewById(R.id.Head0_071_SZ);
+
+
+        HEAD_SZ.add(0, HEAD1_25_SZ);
+        HEAD_SZ.add(1, HEAD0_63_SZ);
+        HEAD_SZ.add(2, HEAD0_315_SZ);
+        HEAD_SZ.add(3, HEAD0_16_SZ);
+        HEAD_SZ.add(4, HEAD0_071_SZ);
+
 
         NameOfMaterial1 = (EditText) findViewById(R.id.NameOfMaterial1);
         NameOfMaterial2 = (EditText) findViewById(R.id.NameOfMaterial2);
@@ -2759,6 +3076,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         SummaCHOG6 = (TextView) findViewById(R.id.SummaCHOG6);
         SummaCHOG7 = (TextView) findViewById(R.id.SummaCHOG7);
         SummaCHOG8 = (TextView) findViewById(R.id.SummaCHOG8);
+
+        SaveButton = (Button) findViewById(R.id.SaveButton);
+        LoadButton = (Button) findViewById(R.id.LoadButton);
+
 
         SOD1Minus.setOnClickListener(this);
         SOD1Plus.setOnClickListener(this);
@@ -2800,6 +3121,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         SpinnerMixType.setOnClickListener(this);
 
+        SaveButton.setOnClickListener(this);
+        LoadButton.setOnClickListener(this);
+
+        NameOfProject = (TextView) findViewById(R.id.HEADERPROJECT);
+
 
     }
 
@@ -2840,7 +3166,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             "TARGETSITO1", "TARGETSITO2", "TARGETSITO3", "TARGETSITO4", "TARGETSITO5", "TARGETSITO6",
                             "TARGETSITO7", "TARGETSITO8", "TARGETSITO9", "TARGETSITO10", "TARGETSITO11",
 
-                            "NAMEOFMATERIAL1", "NAMEOFMATERIAL2", "NAMEOFMATERIAL3", "NAMEOFMATERIAL4", "NAMEOFMATERIAL5", "NAMEOFMATERIAL6"
+                            "NAMEOFMATERIAL1", "NAMEOFMATERIAL2", "NAMEOFMATERIAL3", "NAMEOFMATERIAL4", "NAMEOFMATERIAL5", "NAMEOFMATERIAL6", "NUMBEROFMIX"
 
 
                             // "SOD1"//, "SOD2", "SOD3", "SOD4", "SOD5", "SOD6", "SODMP","SODSZ"
@@ -2885,6 +3211,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 NameOfMaterial4.setText(cursor.getString(107));
                 NameOfMaterial5.setText(cursor.getString(108));
                 NameOfMaterial6.setText(cursor.getString(109));
+
+                NumberOfMix = cursor.getInt(110);
 
                 for (int i = 93; i < 104; i++) {
 
@@ -3031,7 +3359,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         values.put("NAMEOFMATERIAL4", NameOfMaterial4.getText().toString());
         values.put("NAMEOFMATERIAL5", NameOfMaterial5.getText().toString());
         values.put("NAMEOFMATERIAL6", NameOfMaterial6.getText().toString());
-
+        values.put("NUMBEROFMIX", NumberOfMix);
 
         SQLiteOpenHelper abzDatabaseHelper = new ABZDatabaseHelper(this);
 

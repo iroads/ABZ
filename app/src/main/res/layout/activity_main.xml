@@ -16,10 +16,65 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/HEADERPROJECT"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/NameOfProject"
+                    android:layout_weight="1"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    >
+
+                    <Button
+                        android:id="@+id/SaveButton"
+                        android:layout_width="70dp"
+                        android:layout_height="30dp"
+                        android:background="@color/FirstMaterialTable"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="5dp"
+                        android:text="@string/SaveButton"
+
+                        >
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/LoadButton"
+                        android:layout_width="70dp"
+                        android:layout_height="30dp"
+                        android:background="@color/FirstMaterialTable"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"
+
+                        android:text="@string/LoadButton">
+
+                    </Button>
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/HEADER"
                 style="@style/HeadOfForms"
                 android:text="@string/MaterialsOfHotBunker" />
+
 
             <!-- Наименование таблицы зернового состава материала из отсека №1-->
 
@@ -48,6 +103,7 @@
                     android:id="@+id/SummaCHOG1"
                     style="@style/HeadOfForm1"
                     android:text=" 1000 " />
+
                 <TextView
                     style="@style/HeadOfForm1"
                     android:text="@string/Gramm" />
@@ -407,6 +463,7 @@
                     android:id="@+id/SummaCHOG2"
                     style="@style/HeadOfForm1"
                     android:text=" 1000 " />
+
                 <TextView
                     style="@style/HeadOfForm1"
                     android:text="@string/Gramm" />
@@ -764,6 +821,7 @@
                     android:id="@+id/SummaCHOG3"
                     style="@style/HeadOfForm1"
                     android:text=" 1000 " />
+
                 <TextView
                     style="@style/HeadOfForm1"
                     android:text="@string/Gramm" />
@@ -1120,6 +1178,7 @@
                     android:id="@+id/SummaCHOG4"
                     style="@style/HeadOfForm1"
                     android:text=" 1000 " />
+
                 <TextView
                     style="@style/HeadOfForm1"
                     android:text="@string/Gramm" />
@@ -1476,11 +1535,12 @@
                     android:id="@+id/SummaCHOG5"
                     style="@style/HeadOfForm1"
                     android:text=" 1000 " />
+
                 <TextView
                     style="@style/HeadOfForm1"
                     android:text="@string/Gramm" />
 
-                    />
+                />
 
             </LinearLayout>
 
@@ -1835,6 +1895,7 @@
                     android:id="@+id/SummaCHOG6"
                     style="@style/HeadOfForm1"
                     android:text=" 1000 " />
+
                 <TextView
                     style="@style/HeadOfForm1"
                     android:text="@string/Gramm" />
@@ -2196,10 +2257,12 @@
                             android:layout_width="100dp"
                             android:gravity="right"
                             android:text="@string/SummaCHOG1" />
+
                         <TextView
                             android:id="@+id/SummaCHOG7"
                             style="@style/HeadOfForm1"
                             android:text=" 1000 " />
+
                         <TextView
                             style="@style/HeadOfForm1"
                             android:text="@string/Gramm" />
@@ -2431,10 +2494,12 @@
                             android:layout_width="100dp"
                             android:gravity="right"
                             android:text="@string/SummaCHOG1" />
+
                         <TextView
                             android:id="@+id/SummaCHOG8"
                             style="@style/HeadOfForm1"
                             android:text=" 1000 " />
+
                         <TextView
                             style="@style/HeadOfForm1"
                             android:text="@string/Gramm" />
@@ -3293,6 +3358,11 @@
 
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/FourthMaterialTable"></TextView>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -3307,8 +3377,8 @@
                 <Button
                     android:id="@+id/SpinnerMixType"
                     style="@style/HeadFieldOfFormPodbor"
-                    android:textAllCaps="false"
-                    android:background="@color/FirstMaterialTable" />
+                    android:background="@color/FirstMaterialTable"
+                    android:textAllCaps="false" />
 
                 <TextView
                     android:id="@+id/Head40_R"

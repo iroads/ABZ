@@ -7,6 +7,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
 
     </style>
 
@@ -583,5 +585,39 @@
 
     </style>
 
+    <!-- Стили ProjectChooser Activity -->
+
+    <style name="NumberOfProject">
+
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@color/FirstMaterialTable</item>
+        <item name="android:layout_margin">10dp</item>
+
+    </style>
+
+
+
+    <style name="NameOfProject">
+
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@color/FirstMaterialTable</item>
+        <item name="android:layout_margin">10dp</item>
+
+    </style>
+
+    <style name="CorrectNameOfProject">
+
+
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@color/FirstMaterialTable</item>
+        <item name="android:layout_margin">10dp</item>
+
+
+
+    </style>
 
 </resources>
