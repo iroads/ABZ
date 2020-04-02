@@ -1704,9 +1704,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (requestCode == 2) {
             if (data.getStringExtra("TYPE_OF_CHOOSE_BACK").equals("SAVE")) {
 
+                DatabaseReader(CurrentDataBaseID);
+
+                DatabaseWriterALL(data.getIntExtra("THE_CHOOSE_BACK", 0));
 
 
-                DatabaseWriter(data.getIntExtra("THE_CHOOSE_BACK", 0));
 
                 if (CurrentDataBaseID == data.getIntExtra("THE_CHOOSE_BACK", 0)) {
                     NameOfProject.setText(" Проект:  " + MyPref.getString(Integer.toString(CurrentDataBaseID), ""));
@@ -3417,6 +3419,162 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         values.put("DDCHECKED", DDCHECKED);
         values.put("ADCHECKED", ADCHECKED);
         values.put("PRIMECHANIE", PRIMECHANIE);*/
+
+        values.put("NUMBEROFMIX", NumberOfMix);
+
+        SQLiteOpenHelper abzDatabaseHelper = new ABZDatabaseHelper(this);
+
+        try {
+            //Получение ссылки на базу данных
+            SQLiteDatabase MyDatabase = abzDatabaseHelper.getWritableDatabase();
+
+            MyDatabase.update("ZERN_SOSTAV", values, "_id = ?", new String[]{Integer.toString(id)});
+
+            MyDatabase.close();
+
+        } catch (SQLiteException e) {
+
+            Toast toast = Toast.makeText(this, "Database unavailable WRITE", Toast.LENGTH_SHORT);
+
+            toast.show();
+
+        }
+
+    }
+
+    public void DatabaseWriterALL(int id) {
+
+        ContentValues values = new ContentValues();
+        values.put("BUNKER1SITO1", Double.parseDouble(CHOG.get(0).getText().toString()));
+        values.put("BUNKER1SITO2", Double.parseDouble(CHOG.get(1).getText().toString()));
+        values.put("BUNKER1SITO3", Double.parseDouble(CHOG.get(2).getText().toString()));
+        values.put("BUNKER1SITO4", Double.parseDouble(CHOG.get(3).getText().toString()));
+        values.put("BUNKER1SITO5", Double.parseDouble(CHOG.get(4).getText().toString()));
+        values.put("BUNKER1SITO6", Double.parseDouble(CHOG.get(5).getText().toString()));
+        values.put("BUNKER1SITO7", Double.parseDouble(CHOG.get(6).getText().toString()));
+        values.put("BUNKER1SITO8", Double.parseDouble(CHOG.get(7).getText().toString()));
+        values.put("BUNKER1SITO9", Double.parseDouble(CHOG.get(8).getText().toString()));
+        values.put("BUNKER1SITO10", Double.parseDouble(CHOG.get(9).getText().toString()));
+        values.put("BUNKER1SITO11", Double.parseDouble(CHOG.get(10).getText().toString()));
+        values.put("BUNKER1SITO12", Double.parseDouble(CHOG.get(11).getText().toString()));
+
+        values.put("BUNKER2SITO1", Double.parseDouble(CHOG2.get(0).getText().toString()));
+        values.put("BUNKER2SITO2", Double.parseDouble(CHOG2.get(1).getText().toString()));
+        values.put("BUNKER2SITO3", Double.parseDouble(CHOG2.get(2).getText().toString()));
+        values.put("BUNKER2SITO4", Double.parseDouble(CHOG2.get(3).getText().toString()));
+        values.put("BUNKER2SITO5", Double.parseDouble(CHOG2.get(4).getText().toString()));
+        values.put("BUNKER2SITO6", Double.parseDouble(CHOG2.get(5).getText().toString()));
+        values.put("BUNKER2SITO7", Double.parseDouble(CHOG2.get(6).getText().toString()));
+        values.put("BUNKER2SITO8", Double.parseDouble(CHOG2.get(7).getText().toString()));
+        values.put("BUNKER2SITO9", Double.parseDouble(CHOG2.get(8).getText().toString()));
+        values.put("BUNKER2SITO10", Double.parseDouble(CHOG2.get(9).getText().toString()));
+        values.put("BUNKER2SITO11", Double.parseDouble(CHOG2.get(10).getText().toString()));
+        values.put("BUNKER2SITO12", Double.parseDouble(CHOG2.get(11).getText().toString()));
+
+        values.put("BUNKER3SITO1", Double.parseDouble(CHOG3.get(0).getText().toString()));
+        values.put("BUNKER3SITO2", Double.parseDouble(CHOG3.get(1).getText().toString()));
+        values.put("BUNKER3SITO3", Double.parseDouble(CHOG3.get(2).getText().toString()));
+        values.put("BUNKER3SITO4", Double.parseDouble(CHOG3.get(3).getText().toString()));
+        values.put("BUNKER3SITO5", Double.parseDouble(CHOG3.get(4).getText().toString()));
+        values.put("BUNKER3SITO6", Double.parseDouble(CHOG3.get(5).getText().toString()));
+        values.put("BUNKER3SITO7", Double.parseDouble(CHOG3.get(6).getText().toString()));
+        values.put("BUNKER3SITO8", Double.parseDouble(CHOG3.get(7).getText().toString()));
+        values.put("BUNKER3SITO9", Double.parseDouble(CHOG3.get(8).getText().toString()));
+        values.put("BUNKER3SITO10", Double.parseDouble(CHOG3.get(9).getText().toString()));
+        values.put("BUNKER3SITO11", Double.parseDouble(CHOG3.get(10).getText().toString()));
+        values.put("BUNKER3SITO12", Double.parseDouble(CHOG3.get(11).getText().toString()));
+
+        values.put("BUNKER4SITO1", Double.parseDouble(CHOG4.get(0).getText().toString()));
+        values.put("BUNKER4SITO2", Double.parseDouble(CHOG4.get(1).getText().toString()));
+        values.put("BUNKER4SITO3", Double.parseDouble(CHOG4.get(2).getText().toString()));
+        values.put("BUNKER4SITO4", Double.parseDouble(CHOG4.get(3).getText().toString()));
+        values.put("BUNKER4SITO5", Double.parseDouble(CHOG4.get(4).getText().toString()));
+        values.put("BUNKER4SITO6", Double.parseDouble(CHOG4.get(5).getText().toString()));
+        values.put("BUNKER4SITO7", Double.parseDouble(CHOG4.get(6).getText().toString()));
+        values.put("BUNKER4SITO8", Double.parseDouble(CHOG4.get(7).getText().toString()));
+        values.put("BUNKER4SITO9", Double.parseDouble(CHOG4.get(8).getText().toString()));
+        values.put("BUNKER4SITO10", Double.parseDouble(CHOG4.get(9).getText().toString()));
+        values.put("BUNKER4SITO11", Double.parseDouble(CHOG4.get(10).getText().toString()));
+        values.put("BUNKER4SITO12", Double.parseDouble(CHOG4.get(11).getText().toString()));
+
+        values.put("BUNKER5SITO1", Double.parseDouble(CHOG50.get(0).getText().toString()));
+        values.put("BUNKER5SITO2", Double.parseDouble(CHOG50.get(1).getText().toString()));
+        values.put("BUNKER5SITO3", Double.parseDouble(CHOG50.get(2).getText().toString()));
+        values.put("BUNKER5SITO4", Double.parseDouble(CHOG50.get(3).getText().toString()));
+        values.put("BUNKER5SITO5", Double.parseDouble(CHOG50.get(4).getText().toString()));
+        values.put("BUNKER5SITO6", Double.parseDouble(CHOG50.get(5).getText().toString()));
+        values.put("BUNKER5SITO7", Double.parseDouble(CHOG50.get(6).getText().toString()));
+        values.put("BUNKER5SITO8", Double.parseDouble(CHOG50.get(7).getText().toString()));
+        values.put("BUNKER5SITO9", Double.parseDouble(CHOG50.get(8).getText().toString()));
+        values.put("BUNKER5SITO10", Double.parseDouble(CHOG50.get(9).getText().toString()));
+        values.put("BUNKER5SITO11", Double.parseDouble(CHOG50.get(10).getText().toString()));
+        values.put("BUNKER5SITO12", Double.parseDouble(CHOG50.get(11).getText().toString()));
+
+        values.put("BUNKER6SITO1", Double.parseDouble(CHOG6.get(0).getText().toString()));
+        values.put("BUNKER6SITO2", Double.parseDouble(CHOG6.get(1).getText().toString()));
+        values.put("BUNKER6SITO3", Double.parseDouble(CHOG6.get(2).getText().toString()));
+        values.put("BUNKER6SITO4", Double.parseDouble(CHOG6.get(3).getText().toString()));
+        values.put("BUNKER6SITO5", Double.parseDouble(CHOG6.get(4).getText().toString()));
+        values.put("BUNKER6SITO6", Double.parseDouble(CHOG6.get(5).getText().toString()));
+        values.put("BUNKER6SITO7", Double.parseDouble(CHOG6.get(6).getText().toString()));
+        values.put("BUNKER6SITO8", Double.parseDouble(CHOG6.get(7).getText().toString()));
+        values.put("BUNKER6SITO9", Double.parseDouble(CHOG6.get(8).getText().toString()));
+        values.put("BUNKER6SITO10", Double.parseDouble(CHOG6.get(9).getText().toString()));
+        values.put("BUNKER6SITO11", Double.parseDouble(CHOG6.get(10).getText().toString()));
+        values.put("BUNKER6SITO12", Double.parseDouble(CHOG6.get(11).getText().toString()));
+
+        values.put("BUNKER7SITO1", Double.parseDouble(CHOG_MP.get(0).getText().toString()));
+        values.put("BUNKER7SITO2", Double.parseDouble(CHOG_MP.get(1).getText().toString()));
+        values.put("BUNKER7SITO3", Double.parseDouble(CHOG_MP.get(2).getText().toString()));
+        values.put("BUNKER7SITO4", Double.parseDouble(CHOG_MP.get(3).getText().toString()));
+        values.put("BUNKER7SITO5", Double.parseDouble(CHOG_MP.get(4).getText().toString()));
+        values.put("BUNKER7SITO6", Double.parseDouble(CHOG_MP.get(5).getText().toString()));
+
+        values.put("BUNKER8SITO1", Double.parseDouble(CHOG_SZ.get(0).getText().toString()));
+        values.put("BUNKER8SITO2", Double.parseDouble(CHOG_SZ.get(1).getText().toString()));
+        values.put("BUNKER8SITO3", Double.parseDouble(CHOG_SZ.get(2).getText().toString()));
+        values.put("BUNKER8SITO4", Double.parseDouble(CHOG_SZ.get(3).getText().toString()));
+        values.put("BUNKER8SITO5", Double.parseDouble(CHOG_SZ.get(4).getText().toString()));
+        values.put("BUNKER8SITO6", Double.parseDouble(CHOG_SZ.get(5).getText().toString()));
+
+        values.put("DOZA1", Double.parseDouble(SOD1.getText().toString()));
+        values.put("DOZA2", Double.parseDouble(SOD2.getText().toString()));
+        values.put("DOZA3", Double.parseDouble(SOD3.getText().toString()));
+        values.put("DOZA4", Double.parseDouble(SOD4.getText().toString()));
+        values.put("DOZA5", Double.parseDouble(SOD5.getText().toString()));
+        values.put("DOZA6", Double.parseDouble(SOD6.getText().toString()));
+        values.put("DOZAMP", Double.parseDouble(SODMP.getText().toString()));
+        values.put("DOZASZ", Double.parseDouble(SODSZ.getText().toString()));
+
+
+        values.put("TARGETSITO1", Double.parseDouble(PP_R_Target.get(0).getText().toString()));
+        values.put("TARGETSITO2", Double.parseDouble(PP_R_Target.get(1).getText().toString()));
+        values.put("TARGETSITO3", Double.parseDouble(PP_R_Target.get(2).getText().toString()));
+        values.put("TARGETSITO4", Double.parseDouble(PP_R_Target.get(3).getText().toString()));
+        values.put("TARGETSITO5", Double.parseDouble(PP_R_Target.get(4).getText().toString()));
+        values.put("TARGETSITO6", Double.parseDouble(PP_R_Target.get(5).getText().toString()));
+        values.put("TARGETSITO7", Double.parseDouble(PP_R_Target.get(6).getText().toString()));
+        values.put("TARGETSITO8", Double.parseDouble(PP_R_Target.get(7).getText().toString()));
+        values.put("TARGETSITO9", Double.parseDouble(PP_R_Target.get(8).getText().toString()));
+        values.put("TARGETSITO10", Double.parseDouble(PP_R_Target.get(9).getText().toString()));
+        values.put("TARGETSITO11", Double.parseDouble(PP_R_Target.get(10).getText().toString()));
+
+        values.put("NAMEOFMATERIAL1", NameOfMaterial1.getText().toString());
+        values.put("NAMEOFMATERIAL2", NameOfMaterial2.getText().toString());
+        values.put("NAMEOFMATERIAL3", NameOfMaterial3.getText().toString());
+        values.put("NAMEOFMATERIAL4", NameOfMaterial4.getText().toString());
+        values.put("NAMEOFMATERIAL5", NameOfMaterial5.getText().toString());
+        values.put("NAMEOFMATERIAL6", NameOfMaterial6.getText().toString());
+
+        values.put("BITUMUP100", BITUMUP100);
+        values.put("BITUMIN100", BITUMIN100);
+        values.put("SD", SD);
+        values.put("DD", DD);
+        values.put("AD", AD);
+        values.put("SDCHECKED", SDCHECKED);
+        values.put("DDCHECKED", DDCHECKED);
+        values.put("ADCHECKED", ADCHECKED);
+        values.put("PRIMECHANIE", PRIMECHANIE);
 
         values.put("NUMBEROFMIX", NumberOfMix);
 
