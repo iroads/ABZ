@@ -14,6 +14,14 @@
             android:screenOrientation="landscape">
         </activity>
         <activity
+            android:name=".ProjectChooser"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".MixChooser"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
             android:name=".UniversalKeyboard"
             android:screenOrientation="landscape">
         </activity>

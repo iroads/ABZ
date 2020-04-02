@@ -5,7 +5,7 @@
     <!-- Заголовок №1 -->
 
     <string name="MaterialsOfHotBunker">Материалы горячего бункера</string>
-    <string name="SaveButton">SAVE</string>
+    <string name="SaveButton">SAVE AS</string>
     <string name="LoadButton">LOAD</string>
     <string name="LoadData">Загрузка данных</string>
     <string name="SaveData">Сохранение данных</string>

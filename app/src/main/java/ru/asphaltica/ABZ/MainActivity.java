@@ -762,6 +762,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     SharedPreferences MyPref;
 
+           /* + "BITUMUP100 REAL, " //110
+            + "BITUMIN100 REAL, "
+            + "SD REAL, "
+            + "DD REAL, "
+            + "AD REAL, "
+            + "MASSAZAMESA REAL, "
+            + "SDCHECKED INTEGER, "
+            + "DDCHECKED INTEGER, "
+            + "ADCHECKED INTEGER, "
+            + "PRIMECHANIE TEXT,"*/
+
+      // Переменные для временного хранения данных WorkCompozeActivity
+    Double BITUMUP100;
+    Double BITUMIN100;
+    Double SD;
+    Double DD;
+    Double AD;
+    Double MASSAZAMESA;
+    int SDCHECKED;
+    int DDCHECKED;
+    int ADCHECKED;
+    String PRIMECHANIE;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -1165,8 +1191,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Probezhka();
                 Intent intent2 = new Intent(this, WorkComposeActivity.class);
                 intent2.putExtra("OBJECT", recept);
-                //intent2.putExtra("CHOGID", ChogID);
-                //intent2.putExtra("BUNKERID", BunkerID);
+                intent2.putExtra("DataBazeID", CurrentDataBaseID);
                 startActivityForResult(intent2, 1);
 
                 break;
@@ -1552,6 +1577,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         NumberOfMix = data.getIntExtra("NUMBER_OF_MIX_BACK", NumberOfMix);
 
+
+
         //Блок обработки возврата из KeyboardActivity
         int BunkerID;
 
@@ -1677,6 +1704,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (requestCode == 2) {
             if (data.getStringExtra("TYPE_OF_CHOOSE_BACK").equals("SAVE")) {
 
+
+
                 DatabaseWriter(data.getIntExtra("THE_CHOOSE_BACK", 0));
 
                 if (CurrentDataBaseID == data.getIntExtra("THE_CHOOSE_BACK", 0)) {
@@ -1706,6 +1735,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         }
+
+        //Блок обработки возврата из рабочего рецепта
+
 
 
     }
@@ -3166,7 +3198,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             "TARGETSITO1", "TARGETSITO2", "TARGETSITO3", "TARGETSITO4", "TARGETSITO5", "TARGETSITO6",
                             "TARGETSITO7", "TARGETSITO8", "TARGETSITO9", "TARGETSITO10", "TARGETSITO11",
 
-                            "NAMEOFMATERIAL1", "NAMEOFMATERIAL2", "NAMEOFMATERIAL3", "NAMEOFMATERIAL4", "NAMEOFMATERIAL5", "NAMEOFMATERIAL6", "NUMBEROFMIX"
+                            "NAMEOFMATERIAL1", "NAMEOFMATERIAL2", "NAMEOFMATERIAL3", "NAMEOFMATERIAL4", "NAMEOFMATERIAL5", "NAMEOFMATERIAL6","BITUMUP100 REAL",
+
+                            "BITUMIN100", "SD", "DD", "AD", "MASSAZAMESA", "SDCHECKED", "DDCHECKED", "ADCHECKED", "PRIMECHANIE",  "NUMBEROFMIX"
+
+
 
 
                             // "SOD1"//, "SOD2", "SOD3", "SOD4", "SOD5", "SOD6", "SODMP","SODSZ"
@@ -3212,7 +3248,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 NameOfMaterial5.setText(cursor.getString(108));
                 NameOfMaterial6.setText(cursor.getString(109));
 
-                NumberOfMix = cursor.getInt(110);
+                BITUMUP100 = cursor.getDouble(110);
+                BITUMIN100 = cursor.getDouble(111);
+                SD = cursor.getDouble(112);
+                DD = cursor.getDouble(113);
+                AD = cursor.getDouble(114);
+                MASSAZAMESA = cursor.getDouble(115);
+                SDCHECKED = cursor.getInt(116);
+                DDCHECKED = cursor.getInt(117);
+                ADCHECKED = cursor.getInt(118);
+                PRIMECHANIE = cursor.getString(119);
+
+                NumberOfMix = cursor.getInt(120);
+
 
                 for (int i = 93; i < 104; i++) {
 
@@ -3359,6 +3407,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         values.put("NAMEOFMATERIAL4", NameOfMaterial4.getText().toString());
         values.put("NAMEOFMATERIAL5", NameOfMaterial5.getText().toString());
         values.put("NAMEOFMATERIAL6", NameOfMaterial6.getText().toString());
+
+        /*values.put("BITUMUP100", BITUMUP100);
+        values.put("BITUMIN100", BITUMIN100);
+        values.put("SD", SD);
+        values.put("DD", DD);
+        values.put("AD", AD);
+        values.put("SDCHECKED", SDCHECKED);
+        values.put("DDCHECKED", DDCHECKED);
+        values.put("ADCHECKED", ADCHECKED);
+        values.put("PRIMECHANIE", PRIMECHANIE);*/
+
         values.put("NUMBEROFMIX", NumberOfMix);
 
         SQLiteOpenHelper abzDatabaseHelper = new ABZDatabaseHelper(this);

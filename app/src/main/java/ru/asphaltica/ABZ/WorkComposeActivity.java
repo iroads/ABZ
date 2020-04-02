@@ -119,6 +119,7 @@ public class WorkComposeActivity extends AppCompatActivity implements View.OnCli
     Double SODMSDKG;
     Double SODMDDKG;
     Double SODMADKG;
+    int CurrentDataBazeID;
 
 
     @Override
@@ -129,6 +130,7 @@ public class WorkComposeActivity extends AppCompatActivity implements View.OnCli
         Bundle arguments = getIntent().getExtras();
         if (arguments != null) {
             TransRecept = (Recept) arguments.getSerializable("OBJECT");
+            CurrentDataBazeID = arguments.getInt("DataBazeID");
 
         }
 
@@ -142,7 +144,7 @@ public class WorkComposeActivity extends AppCompatActivity implements View.OnCli
         NameOfMaterialWC5.setText(TransRecept.NameOfMaterial5);
         NameOfMaterialWC6.setText(TransRecept.NameOfMaterial6);
 
-        DatabaseReader(1);
+        DatabaseReader(CurrentDataBazeID);
 
         if (SDChecked == 1) SDCheckBox.setChecked(true);
         else SDCheckBox.setChecked(false);
@@ -221,7 +223,7 @@ public class WorkComposeActivity extends AppCompatActivity implements View.OnCli
 
     private void ExitActions() {
 
-        DatabaseWriter(1);
+        DatabaseWriter(CurrentDataBazeID);
 
         Intent intent = new Intent();
 
@@ -235,7 +237,7 @@ public class WorkComposeActivity extends AppCompatActivity implements View.OnCli
 
     private void Probezhka() {
 
-        DatabaseWriter(1);
+        DatabaseWriter(CurrentDataBazeID);
 
         Calculate();
 

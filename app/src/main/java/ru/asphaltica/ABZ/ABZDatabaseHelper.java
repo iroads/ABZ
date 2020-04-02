@@ -143,16 +143,16 @@ public class ABZDatabaseHelper extends SQLiteOpenHelper {
                 + "NAMEOFMATERIAL5 TEXT, "
                 + "NAMEOFMATERIAL6 TEXT, "
                 + "BITUMUP100 REAL, " //110
-                + "BITUMIN100 REAL, "
-                + "SD REAL, "
-                + "DD REAL, "
-                + "AD REAL, "
-                + "MASSAZAMESA REAL, "
-                + "SDCHECKED INTEGER, "
-                + "DDCHECKED INTEGER, "
-                + "ADCHECKED INTEGER, "
-                + "PRIMECHANIE TEXT,"
-                + "NUMBEROFMIX INTEGER);" //110
+                + "BITUMIN100 REAL, " //111
+                + "SD REAL, " //112
+                + "DD REAL, " //113
+                + "AD REAL, " //114
+                + "MASSAZAMESA REAL, " //115
+                + "SDCHECKED INTEGER, " //116
+                + "DDCHECKED INTEGER, " //117
+                + "ADCHECKED INTEGER, " //118
+                + "PRIMECHANIE TEXT," //119
+                + "NUMBEROFMIX INTEGER);" //120
 
 
 
