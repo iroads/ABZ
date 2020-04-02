@@ -61,6 +61,7 @@ public class ProjectChooser extends AppCompatActivity implements View.OnClickLis
         LayoutInit();
 
         Bundle arguments = getIntent().getExtras();
+
         if (arguments != null) {
             Type_Of_Choose = arguments.getString("TYPE_OF_CHOOSE");
         }
