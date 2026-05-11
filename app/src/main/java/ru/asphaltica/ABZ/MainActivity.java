@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Material MatBunker1 = new Material();
 
-    ArrayList<TextView> CHOG = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля ввода частных остатков в граммах для их перебора в цикле
+    ArrayList<TextView> CHOG = new ArrayList<>(); // в этом массиве храним объекты типа View - поля ввода частных остатков в граммах для их перебора в цикле
     ArrayList<TextView> CHOP = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля вывода частных остатков в процентах для их перебора в цикле
     ArrayList<TextView> PO = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля вывода полных остатков в процентах для их перебора в цикле
     ArrayList<TextView> PP = new ArrayList<TextView>(); // в этом массиве храним объекты типа View - поля вывода полных проходов в процентах для их перебора в цикле
