@@ -30,10 +30,20 @@
             android:exported="false">
         </activity>
         <activity
+            android:name=".SimpleKeyboard"
+            android:screenOrientation="landscape"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".Keyboard"
             android:screenOrientation="landscape"
             android:exported="false">
     </activity>
+        <activity
+            android:name=".ChogKeyboard"
+            android:screenOrientation="landscape"
+            android:exported="false">
+        </activity>
         <activity
 
             android:name=".MainActivity"

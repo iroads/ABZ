@@ -1,7 +1,9 @@
 package ru.asphaltica.ABZ;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -94,7 +96,7 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
 
         if (TransMaterial.SitaNames.get(ChogID).equals("DNO"))
             KeyBoardSito.setText(TransMaterial.SitaNames.get(ChogID));
-        else KeyBoardSito.setText("Сито " + recept.Sita[ChogID-1]);
+        else KeyBoardSito.setText("Сито " + recept.Sita[ChogID - 1]);
 
         int yourScale0 = 0;
         Value = BigDecimal.valueOf(TransMaterial.CHOG[ChogID]).setScale(yourScale0, BigDecimal.ROUND_HALF_UP).toString();
@@ -106,190 +108,160 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
 
-            case R.id.KeyBoard0: {
+        int id = v.getId();
 
-                if (Value.equals("0") == false)
-                    if (Value.endsWith("0")) {
-                        if (Value.substring(0, Value.length() - 1).endsWith("+") == false)
-                            Value = Value + "0";
-                    }
-                    else { Value = Value + "0";}
-                Probezhka();
-                break;
-            }
-            case R.id.KeyBoard1: {
+        if (id == R.id.KeyBoard0 ||
+                id == R.id.KeyBoard1 ||
+                id == R.id.KeyBoard2 ||
+                id == R.id.KeyBoard3 ||
+                id == R.id.KeyBoard4 ||
+                id == R.id.KeyBoard5 ||
+                id == R.id.KeyBoard6 ||
+                id == R.id.KeyBoard7 ||
+                id == R.id.KeyBoard8 ||
+                id == R.id.KeyBoard9) {
 
-                if (Value.equals("0")) Value = "1";
-                else
-                if (Value.endsWith("0")) {
-                    if (Value.substring(0, Value.length() - 1).endsWith("+") == false)
-                        Value = Value + "1";
+            String digit;
+
+            if (id == R.id.KeyBoard0) digit = "0";
+            else if (id == R.id.KeyBoard1) digit = "1";
+            else if (id == R.id.KeyBoard2) digit = "2";
+            else if (id == R.id.KeyBoard3) digit = "3";
+            else if (id == R.id.KeyBoard4) digit = "4";
+            else if (id == R.id.KeyBoard5) digit = "5";
+            else if (id == R.id.KeyBoard6) digit = "6";
+            else if (id == R.id.KeyBoard7) digit = "7";
+            else if (id == R.id.KeyBoard8) digit = "8";
+            else digit = "9";
+
+            if (Value.equals("0")) {
+                Value = digit;
+            } else if (Value.endsWith("0")) {
+                if (!Value.substring(0, Value.length() - 1).endsWith("+")) {
+                    Value = Value + digit;
                 }
-                else { Value = Value + "1";}
-                Probezhka();
-                break;
+            } else {
+                Value = Value + digit;
             }
-            case R.id.KeyBoard2: {
 
-                if (Value.equals("0")) Value = "2";
-                else if (Value.endsWith("0")) {
-                    if (Value.substring(0, Value.length() - 1).endsWith("+") == false)
-                        Value = Value + "2";
+            Probezhka();
+
+        } else if (id == R.id.KeyBoardDot) {
+
+            if (StringTestDot(Value) == false) {
+                Value = Value + "";
+            } else if (Value.length() >= 1 &&
+                    !Value.substring(Value.length() - 1).equals(".")) {
+
+                if (Value.substring(Value.length() - 1).equals("+")) {
+                    Value = Value + "0.";
+                } else {
+                    Value = Value + ".";
                 }
-                else { Value = Value + "2";}
-                Probezhka();
-                break;
             }
-            case R.id.KeyBoard3: {
 
-                if (Value.equals("0")) Value = "3";
-                else if (Value.endsWith("0")) {
-                    if (Value.substring(0, Value.length() - 1).endsWith("+") == false)
-                        Value = Value + "3";
+            Probezhka();
+
+        } else if (id == R.id.KeyBoardLeftValue) {
+
+            if (ChogID != LeftStop) {
+
+                int yourScale0 = 0;
+
+                TransMaterial.CHOG[ChogID] =
+                        Double.parseDouble(GetTotalValue(Value));
+
+                ChogID = ChogID + 1;
+
+                Value = BigDecimal
+                        .valueOf(TransMaterial.CHOG[ChogID])
+                        .setScale(yourScale0, BigDecimal.ROUND_HALF_UP)
+                        .toString();
+
+                KeyBoardValue.setText(Value);
+
+                if (TransMaterial.SitaNames.get(ChogID).equals("DNO")) {
+                    KeyBoardSito.setText(
+                            TransMaterial.SitaNames.get(ChogID)
+                    );
+                } else {
+                    KeyBoardSito.setText(
+                            "Сито " + recept.Sita[ChogID - 1]
+                    );
                 }
-                else { Value = Value + "3";}
-                Probezhka();
-                break;
             }
-            case R.id.KeyBoard4: {
 
-                if (Value.equals("0")) Value = "4";
-                else if (Value.endsWith("0")) {
-                    if (Value.substring(0, Value.length() - 1).endsWith("+") == false)
-                        Value = Value + "4";
+            Probezhka();
+
+        } else if (id == R.id.KeyBoardRightValue) {
+
+            if (ChogID != 0) {
+
+                int yourScale0 = 0;
+
+                TransMaterial.CHOG[ChogID] =
+                        Double.parseDouble(GetTotalValue(Value));
+
+                ChogID = ChogID - 1;
+
+                Value = BigDecimal
+                        .valueOf(TransMaterial.CHOG[ChogID])
+                        .setScale(yourScale0, BigDecimal.ROUND_HALF_UP)
+                        .toString();
+
+                KeyBoardValue.setText(Value);
+
+                if (TransMaterial.SitaNames.get(ChogID).equals("DNO")) {
+                    KeyBoardSito.setText(
+                            TransMaterial.SitaNames.get(ChogID)
+                    );
+                } else {
+                    KeyBoardSito.setText(
+                            "Сито " + recept.Sita[ChogID - 1]
+                    );
                 }
-                else { Value = Value + "4";}
-                Probezhka();
-                break;
-            }
-            case R.id.KeyBoard5: {
-
-                if (Value.equals("0")) Value = "5";
-                else if (Value.endsWith("0")) {
-                    if (Value.substring(0, Value.length() - 1).endsWith("+") == false)
-                        Value = Value + "5";
-                }
-                else { Value = Value + "5";}
-                Probezhka();
-                break;
-            }
-            case R.id.KeyBoard6: {
-
-                if (Value.equals("0")) Value = "6";
-                else if (Value.endsWith("0")) {
-                    if (Value.substring(0, Value.length() - 1).endsWith("+") == false)
-                        Value = Value + "6";
-                }
-                else { Value = Value + "6";}
-                Probezhka();
-                break;
-            }
-            case R.id.KeyBoard7: {
-
-                if (Value.equals("0")) Value = "7";
-                else if (Value.endsWith("0")) {
-                    if (Value.substring(0, Value.length() - 1).endsWith("+") == false)
-                        Value = Value + "7";
-                }
-                else { Value = Value + "7";}
-                Probezhka();
-                break;
-            }
-            case R.id.KeyBoard8: {
-
-                if (Value.equals("0")) Value = "8";
-                else if (Value.endsWith("0")) {
-                    if (Value.substring(0, Value.length() - 1).endsWith("+") == false)
-                        Value = Value + "8";
-                }
-                else { Value = Value + "8";}
-                Probezhka();
-                break;
-            }
-            case R.id.KeyBoard9: {
-
-                if (Value.equals("0")) Value = "9";
-                else if (Value.endsWith("0")) {
-                    if (Value.substring(0, Value.length() - 1).endsWith("+") == false)
-                        Value = Value + "9";
-                }
-                else { Value = Value + "9";}
-                Probezhka();
-                break;
-            }
-            case R.id.KeyBoardDot: {
-
-                if (StringTestDot(Value) == false) Value = Value + "";
-                else if (Value.length() >= 1 && Value.substring(Value.length() - 1, Value.length()).equals(".") == false)
-                    if (Value.length() >= 1 && Value.substring(Value.length() - 1, Value.length()).equals("+"))
-                        Value = Value + "0.";
-                    else
-                        Value = Value + ".";
-                Probezhka();
-                break;
-            }
-            case R.id.KeyBoardLeftValue: {
-
-                if (ChogID != LeftStop) {
-                    int yourScale0 = 0;
-                    TransMaterial.CHOG[ChogID] = Double.parseDouble(GetTotalValue(Value));
-                    ChogID = ChogID + 1;
-                    Value = BigDecimal.valueOf(TransMaterial.CHOG[ChogID]).setScale(yourScale0, BigDecimal.ROUND_HALF_UP).toString();
-                    KeyBoardValue.setText(Value);
-                    if (TransMaterial.SitaNames.get(ChogID).equals("DNO"))
-                        KeyBoardSito.setText(TransMaterial.SitaNames.get(ChogID));
-                    else KeyBoardSito.setText("Сито " + recept.Sita[ChogID-1]);
-                }
-                Probezhka();
-                break;
-            }
-            case R.id.KeyBoardRightValue: {
-
-                if (ChogID != 0) {
-                    int yourScale0 = 0;
-                    TransMaterial.CHOG[ChogID] = Double.parseDouble(GetTotalValue(Value));
-                    ChogID = ChogID - 1;
-                    Value = BigDecimal.valueOf(TransMaterial.CHOG[ChogID]).setScale(yourScale0, BigDecimal.ROUND_HALF_UP).toString();
-                    KeyBoardValue.setText(Value);
-                    if (TransMaterial.SitaNames.get(ChogID).equals("DNO"))
-                        KeyBoardSito.setText(TransMaterial.SitaNames.get(ChogID));
-                    else KeyBoardSito.setText("Сито " + recept.Sita[ChogID-1]);
-                }
-                Probezhka();
-                break;
             }
 
-            case R.id.KeyBoardBackSpace: {
-                if (Value.length() == 1) Value = "0";
-                else if (Value.length() > 1) Value = Value.substring(0, Value.length() - 1);
+            Probezhka();
 
-                Probezhka();
-                break;
-            }
-            case R.id.KeyBoardClear: {
+        } else if (id == R.id.KeyBoardBackSpace) {
+
+            if (Value.length() == 1) {
                 Value = "0";
-                Probezhka();
-                break;
-            }
-            case R.id.KeyBoardEndEdit: {
-                ExitActions();
-                break;
+            } else if (Value.length() > 1) {
+                Value = Value.substring(0, Value.length() - 1);
             }
 
-            case R.id.KeyBoardPlus: {
-                //Если в набираемой строке больше чем один символ и последний символ является + (плюсом), тогда строка остается без изменения, иначе проверяем следующее условие
-                if (Value.length() > 1 && Value.substring(Value.length() - 1, Value.length()).equals("+"))
-                    Value = Value + "";
-                else
-                    //Если в набираемой строке больше чем один символ и последний символ является точкой, тогда последний символ должен быть удален, а к оставшейся строке добавляется +, иначе просто добавляем плюс
-                    if (Value.length() > 1 && Value.substring(Value.length() - 1, Value.length()).equals("."))
-                        Value = Value.substring(0, Value.length() - 1) + "+";
-                    else Value = Value + "+";
-                Probezhka();
-                break;
+            Probezhka();
+
+        } else if (id == R.id.KeyBoardClear) {
+
+            Value = "0";
+            Probezhka();
+
+        } else if (id == R.id.KeyBoardEndEdit) {
+
+            ExitActions();
+
+        } else if (id == R.id.KeyBoardPlus) {
+
+            if (Value.length() > 1 &&
+                    Value.substring(Value.length() - 1).equals("+")) {
+
+                Value = Value + "";
+
+            } else if (Value.length() > 1 &&
+                    Value.substring(Value.length() - 1).equals(".")) {
+
+                Value = Value.substring(0, Value.length() - 1) + "+";
+
+            } else {
+
+                Value = Value + "+";
             }
+
+            Probezhka();
         }
     }
 

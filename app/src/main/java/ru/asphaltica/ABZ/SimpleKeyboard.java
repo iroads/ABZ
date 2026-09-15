@@ -1,19 +1,20 @@
 package ru.asphaltica.ABZ;
 
 import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import java.math.BigDecimal;
+import androidx.activity.OnBackPressedCallback;
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
-public class UniversalKeyboard extends AppCompatActivity implements View.OnClickListener {
+import ru.asphaltica.ABZ.enumerated.ActivityName;
 
+public class SimpleKeyboard extends AppCompatActivity implements View.OnClickListener {
     Button KeyBoard0;
     Button KeyBoard1;
     Button KeyBoard2;
@@ -35,10 +36,11 @@ public class UniversalKeyboard extends AppCompatActivity implements View.OnClick
     TextView KeyBoardValue;
     TextView KeyBoardTotalValue;
 
-    String Value;
-    String TotalValue;
+    String value;
+    String totalValue;
+    Serializable tag;
 
-    int UniversalID;
+    //int universalID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +48,16 @@ public class UniversalKeyboard extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_universal_keyboard);
 
         Bundle arguments = getIntent().getExtras();
+
+//        Intent intent = new Intent(this, SimpleKeyboard.class);
+//        intent.putExtra("RESULT_TABLE_ROW_NAME", rowName);
+//        intent.putExtra("SITO", sito);
+//        intent.putExtra("OLD_VALUE", oldValue);
+//        startActivityForResult(intent, 1);
+
         if (arguments != null) {
-            // TransMaterial = (Material) arguments.getSerializable("OBJECT");
-            Value = arguments.getString("Value");
-            UniversalID = arguments.getInt("UniversalID");
+            value = arguments.getString("OLD_VALUE");
+            tag = arguments.getSerializable("TAG");
         }
 
 
@@ -74,6 +82,13 @@ public class UniversalKeyboard extends AppCompatActivity implements View.OnClick
         KeyBoardPlus.setOnClickListener(this);
 
         Probezhka();
+
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                ExitActions();
+            }
+        });
 
     }
 
@@ -116,29 +131,29 @@ public class UniversalKeyboard extends AppCompatActivity implements View.OnClick
                 digit = "9";
             }
 
-            if (Value.equals("0")) {
-                Value = digit;
-            } else if (Value.endsWith("0")) {
-                if (!Value.substring(0, Value.length() - 1).endsWith("+")) {
-                    Value = Value + digit;
+            if (value.equals("0")) {
+                value = digit;
+            } else if (value.endsWith("0")) {
+                if (!value.substring(0, value.length() - 1).endsWith("+")) {
+                    value = value + digit;
                 }
             } else {
-                Value = Value + digit;
+                value = value + digit;
             }
 
             Probezhka();
 
         } else if (id == R.id.KeyBoardDot) {
 
-            if (!StringTestDot(Value)) {
-                Value = Value + "";
-            } else if (Value.length() >= 1 &&
-                    !Value.substring(Value.length() - 1).equals(".")) {
+            if (!StringTestDot(value)) {
+                value = value + "";
+            } else if (value.length() >= 1 &&
+                    !value.substring(value.length() - 1).equals(".")) {
 
-                if (Value.substring(Value.length() - 1).equals("+")) {
-                    Value = Value + "0.";
+                if (value.substring(value.length() - 1).equals("+")) {
+                    value = value + "0.";
                 } else {
-                    Value = Value + ".";
+                    value = value + ".";
                 }
             }
 
@@ -146,36 +161,36 @@ public class UniversalKeyboard extends AppCompatActivity implements View.OnClick
 
         } else if (id == R.id.KeyBoardPlus) {
 
-            if (Value.length() > 1 &&
-                    Value.substring(Value.length() - 1).equals("+")) {
+            if (value.length() > 1 &&
+                    value.substring(value.length() - 1).equals("+")) {
 
-                Value = Value + "";
+                value = value + "";
 
-            } else if (Value.length() > 1 &&
-                    Value.substring(Value.length() - 1).equals(".")) {
+            } else if (value.length() > 1 &&
+                    value.substring(value.length() - 1).equals(".")) {
 
-                Value = Value.substring(0, Value.length() - 1) + "+";
+                value = value.substring(0, value.length() - 1) + "+";
 
             } else {
 
-                Value = Value + "+";
+                value = value + "+";
             }
 
             Probezhka();
 
         } else if (id == R.id.KeyBoardBackSpace) {
 
-            if (Value.length() == 1) {
-                Value = "0";
-            } else if (Value.length() > 1) {
-                Value = Value.substring(0, Value.length() - 1);
+            if (value.length() == 1) {
+                value = "0";
+            } else if (value.length() > 1) {
+                value = value.substring(0, value.length() - 1);
             }
 
             Probezhka();
 
         } else if (id == R.id.KeyBoardClear) {
 
-            Value = "0";
+            value = "0";
             Probezhka();
 
         } else if (id == R.id.KeyBoardEndEdit) {
@@ -215,8 +230,8 @@ public class UniversalKeyboard extends AppCompatActivity implements View.OnClick
 
         String Frag = "";
         double Summa = 0;
-        for (int i = 0; i < Value.length(); i++) {
-            char c = Value.charAt(i);
+        for (int i = 0; i < value.length(); i++) {
+            char c = value.charAt(i);
             if (String.valueOf(c).equals("+") == false) Frag = Frag + String.valueOf(c);
             else {
                 Summa = Summa + Double.parseDouble(Frag);
@@ -224,67 +239,60 @@ public class UniversalKeyboard extends AppCompatActivity implements View.OnClick
             }
         }
 
-        if (Value.endsWith("+") == false) Summa = Summa + Double.parseDouble(Frag);
+        if (value.endsWith("+") == false) Summa = Summa + Double.parseDouble(Frag);
 
         // ЭЛЕМЕНТ ВЫСШЕГО ПИЛОТАЖА - ДЕЛАЕМ ЧТО ПРИ форматировании числа в строку вместо 2,56 было 2.56
         DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols(Locale.getDefault());
         otherSymbols.setDecimalSeparator('.');
-        if (UniversalID == 101 || UniversalID == 102 || UniversalID == 103 || UniversalID == 104 || UniversalID == 105) {
-            String pattern = "##0.00";
-            DecimalFormat df = new DecimalFormat(pattern, otherSymbols);
-            TotalValue = df.format(Summa);
-        } else {
+//        if (universalID == 101 || universalID == 102 || universalID == 103 || universalID == 104 || universalID == 105) {
+//            String pattern = "##0.00";
+//            DecimalFormat df = new DecimalFormat(pattern, otherSymbols);
+//            totalValue = df.format(Summa);
+//        } else {
             String pattern = "##0.0";
             DecimalFormat df = new DecimalFormat(pattern, otherSymbols);
-            TotalValue = df.format(Summa);
-        }
+            totalValue = df.format(Summa);
+//        }
 
 
-        if (Value.length() <= 10) KeyBoardValue.setTextSize(50);
-        if (Value.length() > 10) KeyBoardValue.setTextSize(25);
+        if (value.length() <= 10) KeyBoardValue.setTextSize(50);
+        if (value.length() > 10) KeyBoardValue.setTextSize(25);
 
-        if (TotalValue.length() <= 8) KeyBoardTotalValue.setTextSize(50);
-        if (TotalValue.length() > 8) KeyBoardTotalValue.setTextSize(25);
+        if (totalValue.length() <= 8) KeyBoardTotalValue.setTextSize(50);
+        if (totalValue.length() > 8) KeyBoardTotalValue.setTextSize(25);
 
-        KeyBoardTotalValue.setText(TotalValue);
-        KeyBoardValue.setText(Value);
+        KeyBoardTotalValue.setText(totalValue);
+        KeyBoardValue.setText(value);
 
     }
 
-    boolean StringTestDot(String Value) {
+    boolean StringTestDot(String value) {
 
-        boolean Result = true;
+        boolean result = true;
 
-        int Dot = Value.lastIndexOf(".");
-        int Plus = Value.lastIndexOf("+");
+        int Dot = value.lastIndexOf(".");
+        int Plus = value.lastIndexOf("+");
 
-        if (Value.endsWith("+") == false && Value.endsWith(".") == false) //Если строка не заканчивается на плюс и точку
+        if (value.endsWith("+") == false && value.endsWith(".") == false) //Если строка не заканчивается на плюс и точку
             //есть ли они в строке, если нет значит точку ставить можно, также можно ставить если плюсы вообще есть и нет точек если есть проверяем дальше
-            if (Dot == -1 && Plus == -1 || Dot == -1 && Plus > -1) Result = true;
+            if (Dot == -1 && Plus == -1 || Dot == -1 && Plus > -1) result = true;
             else if (Dot > Plus)
-                Result = false; //проверяем если последняя точка встретилась позже плюса, значит ее ставить нельзя
+                result = false; //проверяем если последняя точка встретилась позже плюса, значит ее ставить нельзя
 
-        return Result;
+        return result;
     }
 
     public void ExitActions() {
 
         Intent intent = new Intent();
-        //TransMaterial.CHOG[ChogID] = Double.parseDouble(CHOG);
-
-        intent.putExtra("VALUE_BACK", TotalValue);
-        intent.putExtra("UNIVERSALID_BACK", UniversalID);
+        intent.putExtra("NEW_VALUE", totalValue);
+        intent.putExtra("ACTIVITY_NAME", ActivityName.SIMPLE_KEYBOARD);
+        intent.putExtra("TAG", tag);
         setResult(RESULT_OK, intent);
         finish();
 
     }
 
 
-    @Override
-    public void onBackPressed() {
-
-        ExitActions();
-
-    }
 
 }

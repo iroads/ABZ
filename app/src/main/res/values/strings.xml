@@ -16,12 +16,15 @@
 
     <string name="PodborSostava">Подбор состава</string>
     <string name="TipSmesi">Тип смеси</string>
+    <string name="WyborSmesi">Выбор типа смеси</string>
     <string name="plus">+</string>
     <string name="minus">-</string>
+    <string name="TrebovaniaGOST">Требования ГОСТ</string>
     <string name="Trebovania">Требования</string>
     <string name="GOST">ГОСТ</string>
     <string name="Mix">MIX</string>
     <string name="Target">ЦЕЛЬ</string>
+    <string name="Sita">Сита, мм</string>
     <string name="Auto">АВТО</string>
     <string name="SummaCHOG">      Сумма частных остатков, г:</string>
     <string name="SummaCHOG1">Сумма ЧО:</string>
@@ -80,6 +83,8 @@
     <string name="OtsekSZ">Пыль</string>
 
     <string name="GoToWorkCompose">ПЕРЕЙТИ К РАБОЧЕМУ РЕЦЕПТУ</string>
+    <string name="autoPodbor">Автоподбор</string>
+
 
 
     <!-- Строковые ресурсы Keyboard Activity -->
@@ -118,8 +123,22 @@
     <string name="MixChooserHeadNiz">Для нижних слоев по ГОСТ 9128-2009</string>
     <string name="MixChooserHeadVerch">Для верхних слоев по ГОСТ 9128-2009</string>
 
-    <string name="MixChooserHeadNP">Непрерывные зерновые составы</string>
-    <string name="MixChooserHeadPP">Прерывистые зерновые составы</string>
+
+    <string name="MixChooserHeaderMarshallForVerh">АБС для верхнего слоя покрытия ГОСТ Р 58406.2 (Маршалл)</string>
+    <string name="MixChooserHeaderMarshallForNiz">АБС для нижнего слоя покрытия ГОСТ Р 58406.2 (Маршалл)</string>
+    <string name="MixChooserHeaderMarshallForOsnovanie">АБС для слоя основания по ГОСТ Р 58406.2 (Маршалл)</string>
+
+    <string name="MixChooserHeaderMarshallForSHMA">Щебеночно-мастичные асфальтобетонные смеси по ГОСТ Р 58406.1 (Маршалл)</string>
+
+    <string name="MixChooserHeaderSuperpaveForVerh">АБС для верхнего слоя покрытия ГОСТ Р 58401.1 (Superpave)</string>
+    <string name="MixChooserHeaderSuperpaveForNiz">АБС для нижнего слоя покрытия ГОСТ Р 58401.1 (Superpave)</string>
+    <string name="MixChooserHeaderSuperpaveForOsnovanie">АБС для слоя основания ГОСТ Р 58401.1 (Superpave)</string>
+    <string name="MixChooserHeaderSuperpaveForTrotuar">АБС для тротуара ГОСТ Р 58401.1 (Superpave)</string>
+
+    <string name="MixChooserHeaderSuperpaveForSMA">Щебеночно-мастичные смеси по ГОСТ Р 58401.2 (Superpave)</string>
+
+    <string name="MixChooserHeadNS">Непрерывные зерновые составы</string>
+    <string name="MixChooserHeadPS">Прерывистые зерновые составы</string>
 
     <string name="MixChooserHead2">Щебеночно-мастичные по ГОСТ 31015-2002</string>
     <string name="MixChooserHead3">ПНСТ 114-2016</string>

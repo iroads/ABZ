@@ -3,12 +3,13 @@ package ru.asphaltica.ABZ;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.res.Configuration;
+import androidx.activity.OnBackPressedCallback;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,11 +20,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
+
+import ru.asphaltica.ABZ.enumerated.GrainTable;
 
 
 public class WorkComposeActivity extends AppCompatActivity implements View.OnClickListener {
-
-    Recept TransRecept;
 
     TextView NameOfMaterialWC1;
     TextView NameOfMaterialWC2;
@@ -81,19 +84,16 @@ public class WorkComposeActivity extends AppCompatActivity implements View.OnCli
     int DDChecked;
     int ADChecked;
 
-    Double Summa;
+    Double Summa = 0.0;
 
-    Double SummaKamen;
+    Double SummaKamen = 0.0;
 
-    Double SummaKamenBitIn100;
+    Double SummaKamenBitIn100 = 0.0;
 
     Double ZAMES;
 
-    Double MassaKamen;
-
-
     Double SODBitumUp100;
-    Double SODM1;
+    double SODM1;
     Double SODM2;
     Double SODM3;
     Double SODM4;
@@ -121,6 +121,10 @@ public class WorkComposeActivity extends AppCompatActivity implements View.OnCli
     Double SODMADKG;
     int CurrentDataBazeID;
 
+    Map<GrainTable, Double> percentageMap;
+    Map<GrainTable, String> bunkerNamesMap;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,7 +133,9 @@ public class WorkComposeActivity extends AppCompatActivity implements View.OnCli
 
         Bundle arguments = getIntent().getExtras();
         if (arguments != null) {
-            TransRecept = (Recept) arguments.getSerializable("OBJECT");
+            //TransRecept = (Recept) arguments.getSerializable("OBJECT");
+            percentageMap = (HashMap<GrainTable, Double>) arguments.get("PERCENTAGE");
+            bunkerNamesMap = (HashMap<GrainTable, String>) arguments.get("NAMES");
             CurrentDataBazeID = arguments.getInt("DataBazeID");
 
         }
@@ -137,12 +143,12 @@ public class WorkComposeActivity extends AppCompatActivity implements View.OnCli
         ViewInit();
 
 
-        NameOfMaterialWC1.setText(TransRecept.NameOfMaterial1);
-        NameOfMaterialWC2.setText(TransRecept.NameOfMaterial2);
-        NameOfMaterialWC3.setText(TransRecept.NameOfMaterial3);
-        NameOfMaterialWC4.setText(TransRecept.NameOfMaterial4);
-        NameOfMaterialWC5.setText(TransRecept.NameOfMaterial5);
-        NameOfMaterialWC6.setText(TransRecept.NameOfMaterial6);
+        NameOfMaterialWC1.setText(bunkerNamesMap.get(GrainTable.GRAIN_TABLE_1));
+        NameOfMaterialWC2.setText(bunkerNamesMap.get(GrainTable.GRAIN_TABLE_2));
+        NameOfMaterialWC3.setText(bunkerNamesMap.get(GrainTable.GRAIN_TABLE_3));
+        NameOfMaterialWC4.setText(bunkerNamesMap.get(GrainTable.GRAIN_TABLE_4));
+        NameOfMaterialWC5.setText(bunkerNamesMap.get(GrainTable.GRAIN_TABLE_5));
+        NameOfMaterialWC6.setText(bunkerNamesMap.get(GrainTable.GRAIN_TABLE_6));
 
         DatabaseReader(CurrentDataBazeID);
 
@@ -155,6 +161,13 @@ public class WorkComposeActivity extends AppCompatActivity implements View.OnCli
 
         Probezhka();
 
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                ExitActions();
+            }
+        });
+
     }
 
 
@@ -164,50 +177,47 @@ public class WorkComposeActivity extends AppCompatActivity implements View.OnCli
         int UniversalID = 0;
         String Value = "";
 
-        switch (v.getId()) {
+        int id = v.getId();
 
-            case R.id.BackToPodbor: {
+        if (id == R.id.BackToPodbor) {
 
-                ExitActions();
-                break;
-            }
-            case R.id.BitumUp100: {
-                UniversalPushDetector = true;
-                UniversalID = 101;
-                Value = String.valueOf(ComponentValueBitumUp100.getText());
-                break;
-            }
-            case R.id.BitumIn100: {
-                UniversalPushDetector = true;
-                UniversalID = 102;
-                Value = String.valueOf(ComponentValueBitumIn100.getText());
-                break;
-            }
-            case R.id.SD: {
-                UniversalPushDetector = true;
-                UniversalID = 103;
-                Value = String.valueOf(ComponentValueSD.getText());
-                break;
-            }
-            case R.id.DD: {
-                UniversalPushDetector = true;
-                UniversalID = 104;
-                Value = String.valueOf(ComponentValueDD.getText());
-                break;
-            }
-            case R.id.AD: {
-                UniversalPushDetector = true;
-                UniversalID = 105;
-                Value = String.valueOf(ComponentValueAD.getText());
-                break;
-            }
-            case R.id.MassaZamesa: {
-                UniversalPushDetector = true;
-                UniversalID = 6;
-                Value = String.valueOf(MassaZamesa.getText());
-                break;
-            }
+            ExitActions();
 
+        } else if (id == R.id.BitumUp100) {
+
+            UniversalPushDetector = true;
+            UniversalID = 101;
+            Value = String.valueOf(ComponentValueBitumUp100.getText());
+
+        } else if (id == R.id.BitumIn100) {
+
+            UniversalPushDetector = true;
+            UniversalID = 102;
+            Value = String.valueOf(ComponentValueBitumIn100.getText());
+
+        } else if (id == R.id.SD) {
+
+            UniversalPushDetector = true;
+            UniversalID = 103;
+            Value = String.valueOf(ComponentValueSD.getText());
+
+        } else if (id == R.id.DD) {
+
+            UniversalPushDetector = true;
+            UniversalID = 104;
+            Value = String.valueOf(ComponentValueDD.getText());
+
+        } else if (id == R.id.AD) {
+
+            UniversalPushDetector = true;
+            UniversalID = 105;
+            Value = String.valueOf(ComponentValueAD.getText());
+
+        } else if (id == R.id.MassaZamesa) {
+
+            UniversalPushDetector = true;
+            UniversalID = 6;
+            Value = String.valueOf(MassaZamesa.getText());
         }
 
         if (UniversalPushDetector) {
@@ -241,6 +251,7 @@ public class WorkComposeActivity extends AppCompatActivity implements View.OnCli
 
         Calculate();
 
+        ValueOfMaterial1.setText(String.valueOf(SODM1));
         ValueOfMaterial1.setText(BigDecimal.valueOf(SODM1).setScale(2, BigDecimal.ROUND_HALF_UP).toString());
         ValueOfMaterial2.setText(BigDecimal.valueOf(SODM2).setScale(2, BigDecimal.ROUND_HALF_UP).toString());
         ValueOfMaterial3.setText(BigDecimal.valueOf(SODM3).setScale(2, BigDecimal.ROUND_HALF_UP).toString());
@@ -269,7 +280,11 @@ public class WorkComposeActivity extends AppCompatActivity implements View.OnCli
 
     }
 
+    @SuppressWarnings("deprecation")
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
 
         if (data == null) {
             return;
@@ -462,22 +477,22 @@ public class WorkComposeActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
-    @Override
-    public void onBackPressed() {
 
-        ExitActions();
-
-    }
 
     private void Calculate() {
+        Summa =0.0;
 
         SODBitumUp100 = Double.parseDouble(ComponentValueBitumUp100.getText().toString());
 
         ZAMES = Double.parseDouble(MassaZamesa.getText().toString());
 
-        Summa = TransRecept.SOD1 + TransRecept.SOD2 + TransRecept.SOD3 + TransRecept.SOD4 + TransRecept.SOD5 + TransRecept.SOD6 + TransRecept.SODMP + TransRecept.SODSZ + SODBitumUp100;
+        for (Double percent: percentageMap.values()) {
+            Summa = Summa + percent;
+        }
 
-        SummaKamen = TransRecept.SOD1 + TransRecept.SOD2 + TransRecept.SOD3 + TransRecept.SOD4 + TransRecept.SOD5 + TransRecept.SOD6 + TransRecept.SODMP + TransRecept.SODSZ;
+        SummaKamen = Summa;
+
+        Summa = Summa + SODBitumUp100;
 
         if (SDChecked == 1) {
             Summa = Summa + Double.parseDouble(ComponentValueSD.getText().toString());
@@ -491,14 +506,14 @@ public class WorkComposeActivity extends AppCompatActivity implements View.OnCli
             Summa = Summa + (Double.parseDouble(ComponentValueAD.getText().toString()) * SODBitumUp100) / 100;
         }
 
-        SODM1 = (TransRecept.SOD1 * 100) / Summa;
-        SODM2 = (TransRecept.SOD2 * 100) / Summa;
-        SODM3 = (TransRecept.SOD3 * 100) / Summa;
-        SODM4 = (TransRecept.SOD4 * 100) / Summa;
-        SODM5 = (TransRecept.SOD5 * 100) / Summa;
-        SODM6 = (TransRecept.SOD6 * 100) / Summa;
-        SODMMP = (TransRecept.SODMP * 100) / Summa;
-        SODMSZ = (TransRecept.SODSZ * 100) / Summa;
+        SODM1 = (percentageMap.get(GrainTable.GRAIN_TABLE_1) * 100) / Summa;
+        SODM2 = (percentageMap.get(GrainTable.GRAIN_TABLE_2) * 100) / Summa;
+        SODM3 = (percentageMap.get(GrainTable.GRAIN_TABLE_3) * 100)/ Summa;
+        SODM4 = (percentageMap.get(GrainTable.GRAIN_TABLE_4) * 100)/ Summa;
+        SODM5 = (percentageMap.get(GrainTable.GRAIN_TABLE_5) * 100)/ Summa;
+        SODM6 = (percentageMap.get(GrainTable.GRAIN_TABLE_6) * 100)/ Summa;
+        SODMMP = (percentageMap.get(GrainTable.GRAIN_TABLE_7) * 100) / Summa;
+        SODMSZ = (percentageMap.get(GrainTable.GRAIN_TABLE_8) * 100) / Summa;
         SODMBitum = (SODBitumUp100 * 100) / Summa;
 
         SummaKamenBitIn100 = SODM1 + SODM2 +SODM3 +SODM4 +SODM5 +SODM6 +SODMMP +SODMSZ;
